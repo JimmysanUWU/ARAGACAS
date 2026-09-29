@@ -110,6 +110,44 @@ Status tags: **[read]** full text read in session · **[abstract]** abstract/sum
 - No public source found for a GPT result on an A7 subcase; presumably it is the user's own
   collaboration.
 
+## Novelty check (2026-09-29, second session)
+
+This is a web plus arXiv-abstract search, not a MathSciNet or zbMATH search. The arXiv API
+rate-limited part of it.
+
+- **No prior work found** on the gonality or the Laplace spectrum of the $(2,4,7)$ $A_7$-curves of
+  genus 136. Only their existence and census are known: Conder's lists, where "$A_7$ has 4 regular
+  maps of genus 136" matches `triples.py`.
+- **Best previously available lower bound** for $\operatorname{gon}(C)$: 13, from Farb–Wolfson Lemma 2.2 plus Conder's
+  genus 136.
+- **Li–Yau / Yang–Yau gonality bounds** are classical for arithmetic curves: Zograf, Abramovich 1996
+  (modular curves), Ellenberg–Hall–Kowalski (Duke 2012, towers via expanders), Cornelissen–Kato–Kool
+  and Amini–Kool (graph versions). They rely on automorphic eigenvalue bounds (Selberg $3/16$,
+  Kim–Sarnak $975/4096$), which are unavailable for the non-arithmetic $(2,4,7)$ group. No application
+  to a non-arithmetic triangle curve with a *certified* $\lambda_1$ was found.
+- **Rigorous $\lambda_1$ for specific symmetric surfaces** exists only in low genus, and by other methods:
+  - Jenni 1984 (Bolza, genus 2, symmetry reduction plus domain bounds);
+  - Strohmaier–Uski 2013 (Bolza, method of particular solutions);
+  - Fortier Bourque–Petri 2021, arXiv:2111.14699 (Klein quartic multiplicity; Selberg trace formula plus
+    rigorous numerics);
+  - Lee 2023, arXiv:2311.02632 (Fricke–Macbeath, genus 7: $\lambda_1\in[1.23,1.26]$ via the trace formula,
+    which needs the short length spectrum);
+  - Cook 2018 (thesis, Loughborough; non-rigorous FreeFEM plus representation theory).
+
+  None uses guaranteed-lower-bound finite elements (Liu–Oishi, Carstensen–Gedicke). Those methods
+  appear only for Euclidean domains. None reaches genus beyond 7.
+- The Monk–Naud ICM 2026 survey (arXiv:2601.13988) covers random and arithmetic regimes, with no
+  deterministic certified computations and no gonality applications.
+- **No follow-ups to Farb–Wolfson arXiv:2510.22786** on $A_7$-curve gonality were found.
+- **Conclusion.** The following appear to be new, to the extent this search can tell:
+  - Theorem 7.1: $\lambda_1\ge0.34089$, $\operatorname{gon}(C)\ge24$, $\operatorname{gon}(C/\langle\tau\rangle)\ge12$;
+  - the numerics $\lambda_1\approx0.3463$ and $0.3597$ (isotype $14_a$);
+  - the certification method: sign-twisted quotients covering all irreducibles, a single Klein chart
+    with identity gluings, and CR lower bounds on a closed hyperbolic surface;
+  - the audit curve.
+
+  The group-theoretic facts in rungs 0–2 are known or routine.
+
 ## Network notes (for re-fetching)
 
 `WebFetch` was blocked for arxiv.org, openai.com, simonsfoundation.org and simonwillison.net, but

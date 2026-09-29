@@ -438,3 +438,22 @@ not on $C/\mathrm{PSL}_2(7)$, which sees only $1+14_b$.
 - **Other quotients.** For $K\le A_7$ the same argument gives
   $\operatorname{gon}(C/K)\ge67.5\,\lambda_1^K(C)/|K|\ge23.01/|K|$, where $\lambda_1^K\ge\lambda_1$ is the first eigenvalue of
   $K$-invariant functions.
+
+## 8. An independent algebraic proof of the first summit (Sol/Astra, reviewed)
+
+The *Ramification transport* synthesis (28 Sep 2026) proves $\operatorname{gon}(C/\langle\tau\rangle)\ge10$ by pure algebra. The
+argument has four steps:
+1. **Determinant saturation.** For each involution $\mu$ commuting with $\tau$,
+   $[L]+[\mu^*L]=[R_\mu+R_{\tau\mu}]$ on $C$.
+2. **Local average.** Summing over $C_G(\tau)$ makes $24[R_V]$ one class $T$ for every Klein four-group $V\ni\tau$.
+3. **Normaliser amalgamation.** $\langle N(V_0),N(V_1)\rangle=A_7$, so $T$ is $A_7$-invariant, of degree 1296.
+4. **Descent.** A freely acting $C_5$ would force $5\mid1296$, which is false.
+
+We checked every step and all finite inputs (`REVIEW_GPT.md`, `review_checks.py`). The proof uses the
+$A_7$-action on $C$ beyond $H$ (normalisers not centralising $\tau$, a free $C_5$), so it avoids the audit
+barrier of 5.1. It confirms the first summit independently of section 7. It is weaker (10 versus 12) but
+needs no computer.
+
+**Combined consequence** (details in `REVIEW_GPT.md` §7). Our $\operatorname{gon}(C)\ge24$ settles their rungs G17 and G18. Together
+with their Theorem 6.1 for the other genera $\le289$, and Karpenko–Merkurjev for accessory degrees prime to 2 or 3, this gives
+$\mathrm{ed}_{\mathbb C}(A_7;\le23)>1$. The only remaining condition is their Lemma 5.5 (refined Castelnuovo) for the $(3,3,5)$ row.

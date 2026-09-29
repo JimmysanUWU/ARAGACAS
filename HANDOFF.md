@@ -42,6 +42,7 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`run_certificate.py`, `certificate.txt`, `certificate_quick.txt`** | the full certificate and its outputs |
 | **`hilbert13/Hilbert13/SpectralCertificate.lean`** | Lean, no `sorry`: abstract CR lower bound, perturbed-Cholesky criterion (with permutation), final arithmetic |
 | **`validate_bolza.py`, `validation_bolza.txt`** | external check of the whole pipeline on the Bolza surface (known $\lambda_1=3.83888726$) |
+| **`REVIEW_GPT.md`, `review_checks.py`** | rigorous review of the Sol/Astra *Ramification transport* synthesis and *Verification ladder* (main theorem verified correct) |
 | `spectrum.py` | first-session FEM with a flat approximation (superseded by `orbifold.py`) |
 
 ## 3. The task (the user's ladder)
@@ -84,6 +85,11 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+0. **Close $\mathrm{ed}_{\mathbb C}(A_7;\le23)>1$.** This needs $\operatorname{gon}\ge19$ for the $(3,3,5)$ curves (genus 169). Either verify
+   Lemma 5.5 of the synthesis (Petrakiev ranges), or run the spectral certificate on the $(3,3,5)$ curves; they need
+   $\lambda_1>0.2143$. Running it on all eight Table 1 signatures would bypass their §5–6 entirely. First generalize
+   `orbifold.reference_triangle` to angle $\pi/p$ at $A$ with $p\ne2$.
 
 1. **Independent re-verification** of the certificate: rerun on another machine, or with a factorization
    that exposes its permutation (scikit-sparse). That would allow an a-posteriori residual check

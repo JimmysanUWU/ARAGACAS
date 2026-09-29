@@ -86,6 +86,10 @@ novel framework." Lean formalization where feasible.
 
 ## 5. Suggested next steps
 
+0a. **Conformal spectral gonality** (`FRAMEWORK_CONFORMAL.md`, paper-level). Replace the hyperbolic metric by a
+   $G$-invariant conformal factor $h$ and certify $\lambda_1(hg)\int h>8\pi\cdot24$. That gives $\operatorname{gon}(C)\ge25$ and $\operatorname{gon}(C/\langle\tau\rangle)\ge13$.
+   Test first whether the frame function $\bar F$ of $E_1=14_a$ is non-constant; the ascent direction is $1-\bar F$.
+   For classes 12, 14 a finer hyperbolic certificate may already suffice ($67.5\cdot0.3597=24.3$).
 0. **Close $\mathrm{ed}_{\mathbb C}(A_7;\le23)>1$.** This needs $\operatorname{gon}\ge19$ for the $(3,3,5)$ curves (genus 169). Either verify
    Lemma 5.5 of the synthesis (Petrakiev ranges), or run the spectral certificate on the $(3,3,5)$ curves; they need
    $\lambda_1>0.2143$. Running it on all eight Table 1 signatures would bypass their §5–6 entirely. First generalize

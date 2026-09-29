@@ -195,3 +195,29 @@ the $A_7$-structure, or the arithmetic of branch-point classes in 5. Any argumen
 Castelnuovo–Severi, fixed-point parity and the $H$-orbit of the gonal pencil proves too much, since it
 would also apply to $D'$. (For $D'$ one lands in case (c); analogous $H$-curves realize (a) and (b), since
 4.3 shows those configurations are exactly pullbacks of $H$-covers along maps from a genus-3 curve.)
+
+## 6. A spectral route to both summits — **[P] reduction, [C-numerical] input**
+
+**Li–Yau (Invent. Math. 69, 1982).** For a conformal map $X\to S^2$ of degree $d$,
+$\lambda_1(X)\,\mathrm{Area}(X)\le 8\pi d$. With the hyperbolic metric, $\mathrm{Area}(C)=2\pi(2g-2)=540\pi$, so
+$$\operatorname{gon}(C)\ge 67.5\,\lambda_1(C),\qquad \operatorname{gon}(C/\langle\tau\rangle)\ge 33.75\,\lambda_1(C)$$
+(the second by composing a degree-$d$ map on $D$ with $C\to D$). Hence
+**$\lambda_1(C)>0.2667\Rightarrow\operatorname{gon}(D)\ge10$** and **$\lambda_1(C)>0.2370\Rightarrow\operatorname{gon}(C)\ge17$**.
+Farb–Wolfson's Lemma 2.2 alone gives $\operatorname{gon}(C)\ge13$ ($136>11^2$), rigorously.
+
+**Numerics [C, not rigorous]** (`spectrum.py`: P1 finite elements on the tiling of $C$ by 5040
+hyperbolic $(\pi/2,\pi/4,\pi/7)$ triangles, each subdivided $n^2$ times in the Klein model):
+
+| triple class | $n$ | $\lambda_1$ (mult.) | next |
+|---|---|---|---|
+| 0 | 3 | 0.34560 (14) | 0.57248 (21) |
+| 0 | 5 | 0.34604 (14) | 0.57161 (21) |
+| 1 | 3 | 0.34560 (14) | same spectrum as class 0 |
+| 12 | 3 | 0.35847 (14) | 0.38548 (21) |
+| 14 | 3 | 0.35847 (14) | same spectrum as class 12 |
+
+So there are two isometry classes, with $\lambda_1\approx0.346$ and $\approx0.358$. If these values are
+accurate, Li–Yau gives $\operatorname{gon}(C)\ge24$ and $\operatorname{gon}(C/\langle\tau\rangle)\ge12$ for **every** such curve and
+every $\tau$, well past both targets. To make this a proof, a *certified lower bound*
+$\lambda_1(C)>0.2667$ is needed (e.g. a guaranteed-lower-bound FEM à la Liu–Oishi, adapted to the
+hyperbolic metric, on the $A_7$-isotypic twisted problems). There is a 30% margin.

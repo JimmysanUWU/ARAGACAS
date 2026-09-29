@@ -16,7 +16,8 @@ https://github.com/JimmysanUWU/ARAGACAS/pull/1. The first session's 6 commits (o
 pip install numpy scipy sympy python-flint cvxopt pypdf
 cd hilbert13/ladder
 python3 cover.py              # exact irrep cover check (1 s)
-python3 run_certificate.py    # the full spectral certificate (about 3 min, ~3 GB RAM) -> certificate.txt
+python3 run_certificate.py    # full spectral certificate (about 6 min, 7 GB RAM) -> certificate.txt
+python3 run_certificate.py --quick   # coarser (3 min, 3 GB): gon(C) >= 23 -> certificate_quick.txt
 
 # Lean 4 + Mathlib (needs release.lean-lang.org, github.com and the Mathlib cache hosts allowed)
 curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
@@ -38,7 +39,9 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`orbifold.py`** | exact hyperbolic model of $C$ and of the twisted quotients $K\backslash C$: Klein-model chart, identity gluings, P1/CR finite elements (numerics) |
 | **`certify.py`** | rigorous lower bound for one quotient: ball-arithmetic coefficients, CR lower-bound theorem, verified Cholesky |
 | **`cover.py`** | exact check that $Q_0,Q_1,Q_2$ see all irreducibles of $A_7$ |
-| **`run_certificate.py`, `certificate.txt`** | the full certificate and its output |
+| **`run_certificate.py`, `certificate.txt`, `certificate_quick.txt`** | the full certificate and its outputs |
+| **`hilbert13/Hilbert13/SpectralCertificate.lean`** | Lean, no `sorry`: abstract CR lower bound, perturbed-Cholesky criterion (with permutation), final arithmetic |
+| **`validate_bolza.py`, `validation_bolza.txt`** | external check of the whole pipeline on the Bolza surface (known $\lambda_1=3.83888726$) |
 | `spectrum.py` | first-session FEM with a flat approximation (superseded by `orbifold.py`) |
 
 ## 3. The task (the user's ladder)
@@ -62,7 +65,7 @@ novel framework." Lean formalization where feasible.
 - §5 [P][C]: by algebra alone the first summit reduces to the arithmetic condition $(\star)$ on $T=C/C(\tau)$.
   The audit curve $D'$ shows that the $H$-topology of $D$ cannot decide it.
 - **§7 [P]+[V] — both summits proved.** For every $(2,4,7)$ $A_7$-curve and every involution $\tau$:
-  $$\lambda_1(C)\ge0.33335,\qquad\operatorname{gon}(C)\ge23,\qquad\operatorname{gon}(C/\langle\tau\rangle)\ge12 .$$
+  $$\lambda_1(C)\ge0.34089,\qquad\operatorname{gon}(C)\ge24,\qquad\operatorname{gon}(C/\langle\tau\rangle)\ge12 .$$
   The route has four steps:
   1. Hersch/Yang–Yau: $\lambda_1\mathrm{Area}\le8\pi\deg$, so $\operatorname{gon}(C)\ge67.5\lambda_1$ and $\operatorname{gon}(D)\ge33.75\lambda_1$.
   2. $\lambda_1(C)\ge\min(\mu_2(Q_0),\mu_1(Q_1),\mu_1(Q_2))$, where $Q_1=(3^2{:}4,\mathrm{sgn})$ and $Q_2=(S_4,\mathrm{sgn})$ are sign-twisted
@@ -73,23 +76,27 @@ novel framework." Lean formalization where feasible.
      chart whose gluings are the identity.
   4. A verified sparse Cholesky with a-priori rounding bounds.
 
+  The Lean file checks the logic of steps 3–4 and the final arithmetic. For classes 0 and 1, 24 and 12
+  are the limits of the Hersch/Yang–Yau route.
+
   Upper bounds for context: $\operatorname{gon}(C)\le56$, $\operatorname{gon}(D)\le28$.
 - Numerics (exact geometry): $\lambda_1(C)\approx0.34627$ (classes 0, 1) and $\approx0.3597$ (classes 12, 14), isotype
   $14_a$.
 
 ## 5. Suggested next steps
 
-1. **Independent re-verification** of the certificate: rerun with another sparse Cholesky
-   (scikit-sparse / CHOLMOD LDLᵀ, or an interval Cholesky), or on another machine. Cross-check the
-   Carstensen–Gedicke–Rim constant against the original 2012 paper. The notes quote it from
-   CG 2014, which was read.
-2. **$\operatorname{gon}(C)\ge24$**: needs a certified $\lambda_1>0.34074$ for classes 0, 1 (true value 0.34627). The loss is
-   the $O(h)$ piecewise-constant comparison (at $n=32$ the certified value is 0.3334). Options are
-   $n\approx128$ (3.4M dofs for $Q_1$), or keeping the exact weight $w_R$ in the mass form with interval
-   quadrature.
-3. **Lean**: formalize the finite pieces: the arithmetic of Riemann–Hurwitz and fixed points, the final
-   step "$\lambda_1\ge0.33335\Rightarrow$ gonality bounds", and possibly the abstract CR lower-bound lemma in
-   finite-dimensional form.
+1. **Independent re-verification** of the certificate: rerun on another machine, or with a factorization
+   that exposes its permutation (scikit-sparse). That would allow an a-posteriori residual check
+   $\|L L^T-QBQ^T\|$ computed by our own code. `cvxopt` reorders internally, so the certificate currently
+   relies on the a-priori backward error bound. The Carstensen–Gedicke–Rim constant was checked
+   against the 2012 paper (Lemma 2.2, with proof).
+2. Done this session: $\operatorname{gon}(C)\ge24$ ($n=96$ on $Q_1$). Next integers via this route: $\operatorname{gon}(C)\ge25$ is
+   possible only for classes 12, 14. It needs a certified $\lambda_1>0.35556$, which would take $n\approx128$ or
+   a second-order comparison (exact weight $w_R$ with interval quadrature).
+3. **Lean** (done: `SpectralCertificate.lean`). Possible extensions:
+   - the $k$-th eigenvalue version, which needs min–max, not in Mathlib;
+   - Hersch's balancing lemma;
+   - finite $A_7$ checks by `decide`/`native_decide`, such as the cover multiplicities.
 4. $(\star)$ on $T$ is now of independent interest only.
 5. Verify the citation for Lemma 4.0 (Martens 1996). No longer needed for the summits.
 

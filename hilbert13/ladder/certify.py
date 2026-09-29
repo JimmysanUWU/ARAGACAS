@@ -55,11 +55,12 @@ def fup(x):
     return f
 
 
-def ref_triangle_arb():
-    """Klein coordinates (arb) of A, B, C: the triangle with angles pi/2, pi/4, pi/7, moved by the
-    boost that sends the midpoint of BC to the origin (same placement as orbifold.reference_triangle)."""
+def ref_triangle_arb(pqr=(2, 4, 7)):
+    """Klein coordinates (arb) of A, B, C: the triangle with angles pi/p, pi/q, pi/r (p = 2), moved by
+    the boost that sends the midpoint of BC to the origin (same placement as orbifold.reference_triangle)."""
+    assert pqr[0] == 2
     pi = arb.pi()
-    al, be, ga = pi / 2, pi / 4, pi / 7
+    al, be, ga = pi / pqr[0], pi / pqr[1], pi / pqr[2]
     c_ab = (ga.cos() / be.sin()).acosh()
     b_ac = (be.cos() / ga.sin()).acosh()
     A = [arb(1), arb(0), arb(0)]
@@ -220,6 +221,72 @@ def assemble_rigorous(n, reps, glue, mats):
     return K, Kabs, Kerr, cnt, Mdiag, Merr, Mabs, Mcnt
 
 
+def assemble_rigorous_fast(n, reps, glue, mats):
+    """Vectorised version of assemble_rigorous (same matrices up to a permutation of the dofs)."""
+    from orbifold import SignedUF, side_nodes
+    els = ref_elements(n)
+    key = lambda p, q: (p, q) if p < q else (q, p)
+    eid = {}
+    elem_edges = np.zeros((len(els), 3), dtype=np.int64)
+    for e, tri in enumerate(els):
+        for m in range(3):
+            k = key(tri[(m + 1) % 3], tri[(m + 2) % 3])
+            if k not in eid:
+                eid[k] = len(eid)
+            elem_edges[e, m] = eid[k]
+    E = len(eid)
+    bnd = {}
+    for side in ("AB", "BC", "CA"):
+        nodes = side_nodes(n, side)
+        for m in range(n):
+            bnd[(side, m)] = eid[key(nodes[m], nodes[m + 1])]
+    is_b = np.zeros(E, bool)
+    is_b[list(bnd.values())] = True
+    interior = np.flatnonzero(~is_b)
+    T = 2 * len(reps)
+    uf = SignedUF()
+    for (i, side, j, s) in glue:
+        for m in range(n):
+            l = bnd[(side, m)]
+            assert uf.union((2 * i, l), (2 * j + 1, l), s), "a CR dof was identified with its own negative"
+    dof = np.zeros((T, E), dtype=np.int64)
+    sgn = np.ones((T, E))
+    dof[:, interior] = np.arange(T)[:, None] * len(interior) + np.arange(len(interior))[None, :]
+    root_id = {}
+    base = T * len(interior)
+    bl = np.flatnonzero(is_b)
+    for t in range(T):
+        for l in bl:
+            r, s = uf.find((t, int(l)))
+            if r not in root_id:
+                root_id[r] = base + len(root_id)
+            dof[t, l] = root_id[r]
+            sgn[t, l] = s
+    N = base + len(root_id)
+    Ke = np.array([m[0] for m in mats]); Kerr_e = np.array([m[1] for m in mats])
+    me = np.array([m[2] for m in mats]); merr_e = np.array([m[3] for m in mats])
+    D = dof[:, elem_edges]                      # (T, nel, 3)
+    S = sgn[:, elem_edges]
+    rows = np.broadcast_to(D[:, :, :, None], D.shape + (3,)).ravel()
+    cols = np.broadcast_to(D[:, :, None, :], D.shape + (3,)).ravel()
+    ss = (S[:, :, :, None] * S[:, :, None, :])
+    vals = (ss * Ke[None]).ravel()
+    vabs = np.broadcast_to(np.abs(Ke)[None], ss.shape).ravel()
+    verr = np.broadcast_to(Kerr_e[None], ss.shape).ravel()
+    K = sp.csr_matrix((vals, (rows, cols)), shape=(N, N))
+    Kabs = sp.csr_matrix((vabs, (rows, cols)), shape=(N, N))
+    Kerr = sp.csr_matrix((verr, (rows, cols)), shape=(N, N))
+    cnt = sp.csr_matrix((np.ones(len(vals)), (rows, cols)), shape=(N, N))
+    Dm = D.ravel()
+    mm = np.broadcast_to(me[None, :, None], D.shape).ravel()
+    mr = np.broadcast_to(merr_e[None, :, None], D.shape).ravel()
+    Mdiag = np.bincount(Dm, weights=mm, minlength=N)
+    Merr = np.bincount(Dm, weights=mr, minlength=N)
+    Mabs = np.bincount(Dm, weights=np.abs(mm), minlength=N)
+    Mcnt = np.bincount(Dm, minlength=N).astype(float)
+    return K, Kabs, Kerr, cnt, Mdiag, Merr, Mabs, Mcnt
+
+
 def gamma(k):
     return k * U / (1 - k * U)
 
@@ -269,14 +336,26 @@ def certify_trivial(n, tri, sigma=1.0, verbose=True):
     return res
 
 
-def certify(which, n, tri, sigma_factor=0.995, verbose=True):
-    import cvxopt, cvxopt.cholmod as chol
+def certify(which, n, tri, sigma_factor=0.995, verbose=True, sigma=None, fast=True):
+    """sigma=None: sigma = sigma_factor * (numerical lambda_{1,h}); otherwise use the given sigma
+    (no eigenvalue solve; the Cholesky either certifies lambda_{1,h} > sigma or fails)."""
     if which == "Q0":
         return certify_trivial(n, tri, verbose=verbose)
     a, b, c = triples[tri]
     Kg, ev = QUOTIENTS[which]
     reps, glue, oK = quotient_tiles(a, b, Kg, ev)
-    XA, XB, XC = ref_triangle_arb()
+    res = certify_tiles(reps, glue, n, sigma_factor=sigma_factor, sigma=sigma, fast=fast)
+    res.update(which=which, triple=tri, K_order=oK)
+    if verbose:
+        print(res, flush=True)
+    return res
+
+
+def certify_tiles(reps, glue, n, pqr=(2, 4, 7), sigma_factor=0.995, sigma=None, fast=True):
+    """Certified lower bound for the lowest eigenvalue of a sign-twisted tile complex without constant
+    functions (every coset tile pair U_r, L_r is a copy of the (pi/p, pi/q, pi/r) triangle)."""
+    import cvxopt, cvxopt.cholmod as chol
+    XA, XB, XC = ref_triangle_arb(pqr)
     ed = element_data(n, XA, XB, XC)
     cmin = min(e[1] for e in ed)
     # C_h^2 = kappa^2 max_e w_e / lambda_min(A_e);  kappa^2 = (1/n)^2/8 + (sqrt2/n)^2/j11^2
@@ -285,13 +364,17 @@ def certify(which, n, tri, sigma_factor=0.995, verbose=True):
     ratio = max(arb(e[2]) / e[3] for e in ed)
     Ch2 = kappa2 * ratio
     mats = elem_mats_rigorous(n, ed)
-    K, Kabs, Kerr, cnt, Md, Merr, Mabs, Mcnt = assemble_rigorous(n, reps, glue, mats)
+    asm = assemble_rigorous_fast if fast else assemble_rigorous
+    K, Kabs, Kerr, cnt, Md, Merr, Mabs, Mcnt = asm(n, reps, glue, mats)
     N = K.shape[0]
-    # numerical lowest eigenvalue of the comparison CR problem
-    Mm = sp.diags(Md)
-    lam = sla.eigsh(K.tocsc(), k=3, M=Mm.tocsc(), sigma=-0.01, which="LM", return_eigenvectors=False)
-    lam = np.sort(lam)
-    sigma = float(lam[0] * sigma_factor)
+    if sigma is None:
+        # numerical lowest eigenvalue of the comparison CR problem (only used to choose sigma)
+        Mm = sp.diags(Md)
+        lam = sla.eigsh(K.tocsc(), k=3, M=Mm.tocsc(), sigma=-0.01, which="LM", return_eigenvectors=False)
+        lam = np.sort(lam)
+        sigma = float(lam[0] * sigma_factor)
+    else:
+        lam = np.array([np.nan])
     # exact-vs-float error of B = K - sigma M  (Gershgorin bound on the spectral norm)
     # K entries: arb conversion errors + summation errors gamma_{cnt} * sum|terms|
     cntmax = int(cnt.max())
@@ -312,9 +395,7 @@ def certify(which, n, tri, sigma_factor=0.995, verbose=True):
             F = chol.symbolic(S)
             chol.numeric(S, F)
         except ArithmeticError:
-            res = dict(ok=False, reason="Cholesky failed", which=which, n=n, triple=tri, sigma=sigma, lam_h=lam.tolist(), c=c)
-            print(res, flush=True)
-            return res
+            return dict(ok=False, reason="Cholesky failed", n=n, sigma=sigma, lam_h=lam.tolist(), c=c, dofs=N)
         L = chol.getfactor(F)
         Lc = sp.csc_matrix((np.array(L.V).ravel(), np.array(L.I).ravel(), np.array(L.CCS[0]).ravel()), shape=(N, N))
         Lr = Lc.tocsr()
@@ -332,12 +413,9 @@ def certify(which, n, tri, sigma_factor=0.995, verbose=True):
     # final bound  sigma / (1 + Ch2 sigma), rounded down
     s = arb(sigma)
     bound = s / (1 + Ch2 * s)
-    res = dict(ok=ok, which=which, n=n, triple=tri, K_order=oK, dofs=N, lam_h=lam.tolist(), sigma=sigma,
-               c_min=cmin, Ch2=fup(Ch2), eta=eta, chol_shift=c, chol_need=need, L_rowmax=k, L1=L1, Linf=Linf,
-               bound=fdown(bound) if ok else None)
-    if verbose:
-        print(res, flush=True)
-    return res
+    return dict(ok=ok, n=n, dofs=N, lam_h=lam.tolist(), sigma=sigma,
+                c_min=cmin, Ch2=fup(Ch2), eta=eta, chol_shift=c, chol_need=need, L_rowmax=k, L1=L1, Linf=Linf,
+                bound=fdown(bound) if ok else None)
 
 
 if __name__ == "__main__":

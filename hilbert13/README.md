@@ -114,3 +114,19 @@ terms, where $\Phi_1(t) = t^2/4$, $\Phi_2(t) = -t^2/4$, and all inner functions 
 - V. I. Arnold, *On functions of three variables*, Dokl. Akad. Nauk SSSR 114 (1957).
 - B. Farb, J. Wolfson, *Resolvent degree, Hilbert's 13th Problem and geometry*,
   L'Enseignement Math. 65 (2019), [arXiv:1803.04063](https://arxiv.org/abs/1803.04063).
+
+## The $A_7$ gonality ladder (`ladder/`)
+
+The second project concerns smooth curves $C$ with an $A_7$-action of signature $(2,4,7)$, which
+have genus 136. [`ladder/NOTES.md`](ladder/NOTES.md) proves the following for every such curve and
+every involution $\tau$:
+$$\operatorname{gon}(C)\ge24,\qquad \operatorname{gon}(C/\langle\tau\rangle)\ge12 .$$
+The route is a certified spectral gap, $\lambda_1(C)\ge0.34089$, combined with the Hersch/Yang–Yau
+inequality $\lambda_1\,\mathrm{Area}\le8\pi\deg$.
+
+The certificate is a Crouzeix–Raviart lower-bound computation on two sign-twisted quotient orbifolds
+(`ladder/certify.py`, `ladder/run_certificate.py`). Its logical core is checked in Lean in
+[`Hilbert13/SpectralCertificate.lean`](Hilbert13/SpectralCertificate.lean):
+- the abstract eigenvalue lower bound;
+- positive definiteness from a perturbed Cholesky factor;
+- the final arithmetic.

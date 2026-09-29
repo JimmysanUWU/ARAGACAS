@@ -7,7 +7,11 @@ which together see every irreducible representation of A7 (cover.py).  Hence
     lambda_1(C) >= min(Q0, Q1, Q2),
 and by the Hersch / Yang-Yau / Li-Yau inequality lambda_1 * Area <= 8 pi deg, Area(C) = 540 pi:
     gon(C) >= 67.5 lambda_1(C),     gon(C/<tau>) >= 33.75 lambda_1(C).
-Takes a few minutes.  Usage: python3 run_certificate.py [n_Q12=32] [n_Q0=16]
+
+Default: Q1 on the mesh n = 96 with sigma = 0.3409 fixed (about 1 min and 7 GB per triple class),
+certifying lambda_1 > 0.34074 and hence gon(C) >= 24.
+--quick: Q1 on n = 32 with sigma = 0.999 * (computed discrete eigenvalue): lambda_1 >= 0.33335,
+gon(C) >= 23 (about 3 minutes in total, 3 GB).
 """
 import sys, time, platform
 import numpy as np
@@ -19,8 +23,13 @@ from certify import certify, fdown
 REPS = [0, 1, 12, 14]
 
 
-def main(n12=32, n0=16, out="certificate.txt"):
+def main(quick=False, out=None):
+    out = out or ("certificate_quick.txt" if quick else "certificate.txt")
     cover.check_table()
+    # (quotient, mesh n, sigma_factor, fixed sigma)
+    plan = [("Q0", 16, None, None),
+            ("Q1", 32, 0.999, None) if quick else ("Q1", 96, None, 0.3409),
+            ("Q2", 32, 0.999, None)]
     lines = []
     def log(s=""):
         print(s, flush=True)
@@ -28,19 +37,27 @@ def main(n12=32, n0=16, out="certificate.txt"):
     log("Spectral certificate for the (2,4,7) A7-curves   (NOTES.md section 7)")
     log(f"python {platform.python_version()}, numpy {np.__version__}, scipy {scipy.__version__}, "
         f"python-flint {flint.__version__}, cvxopt {cvxopt.__version__}")
-    log(f"mesh: n = {n12} for Q1, Q2 and n = {n0} for Q0 (each hyperbolic triangle cut into n^2 pieces)")
+    log("plan: " + ", ".join(f"{q} n={n}" + (f" sigma={s}" if s else "") for q, n, _, s in plan)
+        + "   (each hyperbolic triangle cut into n^2 pieces)")
     log("")
     worst = None
     for tri in REPS:
         best = {}
-        for q, n, sf in (("Q0", n0, None), ("Q1", n12, 0.999), ("Q2", n12, 0.999)):
+        for q, n, sf, sig in plan:
             t0 = time.time()
-            r = certify(q, n, tri, sf, verbose=False) if sf else certify(q, n, tri, verbose=False)
+            if q == "Q0":
+                r = certify(q, n, tri, verbose=False)
+            elif sig is not None:
+                r = certify(q, n, tri, verbose=False, sigma=sig)
+            else:
+                r = certify(q, n, tri, sf, verbose=False)
             assert r["ok"], r
             best[q] = r["bound"]
-            log(f"triple {tri:2d}  {q}: dofs {r['dofs']:7d}  lambda_h {r['lam_h'][1 if q == 'Q0' else 0]:.6f}  "
-                f"sigma {r['sigma']:.6f}  C_h^2 {r['Ch2']:.3e}  Cholesky shift {r['chol_shift']:.2e} "
-                f"(needed {r['chol_need']:.2e})  ==> certified >= {r['bound']:.6f}   [{time.time() - t0:.0f}s]")
+            lh = r["lam_h"][1 if q == "Q0" else 0]
+            lhs = "   (not computed)" if np.isnan(lh) else f"{lh:.6f}"
+            log(f"triple {tri:2d}  {q}: n {n:3d}  dofs {r['dofs']:8d}  lambda_h {lhs}  sigma {r['sigma']:.6f}  "
+                f"C_h^2 {r['Ch2']:.3e}  Cholesky shift {r['chol_shift']:.2e} (needed {r['chol_need']:.2e})"
+                f"  ==> certified >= {r['bound']:.6f}   [{time.time() - t0:.0f}s]")
         lam = min(best.values())
         log(f"triple {tri:2d}  lambda_1(C) >= {lam:.6f}")
         log("")
@@ -55,6 +72,4 @@ def main(n12=32, n0=16, out="certificate.txt"):
 
 
 if __name__ == "__main__":
-    n12 = int(sys.argv[1]) if len(sys.argv) > 1 else 32
-    n0 = int(sys.argv[2]) if len(sys.argv) > 2 else 16
-    main(n12, n0)
+    main(quick="--quick" in sys.argv)

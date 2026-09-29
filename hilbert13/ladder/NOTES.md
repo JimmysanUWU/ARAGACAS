@@ -6,7 +6,7 @@ Status legend: **[P]** proved (paper), **[C]** verified by computer (scripts in 
 
 **Summary (2026-09-29, second session).** Both summits are proved, via a certified spectral gap
 (section 7): for every $(2,4,7)$ $A_7$-curve $C$ and every involution $\tau$,
-$$\lambda_1(C)\ge0.33335,\qquad \operatorname{gon}(C)\ge23,\qquad \operatorname{gon}(C/\langle\tau\rangle)\ge12 .$$
+$$\lambda_1(C)\ge0.34089,\qquad \operatorname{gon}(C)\ge24,\qquad \operatorname{gon}(C/\langle\tau\rangle)\ge12 .$$
 The algebraic rungs 1–4 are not needed for this; section 5 records why they could not have finished
 the job alone (audit theorem 5.1).
 
@@ -235,9 +235,9 @@ hyperbolic metric, on the $A_7$-isotypic twisted problems). There is a 30% margi
 **Theorem 7.1.** *Let $C$ be any smooth connected complex curve with a faithful $A_7$-action such that
 $C/A_7\cong\mathbb P^1$ with three branch points of inertia orders $2,4,7$, carrying its hyperbolic metric
 (curvature $-1$). Then*
-$$\lambda_1(C)\ \ge\ 0.33335\qquad(\ge0.34625\ \text{for the triple classes 12, 14}),$$
+$$\lambda_1(C)\ \ge\ 0.34089\qquad(\ge0.34625\ \text{for the triple classes 12, 14}),$$
 *and consequently, for every involution $\tau\in A_7$,*
-$$\operatorname{gon}(C)\ \ge\ 23,\qquad \operatorname{gon}\bigl(C/\langle\tau\rangle\bigr)\ \ge\ 12 .$$
+$$\operatorname{gon}(C)\ \ge\ 24,\qquad \operatorname{gon}\bigl(C/\langle\tau\rangle\bigr)\ \ge\ 12 .$$
 *In particular the first summit ($\ge10$) and the further summit ($\ge17$) both hold.*
 
 For comparison: $\operatorname{gon}(C)\le56$ and $\operatorname{gon}(C/\langle\tau\rangle)\le28$, via $C\to C/P\to\mathbb P^1$ with $P$
@@ -247,7 +247,18 @@ $\lambda_1(C)\approx0.34627$ (classes 0, 1) and $\approx0.3597$ (classes 12, 14)
 The proof is 7.2–7.7. Sections 7.2, 7.4 and 7.6 are paper proofs. Sections 7.5 and 7.7 are finite
 computations done rigorously: the metric coefficients are bounded in ball arithmetic (`python-flint`/Arb),
 and the floating-point linear algebra carries a-priori error bounds. Code: `orbifold.py`, `certify.py`,
-`cover.py`, `run_certificate.py`; output: `certificate.txt`.
+`cover.py`, `run_certificate.py`; output: `certificate.txt` (and `certificate_quick.txt`, which uses a
+coarser mesh and gives $\lambda_1\ge0.33335$, $\operatorname{gon}(C)\ge23$).
+
+**[L] Lean** (`Hilbert13/SpectralCertificate.lean`, no `sorry`, standard axioms only) checks three
+pieces:
+- the abstract lower-bound theorem of 7.6 for the lowest eigenvalue (`cr_lower_bound`);
+- the positive-definiteness criterion of 7.7, including the fill-reducing permutation
+  (`posDef_of_shifted_factor_perm`);
+- the arithmetic of 7.2 and of rung 1 (`gon_C_ge_24`, `gon_D_ge_12`, `genus_C`, `genus_D`).
+
+What stays outside Lean: Hersch's inequality, the finite element model itself, the interpolation
+constant, and the claim that the floating-point run satisfies the backward error model.
 
 ### 7.2 Gonality from $\lambda_1$ (Hersch; Yang–Yau 1980; Li–Yau 1982) [P]
 
@@ -263,7 +274,7 @@ $\sum_i|\nabla x_i|^2=2\,\mathrm{Jac}(\psi)$, so the right side equals $2\cdot4\
 
 The hyperbolic area is $\mathrm{Area}(C)=2\pi(2g-2)=540\pi$, so $\operatorname{gon}(C)\ge67.5\,\lambda_1(C)$. If $f:D\to\mathbb P^1$ has
 degree $d$, then $f\circ\pi:C\to\mathbb P^1$ has degree $2d$, so $\operatorname{gon}(C/\langle\tau\rangle)\ge33.75\,\lambda_1(C)$.
-With $\lambda_1\ge0.33335$ these give $22.50$ and $11.25$, hence 23 and 12.
+With $\lambda_1\ge0.34089$ these give $23.01$ and $11.51$, hence 24 and 12.
 
 *Audit remark.* The audit theorem 5.1 says a proof must use more of $C$ than the $H$-equivariant
 topology of $D$. Here the extra input is the conformal structure of $C$, through its hyperbolic metric.
@@ -371,15 +382,36 @@ $\lambda_{2,h}>\sigma$. Finally, $\lambda\ge\sigma/(1+C_h^2\sigma)$ is evaluated
 
 ### 7.8 Results
 
-`certificate.txt` (from `python3 run_certificate.py`, about 3 minutes; $n=32$ for $Q_1,Q_2$, $n=16$ for $Q_0$):
+`certificate.txt` comes from `python3 run_certificate.py` (about 6 minutes, 7 GB). It uses $n=16$ for
+$Q_0$, $n=32$ for $Q_2$, and $n=96$ for $Q_1$ with $\sigma=0.3409$ fixed. On $Q_1$ the Cholesky alone certifies
+$\lambda_{1,h}>\sigma$; no eigenvalue is computed there.
 
-| triple class | $Q_0$ | $Q_1$ | $Q_2$ | certified $\lambda_1(C)\ge$ |
-|---|---|---|---|---|
-| 0, 1 | 0.99783 | **0.33335** | 0.68902 | 0.33335 |
-| 12, 14 | 0.99783 | **0.34625** | 0.76298 | 0.34625 |
+| triple class | $Q_0$ | $Q_1$ ($n=96$) | $Q_2$ | certified $\lambda_1(C)\ge$ | $\operatorname{gon}(C)\ge$ | $\operatorname{gon}(C/\langle\tau\rangle)\ge$ |
+|---|---|---|---|---|---|---|
+| 0, 1 | 0.99783 | **0.34089** | 0.68902 | 0.34089 | 24 | 12 |
+| 12, 14 | 0.99783 | **0.34089** | 0.76298 | 0.34089 | 24 | 12 |
 
-At $n=32$ the Cholesky shifts are $\sim10^{-10}$, about 2 times the rigorous need, while the true margin
-$(\lambda_{1,h}-\sigma)\min M_{ii}$ is $\sim10^{-7}$.
+`certificate_quick.txt` (`--quick`, about 3 minutes) uses $n=32$ for $Q_1$ as well. It gives
+$\lambda_1\ge0.33335$ (classes 0, 1) and $\ge0.34625$ (classes 12, 14), hence $\operatorname{gon}(C)\ge23$.
+
+On the rigorous side:
+- At $n=96$ the Cholesky shift is $2\cdot10^{-10}$, twice the rigorous need
+  ($\gamma_{k+1}\|L\|_1\|L\|_\infty$ with $k\approx6500$). The true margin $(\lambda_{1,h}-\sigma)\min M_{ii}$ is
+  $\sim10^{-8}$.
+- The comparison loss is $1-\min_ec_e=1.7\%$.
+- The comparison eigenvalue on $Q_1$ behaves like $0.3463-0.41/n$: 0.3208 ($n=16$), 0.3337 ($n=32$),
+  $>0.338$ ($n=64$), $>0.3409$ ($n=96$).
+
+**External validation on the Bolza surface** (`validate_bolza.py`, output `validation_bolza.txt`).
+The same code runs on the $(2,3,8)$ curve of genus 2 with $\mathrm{GL}_2(\mathbb F_3)$ acting. That curve's first
+eigenvalue is known to high precision: $\lambda_1=3.8388872588\ldots$, multiplicity 3 (Strohmaier–Uski 2013).
+- Conforming P1 on the whole surface gives $3.8485$ ($n=8$) and $3.8413$ ($n=16$), both with multiplicity 3.
+  Richardson extrapolation gives $3.8389$. The area comes out as $4\pi$ to 8 digits.
+- The rigorous pipeline, on a sign-twisted quotient containing the $\lambda_1$-isotype, certifies $3.540$,
+  $3.701$, $3.772$, $3.804$ for $n=8,16,32,64$. All are below the true value and converge to it.
+
+This tests the chart, the gluing conventions, the element matrices and the certificate against an
+independent reference.
 
 **Non-rigorous numerics with exact geometry** (`orbifold.py`, $Q_1$, class 0):
 - conforming P1, which gives upper bounds up to quadrature: $0.346707$ ($n=12$), $0.346378$ ($n=24$);
@@ -395,12 +427,14 @@ not on $C/\mathrm{PSL}_2(7)$, which sees only $1+14_b$.
 - **Rung 5 (first summit)** is settled: $\operatorname{gon}(C/\langle\tau\rangle)\ge12$ for every $C$ and every $\tau$. Theorem 4.5 and $(\star)$
   are no longer needed. Whether $(\star)$ holds on $T$ remains an open arithmetic question of independent
   interest.
-- **Rung 6 (further summit)** is settled: $\operatorname{gon}(C)\ge23$. This part is independent of the quotient result. The
+- **Rung 6 (further summit)** is settled: $\operatorname{gon}(C)\ge24$. This part is independent of the quotient result. The
   quotient only gives $\operatorname{gon}(C)\ge\operatorname{gon}(D)\ge12$ (norm map, Farb–Wolfson Lemma 2.4), and Farb–Wolfson Lemma 2.2
   gives 13.
-- **Limits of the method.** Li–Yau with $\lambda_1\approx0.3463$ cannot give $\operatorname{gon}(D)\ge13$, which would need
-  $\lambda_1>0.3556$. $\operatorname{gon}(C)\ge24$ needs a certified $\lambda_1>0.34074$ for classes 0, 1 (true value 0.34627), which
-  requires a finer mesh or a second-order comparison. It is already certified for classes 12, 14.
+- **Limits of the method.** For classes 0, 1 the bounds $\operatorname{gon}(C)\ge24$ and $\operatorname{gon}(D)\ge12$ are the best that
+  Hersch/Yang–Yau can give. The next integers would need $\lambda_1>0.35556$, above the true value 0.34627.
+  For classes 12, 14 ($\lambda_1\approx0.3597$), $\operatorname{gon}(C)\ge25$ would need a certified $\lambda_1>0.35556$, a 1.2%
+  margin: roughly $n\approx110$–$130$ on $Q_1$, not attempted. Going further needs a genuinely different
+  input. The eigenvalue bound only controls conformal maps through their energy.
 - **Other quotients.** For $K\le A_7$ the same argument gives
-  $\operatorname{gon}(C/K)\ge67.5\,\lambda_1^K(C)/|K|\ge22.5/|K|$, where $\lambda_1^K\ge\lambda_1$ is the first eigenvalue of
+  $\operatorname{gon}(C/K)\ge67.5\,\lambda_1^K(C)/|K|\ge23.01/|K|$, where $\lambda_1^K\ge\lambda_1$ is the first eigenvalue of
   $K$-invariant functions.

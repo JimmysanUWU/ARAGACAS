@@ -31,9 +31,11 @@ def mink(p, q):
     return p[0] * q[0] - p[1] * q[1] - p[2] * q[2]
 
 
-def reference_triangle(center="mid_bc"):
-    """Klein coordinates of A, B, C after moving the chosen centre to the origin."""
-    al, be, ga = pi / 2, pi / 4, pi / 7
+def reference_triangle(center="mid_bc", pqr=(2, 4, 7)):
+    """Klein coordinates of A, B, C (angles pi/p, pi/q, pi/r) after moving the chosen centre to the
+    origin.  The formulas below place the angle at A on the coordinate axes, so p must be 2."""
+    assert pqr[0] == 2
+    al, be, ga = pi / pqr[0], pi / pqr[1], pi / pqr[2]
     c_ab = acosh(cos(ga) / sin(be))      # side AB (opposite C)
     b_ac = acosh(cos(be) / sin(ga))      # side AC (opposite B)
     A = np.array([1.0, 0.0, 0.0])
@@ -76,9 +78,12 @@ def metric_R(XA, XB, XC, s, t):
 
 
 # ---------------------------------------------------------------- quotient combinatorics
-def quotient_tiles(a, b, Kgens, eps_gens=None):
+def quotient_tiles(a, b, Kgens, eps_gens=None, group=None):
     """Right cosets K g; returns (reps, glue) where glue lists (coset_U, side, coset_L, sign):
-    U_{r} is glued to L_{r'} along `side`, and f|L_{r x} = sign * f|L_{r'} transported."""
+    U_{r} is glued to L_{r'} along `side`, and f|L_{r x} = sign * f|L_{r'} transported.
+    group = (elements, mul, inv, generated, identity) for groups other than A7."""
+    G, mul, inv, generated, E = group or (A7, globals()["mul"], globals()["inv"], globals()["generated"],
+                                          globals()["E"])
     K = generated(Kgens) if Kgens else {E}
     # character on K by propagation from generator values
     eps = {E: 1}
@@ -98,7 +103,7 @@ def quotient_tiles(a, b, Kgens, eps_gens=None):
                         new.append(y)
             frontier = new
     rep_of, reps = {}, []
-    for g in A7:
+    for g in G:
         if g in rep_of:
             continue
         coset = [mul(k, g) for k in K]

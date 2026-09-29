@@ -76,6 +76,9 @@ Status tags: **[read]** full text read in session · **[abstract]** abstract/sum
 - **X. Liu, *A framework of verified eigenvalue bounds for self-adjoint differential operators*, Appl.
   Math. Comput. 267 (2015). [unverified wording]** The abstract lower bound
   $\lambda_k\ge\lambda_{k,h}/(1+C_h^2\lambda_{k,h})$. 7.6 re-proves it in the form used here.
+- **A. Strohmaier, V. Uski, *An algorithm for the computation of eigenvalues, spectral zeta functions
+  and zeta-determinants on hyperbolic surfaces*, Comm. Math. Phys. 317 (2013). [unverified wording]**
+  Gives $\lambda_1(\text{Bolza})=3.8388872588\ldots$, used as the external check in `validate_bolza.py`.
 - **N. J. Higham, *Accuracy and Stability of Numerical Algorithms*, 2nd ed., SIAM 2002, Thm 10.3.**
   The componentwise backward error of Cholesky, $|\Delta A|\le\gamma_{n+1}|\hat R^T||\hat R|$. For sparse
   factors, $n$ becomes the largest number of terms in an inner product, which is at most the maximal row

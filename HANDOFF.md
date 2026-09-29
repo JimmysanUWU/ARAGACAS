@@ -5,12 +5,12 @@ Written at the end of the first session (2026-09-29) so the next session can con
 
 ## 0. Restore
 
-The work is 5 commits on branch `claude/hopeful-allen-my45u6`, on top of base commit `299078f`
+The work is 6 commits on branch `claude/hopeful-allen-my45u6`, on top of base commit `299078f`
 ("Create README.md"), which exists in both `x5ilky/ARAGACAS` and the fork `JimmysanUWU/ARAGACAS`.
 
 ```sh
 # in a clone of JimmysanUWU/ARAGACAS, with aragacas-ladder.bundle in the repo root:
-git fetch aragacas-ladder.bundle HEAD:claude/hopeful-allen-my45u6
+git fetch aragacas-ladder.bundle claude/hopeful-allen-my45u6:claude/hopeful-allen-my45u6
 git checkout claude/hopeful-allen-my45u6
 git push -u origin claude/hopeful-allen-my45u6      # then open a draft PR
 ```

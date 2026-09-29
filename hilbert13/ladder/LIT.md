@@ -54,7 +54,34 @@ Status tags: **[read]** full text read in session · **[abstract]** abstract/sum
 - Hodge-index form of CS (equality iff $\Gamma\equiv d_2F_1+d_1F_2$): standard; see e.g. notes by
   Pignatelli, *Surfaces of general type* (CRM 2015). [abstract]
 
-## Spectral route (rung 6 framework)
+## Spectral route (section 7: used in the proof of both summits)
+
+- **J. Hersch, *Quatre propriétés isopérimétriques de membranes sphériques homogènes*, C. R. Acad. Sci.
+  Paris 270 (1970). [unverified wording]** Source of the balancing lemma (a Möbius transformation that
+  centres a measure on $S^2$ without atoms). 7.2 proves the degree-$d$ version in full, apart from this
+  lemma.
+- **P. C. Yang, S.-T. Yau, *Eigenvalues of the Laplacian of compact Riemann surfaces and minimal
+  submanifolds*, Ann. Sc. Norm. Sup. Pisa 7 (1980). [unverified wording]** Proves
+  $\lambda_1\mathrm{Area}\le8\pi d$ for a degree-$d$ holomorphic map to $\mathbb P^1$.
+- **C. Carstensen, J. Gedicke, *Guaranteed lower bounds for eigenvalues*, Math. Comp. 83 (2014)
+  2605–2629. [read: Thm 2.1 and its proof]** Two facts are used. First, Theorem 2.1:
+  $\|v-I_{NC}v\|\le\kappa H|||v-I_{NC}v|||_{NC}$ with $\kappa^2=1/8+j_{1,1}^{-2}$. Second, its proof: the single-triangle
+  estimate $\|f\|_{L^2(T)}\le(\max_{x\in E}|P-x|^2/8+h_T^2/j_{1,1}^2)^{1/2}|f|_{H^1(T)}$ for $\int_Ef=0$.
+- **C. Carstensen, J. Gedicke, D. Rim, *Explicit error estimates for Courant, Crouzeix–Raviart and
+  Raviart–Thomas finite element methods*, J. Comput. Math. 30 (2012). [via CG14]** Lemma 2.2 is the
+  single-triangle estimate above.
+- **R. Laugesen, B. Siudeja, *Minimizing Neumann fundamental tones of triangles: an optimal Poincaré
+  inequality*, J. Differential Equations 249 (2010). [via CG14]** The $h_T/j_{1,1}$ Poincaré constant on
+  triangles.
+- **X. Liu, *A framework of verified eigenvalue bounds for self-adjoint differential operators*, Appl.
+  Math. Comput. 267 (2015). [unverified wording]** The abstract lower bound
+  $\lambda_k\ge\lambda_{k,h}/(1+C_h^2\lambda_{k,h})$. 7.6 re-proves it in the form used here.
+- **N. J. Higham, *Accuracy and Stability of Numerical Algorithms*, 2nd ed., SIAM 2002, Thm 10.3.**
+  The componentwise backward error of Cholesky, $|\Delta A|\le\gamma_{n+1}|\hat R^T||\hat R|$. For sparse
+  factors, $n$ becomes the largest number of terms in an inner product, which is at most the maximal row
+  count.
+- **S. M. Rump, *Verification of positive definiteness*, BIT 46 (2006). [unverified wording]** Uses the
+  same shift-and-Cholesky idea with a trace bound. 7.7 uses the sharper $\|L\|_1\|L\|_\infty$ bound instead.
 
 - **P. Li, S.-T. Yau, *A new conformal invariant and its applications to the Willmore conjecture and
   the first eigenvalue of compact surfaces*, Invent. Math. 69 (1982). [unverified wording]** —
@@ -65,8 +92,8 @@ Status tags: **[read]** full text read in session · **[abstract]** abstract/sum
   curves*, arXiv:1211.2681, Math. Ann. [abstract]** — graph version; possible route to a combinatorial
   certificate using the (2,4,7) tiling.
 - **X. Liu, S. Oishi, *Verified eigenvalue evaluation for the Laplacian over polygonal domains of
-  arbitrary shape*, SIAM J. Numer. Anal. 51 (2013). [unverified]** — guaranteed lower eigenvalue bounds
-  via Crouzeix–Raviart FEM; the candidate method to certify $\lambda_1(C)>0.2667$.
+  arbitrary shape*, SIAM J. Numer. Anal. 51 (2013). [unverified]** The origin of the Crouzeix–Raviart
+  lower-bound method used in 7.6.
 - **Magee–Naud–Puder; Hide–Magee (2023)**: spectral gaps of random covers tend to $1/4$.
   [unverified] Context only.
 

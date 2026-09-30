@@ -44,6 +44,9 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`validate_bolza.py`, `validation_bolza.txt`** | external check of the whole pipeline on the Bolza surface (known $\lambda_1=3.83888726$) |
 | **`REVIEW_GPT.md`, `review_checks.py`** | rigorous review of the Sol/Astra *Ramification transport* synthesis and *Verification ladder* (main theorem verified correct) |
 | `spectrum.py` | first-session FEM with a flat approximation (superseded by `orbifold.py`) |
+| **`hilbert13/ladder/FRAMEWORK_CONFORMAL.md`** | conformal spectral gonality; §D: results after GPT's audit (D1–D5) |
+| **`hilbert13/ladder/QUESTIONS_FOR_GPT.md`** | current, paste-ready questions for GPT |
+| **`frontier_checks.py`** | exact checks for §D: $Q_2$ structure, fixed-point Abel–Jacobi carriers, signatures up to genus 529 |
 
 ## 3. The task (the user's ladder)
 
@@ -85,6 +88,14 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+**Third session (2026-09-30), after GPT's proof-chain audit (pinned 8b31a2ac).** The audit confirms 24/12, verifies
+Lemma 5.5, and so gives $\mathrm{ed}_{\mathbb C}(A_7;\le23)>1$ modulo classical inputs. It also asks for six repairs (its page 9);
+these are not yet applied. New results are in `FRAMEWORK_CONFORMAL.md` §D:
+- the frame function is never constant (via Bryant 1985), so the conformal ascent strictly improves Li–Yau;
+- $\delta$ and $(\star)$ are controlled by two points, on the elliptic curve $C/L_2(5)$ and the genus-2 curve $C/(3^2{:}4)$;
+- pencil orbits have size at least 35;
+- $\operatorname{gon}\ge25$ for all faithful $A_7$-curves with $g\ge336$, so $\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ reduces to 11 rigid signatures.
 
 0a. **Conformal spectral gonality** (`FRAMEWORK_CONFORMAL.md`, paper-level). Replace the hyperbolic metric by a
    $G$-invariant conformal factor $h$ and certify $\lambda_1(hg)\int h>8\pi\cdot24$. That gives $\operatorname{gon}(C)\ge25$ and $\operatorname{gon}(C/\langle\tau\rangle)\ge13$.

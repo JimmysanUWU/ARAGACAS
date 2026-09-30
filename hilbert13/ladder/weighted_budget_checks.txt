@@ -5,7 +5,7 @@ Claude genus-336 table: m pair pi1 budget dependent_costs
 23 None 306 148 (121, 161, 181)
 24 265 335 193 (132, 176, 198)
 
-Independent-triple inequalities (9<=m<=999, plus exact residue formulas)
+Independent-triple inequalities (8<=m<=999, plus exact residue formulas)
 all residue formulas and surface comparisons passed
 m=24: A, pi2, H19, type221, type222: 265 261 257 241 217
 

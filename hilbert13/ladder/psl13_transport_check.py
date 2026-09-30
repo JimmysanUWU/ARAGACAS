@@ -72,8 +72,12 @@ def main():
     r = len(cent)//2
     genus_D = 1+F(14-1,2)-F(r,4)
     assert r == 6 and genus_D == 6
+    reflection_quotient = 1+F(genus_D-1,2)-F(6,4)
+    assert reflection_quotient == 2
     assert 3*12*6 == 216 and 216 % 13 != 0
     print("fixed points",r,"quotient genus",genus_D,"transport degree",216)
+    print("three good-reflection quotients have genus",reflection_quotient,
+          "and give three distinct degree-four pencils")
 
 
 if __name__ == "__main__":

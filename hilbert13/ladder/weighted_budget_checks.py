@@ -51,8 +51,8 @@ def main():
         row = pair_bound(m), pi(3*m,7,1), (m-1)**2-336, dep_costs(m)
         assert row == exp
         print(m, *row)
-    print("\nIndependent-triple inequalities (9<=m<=999, plus exact residue formulas)")
-    for m in range(9, 1000):
+    print("\nIndependent-triple inequalities (8<=m<=999, plus exact residue formulas)")
+    for m in range(8, 1000):
         k, r = divmod(m, 3)
         assert A(m)-pi(3*m,8,2) == F(k+r,2)
         k, r = divmod(m, 6)

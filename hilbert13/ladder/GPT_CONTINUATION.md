@@ -124,6 +124,12 @@ The invariant is the prescribed weighted incidence T against the available
 squared multiplicity 2ab. It converts the geometry of a third pencil into a
 lower bound for the singularity defect of the first two.
 
+`MULTIGRADED_GENUS.md` develops its general intersection-theoretic form for
+an arbitrary degree vector on an integral (a,b,c) hypersurface, using the
+inverse of [[0,c,b],[c,0,a],[b,a,0]]. It also proves the relative canonical
+divisor inequality behind the normalization argument and gives the
+independent-triple bounds 9,14,19 in degrees 5,6,7.
+
 ### The (2,2,2) case: an anticanonical normalization lemma
 
 **Lemma.** If S is an integral projective Gorenstein surface with omega_S
@@ -158,14 +164,23 @@ invariant line in the nontrivial irreducible SL2^3 representation
 Sym^2(C^2) tensor Sym^2(C^2) tensor Sym^2(C^2). Every singular point of S
 lies in {q=v(q)=0}, a complete-intersection curve of degree (2H)^2.H=24.
 
-For a curve B of degree d>24 on S, its strict transform C on Y is birational
+For a curve B not contained in the singular locus of S, its strict transform C on Y is birational
 to B and is not a component of the negative canonical divisor. The latter's
 components map into the conductor or singular locus. The pullback of H is
 nef and big with H^2=12. Adjunction and Hodge index give
 
     g(B) <= p_a(C) <= 1+C^2/2 <= 1+d^2/24.
 
-For balanced degree m>=9, d=3m, so
+The degree condition d>24 is sufficient for this conclusion, but not necessary.
+For balanced curves with g>A(m) and m>=8 there is another exclusion of the
+singular locus: a nonzero homogeneous partial derivative of a (2,2,2)
+equation has type (2,2,1), up to permutation. It vanishes on the singular
+locus. Any irreducible surface component containing B has positive
+coefficients (by pairwise birationality) and type at most (2,2,1).
+The weighted bound would give g<=A(m), contradiction. Thus these curves
+also avoid the singular locus, including the degree-24 borderline.
+
+For balanced degree m in either of these situations, d=3m, so
 
     (2,2,2):  g <= 1+3m^2/8.                       (K0)
 
@@ -175,7 +190,7 @@ three surface bounds (2,1,1), (2,2,1), (2,2,2) are 265, 241, 217.
 ## 3. The sharp independent-triple theorem
 
 **Theorem.** Let C be a smooth complex curve with three degree-m pencils,
-m>=9, every pair birational. Suppose the eight products of their two basis
+m>=8, every pair birational. Suppose the eight products of their two basis
 sections are linearly independent. Then
 
     g(C) <= floor(m^2/2-m+1).                      (IT)
@@ -184,7 +199,7 @@ Write A(m)=m^2/2-m+1, L=L1 L2 L3, and suppose g>A(m). The Segre map gives
 a birational, nondegenerate degree-3m image B in P7, contained in X.
 
 First h0(C,L)=8. Otherwise adjoining a ninth section gives a birational
-degree-3m model in P8. Direct evaluation gives pi_2(3m,8)<=A(m) for m>=9.
+degree-3m model in P8. Direct evaluation gives pi_2(3m,8)<=A(m) for m>=8.
 For m=3k+r, r=0,1,2, the difference A(m)-pi_2(3m,8) is (k+r)/2.
 Petrakiev's Theorem 2.16(a), in its stated range n=8 and 3m>=19, puts that
 model on an integral surface of degree <=8. Project this surface to P7.
@@ -212,7 +227,8 @@ has multidegree (2,2,2). An irreducible surface component containing B has
 each coefficient between 0 and 2. Again every coefficient is positive, so
 it has type (1,1,1), (2,1,1), (2,2,1), or (2,2,2), up to permutation.
 The first is excluded by nondegeneracy and the others by (WB) and (K0):
-for m>=9 their bounds are all <=A(m).
+for m>=8 their bounds are all <=A(m); the preceding partial-derivative
+argument supplies the missing nonsingularity condition when m=8.
 
 It follows that h_Gamma(2)>=19. Uniform position gives
 
@@ -240,7 +256,7 @@ m=2k and genus 2k^2-2k+1=A(m). The two degree-one surface projections are
 birational, and the remaining projection restricts birationally to a general
 curve: that curve and its deck transform are distinct. The products are
 independent because this curve is not contained in an ambient hyperplane
-for k sufficiently large, in particular for the relevant m>=10.
+for the relevant even m>=8 (its degree 3m exceeds the surface degree eight).
 
 ## 4. The genus-266 A7 theorem
 
@@ -489,6 +505,13 @@ subgroup acts freely, so 13 must divide its degree, contradiction. Thus
 gon(D)>=4. The general genus-six upper bound is four, so gon(D)=4 for
 all three Hurwitz curves. A search did not locate this exact corollary;
 absence from the search is not a novelty proof.
+
+There is a concrete upper-bound construction: the quotient of D by each
+of the three good reflections has genus two, since
+10=2(2g'-2)+6. Its hyperelliptic pencil pulls back to degree four on D.
+These three pencils are distinct: a pencil shared by two reflections
+would be pointwise S3-invariant, forcing 6|4. Thus the transport theorem
+identifies the minimum degree of an explicit S3-orbit of three pencils.
 
 ## 9. Coordination, Lean, and the minor audit repairs
 

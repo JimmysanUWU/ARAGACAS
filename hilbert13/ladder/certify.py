@@ -57,15 +57,24 @@ def fup(x):
 
 def ref_triangle_arb(pqr=(2, 4, 7)):
     """Klein coordinates (arb) of A, B, C: the triangle with angles pi/p, pi/q, pi/r (p = 2), moved by
-    the boost that sends the midpoint of BC to the origin (same placement as orbifold.reference_triangle)."""
-    assert pqr[0] == 2
+    the boost that sends the midpoint of BC to the origin (same placement as orbifold.reference_triangle).
+    p = 2 uses the original right-angle formulas (bit-identical to certificate.txt); p > 2 uses the general
+    hyperbolic law of cosines for angles, with C placed at angle pi/p from the AB axis
+    (same placement as signatures_spectrum.ref_triangle)."""
     pi = arb.pi()
     al, be, ga = pi / pqr[0], pi / pqr[1], pi / pqr[2]
-    c_ab = (ga.cos() / be.sin()).acosh()
-    b_ac = (be.cos() / ga.sin()).acosh()
-    A = [arb(1), arb(0), arb(0)]
-    B = [c_ab.cosh(), c_ab.sinh(), arb(0)]
-    C = [b_ac.cosh(), arb(0), b_ac.sinh()]
+    if pqr[0] == 2:
+        c_ab = (ga.cos() / be.sin()).acosh()
+        b_ac = (be.cos() / ga.sin()).acosh()
+        A = [arb(1), arb(0), arb(0)]
+        B = [c_ab.cosh(), c_ab.sinh(), arb(0)]
+        C = [b_ac.cosh(), arb(0), b_ac.sinh()]
+    else:
+        c_ab = ((ga.cos() + al.cos() * be.cos()) / (al.sin() * be.sin())).acosh()
+        b_ac = ((be.cos() + al.cos() * ga.cos()) / (al.sin() * ga.sin())).acosh()
+        A = [arb(1), arb(0), arb(0)]
+        B = [c_ab.cosh(), c_ab.sinh(), arb(0)]
+        C = [b_ac.cosh(), b_ac.sinh() * al.cos(), b_ac.sinh() * al.sin()]
     P = [B[i] + C[i] for i in range(3)]
     nP = (P[0] ** 2 - P[1] ** 2 - P[2] ** 2).sqrt()
     P = [p / nP for p in P]
@@ -291,13 +300,13 @@ def gamma(k):
     return k * U / (1 - k * U)
 
 
-def certify_trivial(n, tri, sigma=1.0, verbose=True):
+def certify_trivial(n, tri, sigma=1.0, verbose=True, ab=None, pqr=(2, 4, 7)):
     """Q0: A7-invariant functions (the (2,4,7) orbifold itself, 2 tiles).  Certifies mu_2(Q0) > bound.
     Constants are deflated densely: B + alpha z z^T > 0 with z = M 1, alpha > sigma / (1^T M 1), implies
     K - sigma M > 0 on the M-orthogonal complement of the constants, i.e. lambda_{2,h} > sigma."""
-    a, b, c = triples[tri]
+    a, b = ab if ab is not None else triples[tri][:2]
     reps, glue, oK = quotient_tiles(a, b, [a, b], [1, 1])
-    XA, XB, XC = ref_triangle_arb()
+    XA, XB, XC = ref_triangle_arb(pqr)
     ed = element_data(n, XA, XB, XC)
     j11_lo = arb("3.8317059702075")
     kappa2 = (arb(1) / 8 + arb(2) / (j11_lo * j11_lo)) / (n * n)

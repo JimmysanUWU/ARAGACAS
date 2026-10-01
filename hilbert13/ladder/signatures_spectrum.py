@@ -5,7 +5,9 @@ Curves are enumerated up to simultaneous S7-conjugation and (a,b) -> (a^-1,b^-1)
 orientation-reversing isometry X(a,b) -> X(a^-1,b^-1), so the spectra agree.
 Usage: python3 signatures_spectrum.py p q r [fast]
   default: elementwise Richardson on n = 4, 6 (checked on 2 4 7: 0.3464 / 0.3598 against 0.34627 / 0.3597);
-  fast:    n = 4 only, divided by 1.0105 (the P1 overshoot measured on (2,4,7) and (3,3,5))."""
+  fast:    n = 4 only, divided by 1.0105 (the P1 overshoot measured on (2,4,7) and (3,3,5)).
+Numerical only.  The fast-mode calibration does NOT transfer to other triangles (it overestimated (4,4,4) by
+about 15%); certified values are produced by certify_signatures.py (VERIFICATION.md section 6)."""
 import sys, time
 from math import pi, cos, sin, cosh, sinh, acosh, sqrt
 from itertools import permutations

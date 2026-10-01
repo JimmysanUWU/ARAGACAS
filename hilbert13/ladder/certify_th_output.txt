@@ -1,0 +1,14 @@
+Certified eigenvalue inputs (VERIFICATION.md sections 4 and 7). Commands:
+  python3 certify_th.py count 96 t 0.56   (t = 0, 1)
+  python3 certify_th.py s5 24 t           (t = 0, 1)
+  python3 certify_th.py a6 16 t 1.0       (t = 0, 1)
+  python3 -c "import certify; certify.certify('Q1', 128, t, sigma=0.3557)"   (t = 12, 14)
+
+{'which': 'Q1 count', 'triple': 0, 'ok': True, 'n': 96, 'dofs': 1935360, 'sigma': 0.56, 'negative_pivots': 1, 'Ch2': np.float64(5.661153362695833e-05), 'eta': 9.575110006906473e-15, 'shift': 1.0564135015804026e-08, 'need': 6.349463863899113e-09, 'L_rowmax': 6437, 'L1': 20.19527932067734, 'Linf': 36.523837868224696, 'Dmax': 12.039652216086056, 'min_abs_pivot': 0.2323036815194037, 'lambda2_bound': np.float64(0.5599822471858624), 'secs': 106}
+{'which': 'Q1 count', 'triple': 1, 'ok': True, 'n': 96, 'dofs': 1935360, 'sigma': 0.56, 'negative_pivots': 1, 'Ch2': np.float64(5.661153362695833e-05), 'eta': 9.575110006906473e-15, 'shift': 2.938717144023008e-08, 'need': 1.1632456796275e-08, 'L_rowmax': 5698, 'L1': 78.44847310600707, 'Linf': 19.45858849409387, 'Dmax': 12.039652197263019, 'min_abs_pivot': 0.05607872663715946, 'lambda2_bound': np.float64(0.5599822471858624), 'secs': 97}
+{'which': 'C/S5 upper', 'n': 24, 'triple': 0, 'K_order': 120, 'dofs': 12098, 'lam_h_numerical': [3.828101030611819e-15, 0.34637774256584564, 1.7260181101346417], 'U': 0.36317742334323083}
+{'which': 'C/S5 upper', 'n': 24, 'triple': 1, 'K_order': 120, 'dofs': 12098, 'lam_h_numerical': [6.0795552619952176e-15, 0.34637774256584786, 1.7260181101346443], 'U': 0.36317742334323083}
+{'which': 'C/A6 lower', 'ok': True, 'n': 16, 'triple': 0, 'K_order': 360, 'dofs': 5376, 'lam_h': [-2.885269836974715e-11, 2.0709410574317437, 6.339008153934117], 'sigma': 1.0, 'Ch2': np.float64(0.0021718180337867966), 'bound': np.float64(0.9978328885379676)}
+{'which': 'C/A6 lower', 'ok': True, 'n': 16, 'triple': 1, 'K_order': 360, 'dofs': 5376, 'lam_h': [-1.7806224049536802e-11, 2.0709410574597378, 6.339008154052766], 'sigma': 1.0, 'Ch2': np.float64(0.0021718180337867966), 'bound': np.float64(0.9978328885379676)}
+{'ok': True, 'n': 128, 'dofs': 3440640, 'lam_h': [nan], 'sigma': 0.3557, 'c_min': np.float64(0.9870432428831101), 'Ch2': 3.173861958515013e-05, 'eta': 9.54304635157452e-15, 'chol_shift': 3.47931431247545e-10, 'chol_need': 1.739734887642188e-10, 'L_rowmax': 8310, 'L1': 6.954205014232554, 'Linf': 27.1109597700413, 'bound': 0.3556959843961548, 'which': 'Q1', 'triple': 12, 'K_order': 36}
+{'ok': True, 'n': 128, 'dofs': 3440640, 'lam_h': [nan], 'sigma': 0.3557, 'c_min': np.float64(0.9870432428831101), 'Ch2': 3.173861958515013e-05, 'eta': 9.54304635157452e-15, 'chol_shift': 3.3655424463700686e-10, 'chol_need': 1.682808634503469e-10, 'L_rowmax': 7842, 'L1': 6.954205014232553, 'Linf': 27.788602053697883, 'bound': 0.3556959843961548, 'which': 'Q1', 'triple': 14, 'K_order': 36}

@@ -50,6 +50,10 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`hilbert13/ladder/FRAMEWORK_TOPOLOGICAL_HERSCH.md`** | fourth session: topological Hersch (degree obstruction on $E_1$), certification targets, signature survey, degree lattice |
 | **`topo_hersch.py`, `topo_hersch_extras.py`, `topo_hersch_output.txt`** | TH constants on the full curve (FEM), $\wedge^3$ table, sharpened $\kappa$, thresholds; outputs |
 | **`signatures_spectrum.py`** | coarse $\lambda_1$ for every faithful $A_7$-curve of a given triangle signature (general $(p,q,r)$ tiling) |
+| **`hilbert13/ladder/VERIFICATION.md`** | fifth session: claim-by-claim verification report (proof audit, exact checks, certificates, what is still numerical) |
+| **`verify_exact.py`** | exact character computations behind TH ($\wedge^3$, $\wedge^2$, induced modules, quotient multiplicities) |
+| **`certify_th.py`, `certify_th_output.txt`** | certified TH eigenvalue inputs: verified-$LDL^T$ count on $Q_1$, $C/S_5$ upper bound, $C/A_6$ lower bound |
+| **`certify_signatures.py`, `certify_signatures_output.txt`** | certified $\lambda_1$ for all 24 curves of the ten other rigid signatures (general $(p,q,r)$ in `certify.ref_triangle_arb`) |
 
 ## 3. The task (the user's ladder)
 
@@ -91,6 +95,17 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+**Fifth session (2026-10-01): verification** (`VERIFICATION.md`).
+- **Certified:** $\operatorname{gon}\ge25$ for all 70 $A_7$-classes of the ten rigid signatures other than $(2,4,7)$, and for $(2,4,7)$
+  classes 12, 14 ($Q_1$ at $n=128$: $\lambda_1\ge0.355696$).
+- **Classes 0, 1:** the TH theorem is audited [P]. Its eigenvalue inputs are certified: $E_1$ is one copy of $14_{(5,2)}$,
+  $\lambda_1\in[0.34089,0.36318]$, and $\lambda'\ge0.55998$, via a new verified $LDL^T$ inertia count.
+- **Only $\kappa$ and $\Lambda$ remain numerical**, with 3.5% tolerance. So $\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ reduces to those two
+  constants, plus GPT's $g\ge336$ algebra [cited].
+- **Correction.** The fourth-session survey overestimated several $\lambda_1$; the certified table supersedes it.
+- **Next.** Certify $\kappa$ and $\Lambda$ (TH doc §5.3, `QUESTIONS_FOR_GPT.md` Round 4, Q2). Optionally sharpen $\lambda_1$ for classes
+  0, 1 (0.344 gives 22% tolerance).
 
 **Fourth session (2026-09-30): topological Hersch** (`FRAMEWORK_TOPOLOGICAL_HERSCH.md`).
 - **New mechanism [P].** $\deg x$ is the cubic $T(x)=\int x\cdot(x_s\times x_t)$. On $E_1\otimes\mathbb R^3$ it is an invariant alternating 3-form,

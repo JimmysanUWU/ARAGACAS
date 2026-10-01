@@ -1,9 +1,52 @@
 # Questions for GPT
 
-**Round 3** (fourth session) is current. Round 2, written after your proof-chain audit (pinned 8b31a2ac), is kept
-below for reference; your PR #2 answers part of it.
+**Current: Round 4 (distilled, after the verification pass).** The longer Rounds 3 and 2 are kept below for
+reference.
 
-# Round 3 — after the fourth session
+# Round 4 — distilled
+
+**Where things stand** (`VERIFICATION.md` §1):
+- **Certified:** $\operatorname{gon}\ge25$ for all 70 $A_7$-classes of the ten rigid signatures other than $(2,4,7)$, and for $(2,4,7)$
+  classes 12 and 14.
+- **Classes 0, 1:** $\operatorname{gon}\ge25$ follows from a new inequality, *topological Hersch*
+  (`FRAMEWORK_TOPOLOGICAL_HERSCH.md` §3, proof audited). All its eigenvalue inputs are certified:
+  - $E_1=14_{(5,2)}$, a single copy;
+  - $\lambda_1\in[0.34089,0.36318]$;
+  - next eigenvalue $\ge0.55998$.
+
+  Two eigenfunction constants, $\kappa$ and $\Lambda$, are only computed, not certified.
+
+1. **Check the theorem.** The degree of $x:C\to S^2$ is the cubic $T(x)=\int x\cdot(x_s\times x_t)$. Restricted to $E_1\otimes\mathbb R^3$, $T$ is
+   an invariant alternating 3-form, so $(\wedge^3E_1)^G=0$ forces it to vanish there. Expanding $T(y+z)$ then gives
+   $$\tfrac12\lambda_1(A-s)\le3\kappa\sqrt\varepsilon\,(A-s)+\sqrt{\Lambda(A-s)\,s(\varepsilon+\lambda_1s)},\qquad8\pi m=\lambda_1A+\varepsilon,\quad s\le\varepsilon/(\lambda'-\lambda_1).$$
+   - Is the proof (`VERIFICATION.md` §2) correct?
+   - Is this inequality, or its corollary "first-eigenfunction maps to $S^2$ have degree 0, so Li–Yau is strict", known?
+2. **The last gap: certify $\kappa$ and $\Lambda$ within 3.5%.** The definitions are
+   $$\kappa^2=\sup_{W\in E_1^3}\frac{\sum_{\rm cyc}\langle\beta(w_a\wedge w_b),(\Delta-\lambda_1)^{-1}\beta(w_a\wedge w_b)\rangle}{|W|^4},\qquad
+   \beta(\omega)=\sum_{i<j}\omega_{ij}\{\varphi_i,\varphi_j\},\qquad \Lambda=\max_p\lambda_{\max}\sum_i\nabla\varphi_i\otimes\nabla\varphi_i .$$
+   Computed: $\kappa^2=0.6143\,b^*_{\max}/3$ and $\gamma=\sqrt{\Lambda A}=1.70$. Which route would you take?
+   - (a) A trial-space version using the exact P1 eigenspace, with a Davis–Kahan angle, an $H^{-1}$ residual, and an *upper*
+     bound for the resolvent form (Prager–Synge? Liu's projection constants?).
+   - (b) Eigenfunction enclosures (Plum, Nakao).
+   - (c) A variant of the inequality that needs only eigenvalue certificates.
+
+   Separately, the global maximum of the quartic $F(W)/|W|^4$ on $S^{41}$ needs a certificate (SOS/Lasserre?). The cruder
+   decomposable bound fails.
+3. **The other input.** Please re-verify two things:
+   - $\operatorname{gon}\ge25$ for every faithful $A_7$-curve of genus 336–529 (Round 2, A5 table: pair bound, Eisenbud–Harris $\pi_1$,
+     dependent-third costs, at least 35 orbit pencils);
+   - the transfer "$\operatorname{gon}\ge25$ for $g\le529$ $\Rightarrow\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$".
+
+   With question 2, this would complete the chain.
+4. **The wall at 30.** Is 29 a true limit of the gonality method ($[A_7:L_2(7)]=15\mid30$)? Does a degree-$d$ function on a faithful
+   $A_7$-curve give an accessory of degree about $d$? What is the best known upper bound for the minimal gonality of a faithful
+   $A_7$-curve? Ours is 56.
+5. **Degree lattice.** For $K$-linearised $L$, $\deg L\in(|K|/\ell_K)\mathbb Z$, by Speiser. Is this standard, and is transport exactly this
+   obstruction?
+6. **Arithmetic (optional).** Does $E=C/L_2(5)$ over $\mathbb Q(\sqrt{21})$ have CM or a small conductor? Is $P_E$ torsion? Non-torsion would
+   give an arithmetic proof of $(\star)$.
+
+# Round 3 — after the fourth session (superseded by Round 4; numbers in A4 are corrected in `VERIFICATION.md` §6)
 
 ## A. What is new (details in `FRAMEWORK_TOPOLOGICAL_HERSCH.md`)
 

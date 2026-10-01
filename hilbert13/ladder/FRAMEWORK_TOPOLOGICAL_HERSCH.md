@@ -26,18 +26,18 @@ $\le0.2\%$.
   expanding $T$ shows that it can only gain degree at rate $O(\sqrt\varepsilon)$.
 - This forces $\varepsilon$ to be large, i.e. $8\pi m$ to exceed $\lambda_1A$ by a definite amount.
 
-**The result [N].** For $(2,4,7)$ classes 0 and 1 the inequality excludes $m=24$ with a clear margin (at $n=12$:
-right side 233 against 301.6 needed, worst case over all admissible maps). Together with hyperbolic Li–Yau
-for classes 12 and 14 ($67.5\cdot0.3597=24.28$), this gives
-$$\operatorname{gon}(C)\ \ge\ 25\qquad\text{for every }(2,4,7)\ A_7\text{-curve (numerically).}$$
-This is the first bound past the $23.37$ barrier, and it closes, numerically, the hardest row of the frontier
-for $\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ (`FRAMEWORK_CONFORMAL.md` D5).
+**The result.** For $(2,4,7)$ classes 0 and 1 the inequality excludes $m=24$ with a clear margin (at $n=12$: right
+side 233 against 301.6 needed, worst case over all admissible maps). Classes 12 and 14 reach 24.28 by hyperbolic
+Li–Yau. Together:
+$$\operatorname{gon}(C)\ \ge\ 25\qquad\text{for every }(2,4,7)\ A_7\text{-curve.}$$
+This is the first bound past the $23.37$ barrier.
 
-**Rigour.** The eigenvalue inputs are already essentially certified:
-- the existing $\lambda_1\ge0.34089$ suffices;
-- one more eigenvalue bound is needed, $\lambda'\ge0.55$, where $\lambda'\approx0.5715$ is the next eigenvalue.
-
-What remains is to certify two eigenfunction constants, $\kappa$ and $\Lambda$ of §3. §5 gives a concrete route.
+**Rigour** (fifth session; see `VERIFICATION.md`):
+- **Classes 12, 14:** certified ($\lambda_1\ge0.355696$).
+- **Classes 0, 1:** the theorem is checked on paper. All eigenvalue inputs are certified: $E_1$ is one copy of $14_{(5,2)}$,
+  $\lambda_1\in[0.34089,0.36318]$, and $\lambda'\ge0.55998$. Only the two eigenfunction constants $\kappa$ and $\Lambda$ of §3 remain
+  numerical. They may exceed their computed values by up to 3.5%.
+- **The ten other rigid signatures:** certified to have $\operatorname{gon}\ge25$ (§6).
 
 ## 1. The cubic form
 
@@ -201,7 +201,8 @@ $\kappa$ and $\sqrt\Lambda$ can be inflated by a common factor:
 
 So a slightly sharper $\lambda_1$ certificate buys a comfortable 20% tolerance for the eigenfunction constants.
 
-**The items.**
+**The items.** *(Fifth session: items 1 and the isotype identification are done, in `VERIFICATION.md` §4. With them,
+the tolerance on $\kappa$ and $\sqrt\Lambda$ is 3.5%.)*
 1. **$\lambda'\ge0.55$** is the second eigenvalue of $Q_1$ (the $21$). $Q_2\ge0.689$ and $Q_0\ge0.998$ are already certified.
    The CR lower bound (Liu) holds for the $k$-th eigenvalue. The count needs one extra step. Positive
    definiteness of $K-\sigma M+\rho\,(Mv)(Mv)^T$, for an approximate eigenvector $v$, proves that at most one discrete
@@ -220,38 +221,18 @@ So a slightly sharper $\lambda_1$ certificate buys a comfortable 20% tolerance f
    - $\kappa_h$ needs an *upper* bound on the resolvent form $\langle f,(\Delta-\lambda_1)^{-1}f\rangle$. The CR/Liu projection-error
      constants give it; the crude isotypic bound $1/(\mu_\sigma-\lambda_1)$ loses a factor of about 3.6 and is not enough.
 
-## 6. Survey of the other rigid signatures [N]
+## 6. The other rigid signatures [C]
 
-**Method.** `signatures_spectrum.py` handles a general $(p,q,r)$ triangle: the angle $\pi/p$ at $A$, with the same
-identity-gluing chart. It enumerates generating pairs up to $S_7$-conjugation and mirror image. The counts of
-$A_7$-classes reproduce the audit's list exactly. $\lambda_1$ is the P1 value at $n=4$ divided by $1.0105$ (the overshoot
-measured on $(2,4,7)$ and $(3,3,5)$), accurate to about 1%. The multiplicity identifies the isotype. The threshold for
-$\operatorname{gon}\ge25$ is $48/(g-1)$.
+**Superseded.** The fourth-session survey (P1 at $n=4$, divided by $1.0105$) overestimated several $\lambda_1$. The calibration
+does not transfer between triangles.
 
-| signature | $g$ | threshold | curves [$A_7$-classes] | $\lambda_1$ (multiplicity) per curve | Li–Yau $\operatorname{gon}\ge$ (worst curve) |
-|---|---|---|---|---|---|
-| $(2,4,7)$ | 136 | 0.3556 | 2 [4] | 0.3463 (14), 0.3597 (14) | 23.37 → **TH**; 24.28 |
-| $(3,3,5)$ | 169 | 0.2857 | 1 [2] | 0.3825 (20) | 32.1 |
-| $(2,5,7)$ | 199 | 0.2424 | 2 [4] | 0.379 (21), 0.2865 (15) | 28.4 |
-| $(3,3,6)$ | 211 | 0.2286 | 1 [2] | 0.398 (20) | 41.8 |
-| $(3,4,4)$ | 211 | 0.2286 | 2 [8] | 0.2716 (15), 0.327 (21) | 28.5 |
-| $(2,6,7)$ | 241 | 0.2000 | 2 [4] | 0.2975 (14), 0.2885 (15) | 34.6 |
-| $(3,3,7)$ | 241 | 0.2000 | 2 [4] | 0.3049 (15), 0.3048 (15) | 36.6 |
-| $(2,7,7)$ | 271 | 0.1778 | 3 [6] | 0.290 (15), 0.2489 (15), 0.378 (15) | 33.6 |
-| $(3,4,5)$ | 274 | 0.1758 | 3 [10] | 0.3298 (21), 0.2925 (20), 0.3291 (21) | 39.9 |
-| $(3,4,6)$ | 316 | 0.1524 | 2 [6] | 0.295 (15), 0.375 ($\ge21$) | 46.5 |
-| $(4,4,4)$ | 316 | 0.1524 | 6 [24] | 0.313–0.314 ($\ge21$) each | 49.3 |
+**Certified version** (`certify_signatures.py`, `certify_signatures_output.txt`, `VERIFICATION.md` §6).
+- Each of the 24 curves is certified by $Q_0,Q_1,Q_2$ on its own $(p,q,r)$ tiling at $n=24$. These cover all 70 $A_7$-classes.
+- Every curve satisfies $\lambda_1>48/(g-1)$, hence $\operatorname{gon}\ge25$.
+- The tightest rows are $(2,5,7)$ ($\lambda_1\ge0.2607$ against $0.2424$) and $(3,4,4)$ ($0.2481$ against $0.2286$).
 
-($\ge21$: the cluster is cut off by the 24 computed eigenvalues.)
-
-**Conclusion [N].** Every one of the other ten signatures passes plain Li–Yau for $\operatorname{gon}\ge25$. The margins are
-between 18% and 105%; the tightest are $(2,5,7)$ ($0.2865$ against $0.2424$) and $(3,4,4)$ ($0.2716$ against
-$0.2286$). The $(2,4,7)$ certificate lost only 1.6% to discretisation. So these rows need only the existing
-certificate, generalised to the $(p,q,r)$ triangle. The worst row of the whole frontier is $(2,4,7)$ classes 0, 1, the
-only one that needs TH.
-
-Together with the algebraic range $g\ge336$ (`FRAMEWORK_CONFORMAL.md` D5, pending GPT's check), this says, numerically:
-$$\operatorname{gon}(C)\ge25\ \text{for every faithful }A_7\text{-curve of genus}\le529,\qquad\text{hence}\qquad \mathrm{ed}_{\mathbb C}(A_7;\le29)>1 .$$
+Together with GPT's algebraic range $g\ge336$ (`FRAMEWORK_CONFORMAL.md` D5, not re-verified), this reduces
+$\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ to certifying $\kappa$ and $\Lambda$ for $(2,4,7)$ classes 0, 1.
 
 ## 7. The invariant degree lattice [P]
 

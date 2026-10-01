@@ -294,6 +294,9 @@ $\operatorname{gon}\ge25$:
 
 For $g\le289$ this list reproduces the audit's page-7 table exactly.
 
+*(Superseded, sixth session: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ holds outright by GPT's linearised-degree theorem; see
+`ACCESSORY_60.md`. The gonality question below remains open as a separate problem.)*
+
 *The program.* $\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ reduces to $\operatorname{gon}\ge25$ on these 11 signatures. For $(2,4,7)$:
 - classes 12 and 14 need a finer hyperbolic certificate, since $\lambda_1\approx0.3597>0.3556$;
 - classes 0 and 1 need the D3 conformal gain.

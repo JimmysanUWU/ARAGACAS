@@ -231,8 +231,9 @@ does not transfer between triangles.
 - Every curve satisfies $\lambda_1>48/(g-1)$, hence $\operatorname{gon}\ge25$.
 - The tightest rows are $(2,5,7)$ ($\lambda_1\ge0.2607$ against $0.2424$) and $(3,4,4)$ ($0.2481$ against $0.2286$).
 
-Together with GPT's algebraic range $g\ge336$ (`FRAMEWORK_CONFORMAL.md` D5, not re-verified), this reduces
-$\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ to certifying $\kappa$ and $\Lambda$ for $(2,4,7)$ classes 0, 1.
+**Scope (sixth session).** The ed question is settled at 60 by a different mechanism (`ACCESSORY_60.md`), so this
+section and topological Hersch now concern gonality only. Combined with GPT's algebra for $g\ge266$, $\operatorname{gon}\ge25$ holds for
+every faithful $A_7$-curve except possibly $(2,4,7)$ classes 0, 1. There it holds modulo certifying $\kappa$ and $\Lambda$.
 
 ## 7. The invariant degree lattice [P]
 

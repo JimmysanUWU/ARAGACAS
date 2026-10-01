@@ -51,6 +51,8 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`topo_hersch.py`, `topo_hersch_extras.py`, `topo_hersch_output.txt`** | TH constants on the full curve (FEM), $\wedge^3$ table, sharpened $\kappa$, thresholds; outputs |
 | **`signatures_spectrum.py`** | coarse $\lambda_1$ for every faithful $A_7$-curve of a given triangle signature (general $(p,q,r)$ tiling) |
 | **`hilbert13/ladder/VERIFICATION.md`** | fifth session: claim-by-claim verification report (proof audit, exact checks, certificates, what is still numerical) |
+| **`hilbert13/ladder/ACCESSORY_60.md`, `verify_accessory60.py`** | GPT's (DAY 2) theorem $a(A_7)=60$: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, $\mathrm{ed}_{\mathbb C}(A_7;\le60)=1$; our verification and exact checks |
+| `hilbert13/ladder/gpt/DAY_2_A7_Mathematical_Reference.pdf` | GPT's consolidated reference (1 October 2026), the source of the 60 theorem |
 | **`verify_exact.py`** | exact character computations behind TH ($\wedge^3$, $\wedge^2$, induced modules, quotient multiplicities) |
 | **`certify_th.py`, `certify_th_output.txt`** | certified TH eigenvalue inputs: verified-$LDL^T$ count on $Q_1$, $C/S_5$ upper bound, $C/A_6$ lower bound |
 | **`certify_signatures.py`, `certify_signatures_output.txt`** | certified $\lambda_1$ for all 24 curves of the ten other rigid signatures (general $(p,q,r)$ in `certify.ref_triangle_arb`) |
@@ -95,6 +97,16 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+**Sixth session (2026-10-01): the ed question is settled.**
+- **The theorem.** GPT's DAY-2 reference proves $a(A_7)=60$ via the *linearised moving degree* $\mu$. The argument has three parts:
+  - a correspondence divisor gives a linearised bundle;
+  - the degree lattice $N_G\mathbb Z$ (our Lemma 7.1);
+  - Castelnuovo in $\mathbb P^{\ge5}$, then induction over subgroups. The minimum is attained by $L_2(7)$ with the Klein quartic.
+- **Verified here.** The proofs are re-derived and the arithmetic is checked exactly (`ACCESSORY_60.md`, `verify_accessory60.py`).
+- **Consequence.** $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ needs no gonality or spectral input. Gonality, including topological Hersch and the
+  certificates, is now a separate track.
+- **Open on that track.** Only $(2,4,7)$ classes 0, 1 lack a complete proof of $\operatorname{gon}\ge25$; what is missing is $\kappa$, $\Lambda$.
 
 **Fifth session (2026-10-01): verification** (`VERIFICATION.md`).
 - **Certified:** $\operatorname{gon}\ge25$ for all 70 $A_7$-classes of the ten rigid signatures other than $(2,4,7)$, and for $(2,4,7)$

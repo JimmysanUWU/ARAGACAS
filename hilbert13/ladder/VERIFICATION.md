@@ -25,10 +25,10 @@ This report re-checks every claim of `FRAMEWORK_TOPOLOGICAL_HERSCH.md` and of th
 | Conformal ceiling (Proposition E1) | [P✓]; its numbers are [N] |
 | Degree lattice (Lemma 7.1) | [P✓]; the transport degrees 1296 and 216 are [cited] |
 
-**Consequence.** $\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ now rests on three things:
-1. certified upper bounds on the two constants $\kappa$, $\Lambda$ for classes 0, 1, within 3.5% of their computed values (§5);
-2. GPT's algebraic range $\operatorname{gon}\ge25$ for $g\ge336$ and the transfer argument (`FRAMEWORK_CONFORMAL.md` D5) [cited];
-3. the classical inputs of §8.
+**Consequence (updated, sixth session).** The ed question no longer depends on any of this. GPT's DAY-2 theorem
+$a(A_7)=60$ (`ACCESSORY_60.md`, verified) gives $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ with no gonality input. The results here now
+serve the separate gonality question. The only gap left for $\operatorname{gon}(C)\ge25$ on every faithful $A_7$-curve is the
+pair $\kappa$, $\Lambda$ for $(2,4,7)$ classes 0, 1. GPT's algebra covers $g\ge266$.
 
 ## 2. Topological Hersch: proof audit [P✓]
 

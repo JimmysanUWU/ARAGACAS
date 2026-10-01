@@ -311,7 +311,7 @@ mediant of their Rayleigh quotients,
 $$\lambda_1(hg)\le\frac{\sum_i\int|\nabla\varphi_i|^2}{\sum_i\int h\varphi_i^2}=\frac{14\lambda_1}{\tfrac{14}A\int h\bar F}\le\frac{\lambda_1A}{\min\bar F\int h} .$$
 $\blacksquare$
 
-**Numbers [N]** (`conformal.py` of the session; $Q_1$ eigenvector, $n=16$):
+**Numbers [N]** (`conformal.py 16 t 0`; $Q_1$ eigenvector, $n=16$):
 - classes 0, 1: $\bar F\in[0.998,1.001]$, so the gain is at most $0.2\%$ (bound $\le23.44$);
 - classes 12, 14: $\bar F\in[0.994,1.004]$, so the gain is at most $0.6\%$.
 

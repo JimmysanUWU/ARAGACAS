@@ -55,6 +55,8 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | `hilbert13/ladder/gpt/DAY_2_A7_Mathematical_Reference.pdf` | GPT's consolidated reference (1 October 2026), the source of the 60 theorem |
 | **`hilbert13/ladder/ROUND5_REVIEW.md`**, `gpt/A7_Round5_Advances.pdf` | review of GPT's Round-5 answers: harmonic Hersch, $72\le\mu(A_7)$, trial-space certificate; bug fix in `topo_hersch.py` |
 | **`equivariant_rr.py`, `equivariant_rr_general.py`** | holomorphic-Lefschetz equivariant Euler characteristics; prove $h^0(B+T)\ge10$ on $(2,4,7)$ curves, so $\mu(A_7)\le90$ |
+| **`hilbert13/ladder/MU90.md`, `verify_mu90.py`, `mu90_output.txt`** | **$\mu(A_7)=90$**: orbit-semigroup base loci, the spin model $10=\mathrm{Sym}^2V_4$ of $2.A_7<SU(4)$, the parity lemma, Halphen |
+| `equivariant_plucker.py` | equivariant Plucker test for $G$-stable linear series (always passes here; recorded as a negative tool) |
 | **`verify_exact.py`** | exact character computations behind TH ($\wedge^3$, $\wedge^2$, induced modules, quotient multiplicities) |
 | **`certify_th.py`, `certify_th_output.txt`** | certified TH eigenvalue inputs: verified-$LDL^T$ count on $Q_1$, $C/S_5$ upper bound, $C/A_6$ lower bound |
 | **`certify_signatures.py`, `certify_signatures_output.txt`** | certified $\lambda_1$ for all 24 curves of the ten other rigid signatures (general $(p,q,r)$ in `certify.ref_triangle_arb`) |
@@ -99,6 +101,14 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+**Eighth session (2026-10-01): $\mu(A_7)=90$** (`MU90.md`). Connected full-$A_7$ curve compression needs exactly degree 90; compare $a(A_7)=60$.
+The proof uses two frameworks:
+- **orbit-semigroup base loci:** invariant forms of degree $k$ with $kn$ outside the orbit semigroup vanish on the image;
+- **spin geometry of the 10:** $2.A_7<SU(4)$, $10=\mathrm{Sym}^2V_4$, rank stratification, and a parity lemma at branch points.
+
+What remains on the ladder: the gonality track (certify GPT's Thm 5.3 constants for $(2,4,7)$ classes 0, 1), arithmetic,
+and towers.
 
 **Seventh session (2026-10-01): Round-5 review** (`ROUND5_REVIEW.md`).
 - **GPT's answers are verified.** They give harmonic Hersch (56% tolerance, no quartic optimisation), $\mu(A_7)\ge72$, the

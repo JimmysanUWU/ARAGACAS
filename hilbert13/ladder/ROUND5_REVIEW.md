@@ -65,7 +65,9 @@ every $(2,4,7)$ curve**: $\mu_C(A_7)=90$, and
 $$72\le\mu(A_7)\le90,\qquad \mu(A_7)\in\{72,84,90\}.$$
 (By minimality, the complete series of $B+T$ is birational onto its image.)
 
-**72 and 84 stay open.**
+**72 and 84** (Round-5 review) were left open here. *They are now excluded: $\mu(A_7)=90$, see `MU90.md`.*
+
+**72 and 84 at the time of this review.**
 - The same test on every rigid signature carrying a lattice degree 72 or 84, namely $(2,5,7)$, $(3,5,7)$, $(4,5,7)$, $(5,5,7)$
   and $(3,4,5)$, $(3,5,6)$, $(4,5,6)$, $(5,5,6)$, $(5,6,6)$, $(5,6,7)$, gives $\chi$ with **no positive part** for every curve and every class.
 - This is inconclusive, not a refutation.

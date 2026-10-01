@@ -1,0 +1,193 @@
+0. Sym^2 V4 = {'10b': np.float64(1.0)}
+0. wedge^2 V4 = {'6': np.float64(1.0)}
+   det(lift) = 1 for all g: True
+
+== n = 72:  pi(n,5) = 595
+   (2, 5, 7) h=0 g=199 N=36 orbits=[360, 504, 1260, 2520] h0<=12 W in ['6', '10', '10b', '6+6']; forbidden k<10: [1, 2, 3, 4, 6, 8, 9]  [6: p2,p3,p4,p6 -> trinomial curve, deg 144]
+      curve [(5, 1, 1), (7,), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(5, 1, 1), (7,), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv -1: rank-1 killed at e=[7, 2], rank-3 killed at e=[7, 2]  -> OK
+      curve [(5, 1, 1), (7,), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv +1: rank-1 killed at e=[7, 2], rank-3 killed at e=[7, 2]  -> OK
+      curve [(5, 1, 1), (7,), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv -1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(2, 2, 1, 1, 1), (7,), (5, 1, 1)] D=(0, 3, -2) conv +1: rank-1 killed at e=[2, 7], rank-3 killed at e=[2, 7]  -> OK
+      curve [(2, 2, 1, 1, 1), (7,), (5, 1, 1)] D=(0, 3, -2) conv -1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(2, 2, 1, 1, 1), (7,), (5, 1, 1)] D=(0, 3, -2) conv +1: rank-1 killed at e=[2, 7], rank-3 killed at e=[2, 7]  -> OK
+      curve [(2, 2, 1, 1, 1), (7,), (5, 1, 1)] D=(0, 3, -2) conv -1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(2, 2, 1, 1, 1), (5, 1, 1), (7,)] D=(0, 3, -4) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(2, 2, 1, 1, 1), (5, 1, 1), (7,)] D=(0, 3, -4) conv -1: rank-1 killed at e=[2, 7], rank-3 killed at e=[2, 7]  -> OK
+      curve [(2, 2, 1, 1, 1), (5, 1, 1), (7,)] D=(0, 3, -4) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(2, 2, 1, 1, 1), (5, 1, 1), (7,)] D=(0, 3, -4) conv -1: rank-1 killed at e=[2, 7], rank-3 killed at e=[2, 7]  -> OK
+      curve [(7,), (2, 2, 1, 1, 1), (5, 1, 1)] D=(3, 0, -2) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(7,), (2, 2, 1, 1, 1), (5, 1, 1)] D=(3, 0, -2) conv -1: rank-1 killed at e=[7, 2], rank-3 killed at e=[7, 2]  -> OK
+      curve [(7,), (2, 2, 1, 1, 1), (5, 1, 1)] D=(3, 0, -2) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(7,), (2, 2, 1, 1, 1), (5, 1, 1)] D=(3, 0, -2) conv -1: rank-1 killed at e=[7, 2], rank-3 killed at e=[7, 2]  -> OK
+      curve [(5, 1, 1), (2, 2, 1, 1, 1), (7,)] D=(3, 0, -4) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(5, 1, 1), (2, 2, 1, 1, 1), (7,)] D=(3, 0, -4) conv -1: rank-1 killed at e=[2, 7], rank-3 killed at e=[2, 7]  -> OK
+      curve [(5, 1, 1), (2, 2, 1, 1, 1), (7,)] D=(3, 0, -4) conv +1: rank-1 killed at e=[2, 7], rank-3 killed at e=[2, 7]  -> OK
+      curve [(5, 1, 1), (2, 2, 1, 1, 1), (7,)] D=(3, 0, -4) conv -1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(7,), (5, 1, 1), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(7,), (5, 1, 1), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv -1: rank-1 killed at e=[7, 2], rank-3 killed at e=[7, 2]  -> OK
+      curve [(7,), (5, 1, 1), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv +1: rank-1 killed at e=[2], rank-3 killed at e=[2]  -> OK
+      curve [(7,), (5, 1, 1), (2, 2, 1, 1, 1)] D=(3, 3, -2) conv -1: rank-1 killed at e=[7, 2], rank-3 killed at e=[7, 2]  -> OK
+   (3, 5, 7) h=0 g=409 N=24 orbits=[360, 504, 840, 2520] h0<=7 W in ['6']; forbidden k<10: [1, 2, 3, 4, 6, 8, 9]  [6: p2,p3,p4,p6 -> trinomial curve, deg 144]
+   (4, 5, 7) h=0 g=514 N=18 orbits=[360, 504, 630, 2520] h0<=6 W in ['6']; forbidden k<10: [1, 2, 3, 4, 6, 8, 9]  [6: p2,p3,p4,p6 -> trinomial curve, deg 144]
+   (5, 5, 7) h=0 g=577 N=72 orbits=[360, 504, 2520] h0<=6 W in ['6']; forbidden k<10: [1, 2, 3, 4, 6, 8, 9]  [6: p2,p3,p4,p6 -> trinomial curve, deg 144]
+
+== n = 78:  pi(n,5) = 703
+
+== n = 84:  pi(n,5) = 820
+   (3, 4, 5) h=0 g=274 N=42 orbits=[504, 630, 840, 2520] h0<=12 W in ['6', '10', '10b', '6+6']; forbidden k<10: [1, 2, 3, 4, 5, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+      curve [(4, 2, 1), (3, 3, 1), (5, 1, 1)] D=(2, 1, -4) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (3, 3, 1), (5, 1, 1)] D=(2, 1, -4) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (3, 3, 1), (5, 1, 1)] D=(2, 1, -4) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (3, 3, 1), (5, 1, 1)] D=(2, 1, -4) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (3, 3, 1), (5, 1, 1)] D=(2, 1, -4) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (3, 3, 1), (5, 1, 1)] D=(2, 1, -4) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (5, 1, 1), (3, 3, 1)] D=(2, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (5, 1, 1), (3, 3, 1)] D=(2, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (5, 1, 1), (3, 3, 1)] D=(2, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (5, 1, 1), (3, 3, 1)] D=(2, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (5, 1, 1), (3, 3, 1)] D=(2, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(4, 2, 1), (5, 1, 1), (3, 3, 1)] D=(2, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (4, 2, 1), (5, 1, 1)] D=(1, 2, -4) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (4, 2, 1), (5, 1, 1)] D=(1, 2, -4) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (4, 2, 1), (5, 1, 1)] D=(1, 2, -4) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (4, 2, 1), (5, 1, 1)] D=(1, 2, -4) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (4, 2, 1), (5, 1, 1)] D=(1, 2, -4) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (4, 2, 1), (5, 1, 1)] D=(1, 2, -4) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (4, 2, 1), (3, 3, 1)] D=(1, 2, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (4, 2, 1), (3, 3, 1)] D=(1, 2, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (4, 2, 1), (3, 3, 1)] D=(1, 2, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (4, 2, 1), (3, 3, 1)] D=(1, 2, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (4, 2, 1), (3, 3, 1)] D=(1, 2, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (4, 2, 1), (3, 3, 1)] D=(1, 2, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (4, 2, 1)] D=(1, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (4, 2, 1)] D=(1, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (4, 2, 1)] D=(1, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (4, 2, 1)] D=(1, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (4, 2, 1)] D=(1, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (4, 2, 1)] D=(1, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (4, 2, 1)] D=(1, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (4, 2, 1)] D=(1, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (4, 2, 1)] D=(1, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (4, 2, 1)] D=(1, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (4, 2, 1)] D=(1, 1, -2) conv +1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (4, 2, 1)] D=(1, 1, -2) conv -1: rank-1 killed at e=[4], rank-3 killed at e=[4]  -> OK
+   (3, 5, 6) h=0 g=379 N=84 orbits=[420, 504, 840, 2520] h0<=10 W in ['6', '10', '10b']; forbidden k<10: [1, 2, 3, 4, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 0, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 0, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 1, -3) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 1, -3) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 2, -5) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 2, -5) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 0, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 0, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 1, -3) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 1, -3) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 2, -5) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 2, -5) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 0, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 0, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 1, -3) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 1, -3) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 2, -5) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 3, 1), (3, 2, 2)] D=(1, 2, -5) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(0, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(0, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(1, 1, -3) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(1, 1, -3) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(2, 1, -5) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(2, 1, -5) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(0, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(0, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(1, 1, -3) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(1, 1, -3) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(2, 1, -5) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(2, 1, -5) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(0, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(0, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(1, 1, -3) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(1, 1, -3) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(2, 1, -5) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (5, 1, 1), (3, 2, 2)] D=(2, 1, -5) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(1, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(1, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(3, 1, -2) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(3, 1, -2) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(5, 1, -3) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(5, 1, -3) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(1, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(1, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(3, 1, -2) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(3, 1, -2) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(5, 1, -3) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(5, 1, -3) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(1, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(1, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(3, 1, -2) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(3, 1, -2) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(5, 1, -3) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (5, 1, 1), (3, 3, 1)] D=(5, 1, -3) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(1, 2, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(1, 2, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(3, 1, -4) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(3, 1, -4) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(5, 0, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(5, 0, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(1, 2, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(1, 2, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(3, 1, -4) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(3, 1, -4) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(5, 0, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(5, 0, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(1, 2, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(1, 2, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(3, 1, -4) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(3, 1, -4) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(5, 0, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 2, 2), (3, 3, 1), (5, 1, 1)] D=(5, 0, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(0, 5, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(0, 5, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(1, 3, -4) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(1, 3, -4) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(2, 1, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(2, 1, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(0, 5, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(0, 5, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(1, 3, -4) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(1, 3, -4) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(2, 1, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(2, 1, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(0, 5, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(0, 5, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(1, 3, -4) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(1, 3, -4) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(2, 1, -4) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(3, 3, 1), (3, 2, 2), (5, 1, 1)] D=(2, 1, -4) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 3, -2) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 3, -2) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 5, -3) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 5, -3) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 3, -2) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 3, -2) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 5, -3) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 5, -3) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 1, -1) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 1, -1) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 3, -2) conv +1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 3, -2) conv -1: rank-1 killed at e=[6, 'Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 5, -3) conv +1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+      curve [(5, 1, 1), (3, 2, 2), (3, 3, 1)] D=(1, 5, -3) conv -1: rank-1 killed at e=['Halphen'], rank-3 killed at e=[6]  -> OK
+   (4, 5, 6) h=0 g=484 N=42 orbits=[420, 504, 630, 2520] h0<=8 W in ['6']; forbidden k<10: [1, 2, 3, 4, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+   (5, 5, 6) h=0 g=547 N=84 orbits=[420, 504, 2520] h0<=7 W in ['6']; forbidden k<10: [1, 2, 3, 4, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+   (5, 6, 6) h=0 g=589 N=84 orbits=[420, 504, 2520] h0<=7 W in ['6']; forbidden k<10: [1, 2, 3, 4, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+   (5, 6, 7) h=0 g=619 N=12 orbits=[360, 420, 504, 2520] h0<=7 W in ['6']; forbidden k<10: [1, 2, 3, 4, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+   (2, 2, 3, 5) h=0 g=589 N=84 orbits=[504, 840, 1260, 2520] h0<=7 W in ['6']; forbidden k<10: [1, 2, 3, 4, 5, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+   (2, 2, 5, 6) h=0 g=799 N=84 orbits=[420, 504, 1260, 2520] h0<=6 W in ['6']; forbidden k<10: [1, 2, 3, 4, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+   (2, 3, 3, 5) h=0 g=799 N=84 orbits=[504, 840, 1260, 2520] h0<=6 W in ['6']; forbidden k<10: [1, 2, 3, 4, 5, 7, 8, 9]  [6: p2,p3,p4,p7 -> e7 = 0]
+
+unresolved (curve ordering, class, convention): []
+all checks passed: no linearised moving bundle of degree 72, 78 or 84; with 72 <= mu <= 90 (Round 5, equivariant_rr.py): mu(A7) = 90

@@ -11,7 +11,7 @@ replaces our inequality.
 $h^0(B+T)\ge10$, and $\mu(A_7)\in\{72,84,90\}$ (`equivariant_rr.py`). On every rigid signature with lattice degree 72 or 84 the same
 $\chi$ has no positive part.
 
-1. **$\mu(A_7)$.** How would you decide degree 72 on the $(2,5,7)$ curves (the unique class $3D_5-4D_7$) and degree 84 on $(3,4,5)$?
+1. *(Answered by us since: $\mu(A_7)=90$, `MU90.md` — please audit it.)* **$\mu(A_7)$.** How would you decide degree 72 on the $(2,5,7)$ curves (the unique class $3D_5-4D_7$) and degree 84 on $(3,4,5)$?
    Possible routes: a lower bound on $h^1$, Clifford/Castelnuovo with the 10-dimensional or 6-dimensional section
    representation, or a Brill–Noether-type vanishing for invariant classes. Is $h^0(B)>0$ for the other degree-90 class?
 2. **Certification of Thm 5.3.** Any refinement before we implement it? In particular: the S5-quotient trial space and its

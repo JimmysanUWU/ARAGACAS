@@ -53,6 +53,8 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`hilbert13/ladder/VERIFICATION.md`** | fifth session: claim-by-claim verification report (proof audit, exact checks, certificates, what is still numerical) |
 | **`hilbert13/ladder/ACCESSORY_60.md`, `verify_accessory60.py`** | GPT's (DAY 2) theorem $a(A_7)=60$: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, $\mathrm{ed}_{\mathbb C}(A_7;\le60)=1$; our verification and exact checks |
 | `hilbert13/ladder/gpt/DAY_2_A7_Mathematical_Reference.pdf` | GPT's consolidated reference (1 October 2026), the source of the 60 theorem |
+| **`hilbert13/ladder/ROUND5_REVIEW.md`**, `gpt/A7_Round5_Advances.pdf` | review of GPT's Round-5 answers: harmonic Hersch, $72\le\mu(A_7)$, trial-space certificate; bug fix in `topo_hersch.py` |
+| **`equivariant_rr.py`, `equivariant_rr_general.py`** | holomorphic-Lefschetz equivariant Euler characteristics; prove $h^0(B+T)\ge10$ on $(2,4,7)$ curves, so $\mu(A_7)\le90$ |
 | **`verify_exact.py`** | exact character computations behind TH ($\wedge^3$, $\wedge^2$, induced modules, quotient multiplicities) |
 | **`certify_th.py`, `certify_th_output.txt`** | certified TH eigenvalue inputs: verified-$LDL^T$ count on $Q_1$, $C/S_5$ upper bound, $C/A_6$ lower bound |
 | **`certify_signatures.py`, `certify_signatures_output.txt`** | certified $\lambda_1$ for all 24 curves of the ten other rigid signatures (general $(p,q,r)$ in `certify.ref_triangle_arb`) |
@@ -97,6 +99,13 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+**Seventh session (2026-10-01): Round-5 review** (`ROUND5_REVIEW.md`).
+- **GPT's answers are verified.** They give harmonic Hersch (56% tolerance, no quartic optimisation), $\mu(A_7)\ge72$, the
+  power-sum curve ($\mu\le120$), $a(A_6)=12$, a trial-space certificate, and a real bug found in `topo_hersch.py` (fixed).
+- **New here.** Equivariant Riemann–Roch shows $h^0(B+T)\ge10$ on every $(2,4,7)$ curve, so $\mu(A_7)\in\{72,84,90\}$.
+- **Next.** Certify Thm 5.3's four bounds (classes 0, 1). Decide $\mu(A_7)$: are 72 and 84 attained? The $\chi$-test there is
+  inconclusive.
 
 **Sixth session (2026-10-01): the ed question is settled.**
 - **The theorem.** GPT's DAY-2 reference proves $a(A_7)=60$ via the *linearised moving degree* $\mu$. The argument has three parts:

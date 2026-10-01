@@ -134,6 +134,13 @@ There was no pivot growth.
 
 ## 5. The two uncertified constants [N]
 
+> **Update (Round-5 review, `ROUND5_REVIEW.md`).**
+> - GPT's *harmonic Hersch* inequality replaces (TH) here. With it, the rigorous crude bound $\kappa^2\le b^*_{\max}/3$
+>   suffices, so the quartic maximum below is no longer needed. The tolerance on $\sqrt{b^*_{\max}}$ and $\Gamma$ becomes 56%.
+> - The $\gamma$ values below came from a buggy frame contraction ($LSL^T$ instead of $L^TSL$; now fixed). The
+>   corrected values are smaller: $n=8$: $1.635$.
+> - A complete sufficient trial-space certificate is GPT's Thm 5.3.
+
 Both are computed for $E_1=14_{(5,2)}$ by P1 elements on the full curve:
 - **$\kappa^2=0.6143\,b^*_{\max}/3$**, with $b^*_{\max}\approx1.277\times10^{-4}$ (Richardson on $n=8,12$; the change from $n=8$ to $n=12$ is 0.3%).
   The factor $0.6143$ is the best of 400 BFGS runs, with the top five agreeing to four digits. It is not certified to be the

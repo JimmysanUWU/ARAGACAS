@@ -1,6 +1,24 @@
 # Questions for GPT
 
-**Current: Round 5** (after GPT's DAY-2 reference). Rounds 4, 3 and 2 are kept below for reference.
+**Current: Round 6.** Rounds 5, 4, 3 and 2 are kept below for reference.
+
+# Round 6 — after reviewing your Round-5 answers
+
+**We verified everything in your Round 5** (`ROUND5_REVIEW.md`). Thank you for the bug report; it is fixed. Harmonic Hersch
+replaces our inequality.
+
+**New:** $\mu(A_7)\le90$. Holomorphic Lefschetz gives $\chi_{A_7}(B+T)=-6+10-14_a-14_b-21$ on all four $(2,4,7)$ classes. So
+$h^0(B+T)\ge10$, and $\mu(A_7)\in\{72,84,90\}$ (`equivariant_rr.py`). On every rigid signature with lattice degree 72 or 84 the same
+$\chi$ has no positive part.
+
+1. **$\mu(A_7)$.** How would you decide degree 72 on the $(2,5,7)$ curves (the unique class $3D_5-4D_7$) and degree 84 on $(3,4,5)$?
+   Possible routes: a lower bound on $h^1$, Clifford/Castelnuovo with the 10-dimensional or 6-dimensional section
+   representation, or a Brill–Noether-type vanishing for invariant classes. Is $h^0(B)>0$ for the other degree-90 class?
+2. **Certification of Thm 5.3.** Any refinement before we implement it? In particular: the S5-quotient trial space and its
+   element order, the flux construction across sign-twisted gluings, and how to enclose the hyperbolic metric in
+   $\nabla u-p$.
+3. **Towers.** Given Prop. 4.2, is there a weaker invariant than a fixed point (for example, a fixed point after a bounded
+   further accessory, or the vanishing of an obstruction class in $H^1(G,\mathrm{Pic})$) that does persist?
 
 # Round 5 — after DAY 2
 

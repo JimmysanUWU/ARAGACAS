@@ -59,7 +59,7 @@ dphi = np.einsum("ejv,tevl->tejl", Gst, E1[ED])                     # (NT, NE, 2
 # gradient constant: lambda_max of S = sum_l grad phi_l grad phi_l^T in the metric
 Minv = AR / wR[:, None, None]; Lc = np.linalg.cholesky(Minv)
 S = np.einsum("teal,tebl->teab", dphi, dphi)
-Sm = np.einsum("eia,teab,ejb->teij", Lc, S, Lc)
+Sm = np.einsum("eai,teab,ebj->teij", Lc, S, Lc)   # L^T S L (was L S L^T before the Round-5 review; see ROUND5_REVIEW.md)
 lmax = np.linalg.eigvalsh(Sm)[..., -1]
 trS = np.trace(Sm, axis1=-2, axis2=-1)
 print(f"frame energy density: [{trS.min():.5f},{trS.max():.5f}] (14 l1/A = {14*lam1/(540*np.pi):.5f}); "

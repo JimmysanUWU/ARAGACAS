@@ -89,7 +89,8 @@ through $L_2(7)$. The lower bound $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ holds u
   - There, topological Hersch gives 25 with certified eigenvalue inputs. Only the constants $\kappa$, $\Lambda$ are not certified.
   - Spectral bounds beat the algebraic table (DAY 2, p. 11) in every row.
 - **Open, from DAY 2 §9:**
-  - the exact $\mu(A_7)$, which is at least 60;
+  - the exact $\mu(A_7)$. Now $72\le\mu(A_7)\le90$, i.e. $\mu(A_7)\in\{72,84,90\}$: the lower bound is GPT's Round 5, and the upper bound is
+    the equivariant Riemann–Roch result of `ROUND5_REVIEW.md` §3;
   - for a fixed $(2,4,7)$ target, connected full-$A_7$ compression needs $90\mid d$;
   - the arithmetic torsion questions;
   - unrestricted resolvent towers.

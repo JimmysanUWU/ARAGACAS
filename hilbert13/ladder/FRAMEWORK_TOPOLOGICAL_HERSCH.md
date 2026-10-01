@@ -39,6 +39,12 @@ This is the first bound past the $23.37$ barrier.
   numerical. They may exceed their computed values by up to 3.5%.
 - **The ten other rigid signatures:** certified to have $\operatorname{gon}\ge25$ (§6).
 
+> **Superseded in part (Round-5 review).** GPT's *harmonic Hersch* uses the harmonic-map equation of $x$ through
+> $\Theta(x,x,y)=\tfrac12\langle\nabla x,\nabla y\rangle$. It improves Theorem 3.1 to
+> $\lambda_1(A-s)\le4\kappa\sqrt\varepsilon(A-s)+\sqrt{\Lambda(A-s)s(\varepsilon+\lambda_1s)}$. See `ROUND5_REVIEW.md` and
+> `gpt/A7_Round5_Advances.pdf` §5. The $\gamma$ values in §4 used a buggy frame contraction (now fixed; the corrected
+> values are smaller).
+
 ## 1. The cubic form
 
 Let $X$ be a closed oriented surface with a conformal metric and area $A$. For $a,b,c:X\to\mathbb R^3$ put

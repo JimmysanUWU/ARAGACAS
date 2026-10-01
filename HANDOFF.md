@@ -47,6 +47,9 @@ cd hilbert13 && lake exe cache get && lake build     # the project pins Lean/Mat
 | **`hilbert13/ladder/FRAMEWORK_CONFORMAL.md`** | conformal spectral gonality; §D: results after GPT's audit (D1–D5) |
 | **`hilbert13/ladder/QUESTIONS_FOR_GPT.md`** | current, paste-ready questions for GPT |
 | **`frontier_checks.py`** | exact checks for §D: $Q_2$ structure, fixed-point Abel–Jacobi carriers, signatures up to genus 529 |
+| **`hilbert13/ladder/FRAMEWORK_TOPOLOGICAL_HERSCH.md`** | fourth session: topological Hersch (degree obstruction on $E_1$), certification targets, signature survey, degree lattice |
+| **`topo_hersch.py`, `topo_hersch_extras.py`, `topo_hersch_output.txt`** | TH constants on the full curve (FEM), $\wedge^3$ table, sharpened $\kappa$, thresholds; outputs |
+| **`signatures_spectrum.py`** | coarse $\lambda_1$ for every faithful $A_7$-curve of a given triangle signature (general $(p,q,r)$ tiling) |
 
 ## 3. The task (the user's ladder)
 
@@ -88,6 +91,19 @@ novel framework." Lean formalization where feasible.
   $14_a$.
 
 ## 5. Suggested next steps
+
+**Fourth session (2026-09-30): topological Hersch** (`FRAMEWORK_TOPOLOGICAL_HERSCH.md`).
+- **New mechanism [P].** $\deg x$ is the cubic $T(x)=\int x\cdot(x_s\times x_t)$. On $E_1\otimes\mathbb R^3$ it is an invariant alternating 3-form,
+  and $(\wedge^3 14_{(5,2)})^{A_7}=0$, so first-eigenfunction maps to $S^2$ have degree 0.
+- **The inequality [P].** Expanding $T(y+z)$ gives an inequality (TH) that forces $8\pi m-\lambda_1A$ to be large.
+- **Result [N].** For classes 0, 1, (TH) excludes $m=24$ (right side 187 against 281.6 needed). So numerically
+  $\operatorname{gon}(C)\ge25$ for all four $(2,4,7)$ curves, and $\operatorname{gon}(D)\ge13$.
+- **Conformal route closed [P+N].** The gain is at most $\lambda_1A/\min\bar F$, i.e. $\le0.2\%$ (`FRAMEWORK_CONFORMAL.md` §E).
+- **Degree lattice lemma [P]** (TH doc §7): transport is a lattice violation.
+- **Survey [N]** (TH doc §6): every other rigid signature passes plain Li–Yau with a wide margin.
+- **Next.** Certify $\lambda'\ge0.55$ (second eigenvalue of $Q_1$, with a rank-one deflation for the count). Certify upper
+  bounds for $\kappa$ and $\Lambda$ (trial-space route, TH doc §5). Run the $\lambda_1$ certificate on the ten other
+  signatures, which needs `certify.py` generalised to the $(p,q,r)$ triangle of `signatures_spectrum.py`.
 
 **Third session (2026-09-30), after GPT's proof-chain audit (pinned 8b31a2ac).** The audit confirms 24/12, verifies
 Lemma 5.5, and so gives $\mathrm{ed}_{\mathbb C}(A_7;\le23)>1$ modulo classical inputs. It also asks for six repairs (its page 9);

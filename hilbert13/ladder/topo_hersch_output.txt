@@ -1,0 +1,111 @@
+Topological Hersch outputs (FRAMEWORK_TOPOLOGICAL_HERSCH.md). Numerical, not certified.
+
+=== python3 topo_hersch.py 8 0 --save ===
+n=8 triple=0: 161010 dofs, assembled (2s)
+lowest eigenvalues: [-0.       0.34725  0.34725  0.34725  0.34725  0.34725  0.34725  0.34725
+  0.34725  0.34725  0.34725  0.34725  0.34725  0.34725  0.34725  0.57293
+  0.57293]
+frame energy density: [0.00284,0.00296] (14 l1/A = 0.00287); 2 lmax/tr in [1.013,1.179]
+bracket Gram blocks: [(0.00010329, 21), (4.186e-05, 15), (1.377e-05, 35), (1.044e-05, 20)]
+block dim 21: b = 1.0329e-04  ratio = 1.2291  -> mu_eff = 1.1609   b* = 1.2695e-04
+block dim 15: b = 4.1862e-05  ratio = 1.0194  -> mu_eff = 1.3282   b* = 4.2675e-05
+block dim 35: b = 1.3769e-05  ratio = 0.4906  -> mu_eff = 2.3854   b* = 6.7557e-06
+block dim 20: b = 1.0444e-05  ratio = 0.2450  -> mu_eff = 4.4288   b* = 2.5589e-06
+lambda1 = 0.34725, lambda_next = 0.57293;  sup||N~||_* <= 11.04,  sup||grad y||_inf <= 1.692
+m=23: excluded by Li-Yau
+m=24: 4pi m =  301.6  worst-case RHS =  222.2 [124.3+80.0+17.9]  -> EXCLUDED
+m=25: 4pi m =  314.2  worst-case RHS =  479.7 [207.4+222.6+49.8]  -> not excluded
+m=26: 4pi m =  326.7  worst-case RHS =  712.5 [265.6+365.2+81.7]  -> not excluded
+m=27: 4pi m =  339.3  worst-case RHS =  934.6 [313.2+507.8+113.6]  -> not excluded
+
+=== python3 topo_hersch.py 12 0 ===
+n=12 triple=0: 362610 dofs, assembled (5s)
+frame energy density: [0.00284,0.00296] (14 l1/A = 0.00286); 2 lmax/tr in [1.012,1.174]
+bracket Gram blocks: [(0.00010302, 21), (4.165e-05, 15), (1.369e-05, 35), (1.036e-05, 20)]
+block dim 21: b = 1.0302e-04  ratio = 1.2363  -> mu_eff = 1.1556   b* = 1.2736e-04
+block dim 15: b = 4.1650e-05  ratio = 1.0278  -> mu_eff = 1.3197   b* = 4.2806e-05
+block dim 35: b = 1.3690e-05  ratio = 0.4961  -> mu_eff = 2.3624   b* = 6.7915e-06
+block dim 20: b = 1.0357e-05  ratio = 0.2480  -> mu_eff = 4.3794   b* = 2.5682e-06
+lambda1 = 0.34671, lambda_next = 0.57189;  sup||N~||_* <= 11.05,  sup||grad y||_inf <= 1.697
+m=23: excluded by Li-Yau
+m=24: 4pi m =  301.6  worst-case RHS =  233.1 [128.5+85.5+19.1]  -> EXCLUDED
+m=25: 4pi m =  314.2  worst-case RHS =  489.8 [210.1+228.7+51.0]  -> not excluded
+m=26: 4pi m =  326.7  worst-case RHS =  722.7 [267.9+371.9+82.9]  -> not excluded
+m=27: 4pi m =  339.3  worst-case RHS =  945.2 [315.3+515.1+114.8]  -> not excluded
+
+[killed]
+
+=== python3 topo_hersch.py 8 12 --save ===
+n=8 triple=12: 161010 dofs, assembled (2s)
+lowest eigenvalues: [-0.       0.36058  0.36058  0.36058  0.36058  0.36058  0.36058  0.36058
+  0.36058  0.36058  0.36058  0.36058  0.36058  0.36058  0.36058  0.38746
+  0.38746]
+frame energy density: [0.00287,0.00323] (14 l1/A = 0.00298); 2 lmax/tr in [1.014,1.181]
+bracket Gram blocks: [(6.004e-05, 20), (5.593e-05, 35), (1.919e-05, 15), (1.513e-05, 21)]
+block dim 20: b = 6.0042e-05  ratio = 0.6050  -> mu_eff = 2.0135   b* = 3.6326e-05
+block dim 35: b = 5.5935e-05  ratio = 0.4967  -> mu_eff = 2.3738   b* = 2.7783e-05
+block dim 15: b = 1.9187e-05  ratio = 0.5368  -> mu_eff = 2.2236   b* = 1.0299e-05
+block dim 21: b = 1.5133e-05  ratio = 4.7722  -> mu_eff = 0.5701   b* = 7.2216e-05
+lambda1 = 0.36058, lambda_next = 0.38746;  sup||N~||_* <= 8.32,  sup||grad y||_inf <= 1.770
+m=23: excluded by Li-Yau
+m=24: excluded by Li-Yau
+m=25: 4pi m =  314.2  worst-case RHS =  902.3 [101.8+680.8+119.7]  -> not excluded
+m=26: 4pi m =  326.7  worst-case RHS = 2172.7 [161.3+1710.6+300.9]  -> not excluded
+m=27: 4pi m =  339.3  worst-case RHS = 3426.5 [204.2+2740.3+482.0]  -> not excluded
+
+=== python3 topo_hersch_extras.py th_n8_t0.npz ===
+1. real irreducibles of A7 (chartab labels; the lambda_1 isotype 14_(5,2) is TABLE '14b'):
+   6            dim   6: dim (wedge^3)^G = 0;  wedge^2 = 1x15
+   10+10b       dim  20: dim (wedge^3)^G = 2;  wedge^2 = 1x1 + 1x10 + 1x10b + 1x14a + 1x14b + 1x15 + 1x21 + 3x35
+   14a (TABLE)  dim  14: dim (wedge^3)^G = 0;  wedge^2 = 1x10 + 1x10b + 1x15 + 1x21 + 1x35
+   14b (TABLE)  dim  14: dim (wedge^3)^G = 0;  wedge^2 = 1x10 + 1x10b + 1x15 + 1x21 + 1x35
+   15           dim  15: dim (wedge^3)^G = 1;  wedge^2 = 1x10 + 1x10b + 1x15 + 2x35
+   21           dim  21: dim (wedge^3)^G = 1;  wedge^2 = 2x10 + 2x10b + 1x14b + 2x15 + 1x21 + 3x35
+   35           dim  35: dim (wedge^3)^G = 5;  wedge^2 = 4x10 + 4x10b + 2x14a + 2x14b + 4x15 + 4x21 + 9x35
+2. 3-plane: top local maxima / crude = [0.6143 0.6143 0.6143 0.6143 0.6143]  (400 BFGS starts)
+2. decomposable: top local maxima / crude = [0.8191 0.8191 0.8191 0.8191 0.8191]  (400 BFGS starts)
+3. m = 24, classes 0/1:
+   crude b*/3    : at the true values lhs 281.6, rhs 214.4;  certified lambda_1 needed: 0.34246 (lambda' >= 0.56), 0.34278 (lambda' >= 0.55)
+   q_dec/3       : at the true values lhs 281.6, rhs 202.4;  certified lambda_1 needed: 0.34154 (lambda' >= 0.56), 0.34189 (lambda' >= 0.55)
+   sharp kappa^2 : at the true values lhs 281.6, rhs 187.0;  certified lambda_1 needed: 0.34024 (lambda' >= 0.56), 0.34065 (lambda' >= 0.55)
+   certified lambda_1 >= 0.34089, lambda' >= 0.55: kappa and sqrt(Lambda) may be inflated by 1.013x
+   certified lambda_1 >= 0.342, lambda' >= 0.55: kappa and sqrt(Lambda) may be inflated by 1.079x
+   certified lambda_1 >= 0.344, lambda' >= 0.55: kappa and sqrt(Lambda) may be inflated by 1.222x
+   certified lambda_1 >= 0.3455, lambda' >= 0.55: kappa and sqrt(Lambda) may be inflated by 1.361x
+
+=== python3 signatures_spectrum.py p q r fast   (P1 n=4 / 1.0105) ===
+(2,5,7) genus 199: 2 curve(s) up to S7 and mirror; threshold lambda_1 > 0.2424 (0s)
+  a=(2, 2, 1, 1, 1) b=(5, 1, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.379, 21), (0.421, 2)]  LY gon >= 37.52  [>24 OK]  (51s)
+  a=(2, 2, 1, 1, 1) b=(5, 1, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.2865, 15), (0.5048, 8)]  LY gon >= 28.37  [>24 OK]  (85s)
+(3,3,5) genus 169: 1 curve(s) up to S7 and mirror; threshold lambda_1 > 0.2857 (0s)
+  a=(3, 3, 1) b=(3, 3, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.3824, 20), (0.5332, 3)]  LY gon >= 32.12  [>24 OK]  (75s)
+(3,3,6) genus 211: 1 curve(s) up to S7 and mirror; threshold lambda_1 > 0.2286 (0s)
+  a=(3, 3, 1) b=(3, 3, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.3979, 20), (0.4117, 3)]  LY gon >= 41.78  [>24 OK]  (85s)
+(3,4,4) genus 211: 2 curve(s) up to S7 and mirror; threshold lambda_1 > 0.2286 (0s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.2716, 15), (0.5498, 8)]  LY gon >= 28.51  [>24 OK]  (119s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.327, 21), (0.5489, 2)]  LY gon >= 34.34  [>24 OK]  (203s)
+(2,6,7) genus 241: 2 curve(s) up to S7 and mirror; threshold lambda_1 > 0.2000 (0s)
+  a=(2, 2, 1, 1, 1) b=(3, 2, 2) orbit 5040: lambda (n=4 / 1.0105) = [(0.2975, 14), (0.4816, 9)]  LY gon >= 35.70  [>24 OK]  (82s)
+  a=(2, 2, 1, 1, 1) b=(3, 2, 2) orbit 5040: lambda (n=4 / 1.0105) = [(0.2885, 15), (0.4501, 8)]  LY gon >= 34.62  [>24 OK]  (140s)
+(3,3,7) genus 241: 2 curve(s) up to S7 and mirror; threshold lambda_1 > 0.2000 (0s)
+  a=(3, 1, 1, 1, 1) b=(3, 3, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.3049, 15), (0.5441, 8)]  LY gon >= 36.59  [>24 OK]  (138s)
+  a=(3, 3, 1) b=(3, 1, 1, 1, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.3048, 15), (0.5442, 8)]  LY gon >= 36.58  [>24 OK]  (258s)
+(2,7,7) genus 271: 3 curve(s) up to S7 and mirror; threshold lambda_1 > 0.1778 (0s)
+  a=(2, 2, 1, 1, 1) b=(7,) orbit 5040: lambda (n=4 / 1.0105) = [(0.29, 15), (0.356, 8)]  LY gon >= 39.15  [>24 OK]  (52s)
+  a=(2, 2, 1, 1, 1) b=(7,) orbit 5040: lambda (n=4 / 1.0105) = [(0.2489, 15), (0.3715, 8)]  LY gon >= 33.60  [>24 OK]  (95s)
+  a=(2, 2, 1, 1, 1) b=(7,) orbit 5040: lambda (n=4 / 1.0105) = [(0.3782, 15), (0.4242, 8)]  LY gon >= 51.05  [>24 OK]  (161s)
+(3,4,5) genus 274: 3 curve(s) up to S7 and mirror; threshold lambda_1 > 0.1758 (0s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3298, 21), (0.4462, 2)]  LY gon >= 45.02  [>24 OK]  (108s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.2925, 20), (0.3, 3)]  LY gon >= 39.92  [>24 OK]  (200s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3291, 21), (0.4601, 2)]  LY gon >= 44.92  [>24 OK]  (336s)
+(3,4,6) genus 316: 2 curve(s) up to S7 and mirror; threshold lambda_1 > 0.1524 (0s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 5040: lambda (n=4 / 1.0105) = [(0.295, 15), (0.3105, 8)]  lowest [0.295 0.295 0.295]  LY gon >= 46.46  [>24 OK]  (84s)
+  a=(3, 3, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3751, 23)]  lowest [0.3751 0.3751 0.3751]  LY gon >= 59.08  [>24 OK]  (269s)
+(4,4,4) genus 316: 6 curve(s) up to S7 and mirror; threshold lambda_1 > 0.1524 (0s)
+  a=(4, 2, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.313, 23)]  lowest [0.313 0.313 0.313]  LY gon >= 49.30  [>24 OK]  (226s)
+  a=(4, 2, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3138, 23)]  lowest [0.3138 0.3138 0.3138]  LY gon >= 49.42  [>24 OK]  (402s)
+  a=(4, 2, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.313, 23)]  lowest [0.313 0.313 0.313]  LY gon >= 49.30  [>24 OK]  (579s)
+  a=(4, 2, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3138, 23)]  lowest [0.3138 0.3138 0.3138]  LY gon >= 49.42  [>24 OK]  (758s)
+  a=(4, 2, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3133, 23)]  lowest [0.3133 0.3133 0.3133]  LY gon >= 49.35  [>24 OK]  (941s)
+  a=(4, 2, 1) b=(4, 2, 1) orbit 10080: lambda (n=4 / 1.0105) = [(0.3133, 23)]  lowest [0.3133 0.3133 0.3133]  LY gon >= 49.35  [>24 OK]  (1136s)
+(2,4,7), default mode (Richardson n=4,6): 0.3464 (14) and 0.3598 (14) -- validation

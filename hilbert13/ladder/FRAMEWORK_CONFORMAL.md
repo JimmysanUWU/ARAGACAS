@@ -63,7 +63,7 @@ $e=|\nabla x|^2=2\,\mathrm{Jac}$. So $P_1\big((e-\lambda_1)x\big)=0$ exactly. Al
 spatial variance of the energy density $e$, which vanishes at the $2d+270$ branch points. This is the handle
 for sharper versions of C.
 
-**Payoff [?].**
+**Payoff [?].** *(Outcome, fourth session: numerically this route is closed; the gain is at most 0.2%. See §E.)*
 - If $\Lambda^G>8\pi\cdot24$, i.e. a gain of $+2.7\%$ over the hyperbolic metric for classes 0, 1, then
   $\operatorname{gon}(C)\ge25$ and $\operatorname{gon}(C/\langle\tau\rangle)\ge13$. For $D$ the relevant eigenvalue is the $\tau$-invariant one, which
   is still $14_a$ because $14_a^\tau\ne0$.
@@ -300,3 +300,28 @@ For $g\le289$ this list reproduces the audit's page-7 table exactly.
 
 For the other ten signatures, the options are a spectral certificate on the $(p,q,r)$ tiling, or refined pencil
 geometry ($\pi_2$ / Petrakiev), which may reach below 336.
+
+## E. Outcome of the conformal route (fourth session): numerically closed
+
+**Proposition E1 (a ceiling on the conformal gain) [P].** Let $h>0$ be $G$-invariant. Then
+$$\lambda_1(hg)\,\mathrm{Area}(hg)\ \le\ \frac{\lambda_1A}{\min\bar F},\qquad\text{so}\qquad \Lambda^G\le\frac{\lambda_1A}{\min\bar F}.$$
+*Proof.* Every $\varphi\in E_1$ is $h\,dA$-orthogonal to the constants, because $\int h\varphi$ is a $G$-invariant functional on a
+nontrivial irreducible representation. So the $\varphi_i$ are admissible test functions for $\lambda_1(hg)$. Taking the
+mediant of their Rayleigh quotients,
+$$\lambda_1(hg)\le\frac{\sum_i\int|\nabla\varphi_i|^2}{\sum_i\int h\varphi_i^2}=\frac{14\lambda_1}{\tfrac{14}A\int h\bar F}\le\frac{\lambda_1A}{\min\bar F\int h} .$$
+$\blacksquare$
+
+**Numbers [N]** (`conformal.py` of the session; $Q_1$ eigenvector, $n=16$):
+- classes 0, 1: $\bar F\in[0.998,1.001]$, so the gain is at most $0.2\%$ (bound $\le23.44$);
+- classes 12, 14: $\bar F\in[0.994,1.004]$, so the gain is at most $0.6\%$.
+
+A $+2.7\%$ gain is needed (or $+4.3\%$ against the certified baseline). The $G$-invariant ascent confirms this: it
+stalls at a ratio of $1.0000$.
+
+**Why [heuristic].** $\bar F-1$ is a $G$-invariant function. The first nonzero eigenvalue of the $(2,4,7)$ orbifold
+(problem $Q_0$) is $\approx10.6$, while $F=\sum\varphi_i^2$ is band-limited near $2\lambda_1$. So the invariant part of $\sum\varphi_i^2$
+is nearly constant: spectral decoupling. D3 shows that $\bar F\not\equiv1$, but the defect is tiny.
+
+**Conclusion.** Classes 0, 1 cannot reach $\operatorname{gon}\ge25$ by any $G$-invariant conformal change. The replacement is
+**topological Hersch** (`FRAMEWORK_TOPOLOGICAL_HERSCH.md`), which uses the degree rather than the metric, and
+numerically gives $\operatorname{gon}\ge25$ with a large margin.

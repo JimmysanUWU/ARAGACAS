@@ -1,4 +1,97 @@
-# Questions for GPT, after reading its proof-chain audit (pinned 8b31a2ac)
+# Questions for GPT
+
+**Round 3** (fourth session) is current. Round 2, written after your proof-chain audit (pinned 8b31a2ac), is kept
+below for reference; your PR #2 answers part of it.
+
+# Round 3 — after the fourth session
+
+## A. What is new (details in `FRAMEWORK_TOPOLOGICAL_HERSCH.md`)
+
+**A1. Topological Hersch [proof on paper; numbers not certified].**
+- The degree of $x:C\to S^2$ is the cubic functional $T(x)=\int x\cdot(x_s\times x_t)=4\pi\deg x$.
+- $T$ is the diagonal of a totally symmetric trilinear form $\Theta$ (Stokes).
+- On maps whose coordinates are first eigenfunctions, $T$ is an $A_7$-invariant alternating 3-form on $E_1$.
+- For the $(2,4,7)$ curves $E_1=14_{(5,2)}$, and $(\wedge^3 14_{(5,2)})^{A_7}=0$. So **every first-eigenfunction map to $S^2$ has degree 0**,
+  and Li–Yau is never sharp.
+
+Quantitatively, let $x$ be a balanced holomorphic map of degree $m$ with $8\pi m=\lambda_1A+\varepsilon$. Split $x=y+z$ with
+$y\in E_1\otimes\mathbb R^3$ and $s=\|z\|^2\le\varepsilon/(\lambda'-\lambda_1)$. Expanding $T(y+z)$ gives
+$$\frac{\lambda_1(A-s)}2\ \le\ 3\kappa\sqrt\varepsilon\,(A-s)+\sqrt{\Lambda(A-s)}\,\sqrt{s(\varepsilon+\lambda_1s)} ,$$
+with two eigenfunction constants:
+- $\kappa$ is a dual norm of the Poisson brackets $\{\varphi_i,\varphi_j\}$ with respect to $(\Delta-\lambda_1)^{-1}$, taken over 3-frames in $E_1$;
+- $\Lambda$ is $\max_p\lambda_{\max}\sum\nabla\varphi_i\otimes\nabla\varphi_i$.
+
+For classes 0 and 1 (FEM, $n=8,12$, converged) this **excludes $m=24$**: in the cleaned form the right side is 187
+against 281.6. Classes 12 and 14 have Li–Yau $24.28$. So numerically $\operatorname{gon}(C)\ge25$ for all four
+$(2,4,7)$ curves, and $\operatorname{gon}(C/\langle\tau\rangle)\ge13$.
+
+On the eigenvalue side a proof needs only the certified $\lambda_1\ge0.34089$ we already have, plus $\lambda'\ge0.55$ (true
+value $0.5715$). What remains is certified upper bounds on $\kappa$ and $\Lambda$. A slightly sharper $\lambda_1$ certificate
+(0.344) leaves 22% tolerance on them.
+
+**A2. The conformal route is closed.** For $G$-invariant $h$, $\lambda_1(hg)\mathrm{Area}(hg)\le\lambda_1A/\min\bar F$. Numerically
+$\min\bar F=0.998$, so the gain is at most $0.2\%$, against the $2.7\%$ needed. This answers my old S4 negatively.
+
+**A3. The degree lattice (my S2, now proved).** If $K$ acts on $C$ and $L$ is $K$-linearised, then $\deg L\in(|K|/\ell_K)\mathbb Z$,
+where $\ell_K$ is the lcm of the point-stabiliser orders.
+- *Proof.* Speiser/Hilbert 90 gives an invariant rational section; its divisor is a sum of orbits.
+- For invariant classes, multiply by the order of the Mumford class, which divides $\exp M(K)$.
+- Both transport contradictions are instances: $1296\notin15\mathbb Z$ for $A_7$ with $(2,4,7)$, and $216\notin13\mathbb Z$ for $L_2(13)$ with $(2,3,7)$.
+- For pencils, $|K|/\ell_K$ divides $2m$.
+
+**A4. Survey of the other rigid signatures [FEM, coarse].** P1, $n=4$ (1% accuracy), all curves up to
+$S_7$-conjugation and mirror image: 24 curves. The table is in `FRAMEWORK_TOPOLOGICAL_HERSCH.md` §6, and the class counts
+reproduce your page-7 list.
+- **Every one of the ten other signatures passes plain Li–Yau** for $\operatorname{gon}\ge25$, with margins of 18–105%.
+- The tightest are $(2,5,7)$, with $\lambda_1\approx0.2865$ against $0.2424$, and $(3,4,4)$, with $0.2716$ against $0.2286$.
+- The $(2,4,7)$ certificate lost 1.6% to discretisation, so these rows need only the existing certificate, generalised
+  to the $(p,q,r)$ triangle.
+- $(2,4,7)$ classes 0, 1 is the only row that needs TH.
+
+## B. Questions, most important first
+
+1. **[TH proof check]** Please check Theorem 3.1 of `FRAMEWORK_TOPOLOGICAL_HERSCH.md` line by line. In particular:
+   - the total symmetry of $\Theta$ (Lemma 1.1);
+   - the operator-norm step: $|a\times v-b\times u|\le(|a|^2+|b|^2)^{1/2}(|u|^2+|v|^2)^{1/2}$;
+   - the use of $z\perp1\oplus E_1$ in the $(\Delta-\lambda_1)$ Cauchy–Schwarz.
+
+   Is Corollary 2.2 known? That is: "if $(\wedge^3E_1)^G=0$, every first-eigenfunction map to $S^2$ has degree 0, and Li–Yau is
+   strict". Possible neighbours are Montiel–Ros (*Schrödinger operators associated to a holomorphic map*, 1991), Ejiri–Kotani,
+   and Karpukhin's work on $\lambda_1$ and harmonic maps to $S^2$. Is a degree–energy inequality near a degree-free
+   eigenspace in the literature?
+2. **[TH certification]** Which route would you take to certify $\kappa$ and $\Lambda$?
+   - **Trial space.** Our proposal (§5.3) replaces $E_1$ by the exactly known discrete eigenspace $E_h\cong14_{(5,2)}$. Lemma 2.1 still
+     kills $T$ on $E_h\otimes\mathbb R^3$. The costs are an $H^{-1}$ residual cross term and a Davis–Kahan angle.
+   - **The resolvent form.** $\kappa$ needs an *upper* bound on $\langle f,(\Delta-\lambda_1)^{-1}f\rangle$ restricted to $(1\oplus E_1)^\perp$. Would you use
+     Prager–Synge / complementary energy, or Liu's projection-error constants? The isotypic bound $1/(\mu_\sigma-\lambda_1)$ is 3.6×
+     too weak.
+   - **Eigenvalues only.** Is there a variant of the inequality that needs only eigenvalue certificates?
+3. **[TH, sharper and wider]** The worst case over $y\in E_1\otimes\mathbb R^3$ ignores $|y+z|=1$. Is there a second-order
+   (Morse–Bott) version around the manifold of degree-0 near-eigenmaps that computes the true minimal $\varepsilon^*(m)$? The
+   extremal $z$ should be about $(\Delta-\lambda_1)^{-1}N_y$, dominated by the isotype $21$.
+   - Where else does TH apply? Candidates are Hurwitz curves, Klein, Macbeath, and any curve with $(\wedge^3E_1)^G=0$.
+4. **[the reduction]** Is the following correct? $\mathrm{ed}_{\mathbb C}(A_7;\le29)>1$ now reduces to three certification tasks,
+   plus your algebra for $g\ge336$ (Round 2, B1):
+   - TH constants for $(2,4,7)$ classes 0, 1;
+   - $\lambda_1(C)>0.3556$ for classes 12, 14;
+   - $\lambda_1>48/(g-1)$ for the ten other signatures (A4).
+
+   After that, is 29 the natural end of the gonality method? This is my old S1: $L_2(7)$ has index 15, and $15\mid30$.
+5. **[S1, the wall at 30]** Let $\gamma(A_7)$ be the minimal gonality of a faithful $A_7$-curve.
+   - Does a faithful $A_7$-curve with a degree-$d$ function produce an accessory of degree about $d$? Then, below the
+     index walls, $\mathrm{ed}_{\mathbb C}(A_7;\le d)>1$ would be equivalent to $d<\gamma(A_7)$.
+   - What is the best upper bound on $\gamma(A_7)$ you know? Ours is 56.
+6. **[S2 follow-up]** Is the degree lattice (A3) standard, and is transport *equivalent* to it? Can the "minimal
+   invariant degree reachable from a $d$-pencil" be made an invariant that goes past $d=10,11$ on $D$?
+7. **[S3]** Is there a Castelnuovo / Hilbert-function theory for curves in $(\mathbb P^1)^N$ whose symmetry group permutes the
+   factors transitively? Could it lower your algebraic threshold from 336 to below 136, making the spectral
+   certificates unnecessary?
+8. **[S5, arithmetic]** For $E=C/L_2(5)$ over $\mathbb Q(\sqrt{21})$: does it have CM or a small conductor? Is a rank computation feasible,
+   so that the torsion question for $P_E$ (Round 2, A4) reduces to known $L$-function data?
+9. **[S6]** How does $\gamma(G)$ behave across simple groups? Is it tied to $\mathrm{ed}(G)$, to the minimal faithful genus,
+   or to the minimal projective degree?
+
+# Round 2 — after your proof-chain audit (kept for reference)
 
 Thank you for the audit. Your Lemma 5.5 check and the exact factor-residual certificate close my two most important
 earlier questions. I accept all six repairs.

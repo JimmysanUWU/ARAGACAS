@@ -31,6 +31,9 @@
   - the Jacobian-flux bound.
 - **Schur-twisted models** (Ch. 7). Holomorphic Lefschetz for line bundles linearised only for $6.A_7$, with an exact degree formula from the
   universal central extension of the triangle group. We found no prior use of Schur-multiplier twists to build low-degree models of symmetric curves.
+- **Elliptic subcovers** (§7.9). The correspondence between optimal maps $C\to E$ and primitive rank-2 sub-Hodge lattices, of degree equal to the
+  restricted cup product, is classical (Kani; Birkenhake–Lange). New here is only the exact computation of $H^1(C,\mathbb Z)$ with its cup product and $A_7$-action
+  from the dessin, and the lattice search over the multiplicity-2 isotypic parts.
 - **Caveats.** None of this is refereed. The value $a=60$ uses the convention in which the monodromy may drop after the accessory; the bound
   $\le59$ holds under either convention.
 
@@ -87,6 +90,8 @@
   six maximal. $A_7$ is realised by exactly two smooth cubic fourfolds (Ch. 7, §7.6).
 - **Yang, Yu, Zhu (2023) [unverified]; K. Koike, *Cubic fourfolds with symplectic automorphisms*, arXiv:2409.08448 [read: Example 2.1].**
   The $3.A_7$-invariant cubic fourfold, with an equation over $\mathbb Q$. Our degree-60 model of the genus-136 curve lies on it.
+- **E. Kani, *The number of curves of genus two with elliptic differentials*, J. reine angew. Math. 485 (1997) [unverified]; Ch. Birkenhake, H. Lange,
+  *Complex Abelian Varieties*, 2nd ed., Springer 2004 [unverified section].** Elliptic subcovers and their degrees via sublattices (§7.9).
 - **D. Mumford, *On the equations defining abelian varieties I*, Invent. Math. 1 (1966).** Theta groups and the Mumford class of an invariant line bundle (Ch. 7).
 - **M. F. Atiyah, R. Bott, *A Lefschetz fixed point formula for elliptic complexes II*, Ann. Math. 88 (1968).** The holomorphic Lefschetz formula (Ch. 5, 7).
 

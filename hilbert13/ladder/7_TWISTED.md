@@ -122,6 +122,24 @@ By Theorems 7.4 and 7.5, **60 is the least degree of an invariant class with $h^
 2. At a fixed point with eigenvalue $+1$, an anti-invariant section satisfies $s(p)=-s(p)$, so it vanishes there. The pencil $|E_-|$ therefore has the 18 fixed points as base points, and its moving part has degree $\le42$.
 3. The ratio of two anti-invariant sections is $\tau$-invariant, so the pencil descends to $C/\langle\tau\rangle$ with degree $\le21$. $\square$
 
+**Proposition 7.7 (the pencil is exactly 42) [P][X].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So $\operatorname{gon}(C)\le42$ comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\langle\tau\rangle$.
+
+*Proof.*
+1. **Simple at the fixed points.** In the vanishing sequence $(0,1,2,3,4,6)$ at a fixed point, $\hat\tau$ acts on the order-$k$ section by $(-1)^k$ times a constant. So $E_-$ consists of the sections of orders 1 and 3, and the base multiplicity is 1.
+2. **Other base points are double points.** If $x\notin\mathrm{Fix}\,\tau$ and $\varphi(x)\in\mathbb P(E_+)$, then $\varphi(\tau x)=\hat\tau\varphi(x)=\varphi(x)$.
+3. **At most one orbit.** The extra base locus $B'$ is $C(\tau)$-invariant, and $60-18-\deg B'\ge2\operatorname{gon}(C/\tau)\ge26$, so $\deg B'\le16$.
+   - Every element of order 4 in $C(\tau)=(D_4\times S_3)\cap A_7$ squares to $\tau$.
+   - So a point outside $\mathrm{Fix}\,\tau$ has $C(\tau)$-stabiliser of order $\le2$, and orbit of size 12 or 24.
+   - Hence $B'$ is empty or one orbit of 12 simple points, each fixed by an involution $\sigma\in C(\tau)\smallsetminus\{\tau\}$.
+4. **Reduction to a plane.** The order-2 lifts of $\sigma,\tau$ commute, and their product is the order-2 lift of $\sigma\tau$. All three have trace 2, so the joint eigenspaces have dimensions $(3,1,1,1)$. A point of $B'$ would map into $Q_\sigma=\mathbb P(E_+(\sigma)\cap E_+(\tau))$, a plane.
+5. **Computation [X]** (`tau_pencil.py`, classes 0 and 12; classes 1 and 14 are isomorphic to them). $\varphi(C)$ lies on these hypersurfaces:
+   - the cubic $F_3$;
+   - the sextic $G_6$ of §7.6;
+   - the invariants of degrees 9 and 15;
+   - the degree-21 invariants vanishing at a 7-point.
+
+   On each of the 8 planes $Q_\sigma$, $F_3=G_6=0$ has all 18 of its Bézout points. The other invariants do not vanish at any of them. So $B'=\varnothing$. $\square$
+
 **Nothing better from these classes** (`twisted_rr.py` part (8)). Every class with forced sections and degree $\le270$ was tested against involution eigenspaces and Klein four-group isotypic components: none beats 42.
 
 ## 7.6 The invariant cubic fourfold [P][X]
@@ -129,6 +147,10 @@ By Theorems 7.4 and 7.5, **60 is the least degree of an invariant class with $h^
 - **Invariants.** The invariants of $3.A_7$ on $\mathbf 6$ have Hilbert series $1+t^3+3t^6+5t^9+11t^{12}+18t^{15}+\dots$
 - **Forced vanishing.** By Lemma 7.3, every invariant of degree 3, 9 or 15 vanishes on $\varphi(C)$. So **$\varphi(C)$ lies on the unique invariant cubic fourfold $X_3$**.
 - **Restrictions.** In degrees 6 and 21 the invariants restrict to sections with divisors $D_7$ and $2D_4$. In degree 42, the pencil $\langle S_6^7,T_{21}^2\rangle$ is the quotient map $C\to C/A_7$.
+- **The sextic $G_6$.** A degree-6 invariant restricts to a multiple of the section with divisor $D_7$, which has simple zeros. So a sextic invariant whose restriction to the tangent line at a 7-point has a double zero there vanishes on $\varphi(C)$. These sextics span $\langle F_3^2,G_6\rangle$.
+- **Lines on $X_3$.** An odd-degree invariant vanishes on every $(-1)$-eigenspace of a lift of order 2 or 4. So $X_3$ contains:
+  - the 105 lines $\mathbb P(E_-(\tau))$, the targets of the pencils of Proposition 7.7;
+  - the 315 lines $\mathbb P(E_{-1}(\hat h))$, $h$ of order 4, each carrying the two points of $\varphi(\mathrm{Fix}\,h)$.
 - **The equation** (`twisted_rr.py` part (10)). The $\mathbf 6$ is the projection of the 21-dimensional $\mathrm{Ind}_{S_5\times\mathbb Z/3}^{3.A_7}(1\otimes\omega)$. In eigencoordinates $x_k$ of an order-7 element $\hat c$ ($\hat c\,x_k=\zeta_7^kx_k$), which its normaliser permutes,
   $$X_3:\ x_1x_2x_4+\beta\,x_3x_5x_6+\gamma\,(x_1^2x_5+x_2^2x_3+x_4^2x_6)+\delta\,(x_1x_3^2+x_2x_6^2+x_4x_5^2)=0,$$
   $$\frac{\gamma^3}\beta=\frac{23-7\sqrt{21}}{16},\qquad\frac{\delta^3}{\beta^2}=\frac{23+7\sqrt{21}}{16}\qquad(\text{the roots of }64x^2-184x-125).$$
@@ -162,10 +184,26 @@ The family $Q_p\in\mathrm{Sym}^2V_4$ of §5.4, attached to $B+T$, has generic ra
 
 So the genus-136 curves realise the bound $\gamma(A_7)\le42$.
 
-## 7.9 Open
+## 7.9 Elliptic subcovers give nothing below 60 [X]
 
-- **The exact gonality**, in $[25,42]$. Does $|E_-|$ have base points beyond the 18? Any extra ones are $\tau$-symmetric nodes of $\varphi(C)$ on $\mathbb P(E_+)$.
-- **Equations of $\varphi(C)$ beyond $X_3$.** For instance, the sextic and nonic invariants that vanish on it. Also: how $\varphi(C)$ sits relative to the
-  $A_7$-symmetric hyperkähler fourfold of lines on $X_3$.
+**Proposition 7.8** (`elliptic_subcovers.py`). On all four classes, every elliptic subcover $C\to E$ of the following kind has degree $\ge60$: those whose $H^1(E)$ is $v\otimes M$ inside the $\rho$-isotypic part, $\rho\in\{15,21\}$. Equality holds for the Galois quotients $C\to C/A_5$ (two points fixed; $\rho=15$) and $C\to C/L_2(5)$ ($\rho=21$), which are elliptic.
+
+- **The lattice.** $H^1(C,\mathbb Z)$ is computed exactly from the dessin, with its cup product and $A_7$-action:
+  - the 5040 triangles form a $\Delta$-complex over $0<1<\infty$;
+  - a tree–cotree basis gives integral cocycles;
+  - the Alexander–Whitney cup product is unimodular, and the character is $3(10+\overline{10})+2\cdot15+2\cdot21+4\cdot35$.
+- **The planes.** The parts $\rho=15,21$ have multiplicity 2, with multiplicity space $M$ of rank 2. For $v\in V_\rho(\mathbb Q)$, $\Lambda_v=(v\otimes M)\cap H^1(C,\mathbb Z)$ is a rank-2 sub-Hodge lattice. So it is $f^*H^1(E_v)$ for an elliptic subcover $f$ of degree $n(v)=|\langle e_1,e_2\rangle|$, with $e_1,e_2$ a basis of $\Lambda_v$. When $\mathrm{End}(E_\rho)=\mathbb Z$, these are all the elliptic subcovers with $H^1$ in that part.
+- **The search.** Write $n(v)=|\Phi(v)|/g(v)$:
+  - $\Phi$ is the cup-product form on translates of a $K$-fixed vector, $K=A_5$ or $L_2(5)$;
+  - $g(v)$ is read off the finite glue, of squarefree exponent.
+
+  Fincke–Pohst finds no $v$ with $|\Phi(v)|<60\,g(v)$.
+
+So elliptic subcovers give only $\operatorname{gon}\le120$. Conversely, $\operatorname{gon}(C)\ge25$ forces every elliptic subcover to have degree $\ge13$. This includes those that could come from complex multiplication, from $E_{15}\sim E_{21}$, or from the $10\oplus\overline{10}$ and $35$ parts.
+
+## 7.10 Open
+
+- **The exact gonality**, in $[25,42]$. The $\tau$-pencil is exactly 42 (Proposition 7.7). Elliptic subcovers give nothing below 60 (Proposition 7.8). A pencil below 42 must therefore come from neither mechanism.
+- **Equations of $\varphi(C)$.** Invariants of degree $\le15$ cut out only a threefold. The degree-12, 18 and 24 kernels are fixed by the image of a 4-point, which is one of the 6 zeros of $G_6$ on its line in $X_3$. Also: how $\varphi(C)$ meets the 420 lines above, and how it sits relative to the $A_7$-symmetric hyperkähler fourfold of lines on $X_3$.
 - **The kernel map** of the $\mu=90$ series: is it a genuine $\mathbb P^3$-model (a spin class of degree 135 with $M^2=3(B+T)$)?
 - **Other curves.** Could another curve beat 42 by a mechanism other than fixed-point base loci?

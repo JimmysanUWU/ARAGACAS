@@ -19,6 +19,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | $\operatorname{gon}(C/\langle\tau\rangle)\ge10$ by pure algebra (Sol/Astra) | [P][X] | §6.1 |
 | Schur-twisted invariant classes have degrees $15\mathbb Z$, none with sections below degree 60; a birational $3.A_7$-model $C\to\mathbb P^5$ of degree 60 on the Laza–Zheng $A_7$-cubic fourfold | [P][X] | Ch. 7 |
 | **$\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\langle\tau\rangle)\le21$** (previously 56, 28); hence $25\le\gamma(A_7)\le42$ | [P][X] | Ch. 7 |
+| the $\tau$-pencil is exactly a base-point-free $g^1_{42}$; elliptic subcovers (types $15$, $21$) have degree $\ge60$, from $H^1(C,\mathbb Z)$ computed exactly | [P][X] | §7.5, §7.9 |
 
 **Tags.**
 - **[P]** paper proof.
@@ -37,7 +38,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | [`4_LARGE_GENUS.md`](4_LARGE_GENUS.md) | conjugate pencils, Castelnuovo bounds, dependent-third cost, the window signatures |
 | [`5_ACCESSORY.md`](5_ACCESSORY.md) | correspondence, degree lattice, $a(A_7)=60$, $\mu(A_7)=90$ |
 | [`6_SIDE_RESULTS.md`](6_SIDE_RESULTS.md) | algebraic $\operatorname{gon}(D)\ge10$, pencil orbits, conformal ceiling, negative results, open arithmetic |
-| [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted invariant line bundles, twisted Lefschetz, the $\mathbb P^5$ model, $\operatorname{gon}\le42$ |
+| [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted invariant line bundles, twisted Lefschetz, the $\mathbb P^5$ model, $\operatorname{gon}\le42$ and its sharpness for the pencil, elliptic subcovers |
 | [`LITERATURE.md`](LITERATURE.md) | comparison with the literature, and references |
 | [`QUESTIONS_FOR_GPT.md`](QUESTIONS_FOR_GPT.md) | open questions and audit requests |
 | `gpt/` | GPT's source documents (DAY 2 reference, Round-5 answers) |
@@ -65,6 +66,8 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | `verify_mu90_exact.py` | exclusion of 72 and 84, exact (§5.4) | `mu90_exact_output.txt` |
 | `twisted_rr.py` | $2.A_7$, $3.A_7$, $6.A_7$; twisted Lefschetz; Theorems 7.4–7.5, Corollary 7.6, the cubic fourfold (Ch. 7) | `twisted_rr_output.txt` |
 | `twisted_survey.py` | the same on all 26 rigid curves of genus $\le335$ (§7.8) | `twisted_survey_output.txt` |
+| `tau_pencil.py` | the $\tau$-pencil has no base points beyond the 18 (Prop. 7.7) | `tau_pencil_output.txt` |
+| `elliptic_subcovers.py` | $H^1(C,\mathbb Z)$ with cup product from the dessin; elliptic subcovers have degree $\ge60$ (Prop. 7.8) | `elliptic_subcovers_output.txt` |
 | `review_checks.py`, `frontier_checks.py` | finite inputs of §6.1, §6.6, §6.7 | stdout |
 
 ## Reproduction
@@ -82,6 +85,8 @@ python3 gonality_large_genus.py
 python3 verify_mu90_exact.py
 python3 twisted_rr.py > twisted_rr_output.txt           # ~25 s
 python3 twisted_survey.py > twisted_survey_output.txt   # ~90 s
+python3 tau_pencil.py > tau_pencil_output.txt           # ~1 min
+python3 elliptic_subcovers.py > elliptic_subcovers_output.txt   # ~80 s
 ```
 
 Run large FEM jobs one at a time, because several in one shell can run out of memory.

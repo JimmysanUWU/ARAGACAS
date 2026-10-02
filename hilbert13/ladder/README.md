@@ -17,7 +17,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | **$\mu(A_7)=90$**: connected full-monodromy compression needs exactly degree 90 | [P][X] | Ch. 5 |
 | the compression bounds hold without fixed points, over bases with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$; over such bases gonality bounds the degree from below | [P] | §5.5 |
 | $\operatorname{gon}(C/\langle\tau\rangle)\ge10$ by pure algebra (Sol/Astra) | [P][X] | §6.1 |
-| Schur-twisted invariant classes have degrees $15\mathbb Z$, none with sections below degree 60; a birational $3.A_7$-model $C\to\mathbb P^5$ of degree 60 on an explicit cubic fourfold | [P][X] | Ch. 7 |
+| Schur-twisted invariant classes have degrees $15\mathbb Z$, none with sections below degree 60; a birational $3.A_7$-model $C\to\mathbb P^5$ of degree 60 on the Laza–Zheng $A_7$-cubic fourfold | [P][X] | Ch. 7 |
 | **$\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\langle\tau\rangle)\le21$** (previously 56, 28); hence $25\le\gamma(A_7)\le42$ | [P][X] | Ch. 7 |
 
 **Tags.**

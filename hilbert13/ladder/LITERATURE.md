@@ -83,6 +83,10 @@
 - **L. Gruson, C. Peskine (Halphen's bound) for space curves not on a quadric.** Used in §5.4.
 - **M. Coppens, G. Martens, *Secant spaces and Clifford's theorem*, Compositio Math. 78 (1991) [unverified wording].** $\operatorname{gon}\le\mathrm{Cliff}+3$ (Theorem 7.4).
 - **I. Schur (1911); the exceptional triple covers $3.A_6$, $3.A_7$** (ATLAS). $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$; $3.A_7\subset SL_6(\mathbb C)$ (Ch. 7).
+- **R. Laza, Z. Zheng, *Automorphisms and periods of cubic fourfolds*, Math. Z. (2022), arXiv:1905.11547 [abstract].** The 34 symplectic groups,
+  six maximal. $A_7$ is realised by exactly two smooth cubic fourfolds (Ch. 7, §7.6).
+- **Yang, Yu, Zhu (2023) [unverified]; K. Koike, *Cubic fourfolds with symplectic automorphisms*, arXiv:2409.08448 [read: Example 2.1].**
+  The $3.A_7$-invariant cubic fourfold, with an equation over $\mathbb Q$. Our degree-60 model of the genus-136 curve lies on it.
 - **D. Mumford, *On the equations defining abelian varieties I*, Invent. Math. 1 (1966).** Theta groups and the Mumford class of an invariant line bundle (Ch. 7).
 - **M. F. Atiyah, R. Bott, *A Lefschetz fixed point formula for elliptic complexes II*, Ann. Math. 88 (1968).** The holomorphic Lefschetz formula (Ch. 5, 7).
 

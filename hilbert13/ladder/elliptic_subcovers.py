@@ -1,4 +1,4 @@
-"""Elliptic subcovers of the (2,4,7) A7-curves (Chapter 7, Proposition 7.8).
+"""Elliptic subcovers of the (2,4,7) A7-curves (Chapter 7, Proposition 7.10).
 
 (1) H^1(C,Z) with its cup product and A7-action, from the dessin of each class: the Delta-complex of 5040
     triangles, a tree-cotree basis, and the Alexander-Whitney cup product. Checks: antisymmetric, unimodular,

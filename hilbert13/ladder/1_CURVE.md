@@ -4,7 +4,7 @@
 
 ## 1.1 The group and the curves
 
-- **Triples [X]** (`triples.py`). With $a=(12)(34)$ fixed there are 96 choices of $b$, and 10080 triples in all.
+- **Triples [X]** (`curve_checks.py` §1). With $a=(12)(34)$ fixed there are 96 choices of $b$, and 10080 triples in all.
   - These form 4 classes under $A_7$-conjugation, labelled 0, 1, 12, 14 (`triples_data.py`).
   - They form 2 classes under $S_7$: $\{0,1\}$ and $\{12,14\}$. Within an $S_7$-orbit the curves are isomorphic, and the actions differ by an outer automorphism.
 - **Conjugacy data [P].**
@@ -21,7 +21,7 @@
 
 **Lemma 1.1 [P].** Over a branch point with stabiliser $\langle x\rangle$, an element $h$ fixes $|C_G(h)|\cdot|h^G\cap\langle x\rangle|/|x|$ points.
 
-**Corollary 1.2 [P][X]** (`rung1.py`). Fixed points by order of the element:
+**Corollary 1.2 [P][X]** (`curve_checks.py` §2). Fixed points by order of the element:
 
 | order | 2 | 4 | 7 | 3, 5, 6 |
 |---|---|---|---|---|
@@ -31,7 +31,7 @@ Hence $270=2(2g(D)-2)+18$ and $g(D)=64$.
 
 **The action on $D$.** $H=C_G(\tau)/\langle\tau\rangle\cong C_2\times S_3$ acts on $D$. For $\tau=(12)(34)$ it is $\{(x,y)\in V_4\times S_3:\operatorname{sgn}x=\operatorname{sgn}y\}$.
 
-**Proposition 1.3 [P][X]** (`quot.py`). Use $\#\mathrm{Fix}_{C/V}(\bar w)=\frac1{|V|}\sum_{g\in wV}\#\mathrm{Fix}_C(g)$.
+**Proposition 1.3 [P][X]** (`curve_checks.py` §3). Use $\#\mathrm{Fix}_{C/V}(\bar w)=\frac1{|V|}\sum_{g\in wV}\#\mathrm{Fix}_C(g)$.
 - **Good involutions of $H$.** There are 4, the images of involutions $\mu\ne\tau$ commuting with $\tau$. Each has 18 fixed points on $D$, and $g(D/\bar\mu)=28$.
 - **Bad involutions.** There are 3, the images of order-4 elements with $\mu^2=\tau$. Each has 2 fixed points, and $g(D/\bar\mu)=32$.
 - **Orders 3 and 6** act freely.
@@ -62,14 +62,14 @@ The translates $f\circ h$ generate a field of index 9, 3 or 1, and accordingly:
 In each case the monodromy forces the linear equivalence
 $$(\star)\qquad g_1+\dots+g_9\ \sim\ 3(t_1+t_2+t_3)\quad\text{on }T .$$
 
-**The Jacobian [X]** (`jacobian.py`, Chevalley–Weil). $H^1(C)=3(10+\overline{10})+2\cdot15+2\cdot21+4\cdot35$, so
+**The Jacobian [X]** (`curve_checks.py` §4, Chevalley–Weil). $H^1(C)=3(10+\overline{10})+2\cdot15+2\cdot21+4\cdot35$, so
 $$\mathrm{Jac}(C)\sim A^{10}E_1^{15}E_2^{21}S^{35},\qquad\mathrm{Jac}(D)\sim A^4E_1^7E_2^{11}S^{17},\qquad\mathrm{Jac}(T)\sim E_2\times S .$$
 Here:
 - $A$ is a threefold with $\mathbb Q(\sqrt{-7})$-multiplication;
 - $E_1=C/A_5$ ($A_5$ fixing two points) and $E_2=C/L_2(5)$ are elliptic curves (§7.9);
 - $S\sim\mathrm{Jac}(C/(3^2{:}4))$ is an abelian surface.
 
-**Proposition 1.6 [P][X]** (`star.py`, `frontier_checks.py`).
+**Proposition 1.6 [P][X]** (`curve_checks.py` §5, `side_checks.py` D4).
 - The $\mathbb Q[G]$-span of the involution fixed divisors is a quotient of $\mathbb Q[G/C(\tau)]=1+6+14_a+2\cdot14_b+21+35$.
 - The lift of $(\star)$ has nonzero 21- and 35-components.
 - So $(\star)$ fails as soon as either of two explicit points has infinite order: $P_E\in E_2$ or $P_S\in\mathrm{Jac}(C/(3^2{:}4))$ (§6.5).

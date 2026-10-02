@@ -1,0 +1,58 @@
+R   ramification transport (§6.1)
+|C(tau)| = 24  |N(V0)| = 72  |N(V1)| = 24  |<N(V0),N(V1)>| = 2520
+<z, sigma, gamma sigma, tau> = 24 = |C(tau)|; tau*x involution for all three: True
+A5 example: product = 1  generated order 60
+   reversed product = 1: False
+signature (2, 4, 7): genus 136, generating pairs with x a fixed class rep: 96
+signature (3, 3, 5): genus 169, generating pairs with x a fixed class rep: 18
+signature (2, 5, 7): genus 199, generating pairs with x a fixed class rep: 96
+signature (3, 3, 6): genus 211, generating pairs with x a fixed class rep: 18
+signature (3, 4, 4): genus 211, generating pairs with x a fixed class rep: 72
+signature (2, 6, 7): genus 241, generating pairs with x a fixed class rep: 96
+signature (3, 3, 7): genus 241, generating pairs with x a fixed class rep: 90
+signature (2, 7, 7): genus 271, generating pairs with x a fixed class rep: 144
+signature (3, 4, 5): genus 274, generating pairs with x a fixed class rep: 90
+D1  |Q2| = 24  equals C(16)(23): True  element orders {1: 1, 2: 9, 3: 2, 4: 6, 6: 6}  |centre| = 2
+    two elements of order 3 -> normal C3; 9 involutions + 6 of order 4 with a D8 Sylow -> C3 : D8
+
+D4  |D_delta|^2 by isotype: {'6': 7.2, '14a': 12.0, '14b': 28.8, '21': 18.0, '35': 6.0}
+    C(tau)-fixed dims = multiplicities in Z[A7/C(tau)]: {'1': 1, '6': 1, '10': 0, '10b': 0, '14a': 1, '14b': 2, '15': 0, '21': 1, '35': 1}
+    21: rank Q[G]e(D) = 21, rank Q[G]e(v) = 21, joint 21  (one copy each, the same copy)
+    35: rank Q[G]e(D) = 35, rank Q[G]e(v) = 35, joint 35  (one copy each, the same copy)
+    C/L2(5): |K| = 60, fixed irreducibles ['1', '6', '14a', '21'], genus 1; 42 of 42 conjugates see the 21-part of D_delta
+    C/3^2:4 (Q1 group): |K| = 36, fixed irreducibles ['1', '6', '14a', '14b', '35'], genus 2; 58 of 70 conjugates see the 35-part of D_delta
+
+D5  A7-realisable triangle signatures with genus <= 529 (ordered generating triples / |A7|)
+    g = 136  (2, 4, 7)  [4]  lambda1 threshold for gon>=25: 0.3556
+    g = 199  (2, 5, 7)  [4]  lambda1 threshold for gon>=25: 0.2424
+    g = 241  (2, 6, 7)  [4]  lambda1 threshold for gon>=25: 0.2000
+    g = 271  (2, 7, 7)  [6]  lambda1 threshold for gon>=25: 0.1778
+    g = 169  (3, 3, 5)  [2]  lambda1 threshold for gon>=25: 0.2857
+    g = 211  (3, 3, 6)  [2]  lambda1 threshold for gon>=25: 0.2286
+    g = 241  (3, 3, 7)  [4]  lambda1 threshold for gon>=25: 0.2000
+    g = 211  (3, 4, 4)  [8]  lambda1 threshold for gon>=25: 0.2286
+    g = 274  (3, 4, 5)  [10]  lambda1 threshold for gon>=25: 0.1758
+    g = 316  (3, 4, 6)  [6]  lambda1 threshold for gon>=25: 0.1524
+    g = 346  (3, 4, 7)  [16]  lambda1 threshold for gon>=25: 0.1391
+    g = 337  (3, 5, 5)  [6]  lambda1 threshold for gon>=25: 0.1429
+    g = 379  (3, 5, 6)  [6]  lambda1 threshold for gon>=25: 0.1270
+    g = 409  (3, 5, 7)  [18]  lambda1 threshold for gon>=25: 0.1176
+    g = 421  (3, 6, 6)  [2]  lambda1 threshold for gon>=25: 0.1143
+    g = 451  (3, 6, 7)  [8]  lambda1 threshold for gon>=25: 0.1067
+    g = 481  (3, 7, 7)  [26]  lambda1 threshold for gon>=25: 0.1000
+    g = 316  (4, 4, 4)  [24]  lambda1 threshold for gon>=25: 0.1524
+    g = 379  (4, 4, 5)  [22]  lambda1 threshold for gon>=25: 0.1270
+    g = 421  (4, 4, 6)  [12]  lambda1 threshold for gon>=25: 0.1143
+    g = 451  (4, 4, 7)  [44]  lambda1 threshold for gon>=25: 0.1067
+    g = 442  (4, 5, 5)  [8]  lambda1 threshold for gon>=25: 0.1088
+    g = 484  (4, 5, 6)  [8]  lambda1 threshold for gon>=25: 0.0994
+    g = 514  (4, 5, 7)  [36]  lambda1 threshold for gon>=25: 0.0936
+    g = 526  (4, 6, 6)  [4]  lambda1 threshold for gon>=25: 0.0914
+    g = 505  (5, 5, 5)  [2]  lambda1 threshold for gon>=25: 0.0952
+
+    gon >= 25 for g >= 336:  m | pair bound | pi1(3m,7) | budget (m-1)^2-336 | cost of 1/2/3 dependent thirds
+      20 | 181 | 228 | 25 | (90, 120, 135)
+      21 | 148 | 253 | 64 | (100, 133, 150)
+      22 | 221 | 279 | 105 | (110, 147, 165)
+      23 | None | 306 | 148 | (121, 161, 181)
+      24 | 265 | 335 | 193 | (132, 176, 198)

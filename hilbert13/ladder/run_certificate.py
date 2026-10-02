@@ -1,7 +1,7 @@
 """Run the full spectral certificate and write certificate.txt.
 
 For every A7-conjugacy class of (2,4,7) generating triples (representatives 0, 1, 12, 14 of
-triples_data.py; see classreps.py) certify lower bounds for the lowest eigenvalue of
+triples_data.py; see curve_checks.py) certify lower bounds for the lowest eigenvalue of
     Q0 (A7-invariant functions, first NONZERO eigenvalue),  Q1,  Q2   (sign-twisted quotients),
 which together see every irreducible representation of A7 (cover.py).  Hence
     lambda_1(C) >= min(Q0, Q1, Q2),

@@ -4,7 +4,7 @@ Each result here either proves something independently of the main line or expla
 
 ## 6.1 An algebraic proof of $\operatorname{gon}(D)\ge10$ (Sol/Astra) [P][X]
 
-This is GPT's *ramification transport*, re-derived; the finite inputs are in `review_checks.py`.
+This is GPT's *ramification transport*, re-derived; the finite inputs are in `side_checks.py` (R).
 
 *Proof.* Suppose $D$ has a degree-9 map. Pull it back to $f:C\to\mathbb P^1$ of degree 18, with $f\circ\tau=f$ and $L=f^*\mathcal O(1)$.
 1. **Determinant.** Let $\mu\ne\tau$ be an involution commuting with $\tau$.
@@ -44,20 +44,20 @@ Li–Yau holds for every conformal metric. So one can try to maximise $\lambda_1
 
 **Proposition 6.3 (ceiling).** Let $\bar F$ be the $G$-average of $\sum\varphi_i^2$, normalised to mean 1. Then $\lambda_1\mathrm{Area}\le\lambda_1A/\min\bar F$ for every invariant conformal metric. (Each $\varphi\in E_1$ is orthogonal to the constants by Schur; take the mediant of Rayleigh quotients.)
 
-**Numerics** (`archive/scripts/conformal.py`). $\bar F\in[0.998,1.001]$, so the gain is $\le0.2\%$ for classes 0, 1 and $\le0.6\%$ for 12, 14. Classes 0, 1 need $+2.7\%$.
+**Numerics** (`conformal.py`, in git history at b148338). $\bar F\in[0.998,1.001]$, so the gain is $\le0.2\%$ for classes 0, 1 and $\le0.6\%$ for 12, 14. Classes 0, 1 need $+2.7\%$.
 
 So the route is closed. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
 
 ## 6.4 Superseded and negative tests
 
-- **Topological Hersch [P][N]** (archived: `archive/docs/FRAMEWORK_TOPOLOGICAL_HERSCH.md`).
+- **Topological Hersch [P][N]** (git history at b148338).
   - It was the first inequality to use Lemma 3.3. It bounds the degree gain by $6\kappa\sqrt\varepsilon+E(z)/2$.
   - Harmonic Hersch improves this to $4\kappa\sqrt\varepsilon$ with no $E(z)$ term, via $x\times dx={*dx}$, and supersedes it.
 - **Quadric gap [N].** $\min\frac1A\int(1-|y|)^2\approx0.016$ over $y\in E_1\otimes\mathbb R^3$ with $\|y\|^2=A$. This gives only $\operatorname{gon}\ge23.7$: the obstruction is the degree, not the shape.
-- **Equivariant Plücker [X]** (`archive/scripts/equivariant_plucker.py`). Branch eigenvalues fix the vanishing orders mod $e$, and Plücker then requires
+- **Equivariant Plücker [X]** (`equivariant_plucker.py`, in git history at b148338). Branch eigenvalues fix the vanishing orders mod $e$, and Plücker then requires
   $$(r+1)(d+r(g-1))-\sum_i\tfrac{2520}{e_i}w_{\min}(i)\in2520\,\mathbb Z_{\ge0}.$$
   It passes in every case tested, so it excludes nothing; Theorem 7.5 uses it as a check.
-- **The $Q_2$ group [X]** (`frontier_checks.py`). $C_{A_7}((16)(23))$ has order 24, centre $\langle(16)(23)\rangle$, element orders $1{:}1,2{:}9,3{:}2,4{:}6,6{:}6$, a normal $C_3$ and Sylow-2 subgroup $D_8$. So it is $C_3\rtimes D_8$, not $S_4$.
+- **The $Q_2$ group [X]** (`side_checks.py` D1). $C_{A_7}((16)(23))$ has order 24, centre $\langle(16)(23)\rangle$, element orders $1{:}1,2{:}9,3{:}2,4{:}6,6{:}6$, a normal $C_3$ and Sylow-2 subgroup $D_8$. So it is $C_3\rtimes D_8$, not $S_4$.
 
 ## 6.5 Open arithmetic: $P_E$ and $P_S$ [X][?]
 

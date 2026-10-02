@@ -500,7 +500,7 @@ def certify(cls, coef_file, log, nu=48, nt=32, r1="1.37", w="0.25"):
     phi_max = amax(phis.values())
     B_h = B_GAP / (B_GAP - lam_h_hi) * phi_max
     log(f"B_h = b/(b - lambda_h) * max_sigma phi_sigma <= {float(B_h.upper()):.4e}")
-    # ---------------------------------------------------------------- final inequality (Theorem 5.3 form)
+    # ---------------------------------------------------------------- final inequality (Theorem 3.4, (3.1))
     d = TAU - a
     one_m = 1 - a / nu_
     R = (rho + (rho * rho + one_m * d).sqrt()) / one_m

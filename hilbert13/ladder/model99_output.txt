@@ -1,0 +1,5 @@
+singular points in chart: none
+D.Delta squarefree (18 pts): True
+D.Gamma(a2) squarefree (18 pts): True
+F(1,1), F(-1,-1), F(1,-1), F(-1,1) mod p: (1060, 44, 0, 0)
+corner coeffs c00,c09,c90,c99: (25, 19, 19, 25)

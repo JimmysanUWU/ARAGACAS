@@ -196,28 +196,3 @@ class TrialFunction:
         rad = self.radial(u, deriv)
         trg = self.trig(th)
         return self.value_grad(rad, trg) if deriv else self.value(rad, trg)
-
-
-if __name__ == "__main__":
-    import time
-    here = os.path.dirname(os.path.abspath(__file__))
-    tf = TrialFunction(0, os.path.join(here, "coef_cls0_M90.npz"))
-    sys.path.insert(0, "/tmp/claude-0/-home-user-ARAGACAS/32e8ed8f-a61f-5f3c-8c96-fdba0d6af448/scratchpad")
-    t0 = time.time()
-    z = acb(arb("0.31"), arb("0.12"))
-    F, Fx, Fy = tf.at_point(z, deriv=True)
-    print("time", time.time() - t0)
-    print("F[:3]", F[:3]); print("Fx[:3]", Fx[:3])
-    from hejhal2 import radial_and_deriv
-    d = np.load(os.path.join(here, "coef_cls0_M90.npz"))
-    zz = np.array([0.31 + 0.12j]); u = abs(zz); th = np.angle(zz)
-    out = np.zeros((21, 1)); h = 1e-6
-    def F0(zz):
-        u = np.abs(zz); th = np.angle(zz); out = np.zeros((21, len(zz)))
-        for m in range(d["A"].shape[0]):
-            R, _ = radial_and_deriv(m, u, float(d["lam"]))
-            out += np.outer(d["A"][m], R*np.cos(m*th)) + np.outer(d["B"][m], R*np.sin(m*th))
-        return out
-    f = F0(zz)[:, 0]; fx = (F0(zz + h)[:, 0] - F0(zz - h)[:, 0]) / (2 * h)
-    print("float F0[:3]", f[:3], "fx", fx[:3])
-    print("max |Ft - F0|", max(abs(float(F[r].mid()) - f[r]) for r in range(21)), "max rad", max(float(x.rad()) for x in F))

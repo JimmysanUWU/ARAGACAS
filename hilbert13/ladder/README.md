@@ -41,43 +41,45 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted classes, the $\mathbb P^5$ model and its equations, $\operatorname{gon}\le42$, Klein quadrics, elliptic subcovers |
 | [`LITERATURE.md`](LITERATURE.md) | the literature and references |
 | [`QUESTIONS_FOR_GPT.md`](QUESTIONS_FOR_GPT.md) | audit requests and open questions |
-| `gpt/`, [`archive/`](archive/README.md) | GPT's source documents; superseded notes and scripts |
+| `gpt/` | GPT's source documents (DAY 2, Round 5); superseded material is in git history (commit `b148338`) |
 
 ## Scripts
 
-| script | claim | output |
-|---|---|---|
-| `a7.py`, `chartab.py`, `classreps.py`, `triples.py`, `triples_data.py` | $A_7$ toolkit; the 4 classes of triples | — |
-| `rung1.py`, `quot.py`, `mingenus.py` | fixed points, quotient genera, minimum genus (§§1.1–1.2) | stdout |
-| `jacobian.py`, `hdecomp.py`, `cusp.py`, `star.py` | Jacobian, $(\star)$ isotypes (§1.4) | stdout |
-| `model99.py` | the audit curve (Thm 1.7) | stdout |
-| `orbifold.py`, `cover.py` | exact Klein-chart model; $Q_0,Q_1,Q_2$ see every irreducible (§§2.2–2.3) | stdout |
-| `certify.py`, `run_certificate.py` | $\lambda_1\ge0.34089$ (§2.5) | `certificate*.txt` |
-| `certify_th.py` | $E_1=14_a$, $\lambda'\ge0.55998$; classes 12, 14: $\lambda_1\ge0.355696$ | `certify_th_output.txt` |
-| `signatures_spectrum.py`, `certify_signatures.py` | other signatures (§2.5) and the window (§4.4) | `certify_signatures_output.txt`, `certify_window_output.txt` |
-| `validate_bolza.py` | the Bolza surface (§2.6) | `validation_bolza.txt` |
-| `verify_exact.py` | $(\wedge^314_a)^{A_7}=0$ (Lemma 3.3) | stdout |
-| `hejhal_solve.py`, `hh_eval.py`, `hh_certify.py` | harmonic Hersch (Ch. 3) | `coef_cls*_M90.npz`, `hh_certify_output_cls{0,1}.txt` |
-| `gonality_large_genus.py` | $B^*(d)$ and the window (Ch. 4) | `gonality_large_genus_output.txt` |
-| `verify_accessory60.py`, `equivariant_rr.py`, `verify_mu90_exact.py` | $a=60$; $h^0(B+T)\ge10$; exclusion of 72, 84 (Ch. 5) | stdout, `mu90_exact_output.txt` |
-| `review_checks.py`, `frontier_checks.py` | finite inputs of §§6.1, 6.4, 6.5 | stdout |
-| `twisted_rr.py` | $2.A_7,3.A_7,6.A_7$; twisted Lefschetz; §§7.1–7.6 | `twisted_rr_output.txt` |
-| `twisted_survey.py` | the 26 rigid curves of genus $\le335$ (§7.8) | `twisted_survey_output.txt` |
-| `tau_pencil.py` | no base points beyond the 18 (Prop. 7.7) | `tau_pencil_output.txt` |
-| `p5_curve.py` | equations of $\varphi(C)$, embedding, the fibre $18+42$, Klein quadrics (Props. 7.8–7.9) | `p5_curve_output.txt` |
-| `elliptic_subcovers.py` | $H^1(C,\mathbb Z)$ with cup product; subcovers $\ge60$ (Prop. 7.10) | `elliptic_subcovers_output.txt` |
+Every claim has a script and a saved output, `NAME_output.txt` unless noted.
+
+| script | claim |
+|---|---|
+| `a7.py`, `chartab.py`, `triples_data.py` | $A_7$ toolkit: permutations, character table, the four classes of triples |
+| `curve_checks.py` | Ch. 1: triples, fixed points, quotients of $D$, Jacobian, $(\star)$ isotypes |
+| `model99.py` | the audit curve (Thm 1.7) |
+| `orbifold.py`, `cover.py` | exact Klein-chart model; $Q_0,Q_1,Q_2$ see every irreducible (§§2.2–2.3) |
+| `certify.py`, `run_certificate.py` | $\lambda_1\ge0.34089$ (§2.5) → `certificate.txt` |
+| `certify_th.py` | $E_1=14_a$, $\lambda'\ge0.55998$; classes 12, 14: $\lambda_1\ge0.355696$ |
+| `signatures_spectrum.py`, `certify_signatures.py` | other signatures (§2.5) and the window (§4.4) → `certify_{signatures,window}_output.txt` |
+| `validate_bolza.py` | the Bolza surface (§2.6) → `validation_bolza.txt` |
+| `verify_exact.py` | $(\wedge^314_a)^{A_7}=0$ (Lemma 3.3) |
+| `hejhal_solve.py`, `hh_eval.py`, `hh_certify.py` | harmonic Hersch (Ch. 3) → `coef_cls*_M90.npz`, `hh_certify_output_cls{0,1}.txt` |
+| `gonality_large_genus.py` | $B^*(d)$ and the window (Ch. 4) |
+| `verify_accessory60.py`, `equivariant_rr.py`, `verify_mu90_exact.py` | $a=60$; $h^0(B+T)\ge10$; the exclusion of 72, 84 (Ch. 5) → `mu90_exact_output.txt` for the last |
+| `side_checks.py` | §6.1, §6.4, §6.5, Prop. 1.6 and the Ch. 4 table |
+| `twisted_rr.py`, `twisted_survey.py` | $2.A_7,3.A_7,6.A_7$, twisted Lefschetz, §§7.1–7.6; the 26 rigid curves (§7.8) |
+| `tau_pencil.py` | no base points beyond the 18 (Prop. 7.7) |
+| `p5_curve.py` | equations of $\varphi(C)$, embedding, the fibre $18+42$, Klein quadrics (Props. 7.8–7.9) |
+| `elliptic_subcovers.py` | $H^1(C,\mathbb Z)$ with cup product; subcovers $\ge60$ (Prop. 7.10) |
 
 ## Reproduction
 
 ```sh
 pip install numpy scipy sympy python-flint cvxopt pypdf
 cd hilbert13/ladder
-python3 cover.py                                   # 1 s
+python3 curve_checks.py > curve_checks_output.txt  # 15 s
+python3 side_checks.py > side_checks_output.txt    # 30 s
 python3 run_certificate.py                         # ~6 min, 7 GB RAM
 python3 certify_th.py count 96 0 0.56              # see certify_th_output.txt for the other runs
 python3 certify_signatures.py 24 3 3 5 2 5 7 3 3 6 3 4 4 2 6 7 3 3 7 2 7 7 3 4 5 3 4 6 4 4 4
 python3 hh_certify.py 0 coef_cls0_M90.npz 192 128  # ~6.5 min per class; likewise class 1
-python3 gonality_large_genus.py; python3 verify_mu90_exact.py
+for f in cover verify_exact gonality_large_genus verify_accessory60 equivariant_rr model99; do python3 $f.py > ${f}_output.txt; done
+python3 verify_mu90_exact.py
 python3 twisted_rr.py > twisted_rr_output.txt               # 25 s
 python3 twisted_survey.py > twisted_survey_output.txt       # 90 s
 python3 tau_pencil.py > tau_pencil_output.txt               # 1 min

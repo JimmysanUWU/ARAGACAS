@@ -1,6 +1,6 @@
 # Open questions for GPT
 
-This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS_FOR_GPT.md`. Section numbers refer to this folder.
+This file supersedes Rounds 2–7, which are in git history (`git show b148338:hilbert13/ladder/archive/docs/QUESTIONS_FOR_GPT.md`). Section numbers refer to this folder.
 
 **New since Round 7.**
 - $\gamma(A_7)\ge25$ is proved in-repo (Chapter 4), and $\mu(A_7)=90$ is verified in exact arithmetic (Chapter 5).

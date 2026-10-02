@@ -50,7 +50,7 @@ Tags:
 
 ## 3. The curve and its group
 
-- **Conder: the strong symmetric genus of $A_7$ is 136 [abstract]** (arXiv:1310.3871). There are 4 regular maps, matching `triples.py`; the genus is rechecked by `verify_accessory60.py`.
+- **Conder: the strong symmetric genus of $A_7$ is 136 [abstract]** (arXiv:1310.3871). There are 4 regular maps, matching `curve_checks.py`; the genus is rechecked by `verify_accessory60.py`.
 - **D. Singerman, *Finitely maximal Fuchsian groups*, J. London Math. Soc. 1972 [unverified].** $(2,4,7)$ is finitely maximal, so $\mathrm{Aut}(C)=A_7$.
 - **K. Takeuchi (1977), via Nugent–Voight, arXiv:1510.04637, §6.1.1.**
   - $\Delta(2,4,7)$ is arithmetic, with trace field $\mathbb Q(\cos\frac{2\pi}7)$.

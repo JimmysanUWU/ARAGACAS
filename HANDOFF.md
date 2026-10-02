@@ -1,53 +1,65 @@
 # HANDOFF: Hilbert 13 and the $A_7$ gonality ladder
 
-**Read this first, then:**
-- `hilbert13/ladder/README.md`: the results, chapter map, scripts and reproduction;
-- `GOALS.md`: what is done and what is open.
+Read this, then `hilbert13/ladder/README.md` (results, chapters, scripts, reproduction).
 
-## Where the work lives
+## Where things are
 
 | | |
 |---|---|
-| repository | `JimmysanUWU/ARAGACAS` |
-| branch | `claude/continue-previous-qfhm7j` (draft PR https://github.com/JimmysanUWU/ARAGACAS/pull/1) |
-| other open PR | GPT's PR #2. Do not merge it or comment on it without the user's go-ahead. |
-| proofs | `hilbert13/ladder/1_CURVE.md` … `7_TWISTED.md` |
-| Lean | `hilbert13/Hilbert13/Superposition.lean` (single superpositions; see `hilbert13/README.md`) and `SpectralCertificate.lean` |
-| history | `hilbert13/ladder/archive/` (superseded notes and scripts) and git history (session logs up to commit `d5d99c4`) |
-| web | the root `index.html`, `src/`, `css/`, `dist/` are an unrelated web stub |
+| repository | `JimmysanUWU/ARAGACAS`, branch `claude/continue-previous-qfhm7j`, draft PR #1 |
+| other PR | GPT's PR #2: do not merge or comment without the user's go-ahead |
+| mathematics | `hilbert13/ladder/1_CURVE.md` … `7_TWISTED.md` (textbook order) |
+| Lean | `hilbert13/Hilbert13/Superposition.lean` (`hilbert13/README.md`) and `SpectralCertificate.lean` |
+| history | git only: superseded notes and scripts up to `b148338`, session logs up to `d5d99c4` |
+| web stub | root `index.html`, `src/`, `css/`, `dist/`: unrelated, leave untouched |
+
+## Status
+
+**Done.**
+- **Ch. 1, §6.1.** $g(C)=136$, $g(D)=64$, $\operatorname{gon}(D)\ge9$ ($\ge10$ by algebra); degree 9 and the audit curve.
+- **Ch. 2–4.** $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes, so $\operatorname{gon}(C/\tau)\ge13$; also $\gamma(A_7)\ge25$.
+- **Ch. 5.** $a(A_7)=60$ (sharp) and $\mu(A_7)=90$; the bounds persist without fixed points (Theorem 5.11).
+- **Ch. 7.**
+  - Schur-twisted Picard group.
+  - $C\hookrightarrow\mathbb P^5$ of degree 60, cut out by the Laza–Zheng cubic and 15 quartics.
+  - An exact $g^1_{42}$, so $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$.
+  - Klein quadrics; elliptic subcovers have degree $\ge60$.
+
+**Open, in priority order.**
+1. **Audit** of Ch. 3, 4, 7 and §§5.4–5.5 by GPT (`QUESTIONS_FOR_GPT.md` §1).
+2. **Paper.** Typeset the chapters into one PDF.
+3. **The exact gonality**, in $[25,42]$. Every symmetric mechanism stops at 42. New inputs would be:
+   - stable reduction at $p=7$ with graph gonality (§7.10);
+   - a non-symmetric pencil on the explicit model.
+4. **(Optional)** $\operatorname{gon}\ge26$ on classes 0, 1, via a certified sharp $\kappa$ (Ch. 3).
+5. **(Long shot)** Towers and RD: bases whose $H^1$ shares a constituent with $H^1(C)$ (§5.5).
+6. **(Low)** Are $P_E$, $P_S$ torsion (§6.5)?
+
+**Budget.** The user's usage is limited. Send item 1 to GPT and do item 2. Do items 3–6 only on a new idea, in small decisive steps.
+
+## Workflow
+
+- **GPT** runs in parallel. Its PDFs go in `hilbert13/ladder/gpt/`. Every claim is re-derived [P] or recomputed [X] before use. Questions go in `QUESTIONS_FOR_GPT.md`, paste-ready.
+- **Commits.**
+  - Use the trailers from the session instructions.
+  - Put no model identifiers in commits, PRs or files.
+  - Push with `git push -u origin claude/continue-previous-qfhm7j`, retrying on network errors.
 
 ## Setup
 
 ```sh
 pip install numpy scipy sympy python-flint cvxopt pypdf
 cd hilbert13/ladder && python3 cover.py          # smoke test, 1 s
-
-# Lean 4 + Mathlib. The hosts release.lean-lang.org, github.com and the Mathlib cache must be allowed.
+# Lean 4 + Mathlib (needs release.lean-lang.org, github.com and the Mathlib cache)
 curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
-bash elan-init.sh -y --default-toolchain leanprover/lean4:stable
-export PATH=$HOME/.elan/bin:$PATH
-cd hilbert13 && lake exe cache get && lake build   # pinned to Lean/Mathlib v4.34.1
+bash elan-init.sh -y --default-toolchain leanprover/lean4:stable && export PATH=$HOME/.elan/bin:$PATH
+cd hilbert13 && lake exe cache get && lake build   # Lean/Mathlib v4.34.1
 ```
-
-## Workflow
-
-- **Collaboration.** The user runs GPT in parallel.
-  - GPT's documents arrive as PDFs in `hilbert13/ladder/gpt/`.
-  - Each of its claims is re-derived on paper [P] or recomputed [X] before it is used.
-  - Questions for GPT go in `hilbert13/ladder/QUESTIONS_FOR_GPT.md`, paste-ready.
-- **Status tags** are used throughout; see the ladder README.
-- **Commits.**
-  - End every commit message with the trailers given in the session's instructions.
-  - Never put model identifiers in commits, PRs or files.
-  - Push with `git push -u origin claude/continue-previous-qfhm7j`, retrying on network errors.
-- **Budget.** The user's usage is limited, so prefer small, decisive steps.
 
 ## Infrastructure notes
 
-- **Fetching papers.** `WebFetch` is blocked for arxiv.org and some publishers, but `curl` works. `pdfminer` breaks on this image (cryptography/cffi), so use `pypdf`.
-- **Memory.** Large FEM jobs use up to 7 GB. Run one per shell call, or they run out of memory.
-- **cvxopt.**
-  - `cholmod.options['supernodal']=2` forces supernodal $LL^T$.
-  - `getfactor` returns the factor of a CHOLMOD-chosen permutation; the certificates use only its row counts and norms.
-- **python-flint.** `acb_hypgeom_2f1` can return a non-finite ball at large $m$. `hh_eval.f21` retries at doubled precision.
-- **Killing jobs.** `pkill -f pattern` also kills the calling shell if the pattern occurs in its own command line, e.g. in a heredoc. Use `pgrep -f "[p]attern" | xargs -r kill` in a separate call.
+- **Papers.** WebFetch is blocked for arxiv.org; `curl` works. Use `pypdf`, because `pdfminer` breaks on this image.
+- **Memory.** FEM jobs use up to 7 GB. Run one per shell call.
+- **cvxopt.** `cholmod.options['supernodal']=2` forces supernodal $LL^T$. `getfactor` returns the factor of a CHOLMOD-chosen permutation; the certificates use only its row counts and norms.
+- **python-flint.** `acb_hypgeom_2f1` can return a non-finite ball at large $m$; `hh_eval.f21` retries at doubled precision.
+- **Killing jobs.** `pkill -f pattern` also kills the calling shell if the pattern is in its own command line. Use `pgrep -f "[p]attern" | xargs -r kill` in a separate call.

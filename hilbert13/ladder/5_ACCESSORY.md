@@ -16,7 +16,7 @@
 - $\mu\ge72$ and the power-sum curve: GPT Round 5 (`gpt/A7_Round5_Advances.pdf`).
 - $\mu\le90$ and the exclusion of 72 and 84 are ours.
 
-Status tags: **[P]** paper proof; **[X]** exact computation (`verify_accessory60.py`, `verify_mu90_exact.py`, `equivariant_rr.py`).
+Status tags as in `README.md`; the computations are in `verify_accessory60.py`, `verify_mu90_exact.py` and `equivariant_rr.py`.
 
 ## 5.1 From compressions to line bundles
 
@@ -101,7 +101,7 @@ So $\mu(A_7)\in\{72,84,90,96,108,120\}$. The power-sum curve $\{\sum x_j^k=0,\ k
 2. **Holomorphic Lefschetz** (Atiyah–Bott). For $g\ne1$,
    $\sum_q(-1)^q\mathrm{tr}(g\mid H^q(\mathcal O(D)))=\sum_{p\in\mathrm{Fix}(g)}a_p^{k_p}/(1-a_p^{-1})$.
    Here $a_p$ is the rotation of $g$ at $p$ and $k_p=\mathrm{mult}_pD$.
-3. **The result.** It gives $\chi_{A_7}(B+T)=-6+10-14_a-14_b-21$ (or with $\overline{10}$). So $h^0(B+T)\ge10$.
+3. **The result.** $\chi_{A_7}(B+T)=-6+10-14_a-14_b-21$ (the $10$ becomes $\overline{10}$ under the other orientation), so $h^0(B+T)\ge10$.
 4. **No fixed part.** A fixed part would be an invariant divisor of degree $\le90<360=$ the least orbit size. $\square$
 
 *Validation of conventions.*
@@ -128,6 +128,8 @@ Every orbit has size $>n$, so $W=H^0(L)$ has no trivial summand. Hence $W\in\{6,
 combination of orbit sizes, then $f$ vanishes on $\varphi_W(C)$.
 
 *Proof.* $f|_C$ is an invariant section of $L^k$, so its divisor is a sum of orbits. $\square$
+
+Lemma 7.3 sharpens this by also using the local characters at branch points.
 
 **Case $W\supseteq6$.** Let $x_1,\dots,x_7$ be the coordinates, with $\sum x_j=0$, and let $p_k$ be the power sums.
 - **$n=72$.**
@@ -182,8 +184,8 @@ So $\mu\notin\{72,78,84\}$, and Proposition 5.8 gives $\mu(A_7)=90$. $\square$
 - Farb–Wolfson (only for $a(A_7)\le60$).
 
 **Consequences.**
-- **The essential-dimension question is settled.** $\mathrm{ed}(A_7;\le59)>1$, with no gonality input, and the threshold is exactly 60. The earlier spectral reductions are true but superseded.
-- **Gonality is a separate problem.** It is the question of $\gamma(A_7)$, now $\ge25$ (Chapter 4).
+- **The essential-dimension question is settled.** $\mathrm{ed}(A_7;\le59)>1$ needs no gonality input, and the threshold is exactly 60.
+- **Gonality is a separate problem**: the value of $\gamma(A_7)$, now known to lie in $[25,42]$ (Chapters 4 and 7).
 
 **Open (DAY 2 §9).**
 - For a fixed $(2,4,7)$ target, does connected full-$A_7$ compression need $90\mid d$?

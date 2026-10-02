@@ -9,7 +9,7 @@ This script computes, for every such twist:
   (2) twisted holomorphic Lefschetz: the virtual 6.A7-character chi(L) = [H^0] - [H^1] for every local datum
       (eigenvalue of the lift (g_i,0,0) of each branch generator on the fibre over its fixed point);
   (3) the exact degree of the twisted class with that local datum:  deg L = 2520 (n + sum_i r_i/e_i - rho_0),
-      lambda_i = exp(2 pi i r_i/e_i),  eps(x1 x2 x3) = exp(2 pi i rho_0)   (Proposition 7.2);
+      lambda_i = exp(2 pi i r_i/e_i),  eps(x1 x2 x3) = exp(2 pi i rho_0)   (Proposition 7.1);
   (4) validation: eps = 1 reproduces equivariant_rr.py (B, B+T, K); both orientation conventions;
   (5) the degree-45 obstruction (Theorem 7.4): Molien series of 2.A7 on V4, f14 and f18 vanish on the 210
       involution lines and are coprime, and every degree-45 spin class forces f14 = f18 = 0 on its image;

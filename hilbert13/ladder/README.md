@@ -16,13 +16,12 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: connected full-monodromy compression needs exactly degree 90 | [P][X] | Ch. 5 |
 | $\operatorname{gon}(C/\langle\tau\rangle)\ge10$ by pure algebra (Sol/Astra) | [P][X] | §6.1 |
-| invariant (Schur-twisted) Picard group: degrees $15\mathbb Z$; no invariant sections below degree 60 | [P][X] | Ch. 7 |
-| a $3.A_7$-equivariant birational model $C\to\mathbb P^5$ of degree 60; no spinor model in $\mathbb P^3$ | [P][X] | Ch. 7 |
+| Schur-twisted invariant classes have degrees $15\mathbb Z$, none with sections below degree 60; a birational $3.A_7$-model $C\to\mathbb P^5$ of degree 60 on an explicit cubic fourfold | [P][X] | Ch. 7 |
 | **$\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\langle\tau\rangle)\le21$** (previously 56, 28); hence $25\le\gamma(A_7)\le42$ | [P][X] | Ch. 7 |
 
 **Tags.**
 - **[P]** paper proof.
-- **[X]** exact finite computation: integers, rationals, polynomials.
+- **[X]** finite computation: exact arithmetic, or floating-point character sums whose integrality is checked.
 - **[C]** computer-assisted proof: ball arithmetic, or floating point with rigorous a-priori error bounds.
 - **[L]** checked in Lean (`../Hilbert13/SpectralCertificate.lean`).
 - **[N]** numerical only.
@@ -63,8 +62,8 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | `verify_accessory60.py` | $a(A_7)=60$ inputs (§5.2) | stdout |
 | `equivariant_rr.py` | holomorphic Lefschetz: $h^0(B+T)\ge10$ (Prop. 5.8) | stdout |
 | `verify_mu90_exact.py` | exclusion of 72 and 84, exact (§5.4) | `mu90_exact_output.txt` |
-| `twisted_rr.py` | $2.A_7$, $3.A_7$, $6.A_7$; twisted Lefschetz; Theorems 7.4–7.5, Corollary 7.6 (Ch. 7) | `twisted_rr_output.txt` |
-| `twisted_survey.py` | the same on all 26 rigid curves of genus $\le335$ (§7.6) | `twisted_survey_output.txt` |
+| `twisted_rr.py` | $2.A_7$, $3.A_7$, $6.A_7$; twisted Lefschetz; Theorems 7.4–7.5, Corollary 7.6, the cubic fourfold (Ch. 7) | `twisted_rr_output.txt` |
+| `twisted_survey.py` | the same on all 26 rigid curves of genus $\le335$ (§7.8) | `twisted_survey_output.txt` |
 | `review_checks.py`, `frontier_checks.py` | finite inputs of §6.1, §6.6, §6.7 | stdout |
 
 ## Reproduction
@@ -80,7 +79,8 @@ python3 hh_certify.py 0 coef_cls0_M90.npz 192 128   # ~6.5 min per class
 python3 hh_certify.py 1 coef_cls1_M90.npz 192 128
 python3 gonality_large_genus.py
 python3 verify_mu90_exact.py
-python3 twisted_rr.py > twisted_rr_output.txt   # ~25 s
+python3 twisted_rr.py > twisted_rr_output.txt           # ~25 s
+python3 twisted_survey.py > twisted_survey_output.txt   # ~90 s
 ```
 
 Run large FEM jobs one at a time, because several in one shell can run out of memory.
@@ -90,8 +90,8 @@ Run large FEM jobs one at a time, because several in one shell can run out of me
 - **Classical theorems.**
   - Castelnuovo–Severi, Castelnuovo's bound, Halphen–Gruson–Peskine;
   - Hersch balancing, Li–Yau, min–max, Schur;
-  - holomorphic Lefschetz, Chevalley–Weil;
+  - holomorphic Lefschetz, Chevalley–Weil, Coppens–Martens ($\operatorname{gon}\le\mathrm{Cliff}+3$);
   - Bryant (1985), only in §6.3.
 - **Finite-element bounds.** The Crouzeix–Raviart lower bound (Liu; Carstensen–Gedicke) and Higham's Cholesky backward error. Both are checked in Lean in abstract form.
 - **Software.** python-flint (arb) ball arithmetic, and CHOLMOD for the factorisations whose errors are bounded a priori.
-- **External inputs.** GPT's DAY 2 and Round 5 theorems, all re-derived (Ch. 5). The ATLAS subgroup lists.
+- **External inputs.** GPT's DAY 2 and Round 5 theorems, all re-derived (Ch. 5); the ATLAS subgroup lists.

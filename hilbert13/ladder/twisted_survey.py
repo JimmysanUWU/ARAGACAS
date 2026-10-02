@@ -1,4 +1,4 @@
-"""Twisted models and fixed-point pencils on every rigid faithful A7-curve of genus <= 335 (7_TWISTED.md, section 7.6).
+"""Twisted models and fixed-point pencils on every rigid faithful A7-curve of genus <= 335 (7_TWISTED.md, section 7.8).
 
 For each curve (S7-class of generating triples) and each Schur twist eps (incl. eps = 1), every invariant class of degree
 <= 2g-2 whose holomorphic-Lefschetz character forces sections W <= H^0 is tested against every element x with fixed points:

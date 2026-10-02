@@ -119,15 +119,14 @@ terms, where $\Phi_1(t) = t^2/4$, $\Phi_2(t) = -t^2/4$, and all inner functions 
 
 The second project concerns curves with a faithful $A_7$-action. Its main case is the $(2,4,7)$ curves, of genus 136, the minimum.
 Full statements, proofs and certificates are in [`ladder/README.md`](ladder/README.md):
-- **$\operatorname{gon}(C)\ge25$** for every $(2,4,7)$ curve, so $\operatorname{gon}(C/\langle\tau\rangle)\ge13$ for every involution $\tau$.
-  - The route is a certified spectral gap with Li–Yau, $\lambda_1\,\mathrm{Area}\le8\pi\deg$ ([Ch. 2](ladder/2_SPECTRAL.md)).
-  - For two classes it adds *harmonic Hersch*: the degree is a cubic form that vanishes on the first eigenspace by representation theory ([Ch. 3](ladder/3_HARMONIC_HERSCH.md)).
-- **$\gamma(A_7)\ge25$**: every faithful $A_7$-curve has gonality at least 25 ([Ch. 4](ladder/4_LARGE_GENUS.md)).
-- **$\operatorname{gon}(C)\le42$** for the genus-136 curves, from a degree-60 model in $\mathbb P^5$ built from an $A_7$-invariant line bundle whose
-  symmetry is only projective (Schur multiplier $\mathbb Z/6$, [Ch. 7](ladder/7_TWISTED.md)). So $25\le\operatorname{gon}(C)\le42$.
-- **Accessory irrationalities** ([Ch. 5](ladder/5_ACCESSORY.md)).
-  - $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, and this is sharp: $a(A_7)=60$. The published bound is 6.
-  - Keeping connected full $A_7$-monodromy, the exact threshold is $\mu(A_7)=90$.
+- **$25\le\operatorname{gon}(C)\le42$** for every $(2,4,7)$ curve $C$, and $13\le\operatorname{gon}(C/\langle\tau\rangle)\le21$ for every involution $\tau$.
+  - Lower bound: a certified spectral gap with Li–Yau ([Ch. 2](ladder/2_SPECTRAL.md)), plus *harmonic Hersch* for two classes: the degree is a
+    cubic form that vanishes on the first eigenspace by representation theory ([Ch. 3](ladder/3_HARMONIC_HERSCH.md)).
+  - Upper bound: a degree-60 model in $\mathbb P^5$, from an invariant line bundle whose symmetry is only projective (Schur multiplier $\mathbb Z/6$,
+    [Ch. 7](ladder/7_TWISTED.md)).
+- **$25\le\gamma(A_7)\le42$** for the least gonality of a faithful $A_7$-curve ([Ch. 4](ladder/4_LARGE_GENUS.md), [Ch. 7](ladder/7_TWISTED.md)).
+- **Accessory irrationalities** ([Ch. 5](ladder/5_ACCESSORY.md)): $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp ($a(A_7)=60$; the published bound
+  is 6); with connected full $A_7$-monodromy the threshold is exactly $\mu(A_7)=90$.
 
 The logical core of the spectral certificate is checked in Lean in
 [`Hilbert13/SpectralCertificate.lean`](Hilbert13/SpectralCertificate.lean):

@@ -11,7 +11,7 @@
 | repository | `JimmysanUWU/ARAGACAS` |
 | branch | `claude/continue-previous-qfhm7j` (draft PR https://github.com/JimmysanUWU/ARAGACAS/pull/1) |
 | other open PR | GPT's PR #2. Do not merge it or comment on it without the user's go-ahead. |
-| proofs | `hilbert13/ladder/1_CURVE.md` … `6_SIDE_RESULTS.md` |
+| proofs | `hilbert13/ladder/1_CURVE.md` … `7_TWISTED.md` |
 | Lean | `hilbert13/Hilbert13/Superposition.lean` (single superpositions; see `hilbert13/README.md`) and `SpectralCertificate.lean` |
 | history | `hilbert13/ladder/archive/` (superseded notes and scripts) and git history (session logs up to commit `d5d99c4`) |
 | web | the root `index.html`, `src/`, `css/`, `dist/` are an unrelated web stub |

@@ -5,7 +5,7 @@
 - Equivalently, $C$ is given by a generating triple $(a,b,c)$ of $A_7$ with $|a|=2$, $|b|=4$, $|c|=7$, $abc=1$.
 - $\tau\in G$ is an involution, and $D=C/\langle\tau\rangle$.
 
-Status tags: **[P]** paper proof, **[X]** exact finite computation (script named).
+Status tags as in `README.md`; scripts are named where used.
 
 ## 1.1 The group and the curves
 
@@ -106,7 +106,7 @@ $$\mathrm{Jac}(C)\sim A^{10}\times E_1^{15}\times E_2^{21}\times S^{35},\qquad \
 - it has a faithful $C_2\times S_3$-action with exactly the fixed-point data of $D$;
 - $\operatorname{gon}(D')=9$.
 
-So every invariant of $D$ used in §§1.2–1.4 is shared by a curve of gonality 9: fixed points, quotient genera, and the $H$-character of $H^0(K)$. Any proof of $\operatorname{gon}(D)\ge10$ must therefore use more of $C$. Chapter 2 uses the conformal structure, through the hyperbolic metric. The algebraic proof in Chapter 6, §6.1 uses the full $A_7$-action.
+So every invariant of $D$ used in §§1.2–1.4 is shared by a curve of gonality 9: fixed points, quotient genera, and the $H$-character of $H^0(K)$. Any proof of $\operatorname{gon}(D)\ge10$ must therefore use more of $C$. Chapter 2 uses the conformal structure, through the hyperbolic metric; the algebraic proof of §6.1 uses the full $A_7$-action.
 
 **Summary of the ladder.**
 
@@ -116,8 +116,8 @@ So every invariant of $D$ used in §§1.2–1.4 is shared by a curve of gonality
 | 2 | $H\cong C_2\times S_3$ acts on $D$; fixed points and quotient genera | §1.2 |
 | 3 | $\operatorname{gon}(D)\ge9$ | Thm 1.5 |
 | 4 | structure at degree 9; reduction to $(\star)$ | Thm 1.6, 1.7 |
-| 5 | $\operatorname{gon}(D)\ge13$ | Chapters 2–3 (also $\ge10$ algebraically: §6.1) |
+| 5 | $\operatorname{gon}(D)\ge13$ (also $\ge10$ by algebra alone, §6.1) | Chapters 2–3 |
 | 6 | $\operatorname{gon}(C)\ge25$ | Chapters 2–3 |
+| upper | $\operatorname{gon}(C)\le42$, $\operatorname{gon}(D)\le21$, from a degree-60 model in $\mathbb P^5$ | Corollary 7.6 |
 
-Upper bounds: $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(D)\le21$, from a degree-60 model of $C$ in $\mathbb P^5$ (Chapter 7, Corollary 7.6).
-The quotient construction $C\to C/P\to\mathbb P^1$, with $P\ni\tau$ of order 8 and $g(C/P)=12$, gives only 56 and 28.
+The quotient $C\to C/P\to\mathbb P^1$, with $P\ni\tau$ of order 8 and $g(C/P)=12$, gives only $\operatorname{gon}(C)\le56$ and $\operatorname{gon}(D)\le28$.

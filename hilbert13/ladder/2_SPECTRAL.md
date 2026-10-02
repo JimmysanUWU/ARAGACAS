@@ -6,8 +6,7 @@
 - Every faithful $A_7$-curve of the ten other rigid signatures of genus $\le335$ has $\operatorname{gon}\ge25$.
 - For classes 0 and 1, the first eigenspace is located exactly; this is the input of Chapter 3.
 
-Status tags: **[P]** paper proof; **[C]** computer-assisted proof (ball arithmetic plus rigorous floating-point error bounds);
-**[L]** checked in Lean; **[N]** numerical only.
+Status tags as in `README.md`.
 
 ## 2.1 Gonality from $\lambda_1$
 

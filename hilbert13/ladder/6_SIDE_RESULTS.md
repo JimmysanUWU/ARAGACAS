@@ -1,7 +1,7 @@
 # Chapter 6. Side results, alternative routes, and negative results
 
-These results are not on the critical path of Theorems 3.1, 4.1 and 5.1. They are kept because each one either proves something
-independently or explains why a natural route fails.
+These results lie off the critical path of Theorems 3.1, 4.1, 5.1 and 7.5. Each one either proves something independently or explains why a
+natural route fails.
 
 ## 6.1 An algebraic proof of $\operatorname{gon}(D)\ge10$ (Sol/Astra) [P][X]
 
@@ -21,7 +21,7 @@ Degrees $\le8$ are excluded by the same determinant, because $18>2\cdot8$. $\squ
 
 **Remarks.**
 - The proof uses the full $A_7$-action (normalisers that do not centralise $\tau$, and a free $C_5$). So it avoids the audit barrier of Theorem 1.9.
-- **Lattice form.** Step 4 is a degree-lattice violation (Lemma 5.4 for invariant classes): $2520/(\exp M(A_7)\cdot28)=15$, and $15\nmid1296$.
+- **Lattice form.** Step 4 says that $T$ violates the degree lattice of invariant classes, which is $15\mathbb Z$ (Corollary 7.2): $15\nmid1296$.
   The same mechanism works for $L_2(13)$ with signature $(2,3,7)$, where $13\nmid216$.
 
 ## 6.2 Pencil orbits [P]
@@ -77,7 +77,7 @@ the obstruction is the degree, not the shape.
 vanishing orders mod $e$. Plücker's formula then requires
 $$(r+1)(d+r(g-1))-\sum_i\tfrac{2520}{e_i}w_{\min}(i)\ \in\ 2520\,\mathbb Z_{\ge0}.$$
 
-**Outcome.** It passes in every case tested, so it excludes nothing beyond Chapter 5 (`archive/scripts/equivariant_plucker.py`).
+**Outcome.** It passes in every case tested, so it excludes nothing beyond Chapter 5 (`archive/scripts/equivariant_plucker.py`). Chapter 7 uses it as a consistency check (Theorem 7.5).
 
 ## 6.6 The $Q_2$ group [X]
 

@@ -17,19 +17,20 @@
 | $\mathrm{ed}_{\mathbb C}(A_7;\le n)>1$ | $n\le6$ (Farb–Wolfson 2025) | $n\le59$, sharp: $a(A_7)=60$ (GPT, DAY 2; verified here, Ch. 5) |
 | same, with connected full $A_7$-monodromy | — | exactly $\mu(A_7)=90$ (ours, Ch. 5) |
 | $a(A_6)$, $a(L_2(7))$, $a(A_5)$ | $\ge5$, $\ge3$ from FW; $a(A_5)=2$ (Klein) | $12$, $4$, $2$ (GPT Round 5; verified) |
-| gonality of the genus-136 $(2,4,7)$ curves | $\ge13$ (FW Lemma 2.2 plus Conder's genus) | $\ge25$ (Ch. 2–3) |
-| $\gamma(A_7)$, the least gonality of a faithful $A_7$-curve | $\ge13$ | $\ge25$ (Ch. 4) |
+| gonality of the genus-136 $(2,4,7)$ curves | $[13,56]$ (FW Lemma 2.2 with Conder's genus; a quotient map) | $[25,42]$ (Ch. 2–3, 7) |
+| $\gamma(A_7)$, the least gonality of a faithful $A_7$-curve | $\ge13$ | $[25,42]$ (Ch. 4, 7) |
 | certified $\lambda_1$ of a closed hyperbolic surface | genus $\le7$ | genus 136 and 24 further $A_7$-curves (Ch. 2) |
-| upper bound for the gonality of the genus-136 curves | 56 (quotient by an order-8 subgroup) | 42, from a Schur-twisted model in $\mathbb P^5$ (Ch. 7) |
 
 **Assessment.**
 - **Accessory version of Hilbert 13 for $A_7$.** It is settled sharply: 60, and 90 with full monodromy.
   This improves the published bound (6) by an order of magnitude.
-- **Gonality.** A new lower bound of 25, against the previous 13.
+- **Gonality.** The genus-136 curves have gonality in $[25,42]$, against $[13,56]$ before.
 - **Methods.** Going past Li–Yau by representation theory (Lemma 3.3: the degree is a cubic form killed by $(\wedge^3E_1)^G=0$) appears to have no
   precedent. The certification paradigm is that of Booker–Strömbergsson–Venkatesh. Our additions are modest:
   - exact equivariance by a partition of unity;
   - the Jacobian-flux bound.
+- **Schur-twisted models** (Ch. 7). Holomorphic Lefschetz for line bundles linearised only for $6.A_7$, with an exact degree formula from the
+  universal central extension of the triangle group. We found no prior use of Schur-multiplier twists to build low-degree models of symmetric curves.
 - **Caveats.** None of this is refereed. The value $a=60$ uses the convention in which the monodromy may drop after the accessory; the bound
   $\le59$ holds under either convention.
 

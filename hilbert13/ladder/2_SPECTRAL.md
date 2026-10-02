@@ -1,5 +1,13 @@
 # Chapter 2. Gonality from a certified spectral gap
 
+**Idea.**
+- **Degree from energy.** A map of degree $d$ to $\mathbb P^1$ gives, after balancing, three functions with total energy $8\pi d$ and total mass equal to the area. So the first eigenvalue bounds the degree from below (Li–Yau).
+- **The work** is to certify $\lambda_1$ on a surface of genus 136, in three steps:
+  1. an exact hyperbolic model built from 5040 triangles;
+  2. three small sign-twisted quotient problems that together see every irreducible representation of $A_7$;
+  3. guaranteed lower bounds from Crouzeix–Raviart elements and a Cholesky factorisation with a-priori error bounds.
+- **Byproduct.** The same machinery identifies the first eigenspace exactly, and that representation is the input of Chapter 3.
+
 **Results.**
 - Every $(2,4,7)$ curve has $\lambda_1\ge0.34089$, so $\operatorname{gon}(C)\ge24$ and $\operatorname{gon}(D)\ge12$.
 - Classes 12, 14 have $\lambda_1\ge0.355696$, so $\operatorname{gon}\ge25$.
@@ -29,7 +37,7 @@ $C$ is tiled by $2|G|$ hyperbolic $(\pi/p,\pi/q,\pi/r)$-triangles $U_g,L_g$. The
 
 For $K\le G$ and $\varepsilon:K\to\{\pm1\}$, the $\varepsilon$-twisted problem is the Laplacian on $\{f(kx)=\varepsilon(k)f(x)\}$. It lives on $2[G:K]$ tiles with signed gluings.
 
-**Lemma 2.2 [P].** If an eigenspace of $C$ contains $\rho$ with $\langle\rho|_K,\varepsilon\rangle>0$, its eigenvalue occurs in the $\varepsilon$-problem.
+**Lemma 2.2 [P].** If an eigenspace of $C$ contains $\rho$ with $\langle\rho|_K,\varepsilon\rangle>0$, its eigenvalue occurs in the $\varepsilon$-problem. (The $\varepsilon$-isotypic vectors of $\rho|_K$ are $\varepsilon$-twisted eigenfunctions.)
 
 | problem | $K$ | tiles | $\varepsilon$ | irreducibles seen |
 |---|---|---|---|---|

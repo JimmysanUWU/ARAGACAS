@@ -4,6 +4,12 @@ Each result here either proves something independently of the main line or expla
 
 ## 6.1 An algebraic proof of $\operatorname{gon}(D)\ge10$ (Astra) [P][X]
 
+**Idea.**
+- A nine-pencil on $D$, pulled back to $C$, saturates the determinant against each commuting involution: there are as many forced zeros as the degree allows. Each saturation is an exact Picard identity.
+- Averaging over the 24-element centraliser, not over all of $A_7$, removes the choice of pencil without dividing by 5.
+- Two Klein four-groups through $\tau$ have normalisers that generate $A_7$, so the averaged class is $A_7$-invariant.
+- Its degree, 1296, is not divisible by 5, while a free $C_5$-action forces divisibility by 5.
+
 This is Astra's *ramification transport* (GPT; `gpt/README.md`), re-derived; the finite inputs are in `side_checks.py` (R).
 
 *Proof.* Suppose $D$ has a degree-9 map. Pull it back to $f:C\to\mathbb P^1$ of degree 18, with $f\circ\tau=f$ and $L=f^*\mathcal O(1)$.

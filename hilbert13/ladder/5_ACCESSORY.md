@@ -1,5 +1,13 @@
 # Chapter 5. Accessory irrationalities: $a(A_7)=60$ and $\mu(A_7)=90$
 
+**Idea.**
+- **Compressions are families of divisors.** A curve compression after an accessory is a family of effective divisors on the target curve, parametrised by the base.
+- **Over a linear base** the family is a single linearised moving line bundle (Theorem 5.2). So accessory degrees are degrees of linearised series, induced up from subgroups (Theorem 5.3).
+- **Two facts decide $A_7$:**
+  - *Castelnuovo's bound* forbids low-degree models of high-genus curves. The cheapest route is therefore through the index-15 Klein subgroup: $15\cdot4=60$.
+  - *The degree lattice* puts linearised degrees on a $(2,4,7)$ curve in $90\mathbb Z$, and holomorphic Lefschetz shows that degree 90 is attained. So the cheapest series with full monodromy has degree 90.
+- **Over a general base** the family is still one linear system, provided the base's Albanese cannot map to $\mathrm{Jac}\,C$. But its Schur obstruction can be cancelled by the base, and exactly by the base's Amitsur subgroup (§5.5).
+
 **Definitions.** Let $K=\mathbb C(V)^G$ for a faithful linear model $V$.
 - An *accessory* is a finite extension $F/K$. After it, the monodromy of the torsor may drop to a subgroup $H$.
 - A *curve compression* is a faithful $H$-stable curve field $E\subset LF$ with $LF=FE$.
@@ -35,6 +43,12 @@ Computations: `verify_accessory60.py`, `verify_mu90_exact.py`, `equivariant_rr.p
 **Lemma 5.4 (degree lattice) [P].** A linearised bundle on a faithful $G$-curve has degree in $N_G(C)\mathbb Z$, where $N_G(C)=|G|/\mathrm{lcm}(e_i)$ over the inertia orders $e_i$. (By Hilbert 90 there is an invariant rational section, whose divisor is a sum of orbits.)
 
 **Lemma 5.5 (linearised Castelnuovo) [P].** Let $G$ be simple, and let $L$ be minimal of degree $n<|G|$. Then $|L|$ maps $C$ birationally onto a faithful $Y\subset\mathbb P^r$ with $r\ge q(G)-1$ and $g(Y)\le\pi(n,r)$. Here $q(G)$ is the least nontrivial representation degree; $q(A_7)=6$.
+
+*Proof.*
+1. **Faithful.** The kernel of $G$ on the image has order dividing the degree of $C\to Y$, which is $<|G|$. Since $G$ is simple, the kernel is trivial.
+2. **Birational.** If $C\to Y$ had degree $k\ge2$, the hyperplane class of $Y$ would be a linearised moving bundle of degree $n/k<n$, contradicting minimality.
+3. **Dimension.** $H^0(L)$ is a genuine representation. It contains a nontrivial irreducible, since otherwise $G$ would act trivially on $Y$. So $r+1\ge q(G)$.
+4. **Genus.** Castelnuovo bounds the genus of a nondegenerate curve of degree $n$ in $\mathbb P^r$. $\square$
 
 ## 5.2 $a(A_7)=60$
 

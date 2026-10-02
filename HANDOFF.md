@@ -31,6 +31,7 @@ This file holds the live status and the working rules. To learn the mathematics,
 3. **The exact gonality**, in $[25,42]$. Every symmetric mechanism stops at 42. New inputs would be:
    - stable reduction at $p=7$ with graph gonality (§7.10);
    - a non-symmetric pencil on the explicit model.
+   - immersion of $\varphi$ at the 630 four-points (§7.10): a proof makes Prop. 7.7 [P], and a failure gives $\operatorname{gon}(C/\tau)\le15$.
 4. **(Optional)** $\operatorname{gon}\ge26$ on classes 0, 1, via a certified sharp $\kappa$ (Ch. 3).
 5. **(Long shot)** Towers and RD: correspondences with $u_Z\ne0$ (§5.5). The Amitsur obstruction alone is cheap to remove (Cor. 5.18).
 6. **(Low)** Are $P_E$, $P_S$ torsion (§6.5)?

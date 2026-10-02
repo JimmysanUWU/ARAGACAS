@@ -2,6 +2,14 @@
 
 $\gamma(G)$ is the least gonality of a smooth projective curve with a faithful $G$-action.
 
+**Idea.**
+- **Many conjugates.** A pencil of degree $d\le24$ on a faithful $A_7$-curve has at least 15 conjugate pencils, and together they generate the function field.
+- **Two pencils** give a model in $\mathbb P^1\times\mathbb P^1$.
+- **A third pencil** has two options:
+  - it is independent, which embeds the curve in $\mathbb P^7$ with degree $3d$ and bounds the genus by Castelnuovo;
+  - it depends on the first two, which costs singularities on the $\mathbb P^1\times\mathbb P^1$ model.
+- **Conclusion.** Either way $g\le B^\*(d)\le397$. Every faithful $A_7$-curve of that genus is covered by the certificates of Chapters 2–3.
+
 **Theorem 4.1.** Let $C$ be a faithful $A_7$-curve.
 1. $\operatorname{gon}(C)\ge23$, using only the first input below (not the window).
 2. If $\operatorname{gon}(C)=d\le24$, then $g(C)\le B^*(d)$, where $B^*(23)=363$, $B^*(24)=397$, and $B^*(d)\le331$ for $d\le22$.
@@ -44,10 +52,10 @@ $$\delta(Y)\ge c(d):=\min_{m\ge m',\,m+m'\ge d}\Big[\tbinom m2+\tbinom{m'}2\Big]
    - They share no ruling, since $\mathbb C(f_3)\ne\mathbb C(f_i)$.
 2. **The fixed part.** $\langle A,B\rangle$ has degree $2d$ on $Y$ and $f_3$ has degree $d$. So the fixed part has degree $d$, over the $A\cdot B=2$ base points.
 3. **Two base points.** The fixed part at $b_i$ is $\mathrm{mult}_{b_i}Y$. So $m_1+m_2\ge d$ and $\delta\ge\binom{m_1}2+\binom{m_2}2$.
-4. **One base point $b$, with common tangent $T$.**
-   - A branch transverse to $T$ contributes $m_\gamma$.
-   - A tangent branch contributes $\min(\operatorname{ord}_\gamma A,2m_\gamma)$.
-   - By proximity, a branch through $b_1$ follows $A$ or misses $b_2$. So the fixed part is $\le m+m'$, with $m=\mathrm{mult}_bY$ and $m'=\mathrm{mult}_{b_1}Y$. $\square$
+4. **One base point $b$, where $A$ and $B$ are tangent along $T$.**
+   - Every member of $\langle A,B\rangle$ passes through $b$ and through the infinitely near point $b_1$ in direction $T$. It passes through nothing further, since $A\cdot B=2$.
+   - By Noether's formula, a general member meets a branch $\gamma$ of $Y$ at $b$ with multiplicity $m_\gamma+m'_\gamma$. Here $m'_\gamma$ is the multiplicity at $b_1$ of the strict transform of $\gamma$, which is 0 if $\gamma$ is transverse to $T$.
+   - Summing over branches, the fixed part is at most $m+m'$, where $m=\mathrm{mult}_bY\ge m'=\mathrm{mult}_{b_1}Y$. Moreover $\delta\ge\binom m2+\binom{m'}2$. $\square$
 
 **Corollary 4.6 [P].** $g\le B^*(d):=\max\big((d-1)^2-c(d),\ \pi(3d,7)\big)$. With a birational pair, Lemma 4.3 supplies a third pencil, which is either dependent or embeds the curve in $\mathbb P^7$; otherwise the chain bound applies.
 

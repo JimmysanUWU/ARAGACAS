@@ -2,14 +2,18 @@
 
 **Theorem 3.1.** A $(2,4,7)$ curve of class 0 or 1 has no map of degree $\le24$ to $\mathbb P^1$. So $\operatorname{gon}(C)\ge25$ and $\operatorname{gon}(C/\tau)\ge13$ on all four classes (with Chapter 2).
 
-Li–Yau stops at 24 here (§2.7). The extra input is the *degree*: it is a cubic form that representation theory kills on the first eigenspace.
+**Idea.**
+- **Li–Yau stops at 24 here** (§2.7). It uses only the energy of a balanced map. The degree carries more information: it is the cubic form $T(x)=\Theta(x,x,x)$.
+- **The cubic form dies on $E_1$.** The first eigenspace is $14_{(5,2)}$, whose $\wedge^3$ has no invariants. So $T$ vanishes identically on fields built from $E_1$ alone.
+- **The squeeze.** The spectral gap forces a map of degree $\le24$ to put almost all of its energy in $E_1$, where it carries no degree. The degree must then come from a small remainder, which is impossible.
+- **Making it exact.** Harmonicity of the map turns this into an exact identity (harmonic Hersch). An exact equivariant trial space, certified in ball arithmetic, then closes classes 0 and 1.
 
 ## 3.1 The cubic form
 
 For $\mathbb R^3$-valued fields put
 $$\Theta(u,v,w)=\tfrac12\sum_{ijk}\epsilon_{ijk}\int u_i\,dv_j\wedge dw_k,\qquad T(x)=\Theta(x,x,x).$$
 
-**Lemma 3.2 [P].** $\Theta$ is totally symmetric (Stokes). For holomorphic $x:X\to S^2$ of degree $m$, $T(x)=4\pi m$.
+**Lemma 3.2 [P].** $\Theta$ is totally symmetric (Stokes). For holomorphic $x:X\to S^2$ of degree $m$, $T(x)=4\pi m$, since $T(x)$ is the integral of the pulled-back area form of $S^2$.
 
 **Lemma 3.3 (the first eigenspace carries no degree) [P].** Let $G$ act by orientation-preserving isometries, and let $E$ be a $G$-stable space of functions with $(\wedge^3E)^G=0$. Then $T\equiv0$ on $E\otimes\mathbb R^3$, since $(u,v,w)\mapsto\int u\,dv\wedge dw$ is an alternating invariant trilinear form on $E$.
 

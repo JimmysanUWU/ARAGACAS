@@ -1,8 +1,11 @@
 # Chapter 7. Schur-twisted geometry: the degree-60 model and $\operatorname{gon}(C)\le42$
 
 **Idea.** An $A_7$-*invariant* line bundle need not be *linearised*.
-- The obstruction, its Mumford class, lies in $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$.
-- The bundle is linearised for $6.A_7$, whose centre $Z$ acts on fibres by a character $\varepsilon$.
+- **The obstruction.** It is the bundle's Mumford class, in $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$. The bundle is linearised for the Schur cover $6.A_7$, whose centre $Z$ acts on fibres by a character $\varepsilon$.
+- **Degrees and sections.** Twisted classes exist in every degree in $15\mathbb Z$, against $90\mathbb Z$ for linearised ones. Holomorphic Lefschetz, twisted by $\varepsilon$, computes their sections.
+- **The first twisted class with sections** has degree 60 and Mumford class of order 3. Its six sections embed $C$ in $\mathbb P^5$, on a cubic fourfold.
+- **The pencil of degree 42.** An involution's $(-1)$-eigenspace in those six sections is two-dimensional, and its sections vanish at the 18 fixed points. What remains is a pencil of degree 42.
+- **Lower bounds feed back.** The lower bound 25 of Chapters 2–3 is what keeps the twisted classes below degree 60 empty (Clifford).
 
 Accessories over bases with a fixed point produce linearised bundles (Theorem 5.2). Over other bases, the twisted classes that can occur are exactly those allowed by the Amitsur subgroup of the base (Theorem 5.15); Example 5.12 realises $L_{60}$ over a rational base. The geometry of $C$ lives in the twisted classes.
 
@@ -38,8 +41,10 @@ $$\deg L=2520\Big(n+\sum_i\frac{r_i}{e_i}-\rho_0\Big),\qquad n\in\mathbb Z .$$
 *Proof.*
 1. $\tilde\Delta=\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3=:h\rangle$ is the centrally extended triangle group (Milnor): the preimage of $\Delta(2,4,7)$ in the universal cover of $\mathrm{PSL}_2(\mathbb R)$, a central extension by $\langle h\rangle\cong\mathbb Z$. It is not a universal central extension in the group-theoretic sense, since $\Delta(2,4,7)$ has abelianisation $C_2$. It acts on $K^w$ over $\mathbb H$: $h$ acts by $e^{-2\pi iw}$, and $c_i$ acts at its fixed point by $e^{-2\pi iw/e_i}$.
 2. Every equivariant line bundle on $\mathbb H$ is $K^w\otimes F_\chi$, with $\chi$ a character of $\tilde\Delta\times_\Delta\hat\Delta$ satisfying $\chi(h)=e^{2\pi iw}$ and $\chi|_Z=\varepsilon$.
-3. The resulting conditions on $\chi(c_i)$ are solvable iff $\tfrac3{28}w\equiv\sum r_i/e_i-\rho_0\pmod1$, where $\tfrac3{28}=-\chi_{\rm orb}$.
-4. $\deg L=270w$ (Chern–Weil). $\square$
+3. **The local data.** At the fixed point of $c_i$ the generator must act by the local datum, so $\chi(c_i)=\lambda_ie^{2\pi iw/e_i}$.
+   - The relation $c_i^{e_i}=h$ becomes $\lambda_i^{e_i}=\varepsilon(\hat x_i^{e_i})$, the stated condition.
+   - The relation $c_1c_2c_3=h$ becomes $\prod_i\lambda_i\,e^{2\pi iw\sum1/e_i}=e^{2\pi iw}e^{2\pi i\rho_0}$. Since $1-\sum_i1/e_i=\tfrac3{28}=-\chi_{\rm orb}$, this says $\tfrac3{28}w\equiv\sum_ir_i/e_i-\rho_0\pmod1$.
+4. **The degree.** $\deg L=270w$ (Chern–Weil), and $w\in\tfrac{28}3\big(\sum r_i/e_i-\rho_0+\mathbb Z\big)$ gives the formula. $\square$
 
 *Check:* theta characteristics get degree 135.
 
@@ -171,7 +176,9 @@ So **$\varphi(C)$ is a smooth curve of degree 60 and genus 136 cut out by the La
 
 The family $Q_p\in\mathrm{Sym}^2V_4$ of §5.4, attached to $B+T$, has generic rank 3 or 4.
 - **Rank 1** is the spinor model excluded by Theorem 7.4.
-- **Rank 2** would put a $\mathbf 6$ into $H^0(B)$ or $H^0(B+T)$. Lemma 7.3 kills $p_2,p_3,p_5,p_6$ (and $p_7$ for $B+T$). The image would then lie in the root curve of $t^7+ut^3+v$ (an irreducible $S_7$-curve of genus 691) or in a finite set, which is impossible.
+- **Rank 2** would put a $\mathbf 6$ into $H^0(B)$ or $H^0(B+T)$. Lemma 7.3 kills $p_2,p_3,p_5,p_6$ (and $p_7$ for $B+T$). The image would then lie in a finite set, or in the curve of ordered roots of $t^7+ut^3+v$. That curve covers the $s$-line, $s=u^7/v^4$, with degree 5040.
+  - Its monodromies are a 7-cycle at $s=0$, an element of type $(4,3)$ at $s=\infty$, and a transposition at the one other zero of the discriminant $-v^2(6912u^7+823543v^4)$.
+  - Riemann–Hurwitz gives $2g-2=5040\big(-2+\tfrac67+\tfrac{11}{12}+\tfrac12\big)=1380$, so $g=691>136$, and $C$ cannot map onto it.
 
 ## 7.8 The other rigid signatures
 

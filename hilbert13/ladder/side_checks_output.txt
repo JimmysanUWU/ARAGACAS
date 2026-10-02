@@ -56,3 +56,7 @@ D5  A7-realisable triangle signatures with genus <= 529 (ordered generating trip
       22 | 221 | 279 | 105 | (110, 147, 165)
       23 | None | 306 | 148 | (121, 161, 181)
       24 | 265 | 335 | 193 | (132, 176, 198)
+
+D6  s = 1 + 4 sqrt21/21:  q' = z^3 (z-1)(z^2-sz+t), q(1) = 0, q = r_s at both quadratic critical points, disc(beta - T) = -7 r_s^-6 T^2 (T-1)^4: True
+    s = 1 - 4 sqrt21/21:  q' = z^3 (z-1)(z^2-sz+t), q(1) = 0, q = r_s at both quadratic critical points, disc(beta - T) = -7 r_s^-6 T^2 (T-1)^4: True
+    mod 17 (s = 3), beta = 2 factors in degrees [2, 5] -> an element of order 10, not in L2(7) = its own normaliser in S7; so the monodromy is A7

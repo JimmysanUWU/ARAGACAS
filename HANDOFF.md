@@ -39,7 +39,7 @@ Read this, then `hilbert13/ladder/README.md` (results, chapters, scripts, reprod
 
 ## Workflow
 
-- **GPT** runs in parallel. Its PDFs go in `hilbert13/ladder/gpt/`. Every claim is re-derived [P] or recomputed [X] before use. Questions go in `QUESTIONS_FOR_GPT.md`, paste-ready.
+- **GPT** runs in parallel. Its PDFs go in `hilbert13/ladder/gpt/`, and each new one is digested into `gpt/README.md`. Every claim is re-derived [P] or recomputed [X] before use. Questions go in `QUESTIONS_FOR_GPT.md`, paste-ready.
 - **Commits.**
   - Use the trailers from the session instructions.
   - Put no model identifiers in commits, PRs or files.

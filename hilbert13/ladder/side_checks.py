@@ -5,6 +5,7 @@ D1  the Q2 group C_{A7}((16)(23)) (§6.4)
 D4  the involution fixed-point module: isotypic components of the Klein difference and of the lift of (*),
     the Q[G]-modules they generate, and the low-genus quotients carrying the 21- and 35-parts (Prop. 1.6, §6.5)
 D5  A7-realisable triangle signatures of genus <= 529 and the pencil-geometry table for gon >= 25 (Ch. 4)
+D6  GPT's septic Belyi map C/A6 -> C/A7 with passport [2^2 1^3, 4 2 1, 7] (§6.5)
 """
 import numpy as np
 from math import comb
@@ -173,3 +174,21 @@ print("\n    gon >= 25 for g >= 336:  m | pair bound | pi1(3m,7) | budget (m-1)^
 for m in range(20, 25):
     pair = max([e * (m // e - 1) ** 2 + (e - 1) * (m - 1) for e in range(2, m // 2 + 1) if m % e == 0], default=None)
     print(f"      {m} | {pair} | {pi1(3 * m)} | {(m - 1) ** 2 - 336} | {dep_costs(m)}")
+
+# ---- D6 ------------------------------------------------------------------------------------------
+import sympy as sp
+z, T = sp.symbols('z T')
+for sg in (1, -1):                       # s = 1 +- 4 sqrt(21)/21, the roots of 21 s^2 - 42 s + 5
+    s_ = 1 + sg * 4 * sp.sqrt(21) / 21; t_ = sp.Rational(2, 3) * s_ - sp.Rational(10, 21)
+    q = z**7 / 7 - (s_ + 1) * z**6 / 6 + (s_ + t_) * z**5 / 5 - t_ * z**4 / 4
+    rs = -128 * (51 * s_ - 65) / 1750329
+    ok = [sp.expand(sp.diff(q, z) - z**3 * (z - 1) * (z**2 - s_ * z + t_)) == 0, sp.simplify(q.subs(z, 1)) == 0,
+          all(sp.simplify(c) == 0 for c in sp.Poly(sp.expand(q - rs), z).rem(sp.Poly(z**2 - s_ * z + t_, z)).all_coeffs()),
+          sp.simplify(sp.discriminant(sp.Poly(sp.expand(1 - q / rs - T), z)) + 7 * (-1 / rs)**6 * T**2 * (T - 1)**4) == 0]
+    print(("\nD6  " if sg == 1 else "    ") + f"s = 1 {'+-'[sg < 0]} 4 sqrt21/21:  q' = z^3 (z-1)(z^2-sz+t), q(1) = 0, "
+          f"q = r_s at both quadratic critical points, disc(beta - T) = -7 r_s^-6 T^2 (T-1)^4: {all(ok)}")
+pr = 17; s0 = 3; inv_ = lambda x: pow(x, -1, pr); t0 = (2 * s0 * inv_(3) - 10 * inv_(21)) % pr
+qp = sp.Poly(z**7 * inv_(7) - (s0 + 1) * inv_(6) * z**6 + (s0 + t0) * inv_(5) * z**5 - t0 * inv_(4) * z**4, z, modulus=pr)
+f = sp.Poly(1, z, modulus=pr) - qp * inv_(-128 * (51 * s0 - 65) * inv_(1750329) % pr) - sp.Poly(2, z, modulus=pr)
+print("    mod 17 (s = 3), beta = 2 factors in degrees", sorted(g.degree() for g, _ in f.factor_list()[1]),
+      "-> an element of order 10, not in L2(7) = its own normaliser in S7; so the monodromy is A7")

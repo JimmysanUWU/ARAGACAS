@@ -27,6 +27,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 - **[C]** computer-assisted proof: ball arithmetic, or floating point with a-priori error bounds.
 - **[L]** checked in Lean (`../Hilbert13/SpectralCertificate.lean`).
 - **[N]** numerical only.
+- **[G]** GPT's proof only, not re-derived here (`gpt/README.md` §2).
 
 ## Chapters
 
@@ -41,7 +42,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted classes, the $\mathbb P^5$ model and its equations, $\operatorname{gon}\le42$, Klein quadrics, elliptic subcovers |
 | [`LITERATURE.md`](LITERATURE.md) | the literature and references |
 | [`QUESTIONS_FOR_GPT.md`](QUESTIONS_FOR_GPT.md) | audit requests and open questions |
-| `gpt/` | GPT's source documents (DAY 2, Round 5); superseded material is in git history (commit `b148338`) |
+| [`gpt/README.md`](gpt/README.md) | digest of GPT's five PDFs (DAY 1A–C, DAY 2, Round 5): what each proves, where it is used, what is superseded |
 
 ## Scripts
 
@@ -61,7 +62,7 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 | `hejhal_solve.py`, `hh_eval.py`, `hh_certify.py` | harmonic Hersch (Ch. 3) → `coef_cls*_M90.npz`, `hh_certify_output_cls{0,1}.txt` |
 | `gonality_large_genus.py` | $B^*(d)$ and the window (Ch. 4) |
 | `verify_accessory60.py`, `equivariant_rr.py`, `verify_mu90_exact.py` | $a=60$; $h^0(B+T)\ge10$; the exclusion of 72, 84 (Ch. 5) → `mu90_exact_output.txt` for the last |
-| `side_checks.py` | §6.1, §6.4, §6.5, Prop. 1.6 and the Ch. 4 table |
+| `side_checks.py` | §6.1, §6.4, §6.5 (with GPT's Belyi map), Prop. 1.6 and the Ch. 4 table |
 | `twisted_rr.py`, `twisted_survey.py` | $2.A_7,3.A_7,6.A_7$, twisted Lefschetz, §§7.1–7.6; the 26 rigid curves (§7.8) |
 | `tau_pencil.py` | no base points beyond the 18 (Prop. 7.7) |
 | `p5_curve.py` | equations of $\varphi(C)$, embedding, the fibre $18+42$, Klein quadrics (Props. 7.8–7.9) |
@@ -98,4 +99,4 @@ Run the large FEM jobs one at a time, or they run out of memory.
   - Bryant (§6.3 only).
 - **Finite-element bounds.** Crouzeix–Raviart (Liu; Carstensen–Gedicke) and Higham's Cholesky backward error, both checked in Lean in abstract form.
 - **Software.** python-flint ball arithmetic; CHOLMOD with a-priori error bounds.
-- **External inputs.** GPT's DAY 2 and Round 5 theorems, all re-derived (Ch. 5), and the ATLAS subgroup lists.
+- **External inputs.** GPT's theorems, re-derived wherever used (`gpt/README.md` §1), and the ATLAS subgroup lists.

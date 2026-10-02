@@ -17,7 +17,7 @@ This is GPT's *ramification transport*, re-derived; the finite inputs are in `si
 
 Degrees $d\le8$ fail at step 1. The determinant would have 36 zeros on a bundle of degree $4d\le32$, so it vanishes identically and $f\circ\mu=f$ for every $\mu$. Then $12\mid d$, as in Theorem 1.4. $\square$
 
-The proof uses the full $A_7$-action, so it avoids the audit barrier (Theorem 1.7). The same mechanism works for $L_2(13)$ with signature $(2,3,7)$, where $13\nmid216$.
+The proof uses the full $A_7$-action, so it avoids the audit barrier (Theorem 1.7). The same mechanism works for $L_2(13)$ with signature $(2,3,7)$, where $13\nmid216$: the genus-6 involution quotients of the genus-14 Hurwitz curves have gonality exactly 4 (DAY 2 Cor. 4.4).
 
 ## 6.2 Pencil orbits [P]
 
@@ -46,7 +46,7 @@ Li–Yau holds for every conformal metric. So one can try to maximise $\lambda_1
 
 **Numerics** (`conformal.py`, in git history at b148338). $\bar F\in[0.998,1.001]$, so the gain is $\le0.2\%$ for classes 0, 1 and $\le0.6\%$ for 12, 14. Classes 0, 1 need $+2.7\%$.
 
-So the route is closed. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
+GPT adds that the gain is strict, and that an equivariant maximiser exists, possibly conical (Vinokurov; `gpt/README.md` §2.4). Neither changes the ceiling. So the route is closed. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
 
 ## 6.4 Superseded and negative tests
 
@@ -68,6 +68,6 @@ Proposition 1.6 reduces $(\star)$ to a question: does either of these points hav
 **Facts.**
 - Both points are images of the Klein difference $D_\delta=\mathrm{Fix}(v_2)+\mathrm{Fix}(v_3)-\mathrm{Fix}(w_2)-\mathrm{Fix}(w_3)$, whose 21- and 35-components each generate the unique copy.
 - A 5-adic argument gives $\delta\ne0$. So if both points are torsion, $\delta$ is torsion of order divisible by 5.
-- $E\to C/A_6\cong\mathbb P^1\to C/A_7$ involves the degree-7 Belyi map with passport $[2^21^3,\,4\,2\,1,\,7]$. So the question becomes finite once a model of that map is known.
+- $E\to C/A_6\cong\mathbb P^1\to C/A_7$ involves the degree-7 Belyi map with passport $[2^21^3,\,4\,2\,1,\,7]$. GPT gives it explicitly over $\mathbb Q(\sqrt{21})$, with resolvent function fields for $E$ and $C/(3^2{:}4)$ (`gpt/README.md` §2.5; the map is checked in `side_checks.py` D6). What remains is Weierstrass models and the images of $D_\delta$.
 
 **Lens.** $\Delta(2,4,7)$ is arithmetic (Takeuchi), but $\ker(\Delta\to A_7)$ is non-congruence. So this is a Manin–Drinfeld-type question with no Hecke operators available. It is not needed for gonality.

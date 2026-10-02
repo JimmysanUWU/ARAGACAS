@@ -116,6 +116,11 @@ The resulting map $\varphi:C\to\mathbb P^5$ has the following properties.
 - The invariants of $3.A_7$ on $\mathbf 6$ have Hilbert series $1+t^3+3t^6+5t^9+11t^{12}+18t^{15}+\dots$
 - By Lemma 7.3, every invariant of degree 3, 9 or 15 vanishes on $\varphi(C)$. In particular **$\varphi(C)$ lies on the unique $3.A_7$-invariant cubic fourfold $X_3\subset\mathbb P^5$.**
 - The invariants of degrees 6, 21 and 42 restrict to sections with divisors $D_7$, $2D_4$, and the pencil $\langle S_6^7,T_{21}^2\rangle$. The last is the quotient map $C\to C/A_7$.
+- **The cubic, explicitly** (`twisted_rr.py` part (10)). Build the $\mathbf 6$ by projecting $\mathrm{Ind}_{S_5\times\mathbb Z/3}^{3.A_7}(1\otimes\omega)$, which is 21-dimensional and contains $\mathbf 6$ once. In eigencoordinates $x_k$ ($\hat c\,x_k=\zeta_7^kx_k$) of an order-7 element, permuted by its normaliser,
+  $$X_3:\quad x_1x_2x_4+\beta\,x_3x_5x_6+\gamma\,(x_1^2x_5+x_2^2x_3+x_4^2x_6)+\delta\,(x_1x_3^2+x_2x_6^2+x_4x_5^2)=0,$$
+  $$\frac{\gamma^3}\beta=\frac{23-7\sqrt{21}}{16},\qquad\frac{\delta^3}{\beta^2}=\frac{23+7\sqrt{21}}{16}.$$
+  These two are the roots of $64x^2-184x-125$. The remaining freedom is the scaling of $(x_3,x_5,x_6)$ and a cube root of unity.
+  The 360 points of $\varphi(C)$ over the 7-branch are coordinate points: the eigenlines of the $3.A_7$-conjugates of $\hat c$.
 - **Cubics.** By duality, $K-3L_{60}=B+T$, so $H^0(3L_{60})\supseteq6+14_a+14_b+21$, which is 55-dimensional. Since $\mathrm{Sym}^3\mathbf 6=1\oplus(55)$, if $h^0(B+T)=10$ then $X_3$ is the only cubic through $\varphi(C)$.
 
 So the least degree of an invariant class with $h^0\ge2$ on these curves is exactly **60**: Theorems 7.4 and 7.5. Compare $\mu=90$ for linearised classes (Chapter 5).

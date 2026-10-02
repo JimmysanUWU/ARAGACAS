@@ -17,7 +17,8 @@ This script computes, for every such twist:
       the pencil P(E_-) with >= 18 base points -> gon(C) <= 42, gon(C/tau) <= 21; equivariant Plucker check;
   (7) Lemma 7.3 on the linearised degree-90 classes (which power sums of the 6 must vanish);
   (8) a scan of all classes with forced sections (degree <= 270) for pencils with fixed-point base loci;
-  (9) the invariants of 3.A7 on its 6 (Molien) and which of them vanish on the degree-60 model.
+  (9) the invariants of 3.A7 on its 6 (Molien) and which of them vanish on the degree-60 model;
+  (10) the 6 of 3.A7 explicitly (induced from S5 x Z3) and its invariant cubic in eigencoordinates of a 7-element.
 Run:  python3 twisted_rr.py > twisted_rr_output.txt     (about 25 seconds)
 """
 import os, sys, time, cmath, itertools
@@ -364,8 +365,8 @@ for (t, eps, sgn), rows in TW.items():
                     sum(cn for lv, cn in fe3.items() if abs(lv - c1 * c2) > 1e-6)
                 if dimc >= 2 and base: best.append((D - base - (dimc - 2), D, eps, sgn, f"Klein char ({c1},{c2}): dim {dimc}, base {base}"))
 best.sort(key=lambda r: r[0])
-for b_ in best[:6]:
-    print(f"    pencil degree <= {b_[0]:3d} from the degree-{b_[1]} class, twist {b_[2]}, orientation {b_[3]:+d}: {b_[4]}")
+for bb_ in best[:6]:
+    print(f"    pencil degree <= {bb_[0]:3d} from the degree-{bb_[1]} class, twist {bb_[2]}, orientation {bb_[3]:+d}: {bb_[4]}")
 
 # ------------------------------------------------------------------ (9) the invariant cubic fourfold
 print("\n(9) invariants of 3.A7 on its 6 and their restrictions to the degree-60 model (Lemma 7.3)")
@@ -395,4 +396,77 @@ for D, ld, m, gens, lam in TW[0, (0, 1), +1]:
             mind = sum(o[i] * 2520 // e for i, e in enumerate((2, 4, 7)))
             print(f"    degree {k:2d} ({md[k]:3d} invariants): least invariant divisor {mind:4d} vs {60 * k:4d} -> "
                   f"{'all vanish on the model' if mind > 60 * k else 'restrictions span <= ' + str(1 + (60 * k - mind) // 2520) + ' dim'}")
+
+# ------------------------------------------------------------------ (10) the cubic fourfold explicitly
+print("\n(10) explicit 6 of 3.A7 (induced from S5 x Z3) and its invariant cubic in 7-eigencoordinates")
+w3 = cmath.exp(2j * cmath.pi / 3)
+def m3(p, q): return (int(MUL[p[0], q[0]]), (p[1] + q[1] + int(C3[p[0], q[0]])) % 3)
+def i3(p): h = int(INV[p[0]]); return (h, (-p[1] - int(C3[p[0], h])) % 3)
+chi6 = lambda p: chars[i6][cls[p[0] + 2 * n * p[1]]]
+def lift_ord(g):
+    o = order(g)
+    for t in range(3):
+        p = (IDX[g], t); zz = p
+        for _ in range(o - 1): zz = m3(zz, p)
+        if zz == (0, 0): return p
+Ssub = {(0, 0)}; fr = [(0, 0)]; gl = [lift_ord((1, 2, 3, 4, 0, 5, 6)), lift_ord((1, 0, 2, 3, 4, 6, 5))]
+while fr:
+    nf = []
+    for p in fr:
+        for gg in gl:
+            q = m3(p, gg)
+            if q not in Ssub: Ssub.add(q); nf.append(q)
+    fr = nf
+assert len(Ssub) == 120                                          # a complement S5 inside 3.A7
+Sg = {p[0]: p for p in Ssub}; coset = {}; creps = []
+for p in ((g, t) for g in range(n) for t in range(3)):
+    if p in coset: continue
+    j = len(creps); creps.append(p)
+    for sp in Ssub:
+        for u in range(3): coset[m3(p, m3(sp, (0, u)))] = j
+def rho21(q):
+    M = np.zeros((21, 21), complex)
+    for i, r in enumerate(creps):
+        qr = m3(q, r); j = coset[qr]; kq = m3(i3(creps[j]), qr)
+        M[j, i] = w3 ** ((kq[1] - Sg[kq[0]][1]) % 3)
+    return M
+ga3, gb3 = (IDX[(1, 2, 0, 3, 4, 5, 6)], 0), lift_ord((0, 1, 3, 4, 5, 6, 2))
+mats = {(0, 0): np.eye(21, dtype=complex)}; fr = [(0, 0)]; Ra3, Rb3 = rho21(ga3), rho21(gb3)
+while fr:
+    nf = []
+    for p in fr:
+        for gg, R in ((ga3, Ra3), (gb3, Rb3)):
+            q = m3(p, gg)
+            if q not in mats: mats[q] = mats[p] @ R; nf.append(q)
+    fr = nf
+Pr = sum(np.conj(chi6(p)) * M for p, M in mats.items()) * 6 / 7560
+Uu, sv, _ = np.linalg.svd(Pr); Bb = Uu[:, :6]
+assert np.allclose(sv[:6], 1) and np.allclose(sv[6:], 0, atol=1e-9)
+R6 = lambda p: Bb.conj().T @ mats[p] @ Bb
+assert all(abs(np.trace(R6(p)) - chi6(p)) < 1e-8 for p in list(mats)[:300])
+mon3 = list(itertools.combinations_with_replacement(range(6), 3))
+Xp = rng.standard_normal((80, 6)) + 1j * rng.standard_normal((80, 6))
+mv = lambda X: np.array([[np.prod([x[i] for i in m_]) for m_ in mon3] for x in X])
+Mx = np.vstack([mv(Xp @ R6(q).T) - mv(Xp) for q in (ga3, gb3)])
+_, svx, vh = np.linalg.svd(Mx); Fc = vh[-1].conj()
+print(f"    invariant cubics: null space of dimension {int(np.sum(svx < 1e-8))}")
+c7 = lift_ord((1, 2, 3, 4, 5, 6, 0)); h7 = (0, 2, 4, 6, 1, 3, 5)
+hl = [(IDX[h7], t) for t in range(3) if m3(m3((IDX[h7], t), (IDX[h7], t)), (IDX[h7], t)) == (0, 0)][0]
+ev7, Ev = np.linalg.eig(R6(c7)); kof = [int(round(cmath.phase(e_) / (2 * cmath.pi) * 7)) % 7 for e_ in ev7]
+Ev = Ev[:, [kof.index(k) for k in range(1, 7)]]; Vb = np.zeros((6, 6), complex)
+for st in (1, 3):
+    k = st; v = Ev[:, k - 1] / np.linalg.norm(Ev[:, k - 1])
+    for _ in range(3): Vb[:, k - 1] = v; v = R6(hl) @ v; k = (4 * k) % 7
+allowed = [m_ for m_ in mon3 if sum(i + 1 for i in m_) % 7 == 0]
+Yp = rng.standard_normal((40, 6)) + 1j * rng.standard_normal((40, 6))
+Fv = lambda x: np.dot(Fc, [np.prod([x[i] for i in m_]) for m_ in mon3])
+cf, *_ = np.linalg.lstsq(np.array([[np.prod([y[i] for i in m_]) for m_ in allowed] for y in Yp]),
+                         np.array([Fv(Vb @ y) for y in Yp]), rcond=None)
+dct = dict(zip(allowed, cf / cf[allowed.index((0, 1, 3))]))
+be, ga_, de = dct[(2, 4, 5)], dct[(0, 0, 4)], dct[(0, 2, 2)]
+assert np.isclose(dct[(1, 1, 2)], ga_) and np.isclose(dct[(3, 3, 5)], ga_) and np.isclose(dct[(1, 5, 5)], de)
+print("    F = x1x2x4 + b x3x5x6 + g (x1^2x5 + x2^2x3 + x4^2x6) + d (x1x3^2 + x2x6^2 + x4x5^2)")
+print(f"    scale-free data: g^3/b = {(ga_**3 / be).real:.12f}  [(23 - 7 sqrt21)/16 = {(23 - 7 * 21**0.5) / 16:.12f}]")
+print(f"                     d^3/b^2 = {(de**3 / be**2).real:.12f}  [(23 + 7 sqrt21)/16 = {(23 + 7 * 21**0.5) / 16:.12f}]")
+print(f"                     g d/b = {ga_ * de / be:.12f}  [(5/4) exp(-i pi/3) = {1.25 * cmath.exp(-1j * cmath.pi / 3):.12f}]")
 print(f"\ndone ({time.time() - T0:.0f}s)")

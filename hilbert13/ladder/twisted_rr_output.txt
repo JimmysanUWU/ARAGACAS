@@ -1,5 +1,5 @@
 (1a) 2.A7 < SU(4): spin lifts of all 2520 elements, 2-cocycle built (4s)
-(1b) 3.A7: |<x,y>| = 7560, perfect; relator lift (x^3,(xyxy^-1)^2,(xy^-2xy^2)^2) = (1,z,1) (12s)
+(1b) 3.A7: |<x,y>| = 7560, perfect; relator lift (x^3,(xyxy^-1)^2,(xy^-2xy^2)^2) = (1,z,1) (13s)
 (1c) 6.A7: 40 classes; irreducible degrees by central character eps = (2-part, 3-part):
       eps (0, 0): [1, 6, 10, 10, 14, 14, 15, 21, 35]
       eps (0, 1): [6, 15, 15, 21, 21, 24, 24]
@@ -34,7 +34,7 @@
     triple 12 orient -1 eps (1, 0): degrees = [45] mod 90; D<=270 (H^0 forced): [(45, {}), (45, {}), (135, {}), (135, {}), (225, {14: 1, 20: 1, 36: 1}), (225, {14: 1, 20: 1, 36: 1})]
     triple 12 orient -1 eps (0, 2): degrees = [60] mod 90; D<=270 (H^0 forced): [(60, {}), (60, {6: 1}), (150, {15: 1, 21: 1}), (150, {15: 1}), (240, {15: 1, 21: 1, 24: 1}), (240, {6: 1, 15: 2, 21: 1, 24: 1})]
     triple 12 orient -1 eps (1, 2): degrees = [15] mod 90; D<=270 (H^0 forced): [(15, {}), (15, {}), (105, {}), (105, {}), (195, {24: 1, 36: 1}), (195, {24: 1, 36: 1})]
-    (21s)
+    (22s)
 
 (5) degree-45 spin classes: no 2.A7-map to P^3 (Theorem 7.4)
     Molien series of 2.A7 on V4: {k: dim} = {0: 1, 8: 1, 12: 1, 14: 1, 16: 1, 18: 1, 20: 2, 22: 1, 24: 3, 26: 2, 28: 3, 30: 3, 32: 5, 34: 3, 36: 6, 38: 5, 40: 7}
@@ -79,4 +79,11 @@
     degree 27 (130 invariants): least invariant divisor 1620 vs 1620 -> restrictions span <= 1 dim
     degree 30 (197 invariants): least invariant divisor 1800 vs 1800 -> restrictions span <= 1 dim
 
-done (23s)
+(10) explicit 6 of 3.A7 (induced from S5 x Z3) and its invariant cubic in 7-eigencoordinates
+    invariant cubics: null space of dimension 1
+    F = x1x2x4 + b x3x5x6 + g (x1^2x5 + x2^2x3 + x4^2x6) + d (x1x3^2 + x2x6^2 + x4x5^2)
+    scale-free data: g^3/b = -0.567376866543  [(23 - 7 sqrt21)/16 = -0.567376866543]
+                     d^3/b^2 = 3.442376866543  [(23 + 7 sqrt21)/16 = 3.442376866543]
+                     g d/b = 0.625000000000+1.082531754731j  [(5/4) exp(-i pi/3) = 0.625000000000-1.082531754731j]
+
+done (24s)

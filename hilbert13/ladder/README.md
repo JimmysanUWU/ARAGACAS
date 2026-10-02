@@ -16,6 +16,9 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: connected full-monodromy compression needs exactly degree 90 | [P][X] | Ch. 5 |
 | $\operatorname{gon}(C/\langle\tau\rangle)\ge10$ by pure algebra (Sol/Astra) | [P][X] | §6.1 |
+| invariant (Schur-twisted) Picard group: degrees $15\mathbb Z$; no invariant sections below degree 60 | [P][X] | Ch. 7 |
+| a $3.A_7$-equivariant birational model $C\to\mathbb P^5$ of degree 60; no spinor model in $\mathbb P^3$ | [P][X] | Ch. 7 |
+| **$\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\langle\tau\rangle)\le21$** (previously 56, 28) | [P][X] | Ch. 7 |
 
 **Tags.**
 - **[P]** paper proof.
@@ -34,6 +37,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | [`4_LARGE_GENUS.md`](4_LARGE_GENUS.md) | conjugate pencils, Castelnuovo bounds, dependent-third cost, the window signatures |
 | [`5_ACCESSORY.md`](5_ACCESSORY.md) | correspondence, degree lattice, $a(A_7)=60$, $\mu(A_7)=90$ |
 | [`6_SIDE_RESULTS.md`](6_SIDE_RESULTS.md) | algebraic $\operatorname{gon}(D)\ge10$, pencil orbits, conformal ceiling, negative results, open arithmetic |
+| [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted invariant line bundles, twisted Lefschetz, the $\mathbb P^5$ model, $\operatorname{gon}\le42$ |
 | [`LITERATURE.md`](LITERATURE.md) | comparison with the literature, and references |
 | [`QUESTIONS_FOR_GPT.md`](QUESTIONS_FOR_GPT.md) | open questions and audit requests |
 | `gpt/` | GPT's source documents (DAY 2 reference, Round-5 answers) |
@@ -59,6 +63,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | `verify_accessory60.py` | $a(A_7)=60$ inputs (§5.2) | stdout |
 | `equivariant_rr.py` | holomorphic Lefschetz: $h^0(B+T)\ge10$ (Prop. 5.8) | stdout |
 | `verify_mu90_exact.py` | exclusion of 72 and 84, exact (§5.4) | `mu90_exact_output.txt` |
+| `twisted_rr.py` | $2.A_7$, $3.A_7$, $6.A_7$; twisted Lefschetz; Theorems 7.4–7.5, Corollary 7.6 (Ch. 7) | `twisted_rr_output.txt` |
 | `review_checks.py`, `frontier_checks.py` | finite inputs of §6.1, §6.6, §6.7 | stdout |
 
 ## Reproduction
@@ -74,6 +79,7 @@ python3 hh_certify.py 0 coef_cls0_M90.npz 192 128   # ~6.5 min per class
 python3 hh_certify.py 1 coef_cls1_M90.npz 192 128
 python3 gonality_large_genus.py
 python3 verify_mu90_exact.py
+python3 twisted_rr.py > twisted_rr_output.txt   # ~25 s
 ```
 
 Run large FEM jobs one at a time, because several in one shell can run out of memory.

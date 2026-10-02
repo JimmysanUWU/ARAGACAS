@@ -20,6 +20,7 @@
 | gonality of the genus-136 $(2,4,7)$ curves | $\ge13$ (FW Lemma 2.2 plus Conder's genus) | $\ge25$ (Ch. 2–3) |
 | $\gamma(A_7)$, the least gonality of a faithful $A_7$-curve | $\ge13$ | $\ge25$ (Ch. 4) |
 | certified $\lambda_1$ of a closed hyperbolic surface | genus $\le7$ | genus 136 and 24 further $A_7$-curves (Ch. 2) |
+| upper bound for the gonality of the genus-136 curves | 56 (quotient by an order-8 subgroup) | 42, from a Schur-twisted model in $\mathbb P^5$ (Ch. 7) |
 
 **Assessment.**
 - **Accessory version of Hilbert 13 for $A_7$.** It is settled sharply: 60, and 90 with full monodromy.
@@ -79,6 +80,10 @@
 - **N. Ishii, *Coverings over d-gonal curves*, Tsukuba J. Math. 16 (1992) [unread].**
 - **E. Casas-Alvero, *Singularities of Plane Curves*, §3.5.** Infinitely near points and proximity (Lemma 4.5).
 - **L. Gruson, C. Peskine (Halphen's bound) for space curves not on a quadric.** Used in §5.4.
+- **M. Coppens, G. Martens, *Secant spaces and Clifford's theorem*, Compositio Math. 78 (1991) [unverified wording].** $\operatorname{gon}\le\mathrm{Cliff}+3$ (Theorem 7.4).
+- **I. Schur (1911); the exceptional triple covers $3.A_6$, $3.A_7$** (ATLAS). $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$; $3.A_7\subset SL_6(\mathbb C)$ (Ch. 7).
+- **D. Mumford, *On the equations defining abelian varieties I*, Invent. Math. 1 (1966).** Theta groups and the Mumford class of an invariant line bundle (Ch. 7).
+- **M. F. Atiyah, R. Bott, *A Lefschetz fixed point formula for elliptic complexes II*, Ann. Math. 88 (1968).** The holomorphic Lefschetz formula (Ch. 5, 7).
 
 ## 5. Spectral gonality and certified eigenvalues
 

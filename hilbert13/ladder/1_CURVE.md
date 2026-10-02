@@ -119,4 +119,5 @@ So every invariant of $D$ used in §§1.2–1.4 is shared by a curve of gonality
 | 5 | $\operatorname{gon}(D)\ge13$ | Chapters 2–3 (also $\ge10$ algebraically: §6.1) |
 | 6 | $\operatorname{gon}(C)\ge25$ | Chapters 2–3 |
 
-Upper bounds: $\operatorname{gon}(C)\le56$ and $\operatorname{gon}(D)\le28$. These come from $C\to C/P\to\mathbb P^1$, with $P\ni\tau$ of order 8 and $g(C/P)=12$.
+Upper bounds: $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(D)\le21$, from a degree-60 model of $C$ in $\mathbb P^5$ (Chapter 7, Corollary 7.6).
+The quotient construction $C\to C/P\to\mathbb P^1$, with $P\ni\tau$ of order 8 and $g(C/P)=12$, gives only 56 and 28.

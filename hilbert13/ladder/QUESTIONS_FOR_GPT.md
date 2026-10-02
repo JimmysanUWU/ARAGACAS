@@ -18,7 +18,11 @@ This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS
    - Lemma 4.3 (the orbit size; it needs $A_6\not\subset\mathrm{PGL}_2$);
    - the tangential case of Lemma 4.5 (proximity at the first infinitely near point);
    - that the chain bound $\pi(td,2^t-1)\le\pi(3d,7)$ covers every chain that occurs for $d\le24$.
-3. **Chapter 5, §5.4: the exclusion of 72 and 84.** In particular:
+3. **Chapter 7 (new): Schur-twisted invariant line bundles.** Please check:
+   - Proposition 7.1, the degree formula $\deg L=2520(n+\sum r_i/e_i-\rho_0)$ for $\varepsilon$-twisted classes, via $K^w\otimes$(flat) over the universal central extension $\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3\rangle$; in particular the orientation of $c_1c_2c_3=h$ (our conclusions hold for both signs);
+   - Theorem 7.4 (degree 45: $f_{14},f_{18}$ and the 210 involution lines; Bézout);
+   - Corollary 7.6: the pencil $|E_-(\hat\tau)|\subset\mathbf 6\subseteq H^0(L_{60})$, giving $\operatorname{gon}(C)\le42$.
+4. **Chapter 5, §5.4: the exclusion of 72 and 84.** In particular:
    - the $r=3$ kernel-map step;
    - the use of Halphen for the two $(3,5,6)$ classes.
 
@@ -30,7 +34,7 @@ This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS
    - a bound on the $10{+}\overline{10}$ and $15$ mass of decomposable 2-vectors.
 
    Classes 12 and 14 stop at 25, because $\lambda'\approx0.386$.
-2. **Upper bounds.** We know $\operatorname{gon}(C)\le56$, from the $(2,4,7)$ curve through $C/P$ with $|P|=8$, $g=12$. Is there a faithful $A_7$-curve of gonality below 56?
+2. **The exact gonality.** Now $25\le\operatorname{gon}(C)\le42$ (Ch. 7). Can you write equations for the degree-60 curve in $\mathbb P^5$ (it is $3.A_7$-invariant; the invariant ring of $3.A_7$ on its $\mathbf 6$ lives in degrees $\equiv0\bmod3$), or find a pencil of degree $<42$?
    What is the true $\gamma(A_7)$?
 3. **Fixed target.** For a fixed $(2,4,7)$ target, does compression with connected full $A_7$-monodromy need $90\mid d$?
 4. **Towers.** Prop. 4.2 of Round 5 shows that fixed points do not persist through a quadratic accessory. Is there a weaker invariant that does persist? For example:

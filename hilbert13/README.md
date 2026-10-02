@@ -123,6 +123,8 @@ Full statements, proofs and certificates are in [`ladder/README.md`](ladder/READ
   - The route is a certified spectral gap with Li–Yau, $\lambda_1\,\mathrm{Area}\le8\pi\deg$ ([Ch. 2](ladder/2_SPECTRAL.md)).
   - For two classes it adds *harmonic Hersch*: the degree is a cubic form that vanishes on the first eigenspace by representation theory ([Ch. 3](ladder/3_HARMONIC_HERSCH.md)).
 - **$\gamma(A_7)\ge25$**: every faithful $A_7$-curve has gonality at least 25 ([Ch. 4](ladder/4_LARGE_GENUS.md)).
+- **$\operatorname{gon}(C)\le42$** for the genus-136 curves, from a degree-60 model in $\mathbb P^5$ built from an $A_7$-invariant line bundle whose
+  symmetry is only projective (Schur multiplier $\mathbb Z/6$, [Ch. 7](ladder/7_TWISTED.md)). So $25\le\operatorname{gon}(C)\le42$.
 - **Accessory irrationalities** ([Ch. 5](ladder/5_ACCESSORY.md)).
   - $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, and this is sharp: $a(A_7)=60$. The published bound is 6.
   - Keeping connected full $A_7$-monodromy, the exact threshold is $\mu(A_7)=90$.

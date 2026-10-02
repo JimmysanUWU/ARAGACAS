@@ -22,7 +22,7 @@ Tags:
 **Assessment.**
 - **Accessory Hilbert 13 for $A_7$.** It is settled sharply: 60, and 90 with full monodromy. The published bound was 6.
 - **Spectral methods.** Going past Li–Yau by representation theory appears new (Lemma 3.3: the degree is a cubic form killed by $(\wedge^3E_1)^G=0$). The certification follows Booker–Strömbergsson–Venkatesh; our additions are exact equivariance by a partition of unity and the Jacobian-flux bound.
-- **Schur-twisted models** (Ch. 7). We found no prior use of Schur-multiplier twists, with an exact degree formula from the universal central extension of the triangle group, to build low-degree models of symmetric curves. The resulting link is also new: the genus-136 curves are degree-60 curves cut out of the Laza–Zheng $A_7$-cubic fourfold by quartics.
+- **Schur-twisted models** (Ch. 7). We found no prior use of Schur-multiplier twists, with an exact degree formula from the centrally extended triangle group, to build low-degree models of symmetric curves. The resulting link is also new: the genus-136 curves are degree-60 curves cut out of the Laza–Zheng $A_7$-cubic fourfold by quartics.
 - **Elliptic subcovers** (§7.9). Optimal maps $C\to E$ correspond to primitive rank-2 sub-Hodge lattices, with degree equal to the restricted cup product; this is classical (Kani; Birkenhake–Lange). New is only the exact $H^1(C,\mathbb Z)$ from the dessin and the lattice search.
 - **Caveats.** Nothing here is refereed. The value $a=60$ uses the convention in which the monodromy may drop after the accessory; the bound $\le59$ holds in either convention.
 
@@ -66,6 +66,9 @@ Tags:
 - **E. Casas-Alvero, *Singularities of Plane Curves*, §3.5.** Proximity (Lemma 4.5).
 - **L. Gruson, C. Peskine.** Halphen's bound (§5.4).
 - **M. Coppens, G. Martens, Compositio 78 (1991) [unverified wording].** $\operatorname{gon}\le\mathrm{Cliff}+3$ (Theorem 7.4).
+- **B. Hassett, Y. Tschinkel, *Torsors and stable equivariant birational geometry*, Nagoya Math. J. 250 (2023) [unverified; cited by GPT].** Amitsur subgroups, the unit sequence on Picard-trivial opens, the no-name lemma (Theorem 5.14).
+- **J. Milnor, *On the 3-dimensional Brieskorn manifolds* (1975) [unverified].** The centrally extended triangle groups $\langle c_i\mid c_1^p=c_2^q=c_3^r=c_1c_2c_3\rangle$ (Prop. 7.1).
+- **Stacks Project, §11.8 [unverified; cited by GPT].** Splitting fields of central simple algebras (Corollary 5.18).
 - **I. Schur (1911); ATLAS.** $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$ and $3.A_7\subset SL_6$.
 - **D. Mumford, Invent. Math. 1 (1966).** Theta groups and Mumford classes.
 - **M. F. Atiyah, R. Bott, Ann. Math. 88 (1968).** Holomorphic Lefschetz (Ch. 5, 7).

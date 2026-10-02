@@ -1,6 +1,6 @@
 # GPT's documents: a digest
 
-GPT has supplied five PDFs, all in this folder, listed here in the order they were written. This page states what each one proves, in its sharpest form, and where that result now lives.
+GPT has supplied six documents, all in this folder, listed here in the order they were written. This page states what each one proves, in its sharpest form, and where that result now lives.
 
 **Tags.**
 - **[P]/[X]**: re-derived or recomputed in this repository (the chapters carry the proofs).
@@ -14,8 +14,9 @@ GPT has supplied five PDFs, all in this folder, listed here in the order they we
 | `DAY_1A_Research_Checkpoint.pdf` | 30 Sep | PR #2 head `284e1e2` | weighted base points; $\operatorname{gon}\ge25$ for $g\ge266$; the Belyi map | §§2.1, 2.5 |
 | `DAY_2_A7_Mathematical_Reference.pdf` | 1 Oct | DAY 1 and PR #2 | consolidated reference; $a(A_7)=60$ | Ch. 5; §§2.1–2.6 |
 | `A7_Round5_Advances.pdf` | 1 Oct | commit `1ef3f6f` | answers to Round 5: $\mu\ge72$, small groups, towers, harmonic Hersch | Ch. 3, 5; §2.4 |
+| `A7_Amitsur_Correspondence.pdf` (source `.md`) | 3 Oct | commit `ea25d8a` | the open-base gap in our Theorem 5.11; Amitsur subgroups; the stable compression formula; cheap Brauer splitting; three Chapter 7 repairs | Ch. 5 §5.5; Ch. 7 |
 
-DAY 2 consolidates all of DAY 1, so read DAY 2 and Round 5 first. Our questions to GPT are in `../QUESTIONS_FOR_GPT.md`; Rounds 2–7 are in git history.
+DAY 2 consolidates all of DAY 1, so read DAY 2, Round 5 and the Amitsur note first. Our questions to GPT are in `../QUESTIONS_FOR_GPT.md`; Rounds 2–7 are in git history.
 
 ## 1. Results now proved in the chapters
 
@@ -31,12 +32,19 @@ DAY 2 consolidates all of DAY 1, so read DAY 2 and Round 5 first. Our questions 
 | small groups | $a(A_5)=2$, $a(L_2(7))=4$, $a(A_6)=12$ | R5 Prop 3.1 | §5.2 [P] |
 | $\mu(A_7)\ge72$ | degree 60 forces $W=6$, and the $A_6$-fixed vector has too few zeros | R5 Thm 2.2 | Prop 5.7 [P][X] |
 | the fixed-curve test | on a $(2,4,7)$ curve, $\mu_C\in\{90,180\}$, decided by $h^0(B)$, $h^0(B+T)$ | R5 §2 | Prop 5.8: $h^0(B+T)\ge10$, so 90 |
-| no fixed point after a quadratic accessory | $t^2=q(v)$ on the standard 6 | R5 Prop 4.2 | §5.5; Thm 5.11 shows linearisability persists |
+| no fixed point after a quadratic accessory | $t^2=q(v)$ on the standard 6 | R5 Prop 4.2 | §5.5; linearisability persists there because the base has only constant units (Cor. 5.16.2) |
 | harmonic Hersch | $\lambda_ht+c=4\Theta(z,y,y)+2\Theta(z,z,y)$ from $x\times dx={*dx}$; the trial-space version | R5 Thm 5.1, 5.3 | Thm 3.4 [P], certified in §3.5 |
 | bracket bound | $\kappa^2\le B^*/3$, from $\sum_{a<b}\lVert w_a\wedge w_b\rVert^2\le\frac13$ | R5 §5 | Thm 3.4 step 4 |
 | non-criticality | an invariant constant-length first-eigenfunction frame would be a minimal immersion of curvature $<0$ in a sphere (Bryant) | DAY 1A p. 6; DAY 2 §7.3 | Prop 6.2 [P] |
 | septic Belyi map | explicit model of $C/A_6\to C/A_7$ (§2.5) | DAY 1A p. 5; DAY 2 §8.1 | §6.5; `side_checks.py` D6 [X] |
 | torsion together | the Klein difference and the lift of $(\star)$ lie in the same unique 21 and 35 copies; 42/42 and 58/70 conjugates detect them | DAY 1A p. 5; DAY 2 §8.3 | Prop 1.6, §6.5 [X] |
+| **open-base gap** | our old Theorem 5.11(2) ("$\mathrm{Pic}(B)=0$ forces linearisation") is false; counterexamples on $\mathbb P^1$ with $C_2^2$, and $L_{60}$ over $\mathbb P^5$ minus hyperplanes | Amitsur §2 | Example 5.12 [P] |
+| correspondence over a projective base | $\mathcal O(Z)=M\boxtimes L$, $e\mid d$, $\lvert L\rvert$ base-point-free, $m_C(L)=-m_X(M)\in\mathrm{Am}_G(X)$ | Amitsur Thm 1, Cor 2 | Thm 5.11, Cor 5.13 [P] |
+| Amitsur kernel | $\mathrm{Am}_G(X)=\ker(H^2(G,\mathbb C^*)\to\mathrm{Br}(\mathbb C(X)^G))$ (Hassett–Tschinkel) | Amitsur Thm 3 | Thm 5.14 [P] |
+| stable compression formula | $c^{\rm st}_X(C)=\mu_{\mathrm{Am}_G(X)}(C)$; for $(2,4,7)$ targets 90 or 60 according to the 3-part of $\mathrm{Am}$ | Amitsur Thm 4, §5 | Thm 5.15, Cor 5.16 [P] |
+| Amitsur growth | $\mathrm{Am}(X)\subseteq\mathrm{Am}(Y)$, $d\,\mathrm{Am}(Y)\subseteq\mathrm{Am}(X)$ under a degree-$d$ cover | Amitsur Thm 5, Cor 6 | Thm 5.17 [P] |
+| cheap Brauer splitting | generic indices 2, 3, 6; a quadratic then a cubic step kill $H^2(A_7,\mathbb C^*)$ with full monodromy | Amitsur Lemma 7, Cors 8–9 | Cor 5.18 [P] |
+| Chapter 7 repairs | the gcd of $f_{14},f_{18}$ and the 210 distinct lines; "centrally extended", not "universal central extension"; parity alone does not give simple zeros | Amitsur §9 | Thm 7.4, Prop 7.1, Prop 7.7 (now [P] at 12 of the 18 points by Plücker) |
 
 ## 2. Results not used in the chapters [G]
 
@@ -124,7 +132,7 @@ This was the pre-transport reduction of $\operatorname{gon}(D)=9$ to a finite co
   - $a(G)=\lvert G\rvert/\max_H(\lvert H\rvert/\mu(H))$.
   - $\mu(A_n),\,a(A_n)\le(n-2)!$, from the power-sum complete intersection; and $a(A_n)\le n!/84$ for $n\ge7$, by induction from $A_7$.
   - $a(L_2(q))\le q(q-1)/2$ for $q$ even or $q\equiv1\pmod4$, and $q(q+1)/2$ for $q\equiv3\pmod4$. Use the normaliser of an odd-order torus, which has $\mu=1$.
-- **Towers.** Any tower of accessories ending in a curve compression has $\prod d_i\ge60$, and $\ge\mu(A_7)=90$ with connected full monodromy; the step count is unbounded. R5 Prop 4.1 (a base with a fixed point and $\mathrm{Alb}=0$) is generalised by Theorem 5.11.
+- **Towers.** Any tower of accessories ending in a curve compression has $\prod d_i\ge60$, and $\ge\mu(A_7)=90$ with connected full monodromy; the step count is unbounded. R5 Prop 4.1 (a base with a fixed point and $\mathrm{Alb}=0$) is superseded by §5.5 (Theorems 5.11–5.17).
 
 ## 3. Superseded statements [S]
 

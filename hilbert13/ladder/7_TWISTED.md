@@ -4,7 +4,7 @@
 - The obstruction, its Mumford class, lies in $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$.
 - The bundle is linearised for $6.A_7$, whose centre $Z$ acts on fibres by a character $\varepsilon$.
 
-Accessories over bases with a fixed point produce linearised bundles (Theorem 5.2), but fixed-point-free rational bases can produce twisted ones (Theorem 5.11). The geometry of $C$ lives in the twisted classes.
+Accessories over bases with a fixed point produce linearised bundles (Theorem 5.2). Over other bases, the twisted classes that can occur are exactly those allowed by the Amitsur subgroup of the base (Theorem 5.15); Example 5.12 realises $L_{60}$ over a rational base. The geometry of $C$ lives in the twisted classes.
 
 **Main results** ($C$ a $(2,4,7)$ curve, $\tau$ an involution).
 1. Invariant classes have degrees $15\mathbb Z$; linearised ones $90\mathbb Z$ (Cor. 7.2). None of degree $<60$ has sections (Thm 7.4).
@@ -36,7 +36,7 @@ Let $x_1x_2x_3=1$ be the branch generators (orders $e_i=2,4,7$), and $\hat x_i\i
 $$\deg L=2520\Big(n+\sum_i\frac{r_i}{e_i}-\rho_0\Big),\qquad n\in\mathbb Z .$$
 
 *Proof.*
-1. $\tilde\Delta=\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3=:h\rangle$ is the universal central extension of $\Delta(2,4,7)$. It acts on $K^w$ over $\mathbb H$: $h$ acts by $e^{-2\pi iw}$, and $c_i$ acts at its fixed point by $e^{-2\pi iw/e_i}$.
+1. $\tilde\Delta=\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3=:h\rangle$ is the centrally extended triangle group (Milnor): the preimage of $\Delta(2,4,7)$ in the universal cover of $\mathrm{PSL}_2(\mathbb R)$, a central extension by $\langle h\rangle\cong\mathbb Z$. It is not a universal central extension in the group-theoretic sense, since $\Delta(2,4,7)$ has abelianisation $C_2$. It acts on $K^w$ over $\mathbb H$: $h$ acts by $e^{-2\pi iw}$, and $c_i$ acts at its fixed point by $e^{-2\pi iw/e_i}$.
 2. Every equivariant line bundle on $\mathbb H$ is $K^w\otimes F_\chi$, with $\chi$ a character of $\tilde\Delta\times_\Delta\hat\Delta$ satisfying $\chi(h)=e^{2\pi iw}$ and $\chi|_Z=\varepsilon$.
 3. The resulting conditions on $\chi(c_i)$ are solvable iff $\tfrac3{28}w\equiv\sum r_i/e_i-\rho_0\pmod1$, where $\tfrac3{28}=-\chi_{\rm orb}$.
 4. $\deg L=270w$ (Chern–Weil). $\square$
@@ -80,8 +80,8 @@ $$\mathrm{tr}(\hat g\mid H^0-H^1)=\sum_{p\in\mathrm{Fix}(g)}\frac{\lambda(\hat g
 - **Degree 45 (spin):** $h^0\le12$, so $H^0\supseteq V_4$ or $V_4^\*$. This gives $\psi:C\to\mathbb P^3$ of degree 45, birational since $\pi(15,3)=42<136$.
   1. The invariants of $2.A_7$ on $V_4$ have Hilbert series $1+t^8+t^{12}+t^{14}+t^{16}+t^{18}+2t^{20}+\dots$
   2. Lemma 7.3 kills $f_{14}$ and $f_{18}$ on $C$: their least admissible divisors have degrees 3150 and 3330, against $14\cdot45=630$ and $18\cdot45=810$.
-  3. Involutions lift with eigenvalues $(i,i,-i,-i)$, and $i^{14}=i^{18}=-1$, so $f_{14},f_{18}$ vanish on the 210 fixed lines.
-  4. $f_{14},f_{18}$ are coprime: a common factor would be an invariant of degree $\le14$ or a product of an $A_6$-orbit of quadrics. So $Z(f_{14},f_{18})$ is a curve of degree 252 containing 210 lines, leaving degree 42 for $\psi(C)$, which has degree 45. $\square$
+  3. Involutions lift with eigenvalues $(i,i,-i,-i)$, and $i^{14}=i^{18}=-1$, so $f_{14},f_{18}$ vanish on the 210 lines $\mathbb P(E_{\pm i}(\hat\tau))$. These are distinct: in a unitary model $E_{-i}=E_i^\perp$, so either line determines $\hat\tau$ up to sign.
+  4. $f_{14},f_{18}$ are coprime. Their gcd is invariant, because $2.A_7$ is perfect and so has no characters. A nonconstant gcd would have degree 8, 12 or 14, and dividing $f_{14}$ or $f_{18}$ by it would give an invariant of degree 6, 2 or 4; there are none. So $Z(f_{14},f_{18})$ is a curve of degree 252 containing 210 lines, leaving degree 42 for $\psi(C)$, which has degree 45. $\square$ (Steps 3–4 in this form are due to GPT, `gpt/A7_Amitsur_Correspondence.pdf` §9.)
 
 So there is **no spinor model** $C\to\mathbb P(V_4)$.
 
@@ -94,7 +94,7 @@ The map $\varphi:C\to\mathbb P^5$ given by $\mathbf 6$ has these properties:
 2. **Birational onto a curve of degree 60.** Otherwise the image would have degree $\le30$ and genus $\le\pi(30,5)=91<136$.
 3. **Equivariant** for $3.A_7$ on its exceptional $\mathbf 6$.
 4. **Involutions.** The lift $\hat\tau$ has eigenvalues $(+1)^4(-1)^2$, and all 18 fixed points of $\tau$ have eigenvalue $+1$, so they lie in $\mathbb P(E_+)\cong\mathbb P^3$.
-5. **Plücker.** The vanishing sequences are $(0,1,2,3,4,6)$ at the 2- and 4-points and $(0,\dots,5)$ at the 7-points. The weight $6(60+5\cdot135)=4410=1890+2520$ is consistent.
+5. **Plücker [P][N].** Local characters force four even and two odd orders at the 2- and 4-points, with minimal sequence $(0,1,2,3,4,6)$ of weight 1, and six distinct orders mod 7 at the 7-points, with minimal sequence $(0,\dots,5)$. The minimal sequences carry weight 1890 out of the total $6(60+5\cdot135)=4410$. If they hold, as Proposition 7.8 indicates numerically, the remaining 2520 is one free orbit of simple flexes.
 
 So **60 is the least degree of an invariant class with $h^0\ge2$**, against $\mu=90$ for linearised classes.
 
@@ -105,7 +105,9 @@ So **60 is the least degree of an invariant class with $h^0\ge2$**, against $\mu
 **Proposition 7.7 (exactly 42) [P][N].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So the bound comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\tau$.
 
 *Proof.*
-1. **Simple.** $\hat\tau$ acts on the order-$k$ section at a fixed point by $(-1)^k$ times a constant. So $E_-$ has orders $\{1,3\}$ there.
+1. **Simple: [P] at 12 points, [N] at 6.** $\hat\tau$ acts on the order-$k$ section at a fixed point by $(-1)^k$ times a constant, so $E_-$ has two odd orders there. Parity alone does not give a simple zero; Plücker (Theorem 7.5(5)) does at the 2-points.
+   - **The 12 two-points.** Without an order-1 section the sequence would be at least $(0,2,3,4,5,6)$, of weight 5. That costs $4\cdot1260>2520$.
+   - **The 6 four-points.** The same alternative costs exactly $4\cdot630=2520$, so Plücker allows it. The immersion of Proposition 7.8 [N] excludes it. If it held, $|E_-|$ would have multiplicity 3 there, and $\operatorname{gon}(C/\tau)\le15$.
 2. **Other base points are double points.** If $x\notin\mathrm{Fix}\,\tau$ and $\varphi(x)\in\mathbb P(E_+)$, then $\varphi(\tau x)=\varphi(x)$.
 3. **At most one orbit.** The extra base locus $B'$ is $C(\tau)$-invariant, with $60-18-\deg B'\ge2\operatorname{gon}(C/\tau)\ge26$.
    - Elements of order 4 in $C(\tau)=(D_4\times S_3)\cap A_7$ square to $\tau$.
@@ -207,3 +209,4 @@ So elliptic subcovers give only $\operatorname{gon}\le120$. Conversely, $\operat
 - **Lower bounds by degeneration.** Baker's specialisation lemma gives $\operatorname{gon}(C)\ge\operatorname{dgon}(\Gamma)$ for the dual graph $\Gamma$ of a stable reduction. At $p=7\,\|\,|A_7|$, Raynaud–Wewers describe the stable reduction of three-point covers. Could $\Gamma$, which carries an $A_7$-action, have divisorial gonality $>25$?
 - **The ideal of $\varphi(C)$.** Is it generated by $X_3$ and the 15 quartics? Is $\varphi(C)$ projectively normal, i.e. $h^0(2L_{60})=21$ and $h^0(B+T)=10$? How does $\varphi(C)$ meet the 420 lines and sit in the hyperkähler Fano variety of $X_3$?
 - **The kernel map** of the $\mu=90$ series: is it a $\mathbb P^3$-model, a spin class of degree 135 with $M^2=3(B+T)$?
+- **Immersion at the 4-points.** Prove that $\varphi$ is an immersion at the points with stabiliser $C_4$, i.e. that the sequence there is $(0,1,2,3,4,6)$ rather than $(0,2,3,4,5,6)$. This would make Proposition 7.7 a paper proof. If it failed, $\operatorname{gon}(C/\tau)\le15$.

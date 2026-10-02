@@ -18,7 +18,7 @@ This file holds the live status and the working rules. To learn the mathematics,
 **Done.**
 - **Ch. 1, §6.1.** $g(C)=136$, $g(D)=64$, $\operatorname{gon}(D)\ge9$ ($\ge10$ by algebra); degree 9 and the audit curve.
 - **Ch. 2–4.** $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes, so $\operatorname{gon}(C/\tau)\ge13$; also $\gamma(A_7)\ge25$.
-- **Ch. 5.** $a(A_7)=60$ (sharp) and $\mu(A_7)=90$; the bounds persist without fixed points (Theorem 5.11).
+- **Ch. 5.** $a(A_7)=60$ (sharp) and $\mu(A_7)=90$. Over other bases the threshold is governed by the Amitsur subgroup (§5.5, corrected 3 October after GPT found that $\mathrm{Pic}(B)=0$ does not suffice).
 - **Ch. 7.**
   - Schur-twisted Picard group.
   - $C\hookrightarrow\mathbb P^5$ of degree 60, cut out by the Laza–Zheng cubic and 15 quartics.
@@ -32,7 +32,7 @@ This file holds the live status and the working rules. To learn the mathematics,
    - stable reduction at $p=7$ with graph gonality (§7.10);
    - a non-symmetric pencil on the explicit model.
 4. **(Optional)** $\operatorname{gon}\ge26$ on classes 0, 1, via a certified sharp $\kappa$ (Ch. 3).
-5. **(Long shot)** Towers and RD: bases whose $H^1$ shares a constituent with $H^1(C)$ (§5.5).
+5. **(Long shot)** Towers and RD: correspondences with $u_Z\ne0$ (§5.5). The Amitsur obstruction alone is cheap to remove (Cor. 5.18).
 6. **(Low)** Are $P_E$, $P_S$ torsion (§6.5)?
 
 **Budget.** The user's usage is limited. Send item 1 to GPT and do item 2. Do items 3–6 only on a new idea, in small decisive steps.

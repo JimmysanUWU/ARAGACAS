@@ -12,7 +12,8 @@
 
 **Credits.**
 - GPT: part 1, Theorems 5.2–5.3 and Lemmas 5.4–5.5 (DAY 2, `gpt/DAY_2_A7_Mathematical_Reference.pdf`); $\mu\ge72$ (Round 5). All of these are re-derived here.
-- Ours: $\mu\le90$, the exclusion of 72 and 84, and §5.5.
+- GPT (3 October): the open-base gap and the Amitsur theory of §5.5 (`gpt/A7_Amitsur_Correspondence.pdf`), re-derived.
+- Ours: $\mu\le90$, the exclusion of 72 and 84, and the first (flawed) version of §5.5.
 
 Computations: `verify_accessory60.py`, `verify_mu90_exact.py`, `equivariant_rr.py`.
 
@@ -124,32 +125,104 @@ So $\mu\notin\{72,78,84\}$, and $\mu(A_7)=90$. $\square$
 - Rank 1 occurs iff the pattern has a loop. Rank 3 is decided exactly, using the determinant, the $3\times3$ minors and radical membership over $\mathbb Q$.
 - All 84 (curve, class) cases close, under both orientations.
 
-## 5.5 Beyond fixed points: the twisted correspondence [P]
+## 5.5 Beyond fixed points: Amitsur subgroups [P]
 
-Theorem 5.2 restricts $\mathcal O(Z)$ to a fixed point. Fixed points do not survive a quadratic accessory $t^2=q(v)$ (Round 5 Prop. 4.2), but the argument does not need them.
+Theorem 5.2 restricts $\mathcal O(Z)$ to a fixed point, and fixed points do not survive a quadratic accessory $t^2=q(v)$ (Round 5 Prop. 4.2). What replaces the fixed point is the *Amitsur subgroup* of the base. An earlier version of this section claimed that $\mathrm{Pic}(B)=0$ on an open base forces linearisation. That is false (Example 5.12); GPT found the gap and supplied the corrected theory (`gpt/A7_Amitsur_Correspondence.pdf`), which is re-derived here.
 
-**Theorem 5.11.**
-- *Setting.*
-  - $B$ is a smooth irreducible $G$-variety with a smooth $G$-compactification $X$ such that $\mathrm{Hom}_G(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$. This holds, e.g., if $X$ is rational, or if $H^1(X)$ and $H^1(C)$ share no $G$-constituent.
-  - $W\to B$ is a $G$-equivariant finite cover of degree $d$, with a dominant $G$-map $W\dashrightarrow C$ to a faithful $G$-curve.
-- *Conclusion.* $C$ carries a $G$-invariant class $L$ with $h^0\ge2$ and $\deg L=e\mid d$, whose Mumford class is minus that of an invariant class on $B$. Hence:
-  1. $d\ge e\ge\tilde\mu(C)\ge\operatorname{gon}(C)$, where $\tilde\mu(C)$ is the least degree of an invariant class with $h^0\ge2$;
-  2. if every invariant line bundle on $B$ is linearisable (e.g. $\mathrm{Pic}(B)=0$, or $B$ has a fixed point), then $L$ is linearised and $d\ge\mu(G)$.
+**Notation.** For a smooth projective $G$-variety $X$ and an invariant class $M\in\mathrm{Pic}(X)^G$, $m_X(M)\in H^2(G,\mathbb C^\*)$ is the obstruction to linearising $M$ (its Mumford class). It is well defined because $\mathcal O(X)^\*=\mathbb C^\*$. The **Amitsur subgroup** is
+$$\mathrm{Am}_G(X)=m_X\big(\mathrm{Pic}(X)^G\big)\subseteq H^2(G,\mathbb C^\*).$$
+It vanishes if $X$ has a fixed point: on the fibre there, the cocycle becomes a coboundary of scalars.
+
+**Theorem 5.11 (correspondence over a projective base).** Let $X$ be smooth projective, and $C$ a faithful $G$-curve, with $\mathrm{Hom}_G(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$. Let $W\dashrightarrow X$ be equivariant and generically finite of degree $d$, and $W\dashrightarrow C$ equivariant and dominant. Then there are invariant classes $M$ on $X$ and $L$ on $C$ with
+$$\deg L=e\mid d,\qquad h^0(L)\ge2,\qquad |L|\text{ base-point-free},\qquad m_C(L)=-m_X(M)\in\mathrm{Am}_G(X).$$
+In particular $d\ge\tilde\mu(C)\ge\operatorname{gon}(C)$, and $L$ is linearised if $\mathrm{Am}_G(X)=0$.
 
 *Proof.*
-1. The closure $Z\subset B\times C$ of the image of $W$ is invariant, so $\mathcal O(Z)$ is linearised. Its degree $e$ over $B$ divides $d$.
-2. $\mathrm{Pic}(X\times C)=\mathrm{Pic}(X)\oplus\mathrm{Pic}(C)\oplus\mathrm{Hom}(\mathrm{Alb}\,X,\mathrm{Jac}\,C)$, equivariantly. $[\bar Z]$ is invariant, so its correspondence part lies in $\mathrm{Hom}_G=0$. Hence $\mathcal O(Z)\cong p_B^\*M\otimes p_C^\*L$ on $B\times C$.
-3. The fibres $Z_b\in|L|$ move, because $W\dashrightarrow C$ is dominant. So $h^0(L)\ge2$.
-4. $\sigma^\*L\cong L$, and Mumford classes add, so $m(L)=-m(M)$. Removing the invariant fixed part changes neither. $\square$
+1. **The divisor.** Let $Z\subset X\times C$ be the closure of the image of $W$. It is an invariant irreducible divisor, so $\mathcal O(Z)$ is canonically linearised. Its degree $e$ over $X$ divides $d$, since $\mathbb C(X)\subseteq\mathbb C(Z)\subseteq\mathbb C(W)$.
+2. **Splitting.** The sequence $0\to\mathrm{Pic}\,X\oplus\mathrm{Pic}\,C\to\mathrm{Pic}(X\times C)\to\mathrm{Hom}(\mathrm{Alb}\,X,\mathrm{Jac}\,C)\to0$ is canonical and equivariant. The image of the invariant class $[Z]$ lies in $\mathrm{Hom}_G=0$, so $\mathcal O(Z)\cong M\boxtimes L$, with $M$ and $L$ invariant classes.
+3. **Moving and base-point-free.** The fibres $Z_x\in|L|$ move, because $Z$ dominates $C$. A point $p$ in every $Z_x$ would give $Z=X\times\{p\}$, which does not dominate $C$.
+4. **Obstructions.** On the projective $X\times C$, Mumford classes are defined and add: $0=m(\mathcal O(Z))=m_X(M)+m_C(L)$. $\square$
 
-**Corollary 5.12.**
-1. **Fixed target.** Compression onto a fixed $(2,4,7)$ curve with connected full monodromy needs $90\mid d$ (Lemma 5.4). This answers DAY 2 §9.
-2. **After a quadratic accessory.** $B=\{t^2=q(v)\}\smallsetminus\{0\}$ is rational with $\mathrm{Pic}(B)=0$. So a further compression still needs $d\ge90$. What persists is *linearisability*, not the fixed point.
-3. **Any rational base.** $d\ge\tilde\mu=60$ with $15\mid e$ onto a $(2,4,7)$ curve (Theorems 7.4–7.5), and $d\ge\gamma(A_7)\ge25$ onto any faithful $A_7$-curve.
+No fixed divisor is removed, so $e\mid d$ holds for $L$ itself.
 
-So gonality, which plays no role in $a(A_7)$, governs compressions over fixed-point-free rational bases.
+**Example 5.12 (open bases: units matter).** Theorem 5.11 must be applied on a projective model. On an open base $B$, triviality of $\mathrm{Pic}(B)$ does not force linearisation.
+1. **On $\mathbb P^1$.** Let $G=C_2^2$ act on $C=\mathbb P^1$ by $z\mapsto-z$ and $z\mapsto1/z$, and put $W=B=\mathbb P^1\smallsetminus\{0,\infty,\pm1\}\subset C$.
+   - This is a cover of degree 1 over a base with $\mathrm{Pic}(B)=0$.
+   - Yet $L=\mathcal O(1)$ is not linearised: the lifts to $SL_2$ anticommute. Here $\mu(G)=2$.
+2. **Inside the project.** Let $V\subset H^0(L_{60})$ be the $\mathbf 6$ and $I\subset\mathbb P(V)\times C$ the incidence variety. Let $B$ be $\mathbb P(V)$ minus a $G$-orbit of hyperplanes.
+   - $B$ is rational with $\mathrm{Pic}(B)=0$.
+   - $I|_B\to B$ is an irreducible equivariant cover of degree 60 dominating $C$.
+   - $L_{60}$ is not linearised. So $90\mid d$ and $d\ge90$ both fail over such bases.
 
-**Towers.** The hypothesis is needed stage by stage. For a $(2,4,7)$ target, $H^1(C)$ contains none of $1,6,14_a,14_b$. So the bounds hold over any base whose $H^1$ involves only these. What remains is a base whose $H^1$ shares constituents with $H^1(C)$, where $[Z_b]$ can move along an equivariant map $\mathrm{Alb}\,X\to\mathrm{Jac}\,C$.
+*The mechanism.* On $B$ the isomorphisms $g^\*M\cong M$ are fixed only up to $\mathcal O(B)^\*$. So the obstruction lives in $H^2(G,\mathcal O(B)^\*)$, and the old argument showed only that $m_C(L)$ dies there. The kernel of $H^2(G,\mathbb C^\*)\to H^2(G,\mathcal O(B)^\*)$ is the image of $H^1(G,\mathcal O(B)^\*/\mathbb C^\*)$. In example 2, take lifts $R_g$ with cocycle $\alpha$ and a linear form $\ell$; the units $u_g=\ell(R_gv)/\ell(v)$ satisfy $u_g(hv)\,u_h(v)=\alpha(g,h)\,u_{gh}(v)$.
+
+**Corollary 5.13 (when $L$ is linearised).** In Theorem 5.11, $L$ is linearised in either of these cases:
+- $\mathrm{Am}_G(X)=0$, for instance if $X$ has a fixed point;
+- on an invariant open $B\subseteq X$, either $B$ has a fixed point, or every invariant line bundle on $B$ is linearisable and $\mathcal O(B)^\*=\mathbb C^\*$. More generally, the second condition can be weakened to: $H^2(G,\mathbb C^\*)\to H^2(G,\mathcal O(B)^\*)$ is injective.
+
+*Proof.* On $B\times C$ the relation reads $\delta_B(M|_B)+\iota(m_C(L))=0$ in $H^2(G,\mathcal O(B)^\*)$. A fixed point $b$ linearises $L$ directly: restrict $\mathcal O(Z)$ to $\{b\}\times C$. $\square$
+
+**Theorem 5.14 (Amitsur kernel; Hassett–Tschinkel).** For smooth projective $X$ with generically free action,
+$$\mathrm{Am}_G(X)=\ker\big(H^2(G,\mathbb C^\*)\to H^2(G,\mathbb C(X)^\*)\big)=\ker\big(H^2(G,\mathbb C^\*)\to\mathrm{Br}(\mathbb C(X)^G)\big).$$
+So $\mathrm{Am}_G$ is a stable equivariant birational invariant.
+
+*Proof.*
+1. **The kernel.** Use the sequences $1\to\mathbb C^\*\to\mathbb C(X)^\*\to P\to1$ and $0\to P\to\mathrm{Div}\to\mathrm{Pic}\to0$. Hilbert 90 gives $H^1(G,\mathbb C(X)^\*)=0$, and $\mathrm{Div}$ is a permutation module, so $H^1(G,\mathrm{Div})=0$. Hence the kernel is the image of $\mathrm{Pic}(X)^G$.
+2. **Stable invariance.** Adding variables with trivial action changes nothing, since $\mathrm{Br}(K)\hookrightarrow\mathrm{Br}(K(t))$. $\square$
+
+**Theorem 5.15 (stable compression formula).** Define two quantities:
+- $\mu_A(C)=\min\{\deg L: L\in\mathrm{Pic}(C)^G,\ h^0(L)\ge2,\ m_C(L)\in A\}$ for a subgroup $A\subseteq H^2(G,\mathbb C^\*)$;
+- $c^{\rm st}_X(C)$, the least degree of an irreducible equivariant cover dominating $C$ whose base is equivariantly birational to $X\times\mathbb P^N$, with trivial action on $\mathbb P^N$.
+
+Under the hypotheses of Theorem 5.11, with $X$ generically free,
+$$c^{\rm st}_X(C)=\mu_{\mathrm{Am}_G(X)}(C).$$
+
+*Proof.*
+- **Lower bound.** Apply Theorem 5.11 on a smooth projective model; $\mathrm{Alb}$ and $\mathrm{Am}_G$ are stable invariants.
+- **Upper bound.**
+  1. Take a minimiser $L$. It is base-point-free, because removing an invariant fixed divisor keeps the multiplier.
+  2. Put $V=H^0(L)$, and choose $M$ on $X$ with $m_X(M)=-m_C(L)$. Then $M\otimes V$ is a linearised vector bundle.
+  3. By the no-name lemma, $X\times\mathbb P(V)=\mathbb P_X(M\otimes V)$ is equivariantly birational to $X\times\mathbb P^{n-1}$.
+  4. Over it, $X\times I_L$ is an irreducible cover of degree $\deg L$ dominating $C$. Here $I_L$ is the incidence variety of $|L|$, a projective bundle over $C$. $\square$
+
+**Corollary 5.16 ($(2,4,7)$ targets).** Let $A=\mathrm{Am}_{A_7}(X)\subseteq\mathbb Z/6$. Corollary 7.2, Theorem 7.4, Theorem 7.5 and Proposition 5.8 give:
+
+| $A$ | lattice of $e=\deg L$ | $c^{\rm st}_X(C)$ |
+|---|---|---|
+| $0$ | $90\mathbb Z$ | 90 |
+| order 2 | $45\mathbb Z$ (45 has no sections) | 90 |
+| order 3 | $30\mathbb Z$ (30 has no sections) | 60 |
+| $\mathbb Z/6$ | $15\mathbb Z$ | 60 |
+
+1. **Linear base.** It has a fixed point, so $A=0$, and a fixed target needs $90\mid d$, as in §5.1.
+2. **The quadratic accessory.**
+   - $B=\{t^2=q(v)\}\smallsetminus\{0\}$ has as functions the graded ring of the cone, with $\mathbb C$ in degree 0, so $\mathcal O(B)^\*=\mathbb C^\*$.
+   - $\mathrm{Pic}(B)=\mathrm{Pic}(Q^5)/\langle\mathcal O(1)\rangle=0$.
+   - By Corollary 5.13, a further compression still needs $d\ge90$.
+3. **Any rational base.** $d\ge60$, and this is sharp (Example 5.12.2). Onto any faithful $A_7$-curve, $d\ge\gamma(A_7)\ge25$.
+
+**Theorem 5.17 (Amitsur growth).** Let $Y\dashrightarrow X$ be dominant, equivariant and generically finite of degree $d$, between generically free smooth projective $G$-varieties. Then
+$$\mathrm{Am}_G(X)\subseteq\mathrm{Am}_G(Y),\qquad d\cdot\mathrm{Am}_G(Y)\subseteq\mathrm{Am}_G(X).$$
+
+*Proof.* The generic torsor of $Y$ is the base change of that of $X$ along $F=\mathbb C(Y)^G\supseteq K=\mathbb C(X)^G$, with $[F:K]=d$. Apply Theorem 5.14: restriction gives the first inclusion, and $\mathrm{cor}\circ\mathrm{res}=d$ gives the second. $\square$
+
+So the $\ell$-primary parts agree for $\ell\nmid d$. Take a connected-monodromy tower starting from a linear base, and suppose the Albanese hypothesis holds throughout.
+- An order-3 class can first appear only at a step of degree divisible by 3, and an order-2 class only at an even step.
+- A prefix of degree prime to 3 keeps the threshold 90 for the next compression. This is a lower bound, not 90-divisibility.
+
+**Corollary 5.18 (the Brauer obstruction is cheap).** For the generic $A_7$-torsor over a linear base, a multiplier of order $r\in\{2,3,6\}$ has Brauer index exactly $r$.
+
+*Proof.* Twisting $\mathbb P(V)$ gives a Severi–Brauer variety, so the index divides every projective degree with that multiplier. The gcds of the lists in §7.1 are 2, 3 and 6. The period is $r$, because $\mathrm{Am}=0$. $\square$
+
+So a quadratic and then a cubic extension kill all of $H^2(A_7,\mathbb C^\*)$ while keeping connected full monodromy: $A_7$ has no subgroup of index $\le6$, so an extension of degree $\le6$ is linearly disjoint. Schur–Brauer obstructions alone therefore cannot exclude one-variable towers. This is consistent with $\mu=90$: a cubic step followed by a degree-60 compression has total degree 180.
+
+**Towers: what remains.**
+- For a correspondence $Z$ over $X$, the map $x\mapsto[Z_x]$ is an affine map $X\to\mathrm{Pic}^e(C)$. Its linear part $u_Z:\mathrm{Alb}\,X\to\mathrm{Jac}\,C$ is equivariant.
+- If $u_Z=0$, Theorem 5.15 applies.
+- If not, no bound in terms of gonality or Amitsur subgroups can hold: $X=C$ with $Z=\Delta$ has $e=1$.
+- The open problem is which affine maps into $W_e(C)$, lifting to $\mathrm{Sym}^eC$, arise from the actual intermediate bases of a tower.
+
+For a $(2,4,7)$ target, $H^1(C)$ contains none of $1,6,14_a,14_b$. So $u_Z=0$ whenever $H^1(X)$ involves only these.
 
 ## 5.6 Trust base and open questions
 
@@ -158,8 +231,9 @@ So gonality, which plays no role in $a(A_7)$, governs compressions over fixed-po
 - Castelnuovo's bound; Halphen–Gruson–Peskine (once).
 - Holomorphic Lefschetz (for $\mu\le90$).
 - Farb–Wolfson (only for $a\le60$).
+- For §5.5: the no-name lemma, the divisorial-correspondence sequence for $\mathrm{Pic}(X\times C)$, and index-period facts for central simple algebras. Theorem 5.14 is in Hassett–Tschinkel.
 
 **Open.**
-- Towers through a base whose $H^1$ shares a constituent with $H^1(C)$. This is the remaining obstacle to $\mathrm{RD}(A_7)>1$ along these lines.
+- **Towers with $u_Z\ne0$** (§5.5). This is the remaining obstacle to $\mathrm{RD}(A_7)>1$ along these lines. The Amitsur part alone is cheap to remove (Corollary 5.18).
 - Is $a(A_7)=60=\tilde\mu(C)$ a coincidence? The degree-60 class gives $2L_{60}\sim5\cdot24$ points through the Klein subgroups (Prop. 7.9), while $a$ uses $15\cdot4$ through the same subgroups.
 - The arithmetic questions of §6.5.

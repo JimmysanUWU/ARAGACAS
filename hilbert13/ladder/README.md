@@ -14,7 +14,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve ($\ge23$ without the window computation of §4.4) | [P][C] | Ch. 4, 7 |
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: compression with connected full monodromy needs exactly degree 90 | [P][X] | Ch. 5 |
-| over fixed-point-free bases with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$ the bounds persist, and gonality bounds the degree | [P] | §5.5 |
+| over any base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, the least stable compression degree is $\mu_{\mathrm{Am}(X)}(C)$: 90 or 60 for $(2,4,7)$ targets, by the Amitsur subgroup of the base (GPT; verified) | [P] | §5.5 |
 | invariant classes have degrees $15\mathbb Z$, with no sections below 60; Mumford class in $\mathbb Z/6$ | [P][X] | §§7.2–7.4 |
 | $\varphi:C\hookrightarrow\mathbb P^5$ (degree 60) is cut out by the Laza–Zheng $A_7$-cubic and 15 quartics; no quadrics | [P][N] | §7.6 |
 | Klein subgroups $L_2(7)$ give quadrics meeting $\varphi(C)$ in $5\times24$ seven-points | [P][N] | Prop. 7.9 |

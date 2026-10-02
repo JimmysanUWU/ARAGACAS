@@ -48,6 +48,7 @@ Chapter 5 can be read straight after Chapter 1. The Lean project in [`hilbert13/
 | $L_{60}$, $\varphi$, $X_3$ | the degree-60 invariant class (Mumford class of order 3); its embedding $\varphi:C\hookrightarrow\mathbb P^5$; the Laza–Zheng cubic fourfold containing $\varphi(C)$ |
 | $E_\pm(\tau)$ | the eigenspaces of a lift $\hat\tau$ on the $\mathbf 6$; $\lvert E_-\rvert$ is the $\tau$-pencil of degree 42 |
 | $\gamma(G)$, $\mu(G)$, $a(G)$, $\tilde\mu(C)$ | least gonality of a faithful $G$-curve; least degree of a linearised moving bundle; least accessory degree; least degree of an invariant class with $h^0\ge2$ |
+| $\mathrm{Am}_G(X)$, $\mu_A(C)$ | the Amitsur subgroup of a base (obstructions of its invariant classes); the least degree of a moving invariant class on $C$ with obstruction in $A$ (§5.5) |
 | $E_{15}=C/A_5$, $E_{21}=C/L_2(5)$ | the elliptic quotients carrying 15 and 21 (not to be confused with the eigenspace $E_1$). GPT's "$E$" is $E_{21}$ |
 
 ## 4. How the results depend on each other
@@ -62,7 +63,7 @@ Ch.3 harmonic Hersch → gon ≥ 25 (all four    Ch.5 μ ≠ 72, 84 (exact scrip
   │   classes)                               │
   ├──► Ch.4 γ(A7) ≥ 25 (+ Ch.2 for 10 other signatures, + the window §4.4)
   │                                          │
-  └──► Ch.7 Thm 7.4 (uses gon ≥ 25 via Clifford) ──► Thm 5.11 / Cor 5.12 (μ̃ = 60)
+  └──► Ch.7 Thm 7.4 (uses gon ≥ 25 via Clifford) ──► Cor 5.16 (60 or 90, by the Amitsur subgroup)
        Ch.7 Cor 7.6 gon ≤ 42 (independent of every lower bound)
        Ch.7 Prop 7.7 exactly 42 (uses gon(C/τ) ≥ 13)
 ```
@@ -100,6 +101,7 @@ python3 cover.py                 # 1 s smoke test
 
 - **Invariant is not linearised.** Degrees of invariant classes form $15\mathbb Z$; linearised ones form $90\mathbb Z$. Most of Chapter 7 lives in the gap between them.
 - **"Algebraic" bounds.** $\operatorname{gon}\ge23$ in Theorem 4.1 still uses the spectral input for genus $\le335$; only $\operatorname{gon}(D)\ge10$ (§6.1) is purely algebraic.
+- **Open bases.** On a non-projective base, invertible functions can cancel a Schur obstruction, so $\mathrm{Pic}(B)=0$ does not force linearisation (Example 5.12). Apply Theorem 5.11 on a projective model.
 - **Accessory conventions.** $a(A_7)=60$ allows the monodromy to drop after the accessory. With connected full monodromy the answer is $\mu=90$. The bound $\le59$ holds in both conventions.
 - **[N] claims** (Props. 7.7–7.9) are high-precision numerics, not proofs. The bound $\operatorname{gon}\le42$ itself does not depend on them.
 - **GPT material** is input, not authority. Use a GPT claim only after re-deriving it; `gpt/README.md` records which ones have been.

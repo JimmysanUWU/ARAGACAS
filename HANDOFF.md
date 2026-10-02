@@ -11,7 +11,7 @@ This file holds the live status and the working rules. To learn the mathematics,
 | mathematics | `hilbert13/ladder/1_CURVE.md` … `7_TWISTED.md` (textbook order) |
 | Lean | `hilbert13/Hilbert13/Superposition.lean` (`hilbert13/README.md`) and `SpectralCertificate.lean` |
 | history | git only: superseded notes and scripts up to `b148338`, session logs up to `d5d99c4` |
-| web stub | root `index.html`, `src/`, `css/`, `dist/`, `tsconfig.json`: the original 2022 ARAGACAS stub on `master`, unrelated. The user asked for its removal on this branch; the deletion was blocked by the permission classifier and awaits the user's explicit go-ahead |
+| web stub | the original 2022 ARAGACAS files (`index.html`, `src/`, `css/`, `dist/`, `tsconfig.json`), deleted on this branch at the user's request on 3 October; they remain on `master` until the PR merges, and in git history |
 
 ## Status
 

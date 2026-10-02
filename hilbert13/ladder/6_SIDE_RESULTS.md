@@ -2,9 +2,9 @@
 
 Each result here either proves something independently of the main line or explains why a natural route fails.
 
-## 6.1 An algebraic proof of $\operatorname{gon}(D)\ge10$ (Sol/Astra) [P][X]
+## 6.1 An algebraic proof of $\operatorname{gon}(D)\ge10$ (Astra) [P][X]
 
-This is GPT's *ramification transport*, re-derived; the finite inputs are in `side_checks.py` (R).
+This is Astra's *ramification transport* (GPT; `gpt/README.md`), re-derived; the finite inputs are in `side_checks.py` (R).
 
 *Proof.* Suppose $D$ has a degree-9 map. Pull it back to $f:C\to\mathbb P^1$ of degree 18, with $f\circ\tau=f$ and $L=f^*\mathcal O(1)$.
 1. **Determinant.** Let $\mu\ne\tau$ be an involution commuting with $\tau$.

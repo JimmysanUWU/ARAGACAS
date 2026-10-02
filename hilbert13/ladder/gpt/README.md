@@ -16,7 +16,12 @@ GPT has supplied six documents, all in this folder, listed here in the order the
 | `A7_Round5_Advances.pdf` | 1 Oct | commit `1ef3f6f` | answers to Round 5: $\mu\ge72$, small groups, towers, harmonic Hersch | Ch. 3, 5; §2.4 |
 | `A7_Amitsur_Correspondence.pdf` (source `.md`) | 3 Oct | commit `ea25d8a` | the open-base gap in our Theorem 5.11; Amitsur subgroups; the stable compression formula; cheap Brauer splitting; three Chapter 7 repairs | Ch. 5 §5.5; Ch. 7 |
 
-DAY 2 consolidates all of DAY 1, so read DAY 2, Round 5 and the Amitsur note first. Our questions to GPT are in `../QUESTIONS_FOR_GPT.md`; Rounds 2–7 are in git history.
+DAY 2 consolidates all of DAY 1, so read DAY 2, Round 5 and the Amitsur note first.
+
+**Authors.** Two GPT agents, Sol and Astra, contribute.
+- **Sol**, according to the provenance notes of the 28 September synthesis and DAY 1C: the accessory-degree programme, pencil geometry, Segre and singularity-budget bounds, and the torsion/norm model.
+- **Astra**, according to the same notes: the determinant quotient closure, ramification transport and amalgamation (§6.1), the component test and the effective-defect law. Also the Amitsur note (the user, 3 October).
+- **Unattributed.** DAY 1A–C, DAY 2 and Round 5 do not name their author. Our questions to GPT are in `../QUESTIONS_FOR_GPT.md`; Rounds 2–7 are in git history.
 
 ## 1. Results now proved in the chapters
 

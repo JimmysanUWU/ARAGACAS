@@ -112,6 +112,12 @@ The resulting map $\varphi:C\to\mathbb P^5$ has the following properties.
 4. **The involutions.** For each involution $\tau$, its lift has eigenvalues $(+1)^4(-1)^2$ on $\mathbf 6$, and *all 18 fixed points of $\tau$ have eigenvalue $+1$*. So they lie in the $\mathbb P^3=\mathbb P(E_+)$.
 5. **Plücker check.** The vanishing sequences are $(0,1,2,3,4,6)$ at points over the 2- and 4-branches and $(0,1,2,3,4,5)$ at the 7-points. The Plücker total is $6(60+5\cdot135)=4410=1890+2520$, which is consistent.
 
+**The model lies on the invariant cubic fourfold [P][X]** (`twisted_rr.py` part (9), Lemma 7.3).
+- The invariants of $3.A_7$ on $\mathbf 6$ have Hilbert series $1+t^3+3t^6+5t^9+11t^{12}+18t^{15}+\dots$
+- By Lemma 7.3, every invariant of degree 3, 9 or 15 vanishes on $\varphi(C)$. In particular **$\varphi(C)$ lies on the unique $3.A_7$-invariant cubic fourfold $X_3\subset\mathbb P^5$.**
+- The invariants of degrees 6, 21 and 42 restrict to sections with divisors $D_7$, $2D_4$, and the pencil $\langle S_6^7,T_{21}^2\rangle$. The last is the quotient map $C\to C/A_7$.
+- **Cubics.** By duality, $K-3L_{60}=B+T$, so $H^0(3L_{60})\supseteq6+14_a+14_b+21$, which is 55-dimensional. Since $\mathrm{Sym}^3\mathbf 6=1\oplus(55)$, if $h^0(B+T)=10$ then $X_3$ is the only cubic through $\varphi(C)$.
+
 So the least degree of an invariant class with $h^0\ge2$ on these curves is exactly **60**: Theorems 7.4 and 7.5. Compare $\mu=90$ for linearised classes (Chapter 5).
 The value coincides with $a(A_7)=60$. The $\mathbf 6$ restricts irreducibly to both classes of $L_2(7)$, so the model does *not* project $L_2(7)$-equivariantly onto Klein's $\mathbb P^2$; the coincidence stays unexplained.
 
@@ -135,9 +141,27 @@ Lemma 7.3 kills $p_2,p_3,p_5,p_6$ (and $p_7$ for $B+T$). Then the image would li
 
 Nothing beats 42.
 
-## 7.6 Open
+## 7.6 The other rigid signatures
+
+`twisted_survey.py` → `twisted_survey_output.txt` repeats §§7.2–7.5 on all 26 rigid faithful $A_7$-curves of genus $\le335$.
+For each class with forced sections, it tests the eigenspaces of every element with fixed points. The best fixed-point pencils are:
+
+| signature | $g$ | best pencil $\le$ | from |
+|---|---|---|---|
+| $(2,4,7)$ | 136 | **42** | order-3 class of degree 60, $\mathbf 6$, an involution |
+| $(3,3,7)$ | 241 | 48 | **spin class of degree 60 with $V_4\subseteq H^0$** (a spinor model in $\mathbb P^3$!), a 3-cycle |
+| $(2,7,7)$ (one curve) | 271 | 84 | spin class of degree 90, $V_4$ |
+| $(4,4,4)$ | 316 | 95 | order-6 class of degree 105 |
+| $(2,6,7)$, $(2,5,7)$, $(2,7,7)$ | 241, 199, 271 | 104–108 | order-3 classes of degree 120 |
+| $(3,3,5)$, $(3,3,6)$, $(3,4,4)$, $(3,4,5)$, $(3,4,6)$ | 169–316 | 192–299 | |
+
+Hence **$25\le\gamma(A_7)\le42$**, with the upper bound realised on the genus-136 curves.
+
+The $(3,3,7)$ curves do carry the spinor model that Theorem 7.4 rules out for $(2,4,7)$: a $2.A_7$-equivariant curve of degree 60 in $\mathbb P(V_4)$.
+
+## 7.7 Open
 
 - **The exact gonality**, in $[25,42]$. Does the pencil $|E_-|$ have base points beyond the 18? These would be $\tau$-symmetric nodes of $\varphi(C)$ on $\mathbb P(E_+)$.
 - **Equations.** Equations of the degree-60 curve in $\mathbb P^5$, and the invariant ring of $3.A_7$ on $\mathbf 6$ (degrees $\equiv0\bmod3$).
 - **The kernel map.** Is the rank-3 kernel map of the $\mu=90$ series (a spin class of degree 135, $M^2=(B+T)^3$) a genuine $\mathbb P^3$-model?
-- **Other signatures.** The same theory on the other faithful $A_7$-curves, and $\tilde\mu(A_7)$ over all of them.
+- **Other signatures.** $\tilde\mu$ on the other faithful $A_7$-curves, and whether some curve beats 42 by a mechanism other than fixed-point base loci.

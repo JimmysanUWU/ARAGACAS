@@ -18,7 +18,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | $\operatorname{gon}(C/\langle\tau\rangle)\ge10$ by pure algebra (Sol/Astra) | [P][X] | §6.1 |
 | invariant (Schur-twisted) Picard group: degrees $15\mathbb Z$; no invariant sections below degree 60 | [P][X] | Ch. 7 |
 | a $3.A_7$-equivariant birational model $C\to\mathbb P^5$ of degree 60; no spinor model in $\mathbb P^3$ | [P][X] | Ch. 7 |
-| **$\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\langle\tau\rangle)\le21$** (previously 56, 28) | [P][X] | Ch. 7 |
+| **$\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\langle\tau\rangle)\le21$** (previously 56, 28); hence $25\le\gamma(A_7)\le42$ | [P][X] | Ch. 7 |
 
 **Tags.**
 - **[P]** paper proof.
@@ -64,6 +64,7 @@ $C$ denotes a $(2,4,7)$ $A_7$-curve (genus 136), and $\tau$ an involution.
 | `equivariant_rr.py` | holomorphic Lefschetz: $h^0(B+T)\ge10$ (Prop. 5.8) | stdout |
 | `verify_mu90_exact.py` | exclusion of 72 and 84, exact (§5.4) | `mu90_exact_output.txt` |
 | `twisted_rr.py` | $2.A_7$, $3.A_7$, $6.A_7$; twisted Lefschetz; Theorems 7.4–7.5, Corollary 7.6 (Ch. 7) | `twisted_rr_output.txt` |
+| `twisted_survey.py` | the same on all 26 rigid curves of genus $\le335$ (§7.6) | `twisted_survey_output.txt` |
 | `review_checks.py`, `frontier_checks.py` | finite inputs of §6.1, §6.6, §6.7 | stdout |
 
 ## Reproduction

@@ -34,7 +34,7 @@
     triple 12 orient -1 eps (1, 0): degrees = [45] mod 90; D<=270 (H^0 forced): [(45, {}), (45, {}), (135, {}), (135, {}), (225, {14: 1, 20: 1, 36: 1}), (225, {14: 1, 20: 1, 36: 1})]
     triple 12 orient -1 eps (0, 2): degrees = [60] mod 90; D<=270 (H^0 forced): [(60, {}), (60, {6: 1}), (150, {15: 1, 21: 1}), (150, {15: 1}), (240, {15: 1, 21: 1, 24: 1}), (240, {6: 1, 15: 2, 21: 1, 24: 1})]
     triple 12 orient -1 eps (1, 2): degrees = [15] mod 90; D<=270 (H^0 forced): [(15, {}), (15, {}), (105, {}), (105, {}), (195, {24: 1, 36: 1}), (195, {24: 1, 36: 1})]
-    (20s)
+    (21s)
 
 (5) degree-45 spin classes: no 2.A7-map to P^3 (Theorem 7.4)
     Molien series of 2.A7 on V4: {k: dim} = {0: 1, 8: 1, 12: 1, 14: 1, 16: 1, 18: 1, 20: 2, 22: 1, 24: 3, 26: 2, 28: 3, 30: 3, 32: 5, 34: 3, 36: 6, 38: 5, 40: 7}
@@ -65,5 +65,18 @@
     pencil degree <=  70 from the degree-90 class, twist (0, 0), orientation -1: tau-eigenspace 1+0j: dim 4, base 18
     pencil degree <=  96 from the degree-120 class, twist (0, 2), orientation +1: tau-eigenspace -1+0j: dim 8, base 18
     pencil degree <=  96 from the degree-120 class, twist (0, 1), orientation -1: tau-eigenspace -1+0j: dim 8, base 18
+
+(9) invariants of 3.A7 on its 6 and their restrictions to the degree-60 model (Lemma 7.3)
+    Hilbert series of C[6]^(3.A7): {0: 1, 3: 1, 6: 3, 9: 5, 12: 11, 15: 18, 18: 33, 21: 53, 24: 86, 27: 130, 30: 197}
+    degree  3 (  1 invariants): least invariant divisor 2700 vs  180 -> all vanish on the model
+    degree  6 (  3 invariants): least invariant divisor  360 vs  360 -> restrictions span <= 1 dim
+    degree  9 (  5 invariants): least invariant divisor 3060 vs  540 -> all vanish on the model
+    degree 12 ( 11 invariants): least invariant divisor  720 vs  720 -> restrictions span <= 1 dim
+    degree 15 ( 18 invariants): least invariant divisor 3420 vs  900 -> all vanish on the model
+    degree 18 ( 33 invariants): least invariant divisor 1080 vs 1080 -> restrictions span <= 1 dim
+    degree 21 ( 53 invariants): least invariant divisor 1260 vs 1260 -> restrictions span <= 1 dim
+    degree 24 ( 86 invariants): least invariant divisor 1440 vs 1440 -> restrictions span <= 1 dim
+    degree 27 (130 invariants): least invariant divisor 1620 vs 1620 -> restrictions span <= 1 dim
+    degree 30 (197 invariants): least invariant divisor 1800 vs 1800 -> restrictions span <= 1 dim
 
 done (23s)

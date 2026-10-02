@@ -16,7 +16,8 @@ This script computes, for every such twist:
   (6) the degree-60 class L60 with 6 in H^0 (Theorem 7.5): eigenvalues of an involution at its 18 fixed points,
       the pencil P(E_-) with >= 18 base points -> gon(C) <= 42, gon(C/tau) <= 21; equivariant Plucker check;
   (7) Lemma 7.3 on the linearised degree-90 classes (which power sums of the 6 must vanish);
-  (8) a scan of all classes with forced sections (degree <= 270) for pencils with fixed-point base loci.
+  (8) a scan of all classes with forced sections (degree <= 270) for pencils with fixed-point base loci;
+  (9) the invariants of 3.A7 on its 6 (Molien) and which of them vanish on the degree-60 model.
 Run:  python3 twisted_rr.py > twisted_rr_output.txt     (about 25 seconds)
 """
 import os, sys, time, cmath, itertools
@@ -365,4 +366,33 @@ for (t, eps, sgn), rows in TW.items():
 best.sort(key=lambda r: r[0])
 for b_ in best[:6]:
     print(f"    pencil degree <= {b_[0]:3d} from the degree-{b_[1]} class, twist {b_[2]}, orientation {b_[3]:+d}: {b_[4]}")
+
+# ------------------------------------------------------------------ (9) the invariant cubic fourfold
+print("\n(9) invariants of 3.A7 on its 6 and their restrictions to the degree-60 model (Lemma 7.3)")
+i6 = [i for i in range(kc) if CC[i] == (0, 1) and deg[i] == 6][0]
+Nm = 30; molien = np.zeros(Nm + 1, complex)
+for c_, rep in enumerate(reps):
+    o = 1; zz = rep
+    while zz != 0: zz = gm(zz, rep); o += 1
+    pw = [0, rep]
+    for j in range(2, o): pw.append(gm(pw[-1], rep))
+    chi = [chars[i6][cls[pw[j]]] if j else chars[i6][0] for j in range(o)]
+    eig = []
+    for r in range(o):
+        ml = sum(chi[j] * cmath.exp(-2j * cmath.pi * j * r / o) for j in range(o)) / o
+        eig += [cmath.exp(2j * cmath.pi * r / o)] * round(ml.real)
+    cf = np.zeros(Nm + 1, complex); cf[0] = 1
+    for e_ in eig:
+        for k_ in range(1, Nm + 1): cf[k_] += e_ * cf[k_ - 1]
+    molien += sizes[c_] * cf
+md = np.round((molien / N6).real).astype(int)
+print(f"    Hilbert series of C[6]^(3.A7): { {k: int(v) for k, v in enumerate(md) if v} }")
+for D, ld, m, gens, lam in TW[0, (0, 1), +1]:
+    if D == 60 and any(v > 0 for v in m.values()):
+        for k in [k for k, v in enumerate(md) if v and 0 < k <= Nm]:
+            o = [[oo for oo in range(e) if abs(lam[i] ** k - cmath.exp(2j * cmath.pi * oo / e)) < 1e-9][0]
+                 for i, e in enumerate((2, 4, 7))]
+            mind = sum(o[i] * 2520 // e for i, e in enumerate((2, 4, 7)))
+            print(f"    degree {k:2d} ({md[k]:3d} invariants): least invariant divisor {mind:4d} vs {60 * k:4d} -> "
+                  f"{'all vanish on the model' if mind > 60 * k else 'restrictions span <= ' + str(1 + (60 * k - mind) // 2520) + ' dim'}")
 print(f"\ndone ({time.time() - T0:.0f}s)")

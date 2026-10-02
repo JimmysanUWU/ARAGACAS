@@ -11,6 +11,7 @@ This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS
 - New §5.5 (Theorem 5.11): compression bounds hold over any base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, fixed point or not. This answers the fixed-target question
   ($90\mid d$) and the quadratic-accessory obstruction of Round 5 Prop. 4.2.
 - Proposition 7.7: the $\tau$-pencil is exactly a base-point-free $g^1_{42}$. Extra base points would be $\tau$-symmetric double points on 8 explicit planes, which $\varphi(C)$ misses.
+- §7.6: explicit equations. $\varphi(C)$ is smooth and cut out by the cubic $X_3$ and 15 quartics (numerical). It lies on no quadric and is 4- and 5-normal.
 - Proposition 7.8: $H^1(C,\mathbb Z)$ with cup product is computed from the dessin. Elliptic subcovers of types $15$ and $21$ have degree $\ge60$, with equality for $C/A_5$ and $C/L_2(5)$.
 
 ## 1. Audits (most important)

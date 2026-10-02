@@ -10,7 +10,7 @@ Chapter references are to `hilbert13/ladder/` (index: `hilbert13/ladder/README.m
 | D2 | $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes, so $\operatorname{gon}(C/\langle\tau\rangle)\ge13$; certified $\lambda_1$ for 24 further curves | Ch. 2–3 |
 | D3 | $\gamma(A_7)\ge25$ for every faithful $A_7$-curve ($\ge23$ by algebra alone) | Ch. 4 |
 | D4 | $a(A_7)=60$, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified); $\mu(A_7)=90$ in exact arithmetic; the bounds persist without fixed points (Thm 5.11) | Ch. 5 |
-| D5 | Schur-twisted invariant Picard group; a degree-60 model in $\mathbb P^5$ on an explicit cubic fourfold; $\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\tau)\le21$, sharp for the $\tau$-pencil; elliptic subcovers $\ge60$ | Ch. 7 |
+| D5 | Schur-twisted invariant Picard group; a degree-60 model in $\mathbb P^5$ on an explicit cubic fourfold; $\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\tau)\le21$, sharp for the $\tau$-pencil; $\varphi(C)$ smooth, cut out by the cubic and 15 quartics; elliptic subcovers $\ge60$ | Ch. 7 |
 
 ## Open, in priority order
 

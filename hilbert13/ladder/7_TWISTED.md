@@ -122,7 +122,7 @@ By Theorems 7.4 and 7.5, **60 is the least degree of an invariant class with $h^
 2. At a fixed point with eigenvalue $+1$, an anti-invariant section satisfies $s(p)=-s(p)$, so it vanishes there. The pencil $|E_-|$ therefore has the 18 fixed points as base points, and its moving part has degree $\le42$.
 3. The ratio of two anti-invariant sections is $\tau$-invariant, so the pencil descends to $C/\langle\tau\rangle$ with degree $\le21$. $\square$
 
-**Proposition 7.7 (the pencil is exactly 42) [P][X].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So $\operatorname{gon}(C)\le42$ comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\langle\tau\rangle$.
+**Proposition 7.7 (the pencil is exactly 42) [P][N].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So $\operatorname{gon}(C)\le42$ comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\langle\tau\rangle$.
 
 *Proof.*
 1. **Simple at the fixed points.** In the vanishing sequence $(0,1,2,3,4,6)$ at a fixed point, $\hat\tau$ acts on the order-$k$ section by $(-1)^k$ times a constant. So $E_-$ consists of the sections of orders 1 and 3, and the base multiplicity is 1.
@@ -132,13 +132,15 @@ By Theorems 7.4 and 7.5, **60 is the least degree of an invariant class with $h^
    - So a point outside $\mathrm{Fix}\,\tau$ has $C(\tau)$-stabiliser of order $\le2$, and orbit of size 12 or 24.
    - Hence $B'$ is empty or one orbit of 12 simple points, each fixed by an involution $\sigma\in C(\tau)\smallsetminus\{\tau\}$.
 4. **Reduction to a plane.** The order-2 lifts of $\sigma,\tau$ commute, and their product is the order-2 lift of $\sigma\tau$. All three have trace 2, so the joint eigenspaces have dimensions $(3,1,1,1)$. A point of $B'$ would map into $Q_\sigma=\mathbb P(E_+(\sigma)\cap E_+(\tau))$, a plane.
-5. **Computation [X]** (`tau_pencil.py`, classes 0 and 12; classes 1 and 14 are isomorphic to them). $\varphi(C)$ lies on these hypersurfaces:
+5. **Computation [N]** (`tau_pencil.py`, classes 0 and 12; classes 1 and 14 are isomorphic to them). $\varphi(C)$ lies on these hypersurfaces:
    - the cubic $F_3$;
    - the sextic $G_6$ of §7.6;
    - the invariants of degrees 9 and 15;
    - the degree-21 invariants vanishing at a 7-point.
 
    On each of the 8 planes $Q_\sigma$, $F_3=G_6=0$ has all 18 of its Bézout points. The other invariants do not vanish at any of them. So $B'=\varnothing$. $\square$
+
+Two independent checks come from the explicit equations of §7.6. First, $\varphi$ is an embedding, so step 2 has no double points at all. Second, a hyperplane of the pencil meets $\varphi(C)$ in exactly $18+42$ points.
 
 **Nothing better from these classes** (`twisted_rr.py` part (8)). Every class with forced sections and degree $\le270$ was tested against involution eigenspaces and Klein four-group isotypic components: none beats 42.
 
@@ -151,6 +153,15 @@ By Theorems 7.4 and 7.5, **60 is the least degree of an invariant class with $h^
 - **Lines on $X_3$.** An odd-degree invariant vanishes on every $(-1)$-eigenspace of a lift of order 2 or 4. So $X_3$ contains:
   - the 105 lines $\mathbb P(E_-(\tau))$, the targets of the pencils of Proposition 7.7;
   - the 315 lines $\mathbb P(E_{-1}(\hat h))$, $h$ of order 4, each carrying the two points of $\varphi(\mathrm{Fix}\,h)$.
+- **Equations of $\varphi(C)$ [N]** (`p5_curve.py`, class 0).
+  - **The 4-points.** On each line $\mathbb P(E_{-1}(\hat h))$, $G_6$ has exactly two double zeros, and they are singular points of $\{G_6=0\}$. These are the two points of $\varphi(\mathrm{Fix}\,h)$.
+  - **More invariants.** Restricted to $\varphi(C)$, invariants of degree 12, 18, 24 and 21 are multiples of the sections with divisors $2D_7$, $3D_7$, $4D_7$ and $2D_4$. Those that vanish at a 4-point (degrees 12, 18, 24) or at a 7-point (degree 21) therefore vanish on $\varphi(C)$.
+  - **A branch through $p$.** With $F_3$, $G_6$ and the forced invariants, these cut out a smooth branch through the 7-point $p$ along its tangent. Continuation and the group spread it over $\varphi(C)$.
+  - **Hilbert function.** $\varphi(C)$ lies on no quadric and on exactly one cubic, $X_3$. It lies on 21 quartics: $F_3\cdot\mathbf 6$ and 15 more. The ranks in degrees 4 and 5 are $105=h^0(4L_{60})$ and $165=h^0(5L_{60})$.
+  - **So $\varphi$ is an embedding.** $5L_{60}$ is very ample (degree $300\ge2g+1$), and all its sections are restrictions of quintic forms. Also $\varphi(C)$ is 4- and 5-normal.
+  - **The cubic and the 15 quartics cut out $\varphi(C)$.** Their common zeros meet a random hyperplane in exactly 60 points.
+
+  So **$\varphi(C)\subset\mathbb P^5$ is a smooth curve of degree 60 and genus 136, cut out by the Laza–Zheng cubic and 15 quartics**.
 - **The equation** (`twisted_rr.py` part (10)). The $\mathbf 6$ is the projection of the 21-dimensional $\mathrm{Ind}_{S_5\times\mathbb Z/3}^{3.A_7}(1\otimes\omega)$. In eigencoordinates $x_k$ of an order-7 element $\hat c$ ($\hat c\,x_k=\zeta_7^kx_k$), which its normaliser permutes,
   $$X_3:\ x_1x_2x_4+\beta\,x_3x_5x_6+\gamma\,(x_1^2x_5+x_2^2x_3+x_4^2x_6)+\delta\,(x_1x_3^2+x_2x_6^2+x_4x_5^2)=0,$$
   $$\frac{\gamma^3}\beta=\frac{23-7\sqrt{21}}{16},\qquad\frac{\delta^3}{\beta^2}=\frac{23+7\sqrt{21}}{16}\qquad(\text{the roots of }64x^2-184x-125).$$
@@ -161,7 +172,7 @@ By Theorems 7.4 and 7.5, **60 is the least degree of an invariant class with $h^
   $$2\textstyle\sum x_i^3+3\sum_{(i,j)\in\{12,34,56\}}(x_i^2x_j+x_ix_j^2)+2(x_2x_3x_5+x_1x_4x_5+x_1x_3x_6+x_2x_4x_6)+4(x_1x_3x_5+x_2x_4x_5+x_2x_3x_6+x_1x_4x_6)=0,$$
   with centre generated by $(abab^{-1})^2$, as in our presentation of $3.A_7$. So **the genus-136 $A_7$-curves are degree-60 curves on the
   Laza–Zheng–Yang–Yu–Zhu cubic fourfold**. We know of no previous link between the two objects.
-- **Uniqueness.** By duality $K-3L_{60}=B+T$, so $H^0(3L_{60})\supseteq6+14_a+14_b+21$, which is 55-dimensional. Since $\mathrm{Sym}^3\mathbf 6=1\oplus(55)$, $X_3$ is the only cubic through $\varphi(C)$, provided $h^0(B+T)=10$.
+- **Uniqueness.** By duality $K-3L_{60}=B+T$, so $H^0(3L_{60})\supseteq6+14_a+14_b+21$, which is 55-dimensional. Since $\mathrm{Sym}^3\mathbf 6=1\oplus(55)$, $X_3$ is the only cubic through $\varphi(C)$, provided $h^0(B+T)=10$. The rank 55 in degree 3 confirms this numerically.
 
 ## 7.7 The $\mu=90$ series revisited [P]
 
@@ -204,6 +215,7 @@ So elliptic subcovers give only $\operatorname{gon}\le120$. Conversely, $\operat
 ## 7.10 Open
 
 - **The exact gonality**, in $[25,42]$. The $\tau$-pencil is exactly 42 (Proposition 7.7). Elliptic subcovers give nothing below 60 (Proposition 7.8). A pencil below 42 must therefore come from neither mechanism.
-- **Equations of $\varphi(C)$.** Invariants of degree $\le15$ cut out only a threefold. The degree-12, 18 and 24 kernels are fixed by the image of a 4-point, which is one of the 6 zeros of $G_6$ on its line in $X_3$. Also: how $\varphi(C)$ meets the 420 lines above, and how it sits relative to the $A_7$-symmetric hyperkähler fourfold of lines on $X_3$.
+- **The ideal of $\varphi(C)$.** Is it generated by $X_3$ and the 15 quartics? Are $h^0(2L_{60})=21$ and $h^0(B+T)=10$, so that $\varphi(C)$ is projectively normal? These are now numerical questions (§7.6).
+  Also: how does $\varphi(C)$ sit relative to the $A_7$-symmetric hyperkähler fourfold of lines on $X_3$?
 - **The kernel map** of the $\mu=90$ series: is it a genuine $\mathbb P^3$-model (a spin class of degree 135 with $M^2=3(B+T)$)?
 - **Other curves.** Could another curve beat 42 by a mechanism other than fixed-point base loci?

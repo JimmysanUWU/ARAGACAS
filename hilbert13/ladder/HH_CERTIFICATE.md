@@ -6,8 +6,8 @@ $\le24$ to $\mathbb P^1$. So $\operatorname{gon}(C)\ge25$, and $\operatorname{go
 **Consequences.**
 - With the earlier certificates (`VERIFICATION.md` §§6–7), $\operatorname{gon}(C)\ge25$ now holds for every faithful $A_7$-curve of
   every rigid signature of genus $\le335$. These are the eleven rigid signatures with all their classes.
-- Together with GPT's algebra for $g\ge336$ [cited, not re-verified here], this gives $\gamma(A_7)\ge25$: every faithful
-  $A_7$-curve has gonality at least 25.
+- Together with `GONALITY_LARGE_GENUS.md` (in-repo, replacing GPT's cited $g\ge336$ algebra), this gives $\gamma(A_7)\ge25$: every
+  faithful $A_7$-curve has gonality at least 25.
 - $\operatorname{gon}(D)\ge13$ for $D=C/\langle\tau\rangle$, on all four $(2,4,7)$ classes and for every involution $\tau$. A degree-12 map
   on $D$ would compose with $C\to D$ to a degree-24 map on $C$. On the user's ladder this replaces "$\operatorname{gon}(D)\ge12$" and
   "$\operatorname{gon}(C)\ge24$".

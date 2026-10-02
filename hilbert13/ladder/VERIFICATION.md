@@ -27,7 +27,7 @@ This report re-checks every claim of `FRAMEWORK_TOPOLOGICAL_HERSCH.md` and of th
 
 **Update (ninth session).** The last gap is closed. `HH_CERTIFICATE.md` certifies GPT's Round-5 harmonic Hersch inequality, in
 its trial-space form, for classes 0 and 1. The trial space is built from vector-valued Hejhal expansions. So $\operatorname{gon}\ge25$
-now holds **[C]** for every faithful $A_7$-curve of genus $\le335$; for larger genus it rests on GPT's algebra [cited].
+now holds **[C]** for every faithful $A_7$-curve of genus $\le335$. For larger genus it is proved in-repo (`GONALITY_LARGE_GENUS.md`). So **$\gamma(A_7)\ge25$** with no cited algebra.
 
 **Consequence (updated, sixth session).** The ed question no longer depends on any of this. GPT's DAY-2 theorem
 $a(A_7)=60$ (`ACCESSORY_60.md`, verified) gives $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ with no gonality input. The results here now

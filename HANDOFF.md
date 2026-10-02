@@ -102,6 +102,19 @@ novel framework." Lean formalization where feasible.
 
 ## 5. Suggested next steps
 
+**Tenth session (2026-10-02): two QEDs hardened.**
+- **$\mu(A_7)=90$, rank steps now exact** (`verify_mu90_exact.py`). The lift spectra are forced by $\wedge^2V_4=6$, eigenspaces are pattern
+  spaces, and the rank tests are exact polynomial algebra. All 84 cases close, convention-free. No floating point remains in the lower bound.
+- **$\gamma(A_7)\ge25$, proved in-repo** (`GONALITY_LARGE_GENUS.md`). It replaces GPT's cited $g\ge336$ algebra by:
+  - orbit generation, by induction on $d$;
+  - chains of conjugate pencils with exact multilinear independence, then Castelnuovo in $\mathbb P^{2^t-1}$;
+  - Castelnuovo–Severi for pairs;
+  - the dependent-third cost $c(d)$, with the tangential case done via infinitely near points.
+
+  Consequences: $\operatorname{gon}\ge23$ always, elementarily, and $\operatorname{gon}\ge25$ for $g\ge398$. The window $336\le g\le397$ contains only
+  $(3,5,5)$, $(3,4,7)$, $(3,5,6)$ and $(4,4,5)$, all certified spectrally (`certify_window_output.txt`; worst Li–Yau value 28.2).
+- **Also this session.** A literature check (`LITERATURE_CHECK.md`) and the compact goals list (`GOALS.md`).
+
 **Ninth session (2026-10-02): $\operatorname{gon}\ge25$ for $(2,4,7)$ classes 0, 1 is certified** (`HH_CERTIFICATE.md`). This closes the
 gonality track for genus $\le335$.
 - **The result.** $\operatorname{gon}(C)\ge25$ for all four $(2,4,7)$ classes. So $\operatorname{gon}(C/\langle\tau\rangle)\ge13$ for every involution.

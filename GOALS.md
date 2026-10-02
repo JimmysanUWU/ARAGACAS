@@ -12,13 +12,14 @@ Branch `claude/continue-previous-qfhm7j`, draft PR #1. Details live in `HANDOFF.
 - **D3. $\operatorname{gon}\ge25$ for every faithful $A_7$-curve of genus $\le335$**, certified (`VERIFICATION.md` §6).
 - **D4. $a(A_7)=60$**, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ (GPT, verified; `ACCESSORY_60.md`). The published bound is $\le6$.
 - **D5. $\mu(A_7)=90$**: exact full-monodromy compression degree (ours; `MU90.md`). The rank steps are exact since 2026-10-02 (`verify_mu90_exact.py`).
+- **D7. $\gamma(A_7)\ge25$, proved in-repo** (`GONALITY_LARGE_GENUS.md`): every faithful $A_7$-curve has $\operatorname{gon}\ge25$. Elementary for
+  $g\ge398$ (Castelnuovo–Severi, Castelnuovo, dependent-third cost); spectral certificates for the four signatures with $336\le g\le397$.
+  Unconditionally and elementarily, $\operatorname{gon}\ge23$ for all.
 - **D6. Certified $\lambda_1$ data.** All 24 curves of the other rigid signatures; $(2,4,7)$ to 12 digits numerically and certified to $2.5\cdot10^{-4}$.
 
 ## Open targets, in priority order
 
-1. **T1. Make $\gamma(A_7)\ge25$ unconditional.** Write and check an in-repo proof that $\operatorname{gon}\ge25$ for every faithful $A_7$-curve with
-   $g\ge336$. It replaces GPT's cited algebra: the pair bound, Farb–Wolfson's genus bound, the Segre gap and the dependent-third cost.
-   Pure algebra, no compute. *Highest value per token.*
+1. **T1. DONE (D7).** It replaced GPT's cited algebra.
 2. **T2. Paper-style write-up.** Consolidate D2–D5 into one self-contained document (`PAPER.md`): statements, proofs and certificate
    descriptions, with the literature comparison of `LITERATURE_CHECK.md`. *Needed before anything is shared.*
 3. **T3. Independent audit** of `HH_CERTIFICATE.md` and `MU90.md`, by GPT (Round 7 Q1, Round 6 Q1). *External; costs us nothing.*

@@ -49,7 +49,7 @@ orbit-semigroup base loci and the spin geometry $2.A_7\subset SU(4)$.
 - **Now:**
   - $\operatorname{gon}\ge25$ is certified on all four classes, so $\operatorname{gon}(C/\langle\tau\rangle)\ge13$.
   - $\operatorname{gon}\ge25$ holds for every faithful $A_7$-curve of genus $\le335$.
-  - $\gamma(A_7)\ge25$, modulo GPT's large-genus algebra (not yet re-verified).
+  - $\gamma(A_7)\ge25$, proved in-repo (`GONALITY_LARGE_GENUS.md`, 2026-10-02).
 - **Methods.** Spectral gonality bounds of Li–Yau/Yang–Yau type are classical: Abramovich 1996 for modular curves, and Cornelissen–Kato–Kool for Drinfeld curves.
   - **Going beyond Li–Yau** through representation theory appears new. The degree is a cubic form on $E_1\otimes\mathbb R^3$, killed by $(\wedge^3E_1)^G=0$; we used it as topological Hersch, and GPT as harmonic Hersch. No precedent was found.
   - Confidence is moderate: the search was by keyword, not exhaustive.

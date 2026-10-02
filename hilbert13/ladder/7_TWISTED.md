@@ -134,7 +134,7 @@ Proposition 7.8 confirms this twice: $\varphi$ is an embedding, and a hyperplane
 - **Identification.** $X_3$ is smooth; Koike proves it by reduction mod 2, and numerically $\min|\nabla F|=0.139$ on the unit sphere. It is the second of the two smooth cubic fourfolds with symplectic $A_7$-action (Laza–Zheng), found by Yang–Yu–Zhu via $3.A_7$. Koike gives it over $\mathbb Q$ as
   $$2\textstyle\sum x_i^3+3\sum_{(ij)\in\{12,34,56\}}(x_i^2x_j+x_ix_j^2)+2(x_2x_3x_5+x_1x_4x_5+x_1x_3x_6+x_2x_4x_6)+4(x_1x_3x_5+x_2x_4x_5+x_2x_3x_6+x_1x_4x_6),$$
   with centre $(abab^{-1})^2$, as in our presentation. So **the genus-136 $A_7$-curves live on the Laza–Zheng–Yang–Yu–Zhu cubic fourfold**.
-- **Uniqueness.** $K-3L_{60}=B+T$, so $H^0(3L_{60})\supseteq6+14_a+14_b+21$, which is 55-dimensional. Since $\mathrm{Sym}^3\mathbf 6=1\oplus(55)$, $X_3$ is the only cubic if $h^0(B+T)=10$. Proposition 7.8 confirms numerically that $X_3$ is the only cubic, whatever $h^0(B+T)$ is.
+- **Uniqueness [X][N].** $\mathrm{Sym}^3\mathbf 6=1\oplus6\oplus14_a\oplus14_b\oplus21$, multiplicity-free (`twisted_rr.py` (10)). So $X_3$ is the only cubic iff none of the last four constituents vanishes on $\varphi(C)$, which Proposition 7.8 confirms numerically. Since $K-3L_{60}=B+T$, $h^0(3L_{60})=45+h^0(B+T)\ge55$, with equality (3-normality) iff $h^0(B+T)=10$.
 - **Lines.** Odd-degree invariants vanish on the $(-1)$-eigenspaces of lifts of order 2 and 4. So $X_3$ contains:
   - the 105 lines $\mathbb P(E_-(\tau))$, the targets of the pencils of Proposition 7.7;
   - the 315 lines $\mathbb P(E_{-1}(\hat h))$, $h$ of order 4, which carry $\varphi(\mathrm{Fix}\,h)$.

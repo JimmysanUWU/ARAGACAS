@@ -6,7 +6,7 @@ Authors: ARAGACAS contributors
 import Mathlib
 
 /-!
-# The logical core of the spectral certificate (ladder/NOTES.md, section 7)
+# The logical core of the spectral certificate (ladder/2_SPECTRAL.md, §2.4)
 
 The proof of `gon(C) ≥ 23` and `gon(C/⟨τ⟩) ≥ 12` for the (2,4,7) `A₇`-curves combines analysis
 (Hersch's inequality), a finite element computation and floating-point linear algebra.  This file

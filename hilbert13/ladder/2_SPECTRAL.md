@@ -13,7 +13,7 @@
 *Proof.*
 1. Hersch's lemma gives a Möbius $\gamma$ with $\int\gamma\circ\varphi=0$ in $S^2\subset\mathbb R^3$.
 2. So each coordinate satisfies $\lambda_1\int x_i^2\le\int|\nabla x_i|^2$.
-3. Sum over $i$, using $\sum x_i^2=1$ and $\sum|\nabla x_i|^2=2\,\mathrm{Jac}$. $\square$
+3. Sum over $i$, using $\sum x_i^2=1$ and $\sum|\nabla x_i|^2\,dA=2\varphi^*dA_{S^2}$, whose integral is $8\pi d$. $\square$
 
 With the hyperbolic metric, $\mathrm{Area}=4\pi(g-1)$. So $\operatorname{gon}(C)\ge\frac12(g-1)\lambda_1$, and $\lambda_1>48/(g-1)$ gives $\operatorname{gon}\ge25$. For $(2,4,7)$ this reads $\operatorname{gon}(C)\ge67.5\lambda_1$ and $\operatorname{gon}(D)\ge33.75\lambda_1$, since a map from $D$ lifts to $C$ with twice the degree.
 
@@ -45,11 +45,11 @@ They see every irreducible (`cover.py`, exact). Hence $\lambda_1(C)\ge\min(\mu_2
 2. **Crouzeix–Raviart [P][L]** (Liu; Carstensen–Gedicke). With $C_h^2=\max_e\kappa_e^2w_e/\lambda_{\min}(A_e)$ and $\kappa_e^2=\frac{(1/n)^2}8+\frac{(\sqrt2/n)^2}{j_{1,1}^2}$,
    $$\lambda_k\ge\frac{\lambda_{k,h}}{1+C_h^2\lambda_{k,h}} .$$
    The CR interpolation is consistent across tiles, because the gluings are the identity.
-3. **Positive definiteness [L].** The CR mass matrix is diagonal, so $\lambda_{1,h}>\sigma$ iff $B=K_h-\sigma M_h\succ0$.
+3. **Positive definiteness [L].** Since $M_h\succ0$ (it is diagonal for CR elements), $\lambda_{1,h}>\sigma$ iff $B=K_h-\sigma M_h\succ0$.
    - A floating Cholesky of $\hat B-cI$ completes.
    - Higham's bound $|\Delta|\le\gamma_{k+1}|\tilde L||\tilde L^T|$, together with the assembly error $\eta$, gives $B\succeq(c-\gamma_{k+1}\|\tilde L\|_1\|\tilde L\|_\infty-u\max|b_{ii}|-\eta)I\succ0$.
    - For $Q_0$, deflate by a rank-one term.
-4. **Counting** (`certify_th.py`). Unpivoted $LDL^T$ gives $P(B-cI)P^T+\Delta=\hat L\hat D\hat L^T$ with $|\Delta|\le\gamma_{k+3}|\hat L||\hat D||\hat L^T|$. Sylvester and Weyl then bound the number of eigenvalues below $c$ by $\#\{\hat d_i<0\}$.
+4. **Counting** (`certify_th.py`). Unpivoted $LDL^T$ gives $P(B-cI)P^T+\Delta=\hat L\hat D\hat L^T$ with $|\Delta|\le\gamma_{k+3}|\hat L||\hat D||\hat L^T|$. Sylvester and Weyl then bound the number of eigenvalues of $B$ below $c-\lVert\Delta\rVert_2$ by $\#\{\hat d_i<0\}$.
 5. **Upper bounds.** Rayleigh–Ritz on the reverse comparison ($A_R\preceq c_e^{\max}P_e$, $w_R\ge w_e^{\min}$).
 
 ## 2.5 Results [C]

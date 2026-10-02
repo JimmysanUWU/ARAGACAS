@@ -117,20 +117,9 @@ terms, where $\Phi_1(t) = t^2/4$, $\Phi_2(t) = -t^2/4$, and all inner functions 
 
 ## The $A_7$ gonality ladder (`ladder/`)
 
-The second project concerns curves with a faithful $A_7$-action. Its main case is the $(2,4,7)$ curves, of genus 136, the minimum.
-Full statements, proofs and certificates are in [`ladder/README.md`](ladder/README.md):
-- **$25\le\operatorname{gon}(C)\le42$** for every $(2,4,7)$ curve $C$, and $13\le\operatorname{gon}(C/\langle\tau\rangle)\le21$ for every involution $\tau$.
-  - Lower bound: a certified spectral gap with Li–Yau ([Ch. 2](ladder/2_SPECTRAL.md)), plus *harmonic Hersch* for two classes: the degree is a
-    cubic form that vanishes on the first eigenspace by representation theory ([Ch. 3](ladder/3_HARMONIC_HERSCH.md)).
-  - Upper bound: an invariant line bundle whose symmetry is only projective (Schur multiplier $\mathbb Z/6$) embeds $C$ in $\mathbb P^5$ with degree 60.
-    The image is cut out by the Laza–Zheng $A_7$-cubic fourfold and 15 quartics, and an involution gives an exact base-point-free $g^1_{42}$
-    ([Ch. 7](ladder/7_TWISTED.md)).
-- **$25\le\gamma(A_7)\le42$** for the least gonality of a faithful $A_7$-curve ([Ch. 4](ladder/4_LARGE_GENUS.md), [Ch. 7](ladder/7_TWISTED.md)).
-- **Accessory irrationalities** ([Ch. 5](ladder/5_ACCESSORY.md)): $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp ($a(A_7)=60$; the published bound
-  is 6); with connected full $A_7$-monodromy the threshold is exactly $\mu(A_7)=90$.
+The second project concerns curves with a faithful $A_7$-action: $25\le\operatorname{gon}(C)\le42$ on the genus-136 $(2,4,7)$ curves, $25\le\gamma(A_7)\le42$, $a(A_7)=60$ and $\mu(A_7)=90$. Statements, proofs and certificates are in [`ladder/README.md`](ladder/README.md); start with [`../GUIDE.md`](../GUIDE.md).
 
-The logical core of the spectral certificate is checked in Lean in
-[`Hilbert13/SpectralCertificate.lean`](Hilbert13/SpectralCertificate.lean):
+[`Hilbert13/SpectralCertificate.lean`](Hilbert13/SpectralCertificate.lean) checks the logical core of the spectral certificate (Chapter 2):
 - the Crouzeix–Raviart eigenvalue lower bound;
 - positive definiteness from a perturbed Cholesky factor;
 - the final arithmetic.

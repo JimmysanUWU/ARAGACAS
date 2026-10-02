@@ -70,6 +70,7 @@ Tags:
 - **D. Mumford, Invent. Math. 1 (1966).** Theta groups and Mumford classes.
 - **M. F. Atiyah, R. Bott, Ann. Math. 88 (1968).** Holomorphic Lefschetz (Ch. 5, 7).
 - **E. Kani, J. reine angew. Math. 485 (1997) [unverified]; Birkenhake–Lange, *Complex Abelian Varieties* [unverified section].** Elliptic subcovers via sublattices (§7.9).
+- **Cited only in GPT's documents** (`gpt/README.md` §2; not used here). Petrakiev, arXiv:math/0604517 (refined Castelnuovo bounds); Harui, arXiv:1306.5842 (automorphisms of plane curves); Vinokurov, arXiv:2502.03756 (equivariant eigenvalue optimisation); Karpenko–Merkurjev, Invent. Math. 172 (2008) (essential dimension at $p$); Niu–Ulrich, arXiv:1404.5092 (conductor and duality).
 - **For §7.10 (not used) [unverified].** M. Baker, specialisation of linear systems from curves to graphs (2008); M. Raynaud (1999) and S. Wewers (2003) on the stable reduction of three-point covers when $p\,\|\,|G|$.
 
 ## 5. Spectral gonality and certified eigenvalues

@@ -45,12 +45,12 @@ Hence $270=2(2g(D)-2)+18$ and $g(D)=64$.
 
 *Proof.*
 1. Take $f$ of degree $d\le8$ and a good involution $v$.
-2. Castelnuovo–Severi against $D\to D/v$ would give $64\le56+(d-1)$. So $f\circ v=f$.
+2. If $f$ did not factor through $D\to D/v$ (degree 2, genus 28), Castelnuovo–Severi would give $64\le56+(d-1)$. So $f\circ v=f$.
 3. The four good involutions generate $H$. So $f$ factors through $D/H$, and $12\mid d$. Contradiction. $\square$
 
 ## 1.4 Degree 9: what $D$ alone cannot decide
 
-At $d=9$, Castelnuovo–Severi is an equality ($64=56+8$) against each good involution. Then $f\circ v=M_v\circ f$ with $M_v$ Möbius.
+At $d=9$, Castelnuovo–Severi against each good involution is an equality ($64=56+8$), so it no longer forces $f\circ v=f$. A good involution may even exchange two different nine-pencils, as in case (c) below.
 
 **Theorem 1.5 (structure) [P].** Suppose $\operatorname{gon}(D)=9$, realised by $f$. Write $T=D/H$ (genus 3). The cover $D\to T$ has 13 branch points: $t_1,t_2,t_3$ from the central good involution, $g_1,\dots,g_9$ from the others, and one from the bad ones.
 
@@ -63,16 +63,16 @@ In each case the monodromy forces the linear equivalence
 $$(\star)\qquad g_1+\dots+g_9\ \sim\ 3(t_1+t_2+t_3)\quad\text{on }T .$$
 
 **The Jacobian [X]** (`curve_checks.py` §4, Chevalley–Weil). $H^1(C)=3(10+\overline{10})+2\cdot15+2\cdot21+4\cdot35$, so
-$$\mathrm{Jac}(C)\sim A^{10}E_1^{15}E_2^{21}S^{35},\qquad\mathrm{Jac}(D)\sim A^4E_1^7E_2^{11}S^{17},\qquad\mathrm{Jac}(T)\sim E_2\times S .$$
+$$\mathrm{Jac}(C)\sim A^{10}E_{15}^{15}E_{21}^{21}S^{35},\qquad\mathrm{Jac}(D)\sim A^4E_{15}^7E_{21}^{11}S^{17},\qquad\mathrm{Jac}(T)\sim E_{21}\times S .$$
 Here:
 - $A$ is a threefold with $\mathbb Q(\sqrt{-7})$-multiplication;
-- $E_1=C/A_5$ ($A_5$ fixing two points) and $E_2=C/L_2(5)$ are elliptic curves (§7.9);
+- $E_{15}=C/A_5$ ($A_5$ fixing two points) and $E_{21}=C/L_2(5)$ are elliptic curves, named by the isotype they carry (§7.9);
 - $S\sim\mathrm{Jac}(C/(3^2{:}4))$ is an abelian surface.
 
 **Proposition 1.6 [P][X]** (`curve_checks.py` §5, `side_checks.py` D4).
 - The $\mathbb Q[G]$-span of the involution fixed divisors is a quotient of $\mathbb Q[G/C(\tau)]=1+6+14_a+2\cdot14_b+21+35$.
 - The lift of $(\star)$ has nonzero 21- and 35-components.
-- So $(\star)$ fails as soon as either of two explicit points has infinite order: $P_E\in E_2$ or $P_S\in\mathrm{Jac}(C/(3^2{:}4))$ (§6.5).
+- So $(\star)$ fails as soon as either of two explicit points has infinite order: $P_E\in E_{21}$ or $P_S\in\mathrm{Jac}(C/(3^2{:}4))$ (§6.5).
 
 **Theorem 1.7 (audit curve) [P][X]** (`model99.py`). A smooth $(9,9)$-curve $D'\subset\mathbb P^1\times\mathbb P^1$ of genus 64 carries a faithful $C_2\times S_3$-action with exactly the fixed-point data of $D$, and has $\operatorname{gon}(D')=9$.
 

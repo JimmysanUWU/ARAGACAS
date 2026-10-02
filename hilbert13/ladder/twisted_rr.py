@@ -18,7 +18,7 @@ This script computes, for every such twist:
   (7) Lemma 7.3 on the linearised degree-90 classes (which power sums of the 6 must vanish);
   (8) a scan of all classes with forced sections (degree <= 270) for pencils with fixed-point base loci;
   (9) the invariants of 3.A7 on its 6 (Molien) and which of them vanish on the degree-60 model;
-  (10) the 6 of 3.A7 explicitly (induced from S5 x Z3) and its invariant cubic in eigencoordinates of a 7-element.
+  (10) the 6 of 3.A7 explicitly (induced from S5 x Z3), its invariant cubic in eigencoordinates of a 7-element, Sym^3 6.
 Run:  python3 twisted_rr.py > twisted_rr_output.txt     (about 25 seconds)
 """
 import os, sys, time, cmath, itertools
@@ -469,4 +469,12 @@ print("    F = x1x2x4 + b x3x5x6 + g (x1^2x5 + x2^2x3 + x4^2x6) + d (x1x3^2 + x2
 print(f"    scale-free data: g^3/b = {(ga_**3 / be).real:.12f}  [(23 - 7 sqrt21)/16 = {(23 - 7 * 21**0.5) / 16:.12f}]")
 print(f"                     d^3/b^2 = {(de**3 / be**2).real:.12f}  [(23 + 7 sqrt21)/16 = {(23 + 7 * 21**0.5) / 16:.12f}]")
 print(f"                     g d/b = {ga_ * de / be:.12f}  [(5/4) exp(-i pi/3) = {1.25 * cmath.exp(-1j * cmath.pi / 3):.12f}]")
+from chartab import TABLE, idx as cidx, sizes as csizes          # Sym^3 6 as an A7-module (the centre acts trivially)
+s3 = {}
+for i, g in enumerate(G):
+    M = R6((i, 0)); t1, t2, t3 = np.trace(M), np.trace(M @ M), np.trace(M @ M @ M)
+    s3[cidx[g]] = (t1**3 + 3 * t2 * t1 + 2 * t3) / 6
+mult = [round((sum(csizes[c] * s3[c] * np.conj(t[c]) for c in s3) / 2520).real, 6) for t in TABLE]
+print("    Sym^3 6 = " + " + ".join(f"{int(m)}x{int(round(t[0].real))}" for m, t in zip(mult, TABLE) if m)
+      + "  (the 14s are 14a and 14b: multiplicity-free, so X3 is the only cubic iff 6, 14a, 14b, 21 restrict injectively)")
 print(f"\ndone ({time.time() - T0:.0f}s)")

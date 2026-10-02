@@ -1,17 +1,17 @@
 # HANDOFF: Hilbert 13 and the $A_7$ gonality ladder
 
-Read this, then `hilbert13/ladder/README.md` (results, chapters, scripts, reproduction).
+This file holds the live status and the working rules. To learn the mathematics, read [`GUIDE.md`](GUIDE.md) first: reading order, notation, dependencies and verification.
 
 ## Where things are
 
 | | |
 |---|---|
 | repository | `JimmysanUWU/ARAGACAS`, branch `claude/continue-previous-qfhm7j`, draft PR #1 |
-| other PR | GPT's PR #2: do not merge or comment without the user's go-ahead |
+| GPT's branches | `codex/a7-weighted-budget-residuals` (PR #2) and `codex/a7-quadric-envelopes-and-residuals`: do not merge, push or comment without the user's go-ahead |
 | mathematics | `hilbert13/ladder/1_CURVE.md` … `7_TWISTED.md` (textbook order) |
 | Lean | `hilbert13/Hilbert13/Superposition.lean` (`hilbert13/README.md`) and `SpectralCertificate.lean` |
 | history | git only: superseded notes and scripts up to `b148338`, session logs up to `d5d99c4` |
-| web stub | root `index.html`, `src/`, `css/`, `dist/`: unrelated, leave untouched |
+| web stub | root `index.html`, `src/`, `css/`, `dist/`, `tsconfig.json`: the original 2022 ARAGACAS stub on `master`, unrelated. The user asked for its removal on this branch; the deletion was blocked by the permission classifier and awaits the user's explicit go-ahead |
 
 ## Status
 

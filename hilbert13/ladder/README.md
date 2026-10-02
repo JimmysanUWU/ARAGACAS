@@ -11,7 +11,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | **$25\le\operatorname{gon}(C)\le42$ and $13\le\operatorname{gon}(D)\le21$** | | |
 | — lower: $\lambda_1\ge0.34089$ with Li–Yau; classes 12, 14 directly, classes 0, 1 by harmonic Hersch | [P][C][L] | Ch. 2–3 |
 | — upper: an exact base-point-free $g^1_{42}$ on a degree-60 model in $\mathbb P^5$ | [P][X][N] | Ch. 7 |
-| **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve ($\ge23$ by algebra alone) | [P][C] | Ch. 4, 7 |
+| **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve ($\ge23$ without the window computation of §4.4) | [P][C] | Ch. 4, 7 |
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: compression with connected full monodromy needs exactly degree 90 | [P][X] | Ch. 5 |
 | over fixed-point-free bases with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$ the bounds persist, and gonality bounds the degree | [P] | §5.5 |
@@ -77,10 +77,11 @@ python3 curve_checks.py > curve_checks_output.txt  # 15 s
 python3 side_checks.py > side_checks_output.txt    # 30 s
 python3 run_certificate.py                         # ~6 min, 7 GB RAM
 python3 certify_th.py count 96 0 0.56              # see certify_th_output.txt for the other runs
-python3 certify_signatures.py 24 3 3 5 2 5 7 3 3 6 3 4 4 2 6 7 3 3 7 2 7 7 3 4 5 3 4 6 4 4 4
+python3 certify_signatures.py 24 3 3 5 2 5 7 3 3 6 3 4 4 2 6 7 3 3 7 2 7 7 3 4 5 3 4 6 4 4 4 > certify_signatures_output.txt   # <= 12 min
+python3 certify_signatures.py 24 3 4 7 3 5 5 3 5 6 3 5 7 3 6 6 3 6 7 3 7 7 4 4 5 4 4 6 4 4 7 > certify_window_output.txt       # <= 25 min; stops at (4,4,7) (§4.4)
 python3 hh_certify.py 0 coef_cls0_M90.npz 192 128  # ~6.5 min per class; likewise class 1
 for f in cover verify_exact gonality_large_genus verify_accessory60 equivariant_rr model99; do python3 $f.py > ${f}_output.txt; done
-python3 verify_mu90_exact.py
+python3 verify_mu90_exact.py > mu90_exact_output.txt
 python3 twisted_rr.py > twisted_rr_output.txt               # 25 s
 python3 twisted_survey.py > twisted_survey_output.txt       # 90 s
 python3 tau_pencil.py > tau_pencil_output.txt               # 1 min
@@ -88,7 +89,7 @@ python3 p5_curve.py > p5_curve_output.txt                   # 7 min
 python3 elliptic_subcovers.py > elliptic_subcovers_output.txt   # 80 s
 ```
 
-Run the large FEM jobs one at a time, or they run out of memory.
+Times are for an otherwise idle 4-core machine. Run the large FEM jobs one at a time, or they run out of memory. The last full re-run (2 October 2026) reproduced every saved output (`GUIDE.md` §5).
 
 ## Trust base
 

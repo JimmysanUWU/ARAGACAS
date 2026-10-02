@@ -3,7 +3,7 @@
 $\gamma(G)$ is the least gonality of a smooth projective curve with a faithful $G$-action.
 
 **Theorem 4.1.** Let $C$ be a faithful $A_7$-curve.
-1. $\operatorname{gon}(C)\ge23$.
+1. $\operatorname{gon}(C)\ge23$, using only the first input below (not the window).
 2. If $\operatorname{gon}(C)=d\le24$, then $g(C)\le B^*(d)$, where $B^*(23)=363$, $B^*(24)=397$, and $B^*(d)\le331$ for $d\le22$.
 3. **$\gamma(A_7)\ge25$.**
 

@@ -1,4 +1,4 @@
-Certified eigenvalue inputs (VERIFICATION.md sections 4 and 7). Commands:
+Certified eigenvalue inputs for §2.5 and Chapter 3 (E_1 = 14_(5,2), lambda' >= 0.55998, classes 12, 14). Commands:
   python3 certify_th.py count 96 t 0.56   (t = 0, 1)
   python3 certify_th.py s5 24 t           (t = 0, 1)
   python3 certify_th.py a6 16 t 1.0       (t = 0, 1)

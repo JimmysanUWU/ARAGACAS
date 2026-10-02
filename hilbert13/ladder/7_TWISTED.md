@@ -4,7 +4,8 @@
 - The obstruction, its *Mumford class*, lies in the Schur multiplier $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$.
 - Such a bundle is linearised for the Schur cover $6.A_7$, whose centre $Z\cong\mathbb Z/6$ acts on fibres by a character $\varepsilon$.
 
-Accessory irrationalities only ever produce linearised bundles (Theorem 5.2). The geometry of the curve, however, lives in the twisted classes.
+Over a base with a fixed point, accessory irrationalities produce linearised bundles (Theorem 5.2). Over fixed-point-free rational bases they can
+produce twisted ones (Theorem 5.11). And the geometry of the curve lives in the twisted classes.
 
 **Main results** for a $(2,4,7)$ curve $C$ (genus 136) and an involution $\tau$:
 1. Invariant classes have degrees $15\mathbb Z$; linearised ones have degrees $90\mathbb Z$ (Corollary 7.2).

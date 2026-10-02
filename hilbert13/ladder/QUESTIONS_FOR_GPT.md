@@ -8,6 +8,8 @@ This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS
 - $\mu(A_7)=90$ is now verified in exact arithmetic (Chapter 5, `verify_mu90_exact.py`).
 - New Chapter 7: Schur-twisted invariant line bundles give a degree-60 model of $C$ in $\mathbb P^5$ on an explicit $3.A_7$-invariant cubic fourfold,
   and $\operatorname{gon}(C)\le42$. So $25\le\gamma(A_7)\le42$.
+- New §5.5 (Theorem 5.11): compression bounds hold over any base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, fixed point or not. This answers the fixed-target question
+  ($90\mid d$) and the quadratic-accessory obstruction of Round 5 Prop. 4.2.
 
 ## 1. Audits (most important)
 
@@ -24,9 +26,10 @@ This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS
    - Proposition 7.1, the degree formula $\deg L=2520(n+\sum r_i/e_i-\rho_0)$ for $\varepsilon$-twisted classes, via $K^w\otimes$(flat) over the universal central extension $\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3\rangle$; in particular the orientation of $c_1c_2c_3=h$ (our conclusions hold for both signs);
    - Theorem 7.4 (degree 45: $f_{14},f_{18}$ and the 210 involution lines; Bézout);
    - Corollary 7.6: the pencil $|E_-(\hat\tau)|\subset\mathbf 6\subseteq H^0(L_{60})$, giving $\operatorname{gon}(C)\le42$.
-4. **Chapter 5, §5.4: the exclusion of 72 and 84.** In particular:
+4. **Chapter 5: §5.4 (the exclusion of 72 and 84) and §5.5.** In particular:
    - the $r=3$ kernel-map step;
-   - the use of Halphen for the two $(3,5,6)$ classes.
+   - the use of Halphen for the two $(3,5,6)$ classes;
+   - Theorem 5.11, in particular the equivariant splitting of $\mathrm{Pic}(X\times C)$ and the vanishing of the invariant correspondence part.
 
 ## 2. Mathematics
 
@@ -38,11 +41,9 @@ This file supersedes Rounds 2–7, which are archived in `archive/docs/QUESTIONS
    Classes 12 and 14 stop at 25, because $\lambda'\approx0.386$.
 2. **The exact gonality**, now in $[25,42]$. Can you find the remaining equations of the degree-60 curve on the cubic fourfold $X_3$ (§7.6), or a pencil of degree $<42$?
    What is the true $\gamma(A_7)$?
-3. **Fixed target.** For a fixed $(2,4,7)$ target, does compression with connected full $A_7$-monodromy need $90\mid d$?
-4. **Towers.** Prop. 4.2 of Round 5 shows that fixed points do not persist through a quadratic accessory. Is there a weaker invariant that does persist? For example:
-   - a fixed point after a bounded further accessory;
-   - an obstruction class in $H^1(G,\mathrm{Pic})$.
-
-   This is the obstacle to $\mathrm{RD}(A_7)>1$.
-5. **Arithmetic (optional).** Are $P_E$ or $P_S$ (§6.7) of infinite order? This needs an explicit model of $E=C/L_2(5)$ through the degree-7 Belyi map
+3. **Towers.** Theorem 5.11 shows that the compression bound survives without fixed points when $\mathrm{Hom}_G(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$ for the base. The linearised
+   bound $\mu$ persists when $\mathrm{Pic}(B)$ is linearisable (for instance after $t^2=q(v)$); in general the twisted bound $\tilde\mu\ge\operatorname{gon}$ persists.
+   What replaces this when $H^1$ of an intermediate total space shares a constituent with $H^1(C)$, so the fibre classes $[Z_b]$ can move in $\mathrm{Pic}(C)$?
+   This is now the obstacle to $\mathrm{RD}(A_7)>1$.
+4. **Arithmetic (optional).** Are $P_E$ or $P_S$ (§6.7) of infinite order? This needs an explicit model of $E=C/L_2(5)$ through the degree-7 Belyi map
    with passport $[2^21^3,\,4\,2\,1,\,7]$.

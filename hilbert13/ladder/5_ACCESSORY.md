@@ -174,7 +174,37 @@ So $\mu\notin\{72,78,84\}$, and Proposition 5.8 gives $\mu(A_7)=90$. $\square$
   - Rank 3 is decided by exact polynomial algebra: the determinant, the $3\times3$ minors, and radical membership via factorisation over $\mathbb Q$.
 - **Coverage.** All 84 (curve, class) cases close, under both orientation conventions.
 
-## 5.5 Trust base and consequences
+## 5.5 Beyond fixed points: the twisted correspondence [P]
+
+Theorem 5.2 restricts $\mathcal O(Z)$ to a fixed point. Round 5 (Prop. 4.2) showed that fixed points do not survive a quadratic
+accessory $t^2=q(v)$: its total space keeps full $A_7$ but has no fixed point. The argument does not actually need one.
+
+**Theorem 5.11.**
+- *Setting.* $B$ is a smooth irreducible $G$-variety with a smooth $G$-compactification $X$ such that $\mathrm{Hom}_G(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$. This holds for instance if $X$ is rational, or if $H^1(X)$ and $H^1(C)$ share no irreducible $G$-constituent. $W\to B$ is a $G$-equivariant finite cover of degree $d$, and $W\dashrightarrow C$ is a dominant $G$-map to a faithful $G$-curve.
+- *Conclusion.* $C$ carries a $G$-invariant class $L$ with $h^0(L)\ge2$ and $\deg L=e\mid d$. Its Mumford class is the negative of that of an invariant class on $B$. Hence:
+  1. $d\ge e\ge\tilde\mu(C)\ge\operatorname{gon}(C)$, where $\tilde\mu(C)$ is the least degree of an invariant class with $h^0\ge2$;
+  2. if every invariant line bundle on $B$ is linearisable (for instance $\mathrm{Pic}(B)=0$, or $B$ has a fixed point), then $L$ is linearised and $d\ge\mu(G)$.
+
+*Proof.*
+1. **The divisor.** The closure $Z$ of the image of $W$ in $B\times C$ is an invariant divisor, so $\mathcal O(Z)$ is linearised. Since $W\to Z\to B$, the degree $e$ of $Z\to B$ divides $d$.
+2. **Splitting.** $\mathrm{Pic}(X\times C)=\mathrm{Pic}(X)\oplus\mathrm{Pic}(C)\oplus\mathrm{Hom}(\mathrm{Alb}\,X,\mathrm{Jac}\,C)$, $G$-equivariantly. The class of the invariant divisor $\bar Z$ is $G$-invariant, so its correspondence part lies in $\mathrm{Hom}_G=0$. Restricting to $B\times C$, $\mathcal O(Z)\cong p_B^\*M\otimes p_C^\*L$.
+3. **The class $L$.** Every fibre $Z_b$ lies in $|L|$, and the fibres move because $W\dashrightarrow C$ is dominant. So $h^0(L)\ge2$.
+4. **Invariance.** $\sigma^\*Z=Z$ gives $\sigma^\*L\cong L$. Mumford classes add under $\otimes$, and $\mathcal O(Z)$ has none, so $m(L)=-m(M)$.
+5. **Fixed part.** Removing the invariant fixed part of $|L|$ changes neither the Mumford class nor the bound. $\square$
+
+**Corollary 5.12.**
+1. **Fixed target.** Compression onto a fixed $(2,4,7)$ curve with connected full $A_7$-monodromy needs $90\mid d$, because linearised degrees there lie in $90\mathbb Z$ (Lemma 5.4). This answers DAY 2 §9.
+2. **After a quadratic accessory.** For $B=\{t^2=q(v)\}\smallsetminus\{0\}$, which is rational with $\mathrm{Pic}(B)=0$, a further compression to a curve still needs $d\ge\mu(A_7)=90$. So the obstruction of Round 5 Prop. 4.2 is only apparent: what persists is *linearisability*, not the fixed point.
+3. **Any rational base.** For any rational $B$:
+   - onto a $(2,4,7)$ curve, $d\ge\tilde\mu=60$ with $15\mid e$ (Theorems 7.4–7.5);
+   - onto any faithful $A_7$-curve, $d\ge\gamma(A_7)\ge25$.
+
+   So gonality, which plays no role in $a(A_7)$, governs compressions over fixed-point-free rational bases.
+
+**For towers**, the hypothesis needs only to hold stage by stage. For a $(2,4,7)$ target, $H^1(C)=3(10+\overline{10})+2\cdot15+2\cdot21+4\cdot35$ (Chevalley–Weil), which contains no $1,6,14_a,14_b$. So the bounds hold over any base whose $H^1$ involves only these four representations.
+What remains is a base whose $H^1$ shares constituents with $H^1(C)$. There the fibre classes $[Z_b]$ can move along an equivariant map $\mathrm{Alb}\,X\to\mathrm{Jac}\,C$.
+
+## 5.6 Trust base and consequences
 
 **Cited.**
 - ATLAS subgroup lists;
@@ -185,9 +215,9 @@ So $\mu\notin\{72,78,84\}$, and Proposition 5.8 gives $\mu(A_7)=90$. $\square$
 
 **Consequences.**
 - **The essential-dimension question is settled.** $\mathrm{ed}(A_7;\le59)>1$ needs no gonality input, and the threshold is exactly 60.
-- **Gonality is a separate problem**: the value of $\gamma(A_7)$, now known to lie in $[25,42]$ (Chapters 4 and 7).
+- **Gonality returns over fixed-point-free bases** (Corollary 5.12): there the least compression degree onto a faithful $A_7$-curve is bounded below by
+  $\gamma(A_7)\in[25,42]$ (Chapters 4 and 7).
 
-**Open (DAY 2 §9).**
-- For a fixed $(2,4,7)$ target, does connected full-$A_7$ compression need $90\mid d$?
+**Open.**
+- Towers through a base whose $H^1$ shares an irreducible constituent with $H^1(C)$.
 - The arithmetic torsion questions (§1.4).
-- Unrestricted resolvent towers.

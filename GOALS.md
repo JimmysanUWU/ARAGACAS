@@ -11,7 +11,7 @@ Branch `claude/continue-previous-qfhm7j`, draft PR #1. Details live in `HANDOFF.
 - **D2. $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes**, certified (`HH_CERTIFICATE.md`, `VERIFICATION.md` §7). Hence $\operatorname{gon}(C/\langle\tau\rangle)\ge13$.
 - **D3. $\operatorname{gon}\ge25$ for every faithful $A_7$-curve of genus $\le335$**, certified (`VERIFICATION.md` §6).
 - **D4. $a(A_7)=60$**, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ (GPT, verified; `ACCESSORY_60.md`). The published bound is $\le6$.
-- **D5. $\mu(A_7)=90$**: exact full-monodromy compression degree (ours; `MU90.md`).
+- **D5. $\mu(A_7)=90$**: exact full-monodromy compression degree (ours; `MU90.md`). The rank steps are exact since 2026-10-02 (`verify_mu90_exact.py`).
 - **D6. Certified $\lambda_1$ data.** All 24 curves of the other rigid signatures; $(2,4,7)$ to 12 digits numerically and certified to $2.5\cdot10^{-4}$.
 
 ## Open targets, in priority order

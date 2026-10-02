@@ -37,8 +37,11 @@ Status tags: **[read]** full text read in session · **[abstract]** abstract/sum
   (2,3,7), (2,4,5), (2,4,6), (3,3,4), (2,5,5) do not generate.
 - **D. Singerman, *Finitely maximal Fuchsian groups*, J. London Math. Soc. (1972). [unverified]** —
   (2,4,7) is not in the list of non-maximal triangle signatures, so $\mathrm{Aut}(C)=A_7$.
-- **K. Takeuchi, arithmetic triangle groups (1977). [unverified]** — (2,4,7) is not arithmetic, so no
-  Selberg-type $\lambda_1\ge3/16$ or $1/4$ is available a priori.
+- **K. Takeuchi, arithmetic triangle groups (1977). [CORRECTED 2026-10-02]** — $(2,4,7)$ **is** arithmetic. It appears among
+  the 76 compact arithmetic triples, with invariant trace field $\mathbb Q(\cos\frac{2\pi}7)$, like $(2,3,7)$; see the list in
+  Nugent–Voight, arXiv:1510.04637, §6.1.1. The old entry was wrong. The kernel of $\Delta(2,4,7)\to A_7$ is non-congruence,
+  since $A_7$ is not a $\mathrm{PSL}_2(\mathbb F_q)$-type quotient. So there is still no a-priori Selberg-type bound on $\lambda_1$, and
+  the certified $\lambda_1\approx0.3463>1/4$ is a fact about this non-congruence cover.
 
 ## Castelnuovo–Severi and gonality tools
 

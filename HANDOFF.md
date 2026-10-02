@@ -50,3 +50,4 @@ cd hilbert13 && lake exe cache get && lake build   # pinned to Lean/Mathlib v4.3
   - `cholmod.options['supernodal']=2` forces supernodal $LL^T$.
   - `getfactor` returns the factor of a CHOLMOD-chosen permutation; the certificates use only its row counts and norms.
 - **python-flint.** `acb_hypgeom_2f1` can return a non-finite ball at large $m$. `hh_eval.f21` retries at doubled precision.
+- **Killing jobs.** `pkill -f pattern` also kills the calling shell if the pattern occurs in its own command line, e.g. in a heredoc. Use `pgrep -f "[p]attern" | xargs -r kill` in a separate call.

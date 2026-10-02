@@ -6,3 +6,5 @@
 3. degree 5: 252 forms, rank 165 on phi(C) [h^0(kL) = 165]; 87 vanish; gap 3.7e-01 -> 1.7e-15
    the cubic and quartics on a random hyperplane: 60 common zeros (deg phi(C) = 60); on phi(C): 60
    a hyperplane of the tau-pencil: 60 points = 18 in P(E_+) + 42 moving (Proposition 7.7)
+4. L2(7) containing <c>: 1 invariant quadric; |O_H| = 24, max |Q_H| there 5e-15; vanishing order at p 4.99; prod over the class / S6^5 on phi(C): spread 4e-09
+4. L2(7) containing <c>: 1 invariant quadric; |O_H| = 24, max |Q_H| there 5e-15; vanishing order at p 4.99; prod over the class / S6^5 on phi(C): spread 4e-09

@@ -122,8 +122,9 @@ Full statements, proofs and certificates are in [`ladder/README.md`](ladder/READ
 - **$25\le\operatorname{gon}(C)\le42$** for every $(2,4,7)$ curve $C$, and $13\le\operatorname{gon}(C/\langle\tau\rangle)\le21$ for every involution $\tau$.
   - Lower bound: a certified spectral gap with Li–Yau ([Ch. 2](ladder/2_SPECTRAL.md)), plus *harmonic Hersch* for two classes: the degree is a
     cubic form that vanishes on the first eigenspace by representation theory ([Ch. 3](ladder/3_HARMONIC_HERSCH.md)).
-  - Upper bound: a degree-60 model in $\mathbb P^5$, from an invariant line bundle whose symmetry is only projective (Schur multiplier $\mathbb Z/6$,
-    [Ch. 7](ladder/7_TWISTED.md)).
+  - Upper bound: an invariant line bundle whose symmetry is only projective (Schur multiplier $\mathbb Z/6$) embeds $C$ in $\mathbb P^5$ with degree 60.
+    The image is cut out by the Laza–Zheng $A_7$-cubic fourfold and 15 quartics, and an involution gives an exact base-point-free $g^1_{42}$
+    ([Ch. 7](ladder/7_TWISTED.md)).
 - **$25\le\gamma(A_7)\le42$** for the least gonality of a faithful $A_7$-curve ([Ch. 4](ladder/4_LARGE_GENUS.md), [Ch. 7](ladder/7_TWISTED.md)).
 - **Accessory irrationalities** ([Ch. 5](ladder/5_ACCESSORY.md)): $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp ($a(A_7)=60$; the published bound
   is 6); with connected full $A_7$-monodromy the threshold is exactly $\mu(A_7)=90$.

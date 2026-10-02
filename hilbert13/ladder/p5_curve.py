@@ -7,6 +7,8 @@
    a smooth curve through p (Jacobian rank 4), traced by continuation and spread by the group.
 3. Hilbert function of phi(C) in degrees 2..5, the cubic and quartic equations, and a test that they cut out phi(C):
    a random hyperplane meets their zero set in 60 points, and a hyperplane through P(E_+(tau)) in 18 + 42.
+4. Klein quadrics (Proposition 7.9): for H = L2(7) the H-invariant quadrics form a line; Q_H vanishes on the 24 seven-points of H,
+   to order 5 at p, and over a conjugacy class prod Q_H / S6^5 is constant on phi(C).
 """
 import sys, io, contextlib, cmath, itertools
 import numpy as np
@@ -114,3 +116,39 @@ ann = np.linalg.svd(Ep.T)[2][4:].conj(); l = rng.standard_normal(2) @ ann
 pts = section(np.linalg.svd(l.reshape(1, -1))[2][1:].conj().T, 1500)
 fixed = sum(np.linalg.norm(ann @ x) < 1e-7 for x in pts)
 print(f"   a hyperplane of the tau-pencil: {len(pts)} points = {fixed} in P(E_+) + {len(pts) - fixed} moving (Proposition 7.7)")
+
+# 4. Klein quadrics
+from a7 import A7, mul, inv, order, generated
+c7 = gens[2]
+Ls = []
+for s_ in A7:
+    if order(s_) == 2 and order(mul(s_, c7)) == 3:
+        Hs = generated([s_, c7])
+        if len(Hs) == 168 and not any(set(Hs) == set(K) for K in Ls): Ls.append(Hs)
+def lift_same_order(g):
+    o = order(g)
+    for t in range(3):
+        q_ = (T.IDX[g], t); z = q_
+        for _ in range(o - 1): z = T.m3(z, q_)
+        if z == (0, 0): return q_
+M2 = monos(2); Xq = rng.standard_normal((60, 6)) + 1j * rng.standard_normal((60, 6))
+def quadrics_of(Hs):
+    rows = [mv(Xq @ T.R6(lift_same_order(g)), M2) - mv(Xq, M2) for g in [g for g in Hs if order(g) in (2, 7)][:6]]
+    _, sv, vh = np.linalg.svd(np.vstack(rows)); return int(np.sum(sv < 1e-9 * sv[0])), vh[-1].conj()
+crow = np.einsum('j,gjk->gk', rng.standard_normal(6) + 1j * rng.standard_normal(6), RT)
+S6f = lambda Xs: np.mean((Xs @ crow.T) ** 6, axis=1)
+for Hs in Ls:
+    k, qH = quadrics_of(Hs)
+    OH = distinct([T.R6(lift_same_order(g) if order(g) in (2, 4, 7) else (T.IDX[g], 0)).T @ p for g in Hs])
+    OH = [x / np.linalg.norm(x) for x in OH]
+    typ = np.median(np.abs(mv(sub, M2) @ qH))
+    tv = np.array([abs(ell @ y / (ell0 @ y)) for y in arc[:15]]); qv = np.array([abs(mv((y / np.linalg.norm(y))[None], M2)[0] @ qH) for y in arc[:15]])
+    slope = np.polyfit(np.log(tv), np.log(qv), 1)[0]
+    cls_ = []
+    for g in A7:
+        K_ = frozenset(mul(mul(g, h), inv(g)) for h in Hs)
+        if K_ not in cls_: cls_.append(K_)
+        if len(cls_) == 15: break
+    prod = np.prod(np.stack([mv(sub[:400], M2) @ quadrics_of(list(K_))[1] for K_ in cls_]), axis=0) / S6f(sub[:400]) ** 5
+    print(f"4. L2(7) containing <c>: {k} invariant quadric; |O_H| = {len(OH)}, max |Q_H| there {max(abs(mv(x[None], M2)[0] @ qH) for x in OH) / typ:.0e}; "
+          f"vanishing order at p {slope:.2f}; prod over the class / S6^5 on phi(C): spread {np.std(prod) / abs(np.mean(prod)):.0e}")

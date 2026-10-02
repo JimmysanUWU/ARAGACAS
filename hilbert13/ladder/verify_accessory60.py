@@ -1,4 +1,4 @@
-"""Exact checks behind ACCESSORY_60.md (the accessory threshold a(A7) = 60 of GPT's DAY-2 reference).
+"""Exact checks behind 5_ACCESSORY.md sections 5.2-5.3 (the accessory threshold a(A7) = 60 of GPT's DAY-2 reference).
 
   1. Minimum faithful genus 136: every hyperbolic triangle signature with orders in {2,...,7} and genus < 136
      has no generating triple of A7 (exhaustive search, signatures_spectrum.curves).  Four or more branch

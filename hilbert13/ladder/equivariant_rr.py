@@ -66,7 +66,7 @@ def decompose(L, dim):
 if __name__ == "__main__":
     for t in (0, 1, 12, 14):
         a, b, c = triples[t]
-        gens = (a, inv(b), mul(b, a))                    # monodromy triple (NOTES 7.3)
+        gens = (a, inv(b), mul(b, a))                    # monodromy triple (2_SPECTRAL.md section 2.2)
         assert [order(x) for x in gens] == [2, 4, 7]
         print(f"triple {t}: 7-class of g_3 = {'7a' if cls(gens[2]) == 7 else '7b'}")
         for sign in (+1, -1):

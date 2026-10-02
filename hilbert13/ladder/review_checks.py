@@ -1,4 +1,4 @@
-"""Finite checks for the review of the 'Ramification transport' synthesis (REVIEW_GPT.md)."""
+"""Finite checks for the review of the 'Ramification transport' synthesis (6_SIDE_RESULTS.md section 6.1; full review in archive/docs/REVIEW_GPT.md)."""
 from a7 import *
 c = lambda *cy: cyc(*[tuple(x - 1 for x in t) for t in cy])
 

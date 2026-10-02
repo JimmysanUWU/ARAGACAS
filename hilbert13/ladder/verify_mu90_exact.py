@@ -1,5 +1,5 @@
-"""mu(A7) = 90: EXACT re-verification of the rank steps of MU90.md (replaces the floating-point eigen_data of
-verify_mu90.py; everything below is integer / rational / polynomial arithmetic).
+"""mu(A7) = 90: EXACT re-verification of the rank steps of 5_ACCESSORY.md section 5.4 (replaces the floating-point eigen_data of
+archive/scripts/verify_mu90.py; everything below is integer / rational / polynomial arithmetic).
 
 Setting.  2.A7 < Spin(6) = SU(4) acts on the half-spin V4 with wedge^2 V4 = 6 (standard) and Sym^2 V4 = 10 or 10b.
 For g in A7 of order e and a lift s, let mu_a = zeta_{2e}^{k_a} (a = 1..4) be the eigenvalues of s.
@@ -15,7 +15,7 @@ For g in A7 of order e and a lift s, let mu_a = zeta_{2e}^{k_a} (a = 1..4) be th
         rank 3 occurs  <=>  some 3x3 minor m is nonzero on E and, if det is not identically 0 on E, some such m is not in
                             rad(det), i.e. not divisible by every irreducible factor of det (factorisation over Q;
                             radical membership is unchanged by extension to C).
-Then the case analysis of verify_mu90.py is rerun with these exact predicates.
+Then the case analysis of archive/scripts/verify_mu90.py is rerun with these exact predicates.
 """
 import os, sys, itertools
 from fractions import Fraction as F

@@ -1,4 +1,4 @@
-"""Certified eigenvalue inputs of topological Hersch (FRAMEWORK_TOPOLOGICAL_HERSCH.md section 5, VERIFICATION.md).
+"""Certified eigenvalue inputs of harmonic Hersch (2_SPECTRAL.md section 2.5; used in 3_HARMONIC_HERSCH.md).
 
 For a (2,4,7) triple class t this proves, on top of certificate.txt (lambda_1 >= 0.34089, Q2 >= 0.689, Q0 >= 0.997):
 
@@ -6,7 +6,7 @@ For a (2,4,7) triple class t this proves, on top of certificate.txt (lambda_1 >=
      sigma.  Proof: a floating LDL^T factorisation (CHOLMOD simplicial, no pivoting, fill-reducing symmetric
      permutation P) of  B - cI,  B = K - sigma M,  and the backward error bound for symmetric Gaussian elimination
          P(B - cI)P^T + Delta = L D L^T,   |Delta| <= gamma_{k+3} |L||D||L^T|          (k = max nnz per row of L)
-     (derivation in VERIFICATION.md).  If c > ||Delta||_2 + assembly/rounding errors, then
+     (derivation in 2_SPECTRAL.md section 2.4).  If c > ||Delta||_2 + assembly/rounding errors, then
      B_exact = L D L^T + (positive definite), so #negative eigenvalues of B_exact <= #negative pivots of D (Sylvester
      + Weyl).  One negative pivot gives lambda_{2,h} >= sigma, and Liu / Carstensen-Gedicke for k = 2 gives
          lambda_2(Q1) >= sigma / (1 + C_h^2 sigma).

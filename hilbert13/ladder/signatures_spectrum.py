@@ -1,4 +1,4 @@
-"""FRAMEWORK_TOPOLOGICAL_HERSCH.md section 6.  Coarse lambda_1 (P1 FEM, Richardson n=4,6) for every faithful A7-curve with triangle signature (p,q,r):
+"""Coarse lambda_1 (P1 FEM, Richardson n=4,6) for every faithful A7-curve with triangle signature (p,q,r):
 C tiled by 2*2520 hyperbolic triangles with angles pi/p (A), pi/q (B), pi/r (C), glued as in orbifold.py:
 U_g~L_g (AB), U_g~L_{gb} (BC), U_g~L_{ga} (CA); vertex cycles have length 2 ord(a), 2 ord(b), 2 ord(b a^-1).
 Curves are enumerated up to simultaneous S7-conjugation and (a,b) -> (a^-1,b^-1): the map U_g <-> L_g is an
@@ -7,7 +7,7 @@ Usage: python3 signatures_spectrum.py p q r [fast]
   default: elementwise Richardson on n = 4, 6 (checked on 2 4 7: 0.3464 / 0.3598 against 0.34627 / 0.3597);
   fast:    n = 4 only, divided by 1.0105 (the P1 overshoot measured on (2,4,7) and (3,3,5)).
 Numerical only.  The fast-mode calibration does NOT transfer to other triangles (it overestimated (4,4,4) by
-about 15%); certified values are produced by certify_signatures.py (VERIFICATION.md section 6)."""
+about 15%); certified values are produced by certify_signatures.py (2_SPECTRAL.md section 2.5)."""
 import sys, time
 from math import pi, cos, sin, cosh, sinh, acosh, sqrt
 from itertools import permutations

@@ -1,4 +1,4 @@
-"""Exact (finite, rational/algebraic) checks behind FRAMEWORK_TOPOLOGICAL_HERSCH.md.  No floating point.
+"""Exact (finite, rational/algebraic) checks behind 3_HARMONIC_HERSCH.md (Lemma 3.3).  No floating point.
 
 Uses the ATLAS character table of A7 from cover.py (its orthonormality is re-verified there), with cover.py's
 names: 14a = 14_(5,2) (the 2-subset module), 14b = 14_(4,3).  Power maps are computed from actual permutations.

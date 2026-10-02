@@ -1,0 +1,122 @@
+# Chapter 1. The $(2,4,7)$ curve and its involution quotients
+
+**Setting.**
+- $C$ is a smooth connected complex curve with a faithful action of $G=A_7$, such that $C\to C/G\cong\mathbb P^1$ is branched over three points with inertia orders $2,4,7$.
+- Equivalently, $C$ is given by a generating triple $(a,b,c)$ of $A_7$ with $|a|=2$, $|b|=4$, $|c|=7$, $abc=1$.
+- $\tau\in G$ is an involution, and $D=C/\langle\tau\rangle$.
+
+Status tags: **[P]** paper proof, **[X]** exact finite computation (script named).
+
+## 1.1 The group and the curves
+
+- **[X] Generating triples** (`triples.py`). Fix $a=(12)(34)$. There are 96 choices of $b$, and 10080 triples in all. They form 4 orbits under $A_7$-conjugation and 2 under $S_7=\mathrm{Aut}(A_7)$.
+  - We label the four classes 0, 1, 12, 14 (indices in `triples_data.py`).
+  - The two $S_7$-orbits are $\{0,1\}$ and $\{12,14\}$. Within an orbit the curves are isomorphic and the actions differ by an outer
+    automorphism, so they have the same spectrum (§2.6).
+- **[P] Conjugacy data.**
+
+| elements | cycle type | count | centraliser order | notes |
+|---|---|---|---|---|
+| involutions | $2^21^3$ (one class) | 105 | 24 | |
+| order 4 | $(4,2,1)$ | 630 | 4 | $b^2$ is an involution |
+| order 7 | two classes | 360 each | 7 | |
+
+- **[P] Genus.** Riemann–Hurwitz gives $2g-2=2520\,(1-\tfrac12-\tfrac14-\tfrac17)=270$, so $g(C)=136$. This is the minimum genus of a faithful $A_7$-curve; `verify_accessory60.py` checks this by exhaustive search.
+
+## 1.2 Fixed points and the quotient $D$
+
+**Lemma 1.1 (fixed points) [P].** Take a branch point with stabiliser $\langle x\rangle$. An element $h$ fixes
+$|C_G(h)|\cdot|h^G\cap\langle x\rangle|/|x|$ points of its fibre.
+
+**Corollary 1.2 [P][X]** (`rung1.py`). Fixed points by element order:
+- **involution:** $24\cdot\tfrac12+24\cdot\tfrac14=18$;
+- **order 4:** 2;
+- **order 7:** 3;
+- **orders 3, 5, 6:** none.
+
+Riemann–Hurwitz for $C\to D$ gives $270=2(2g(D)-2)+18$, so $g(D)=64$.
+
+**Automorphisms of $D$.** $H=C_G(\tau)/\langle\tau\rangle$ acts on $D$. For $\tau=(12)(34)$,
+$$H\cong\{(x,y)\in V_4\times S_3:\operatorname{sgn}x=\operatorname{sgn}y\}\cong C_2\times S_3 .$$
+
+**Lemma 1.3 (fixed points on a quotient) [P].** Let $V\trianglelefteq N$ act on $C$. Then
+$$\#\mathrm{Fix}_{C/V}(\bar w)=\frac1{|V|}\sum_{g\in wV}\#\mathrm{Fix}_C(g).$$
+
+**Proposition 1.4 [P][X]** (`quot.py`). The elements of $H$:
+- **Good involutions.** There are 4, the images of $\mu\ne\tau$ with $\mu^2=1$ and $[\mu,\tau]=1$. Each has 18 fixed points on $D$, and $g(D/\bar\mu)=28$.
+- **Bad involutions.** There are 3, the images of elements of order 4 with $\mu^2=\tau$. Each has 2 fixed points on $D$, and $g(D/\bar\mu)=32$.
+- **Orders 3 and 6** act freely.
+
+Quotient genera: $g(D/K)$ ranges over $64,28,32,22,12,10,11,7,3$ as $K$ runs over the 16 subgroups of $H$. In particular $g(D/H)=g(C/C_G(\tau))=3$.
+
+## 1.3 The first algebraic barrier: $\operatorname{gon}(D)\ge9$
+
+**Castelnuovo–Severi (CS).** Let $f_i:X\to Y_i$ have degree $d_i$, with no common factorisation through a map of degree $>1$. Then
+$$g(X)\le d_1g(Y_1)+d_2g(Y_2)+(d_1-1)(d_2-1).$$
+
+**Theorem 1.5 [P].** $\operatorname{gon}(D)\ge9$.
+
+*Proof.*
+1. Let $f:D\to\mathbb P^1$ have degree $d\le8$, and let $v$ be a good involution with quotient map $\pi_v$, of degree 2.
+2. If $f$ and $\pi_v$ have no common factor, CS gives $64\le2\cdot28+(d-1)$. That is impossible for $d\le8$.
+3. So $f$ factors through $\pi_v$, i.e. $f\circ v=f$.
+4. The four good involutions generate $H$. So $f$ factors through $D\to D/H$, and $12\mid d$. Contradiction. $\square$
+
+At $d=9$, $f\circ v=f$ is impossible because 9 is odd. Everything then happens at the level of pencils: $f\circ v=M\circ f$ with $M$ Möbius.
+
+## 1.4 Degree 9: structure theorem and reduction to arithmetic
+
+**Notation.** $T:=D/H$, a curve of genus 3. The cover $D\to T$ has 13 branch points, all of order 2 (Riemann–Hurwitz check: $126=12\cdot4+6\cdot13$):
+- $t_1,t_2,t_3$, from the central good involution;
+- $g_1,\dots,g_9$, from the non-central good involutions;
+- one point from the bad involutions.
+
+**Theorem 1.6 (structure at degree 9) [P].** Suppose $\operatorname{gon}(D)=9$, realised by $f$. Then exactly one of the following holds.
+1. **(a)** The pencil is $H$-invariant: $f\circ h=\rho(h)\circ f$ with $\rho(H)=D_6\subset\mathrm{PGL}_2$. Then $D$ is the pullback of $\mathbb P^1\to\mathbb P^1/D_6$ along a degree-9 map $T\to\mathbb P^1$.
+2. **(b)** The fields of the translates $f\circ h$ generate a field of index 3, the function field of a curve $Y$ with $g(Y)\le4$. Then $D$ is the pullback of $Y\to Y/H$ along a degree-3 map.
+3. **(c)** $D$ is a smooth curve of bidegree $(9,9)$ whose two rulings are translates of $f$.
+
+*Proof sketch.*
+1. **Equality in CS.** CS against each good involution is an equality: $64=56+8$. The equality case of the Hodge-index proof writes $D$ as a double cover $\{s_0x^2+s_1xy+s_2y^2=0\}\subset E_v\times\mathbb P^1$.
+2. **The trichotomy.** The field generated by the translates $f\circ h$ has index 9, 3 or 1. These are cases (a), (b), (c).
+3. **Case (c)** uses the classical fact that the only $g^1_9$'s on a smooth $(9,9)$ curve are the rulings (Martens 1996). $\square$
+
+**Theorem 1.7 (necessary condition) [P].** If $\operatorname{gon}(D)\le9$, then on $T$
+$$(\star)\qquad g_1+\dots+g_9\ \sim\ 3(t_1+t_2+t_3).$$
+In each case of 1.6, the monodromy of a pullback forces $\varphi^*(\text{branch point})$ to be $3(t_1+t_2+t_3)$ or $\sum g_j$. In case (c), the invariant $\Psi^2$, with $\Psi=G_1G_2G_3/\Delta^3$, descends to $T$ with divisor $\sum g_j-3\sum t_i$. $\square$
+
+**The Jacobian [X]** (`jacobian.py`, Chevalley–Weil).
+$$\mathrm{Jac}(C)\sim A^{10}\times E_1^{15}\times E_2^{21}\times S^{35},\qquad \mathrm{Jac}(D)\sim A^4E_1^7E_2^{11}S^{17},\qquad\mathrm{Jac}(T)\sim E_2\times S .$$
+- $E_1,E_2$ are elliptic curves and $S$ is an abelian surface.
+- $A$ is a threefold with $\mathbb Q(\sqrt{-7})$-multiplication, coming from $10\oplus\overline{10}$.
+- The irreducibles $1,6,14_a,14_b$ do not occur in $H^1(C)$.
+
+**Proposition 1.8 (two points govern $(\star)$) [P][X]** (`star.py`, `frontier_checks.py`).
+- **The fixed-point module.** The $\mathbb Q[G]$-span of the involution fixed divisors is a quotient of $\mathbb Q[G/C(\tau)]=1+6+14_a+2\cdot14_b+21+35$. Only $21$ and $35$ meet $H^1(C)$.
+- **The lift of $(\star)$.** It has nonzero $21$- and $35$-components.
+- **Consequence.** $(\star)$ fails as soon as one of two explicit points has infinite order:
+  - $P_E$ on the elliptic curve $E=C/L_2(5)$, whose Jacobian is isogenous to $E_2$;
+  - $P_S$ on the genus-2 curve $C/(3^2{:}4)$, whose Jacobian is isogenous to $S$.
+- **Status.** This is an arithmetic question about a non-congruence cover of the arithmetic group $\Delta(2,4,7)$. It is open, and no longer needed (Chapter 2).
+
+## 1.5 Why the $H$-topology of $D$ cannot decide degree 9
+
+**Theorem 1.9 (audit curve) [P][X]** (`model99.py`). There is a smooth curve $D'$ of bidegree $(9,9)$ in $\mathbb P^1\times\mathbb P^1$ with the following properties:
+- it has genus 64;
+- it has a faithful $C_2\times S_3$-action with exactly the fixed-point data of $D$;
+- $\operatorname{gon}(D')=9$.
+
+So every invariant of $D$ used in §§1.2–1.4 is shared by a curve of gonality 9: fixed points, quotient genera, and the $H$-character of $H^0(K)$. Any proof of $\operatorname{gon}(D)\ge10$ must therefore use more of $C$. Chapter 2 uses the conformal structure, through the hyperbolic metric. The algebraic proof in Chapter 6, §6.1 uses the full $A_7$-action.
+
+**Summary of the ladder.**
+
+| rung | statement | where |
+|---|---|---|
+| 1 | $g(C)=136$; involutions have 18 fixed points; $g(D)=64$ | §1.2 |
+| 2 | $H\cong C_2\times S_3$ acts on $D$; fixed points and quotient genera | §1.2 |
+| 3 | $\operatorname{gon}(D)\ge9$ | Thm 1.5 |
+| 4 | structure at degree 9; reduction to $(\star)$ | Thm 1.6, 1.7 |
+| 5 | $\operatorname{gon}(D)\ge13$ | Chapters 2–3 (also $\ge10$ algebraically: §6.1) |
+| 6 | $\operatorname{gon}(C)\ge25$ | Chapters 2–3 |
+
+Upper bounds: $\operatorname{gon}(C)\le56$ and $\operatorname{gon}(D)\le28$. These come from $C\to C/P\to\mathbb P^1$, with $P\ni\tau$ of order 8 and $g(C/P)=12$.

@@ -1,5 +1,5 @@
 """Certificate: gon(C) >= 25 for the (2,4,7) A7-curves of classes 0 and 1, via harmonic Hersch on an exact trial space
-built from near-exact eigenfunctions ("vector-valued Hejhal").  Write-up: HH_CERTIFICATE.md.
+built from near-exact eigenfunctions ("vector-valued Hejhal").  Write-up: 3_HARMONIC_HERSCH.md.
 
 Inputs (certified elsewhere, certify_th_output.txt / certificate.txt):
     E_1 = one copy of 14_(5,2),  lambda_1 >= 0.340893,  every eigenvalue on (1 + E_1)^perp is >= b = 0.5599822.

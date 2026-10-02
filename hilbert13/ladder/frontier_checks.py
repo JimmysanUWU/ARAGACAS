@@ -1,4 +1,4 @@
-"""Exact checks behind FRAMEWORK_CONFORMAL.md section D (third session, after GPT's proof-chain audit).
+"""Exact checks behind 6_SIDE_RESULTS.md sections 6.2, 6.6, 6.7 and 1_CURVE.md Prop. 1.8.
 
 D1  structure of the Q2 group C_{A7}((16)(23))
 D4  the involution fixed-point module: isotypic components of the Klein difference and of the (*) lift,

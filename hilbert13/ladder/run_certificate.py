@@ -34,7 +34,7 @@ def main(quick=False, out=None):
     def log(s=""):
         print(s, flush=True)
         lines.append(s)
-    log("Spectral certificate for the (2,4,7) A7-curves   (NOTES.md section 7)")
+    log("Spectral certificate for the (2,4,7) A7-curves   (2_SPECTRAL.md)")
     log(f"python {platform.python_version()}, numpy {np.__version__}, scipy {scipy.__version__}, "
         f"python-flint {flint.__version__}, cvxopt {cvxopt.__version__}")
     log("plan: " + ", ".join(f"{q} n={n}" + (f" sigma={s}" if s else "") for q, n, _, s in plan)

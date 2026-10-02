@@ -1,4 +1,4 @@
-"""Elementary large-genus gonality bounds for faithful A7-curves (GONALITY_LARGE_GENUS.md).
+"""Elementary large-genus gonality bounds for faithful A7-curves (4_LARGE_GENUS.md).
 For a pencil of degree d: B(d) = max over the two cases of the genus bound
   pair case  : (d-1)^2                       (Castelnuovo-Severi, two pencils generating C(C))
   chain case : pi(t d, 2^t - 1), 3 <= t <= 1 + Omega(d)   (Segre map of a chain of conjugate pencils, Castelnuovo)

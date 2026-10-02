@@ -1,32 +1,27 @@
-# Goals and targets (compact list, 2026-10-02)
+# Goals
 
-Branch `claude/continue-previous-qfhm7j`, draft PR #1. Details live in `HANDOFF.md` §5 and `hilbert13/ladder/*.md`.
+Chapter references are to `hilbert13/ladder/` (index: `hilbert13/ladder/README.md`).
 
-## Done (frozen; do not reopen)
+## Done
 
-- **D1. The ladder rungs.**
-  - $g(C)=136$, $g(D)=64$.
-  - $\operatorname{gon}(D)\ge9$, with a structure theorem at degree 9.
-  - First summit $\operatorname{gon}(D)\ge10$ and further summit $\operatorname{gon}(C)\ge17$; both are superseded by D2.
-- **D2. $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes**, certified (`HH_CERTIFICATE.md`, `VERIFICATION.md` §7). Hence $\operatorname{gon}(C/\langle\tau\rangle)\ge13$.
-- **D3. $\operatorname{gon}\ge25$ for every faithful $A_7$-curve of genus $\le335$**, certified (`VERIFICATION.md` §6).
-- **D4. $a(A_7)=60$**, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ (GPT, verified; `ACCESSORY_60.md`). The published bound is $\le6$.
-- **D5. $\mu(A_7)=90$**: exact full-monodromy compression degree (ours; `MU90.md`). The rank steps are exact since 2026-10-02 (`verify_mu90_exact.py`).
-- **D7. $\gamma(A_7)\ge25$, proved in-repo** (`GONALITY_LARGE_GENUS.md`): every faithful $A_7$-curve has $\operatorname{gon}\ge25$. Elementary for
-  $g\ge398$ (Castelnuovo–Severi, Castelnuovo, dependent-third cost); spectral certificates for the four signatures with $336\le g\le397$.
-  Unconditionally and elementarily, $\operatorname{gon}\ge23$ for all.
-- **D6. Certified $\lambda_1$ data.** All 24 curves of the other rigid signatures; $(2,4,7)$ to 12 digits numerically and certified to $2.5\cdot10^{-4}$.
+| | result | where |
+|---|---|---|
+| D1 | the ladder rungs: $g(C)=136$, $g(D)=64$, $\operatorname{gon}(D)\ge9$, the degree-9 structure theorem, the audit curve | Ch. 1 |
+| D2 | $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes, so $\operatorname{gon}(C/\langle\tau\rangle)\ge13$ | Ch. 2–3 |
+| D3 | $\operatorname{gon}\ge25$ for every faithful $A_7$-curve of genus $\le335$ | Ch. 2 |
+| D4 | $a(A_7)=60$, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified). The published bound is 6. | Ch. 5 |
+| D5 | $\mu(A_7)=90$, in exact arithmetic | Ch. 5 |
+| D6 | certified $\lambda_1$ for 24 curves of the other rigid signatures; $(2,4,7)$ to 12 digits, certified to $2.5\cdot10^{-4}$ | Ch. 2–3 |
+| D7 | $\gamma(A_7)\ge25$, proved in-repo; $\operatorname{gon}\ge23$ always, by algebra alone | Ch. 4 |
+| D8 | repository distilled into six chapters (2026-10-02) | `hilbert13/ladder/` |
 
-## Open targets, in priority order
+## Open, in priority order
 
-1. **T1. DONE (D7).** It replaced GPT's cited algebra.
-2. **T2. Paper-style write-up.** Consolidate D2–D5 into one self-contained document (`PAPER.md`): statements, proofs and certificate
-   descriptions, with the literature comparison of `LITERATURE_CHECK.md`. *Needed before anything is shared.*
-3. **T3. Independent audit** of `HH_CERTIFICATE.md` and `MU90.md`, by GPT (Round 7 Q1, Round 6 Q1). *External; costs us nothing.*
-4. **T4. Housekeeping.** The repairs the GPT audit asked for (e.g. the $S_4$ misnaming of $C_3\rtimes D_8$ in NOTES; NOTES/certify/README
-   repairs 1, 3, 4, 5, 6). Small.
-5. **T5. (Optional) $\operatorname{gon}\ge26$ on classes 0, 1.** Needs a certified sharp $\kappa$. It does not change $\gamma(A_7)$, because classes 12, 14 stay at 25.
-6. **T6. (Long shot) Towers / RD.** No candidate invariant yet. Park it unless a new idea appears.
-7. **T7. (Low) Arithmetic.** Torsion of $P_E\in C/L_2(5)$ and $P_S$; fields of definition of the classes.
+1. **Independent audit** of Chapters 3, 4 and §5.4, by GPT. The questions are written (`QUESTIONS_FOR_GPT.md` §1).
+2. **Paper.** Turn the chapters into one self-contained PDF. They are already in textbook order, so this is mostly typesetting.
+3. **(Optional) $\operatorname{gon}\ge26$ on classes 0, 1.** It needs a certified sharp $\kappa$. This does not change $\gamma(A_7)$, because classes 12, 14 stop at 25.
+4. **(Optional) Upper bounds on $\gamma(A_7)$.** The best known is 56.
+5. **(Long shot) Towers / RD.** No candidate invariant yet.
+6. **(Low) Arithmetic.** Is $P_E$ or $P_S$ torsion (§6.7)?
 
-**Budget note.** With limited usage, do T1 then T2, and send T3 to GPT. Skip T5–T7.
+**Budget.** With limited usage, send item 1 to GPT and do item 2. Skip items 3–6 unless a new idea appears.

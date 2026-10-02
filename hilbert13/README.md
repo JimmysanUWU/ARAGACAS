@@ -117,16 +117,18 @@ terms, where $\Phi_1(t) = t^2/4$, $\Phi_2(t) = -t^2/4$, and all inner functions 
 
 ## The $A_7$ gonality ladder (`ladder/`)
 
-The second project concerns smooth curves $C$ with an $A_7$-action of signature $(2,4,7)$, which
-have genus 136. [`ladder/NOTES.md`](ladder/NOTES.md) proves the following for every such curve and
-every involution $\tau$:
-$$\operatorname{gon}(C)\ge24,\qquad \operatorname{gon}(C/\langle\tau\rangle)\ge12 .$$
-The route is a certified spectral gap, $\lambda_1(C)\ge0.34089$, combined with the Hersch/Yang–Yau
-inequality $\lambda_1\,\mathrm{Area}\le8\pi\deg$.
+The second project concerns curves with a faithful $A_7$-action. Its main case is the $(2,4,7)$ curves, of genus 136, the minimum.
+Full statements, proofs and certificates are in [`ladder/README.md`](ladder/README.md):
+- **$\operatorname{gon}(C)\ge25$** for every $(2,4,7)$ curve, so $\operatorname{gon}(C/\langle\tau\rangle)\ge13$ for every involution $\tau$.
+  - The route is a certified spectral gap with Li–Yau, $\lambda_1\,\mathrm{Area}\le8\pi\deg$ ([Ch. 2](ladder/2_SPECTRAL.md)).
+  - For two classes it adds *harmonic Hersch*: the degree is a cubic form that vanishes on the first eigenspace by representation theory ([Ch. 3](ladder/3_HARMONIC_HERSCH.md)).
+- **$\gamma(A_7)\ge25$**: every faithful $A_7$-curve has gonality at least 25 ([Ch. 4](ladder/4_LARGE_GENUS.md)).
+- **Accessory irrationalities** ([Ch. 5](ladder/5_ACCESSORY.md)).
+  - $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, and this is sharp: $a(A_7)=60$. The published bound is 6.
+  - Keeping connected full $A_7$-monodromy, the exact threshold is $\mu(A_7)=90$.
 
-The certificate is a Crouzeix–Raviart lower-bound computation on two sign-twisted quotient orbifolds
-(`ladder/certify.py`, `ladder/run_certificate.py`). Its logical core is checked in Lean in
+The logical core of the spectral certificate is checked in Lean in
 [`Hilbert13/SpectralCertificate.lean`](Hilbert13/SpectralCertificate.lean):
-- the abstract eigenvalue lower bound;
+- the Crouzeix–Raviart eigenvalue lower bound;
 - positive definiteness from a perturbed Cholesky factor;
 - the final arithmetic.

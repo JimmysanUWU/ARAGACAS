@@ -2,7 +2,7 @@
 
 Usage:  python3 certify.py <quotient Q1|Q2> <n> <triple index> [sigma_factor]
 
-Chain of inequalities (NOTES.md, section 7):
+Chain of inequalities (2_SPECTRAL.md, section 2.4):
  (1) exact hyperbolic problem, written in R-coordinates:  energy A_R(z), mass w_R(z)          [orbifold.py]
  (2) comparison problem with piecewise-constant coefficients A_e = c_e P_e <= A_R(z) and
      w_e >= w_R(z) on each mesh triangle e (rigorous: interval arithmetic, python-flint arb):

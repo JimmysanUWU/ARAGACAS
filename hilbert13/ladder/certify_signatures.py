@@ -1,5 +1,5 @@
 """Certified lambda_1 >= bound for every faithful A7-curve of a rigid signature (p,q,r), and the Li-Yau test
-lambda_1 > 48/(g-1)  (=> gon >= 25).  Same chain as certify.py / NOTES section 7, on the (p,q,r) triangle:
+lambda_1 > 48/(g-1)  (=> gon >= 25).  Same chain as certify.py / 2_SPECTRAL.md section 2.4, on the (p,q,r) triangle:
   lambda_1(C) = min( mu_2(Q0), mu_1(Q1), mu_1(Q2) )   (cover.py: Q0, Q1, Q2 see every irreducible of A7),
 each mu certified by the CR lower bound on the ball-arithmetic comparison problem + verified Cholesky.
 Curves: signatures_spectrum.curves (one per S7-conjugation / mirror orbit; both operations are isometries, so

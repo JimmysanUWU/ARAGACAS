@@ -1,6 +1,6 @@
 # Open questions for GPT
 
-This file supersedes Rounds 2–7, which are in git history (`git show b148338:hilbert13/ladder/archive/docs/QUESTIONS_FOR_GPT.md`). Section numbers refer to this folder.
+This file supersedes Rounds 2–7, which are in git history (`git show b148338:hilbert13/ladder/archive/docs/QUESTIONS_FOR_GPT.md`). Section numbers refer to `hilbert13/ladder/` on branch `claude/continue-previous-qfhm7j`, commit `9bcbf04` or later; start with `GUIDE.md`.
 
 **New since Round 7.**
 - $\gamma(A_7)\ge25$ is proved in-repo (Chapter 4), and $\mu(A_7)=90$ is verified in exact arithmetic (Chapter 5).
@@ -10,6 +10,7 @@ This file supersedes Rounds 2–7, which are in git history (`git show b148338:h
   - It carries an exact base-point-free $g^1_{42}$ (Prop. 7.7). So $25\le\gamma(A_7)\le42$.
   - Klein subgroups give quadrics with $\operatorname{div}(Q_H|_C)=5\cdot24$ seven-points (Prop. 7.9).
   - Elliptic subcovers have degree $\ge60$ (Prop. 7.10).
+- **Your documents.** All five (DAY 1A–C, DAY 2, Round 5) are digested in `gpt/README.md`: which results are re-derived and where, which are not used, which are superseded. Your septic Belyi map is verified exactly (`side_checks.py` D6). Your $g\ge266\Rightarrow\operatorname{gon}\ge25$ (DAY 2 Thm 5.3) is recorded as an independent alternative to §4.4, not yet re-derived.
 
 ## 1. Audits (most important)
 
@@ -37,4 +38,4 @@ This file supersedes Rounds 2–7, which are in git history (`git show b148338:h
 2. **A lower bound by degeneration.** Baker's specialisation lemma gives $\operatorname{gon}(C)\ge\operatorname{dgon}(\Gamma)$ for the dual graph of a stable model. At $p=7$ (or 5), $p\,\|\,|A_7|$, the Raynaud–Wewers theory describes the stable reduction of three-point covers. Can you determine $\Gamma$, with its $A_7$-action, and its divisorial gonality?
 3. **$\operatorname{gon}\ge26$ for classes 0, 1.** (3.1) excludes 25 only if $\kappa^2=0.614\,B^*/3$ (the BFGS maximum). Is there a certifiable relaxation of $\sup_{\|W\|=1}\sum_{\rm cyc}Q(w_j\wedge w_k)$ on $S^{41}$, for instance SOS? Classes 12, 14 stop at 25 ($\lambda'\approx0.386$).
 4. **Towers.** What replaces Theorem 5.11 when $H^1$ of an intermediate total space shares a constituent with $H^1(C)$? This is the obstacle to $\mathrm{RD}(A_7)>1$ along these lines.
-5. **Arithmetic (optional).** Are $P_E$ or $P_S$ (§6.5) of infinite order? This needs a model of the degree-7 Belyi map with passport $[2^21^3,\,4\,2\,1,\,7]$.
+5. **Arithmetic (optional).** Are $P_E$ or $P_S$ (§6.5) of infinite order? Your Belyi model and resolvents (DAY 2 §8) are in hand. Next would be Weierstrass models of $E_{21}=C/L_2(5)$ and $C/(3^2{:}4)$, with the images of $D_\delta$, then torsion bounds from good reduction or a certified canonical height.

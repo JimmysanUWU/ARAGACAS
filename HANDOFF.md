@@ -102,6 +102,27 @@ novel framework." Lean formalization where feasible.
 
 ## 5. Suggested next steps
 
+**Ninth session (2026-10-02): $\operatorname{gon}\ge25$ for $(2,4,7)$ classes 0, 1 is certified** (`HH_CERTIFICATE.md`). This closes the
+gonality track for genus $\le335$.
+- **The result.** $\operatorname{gon}(C)\ge25$ for all four $(2,4,7)$ classes. So $\operatorname{gon}(C/\langle\tau\rangle)\ge13$ for every involution.
+- **Consequence.** $\operatorname{gon}\ge25$ holds for every faithful $A_7$-curve of genus $\le335$. With GPT's $g\ge336$ algebra [cited, not re-verified],
+  $\gamma(A_7)\ge25$.
+- **The method (new framework).**
+  - *Vector-valued Hejhal.* $14_{(5,2)}$-eigenfunctions are expanded exactly about the order-7 point (`hejhal_solve.py`).
+    This gives $\lambda_1=0.346267085404$ (classes 0, 1) and $0.359671354895$ (classes 12, 14) to 12 digits.
+  - *Exact equivariance.* A $\Delta$-invariant partition of unity blends the expansions, so the trial space is exactly
+    $\cong14_{(5,2)}$. The residual reduces to mismatch eigenfunctions, bounded by circle sampling.
+  - *Jacobian flux.* Since $\{u,v\}=\operatorname{div}\frac12(u\nabla^\perp v-v\nabla^\perp u)$, the bracket resolvent constant needs only quartic integrals.
+  - All of this is in ball arithmetic (`hh_eval.py`, `hh_certify.py`).
+- **The numbers.** The left side of GPT's (5.3) is $\ge0.3307$ against a right side $\le0.2713$ (class 0); for class 1, $0.3296$ against $0.2795$.
+  As by-products, $\lambda_1\ge0.34610$ two-sided, $\Gamma_h\le2.273$, $B_h\le4.45\cdot10^{-4}$.
+- **Convention found.** The tiling curve of `orbifold.py` for a triple is the *mirror image* of the curve with
+  $\varphi(X,Y,C)=(a,b,c)$, because $\sigma_{BC}\sigma_{AB}=Y^{-1}$. This is harmless: spectra, isotypes and gonality are mirror-invariant.
+- **Open.**
+  - Verify GPT's $g\ge336$ algebra in-repo, so that $\gamma(A_7)\ge25$ is fully checked.
+  - Is $\operatorname{gon}\ge26$ reachable? It needs the sharp $\kappa$; numerically HH excludes $m=25$ with $\kappa^2=0.614\,B/3$.
+  - Arithmetic; towers.
+
 **Eighth session (2026-10-01): $\mu(A_7)=90$** (`MU90.md`). Connected full-$A_7$ curve compression needs exactly degree 90; compare $a(A_7)=60$.
 The proof uses two frameworks:
 - **orbit-semigroup base loci:** invariant forms of degree $k$ with $kn$ outside the orbit semigroup vanish on the image;

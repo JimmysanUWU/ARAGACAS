@@ -86,7 +86,7 @@ through $L_2(7)$. The lower bound $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ holds u
   current state:
   - GPT's algebra covers $g\ge266$ (DAY 2, Thm 5.3), i.e. $(2,7,7)$, $(3,4,5)$, $(3,4,6)$, $(4,4,4)$.
   - Our certificates (`VERIFICATION.md` §§6–7) cover every curve of the other rigid signatures except $(2,4,7)$ classes 0, 1.
-  - There, topological Hersch gives 25 with certified eigenvalue inputs. Only the constants $\kappa$, $\Lambda$ are not certified.
+  - There, **harmonic Hersch is now certified** (`HH_CERTIFICATE.md`, ninth session): $\operatorname{gon}\ge25$ on all four $(2,4,7)$ classes.
   - Spectral bounds beat the algebraic table (DAY 2, p. 11) in every row.
 - **Open, from DAY 2 §9:**
   - ~~the exact $\mu(A_7)$~~: **settled, $\mu(A_7)=90$** (`MU90.md`). Connected full-$A_7$ compression needs exactly degree 90;

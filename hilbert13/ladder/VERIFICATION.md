@@ -19,11 +19,15 @@ This report re-checks every claim of `FRAMEWORK_TOPOLOGICAL_HERSCH.md` and of th
 | $\operatorname{gon}\ge25$ for every faithful $A_7$-curve of the ten rigid signatures other than $(2,4,7)$ (24 curves up to isometry, all 70 $A_7$-classes) | **[C]** (§6) |
 | $\operatorname{gon}\ge25$ for $(2,4,7)$ classes 12, 14 | **[C]** (§7) |
 | $(2,4,7)$ classes 0, 1: $\operatorname{gon}\ge24$ | [C] (`certificate.txt`) |
-| $(2,4,7)$ classes 0, 1: $\operatorname{gon}\ge25$ | **[P✓] theorem + [C] eigenvalue inputs + [N] two eigenfunction constants** (§2–5) |
+| $(2,4,7)$ classes 0, 1: $\operatorname{gon}\ge25$ | **[C]** (ninth session: harmonic Hersch with a certified trial space, `HH_CERTIFICATE.md`; supersedes the [N] constants of §5) |
 | Topological Hersch inequality (Theorem 3.1) and Corollary 2.2 | [P✓] |
 | $(\wedge^3V)^{A_7}=0$ exactly for $V=6,14_{(5,2)},14_{(4,3)}$; $\wedge^2 14_{(5,2)}$ is multiplicity-free | [X] |
 | Conformal ceiling (Proposition E1) | [P✓]; its numbers are [N] |
 | Degree lattice (Lemma 7.1) | [P✓]; the transport degrees 1296 and 216 are [cited] |
+
+**Update (ninth session).** The last gap is closed. `HH_CERTIFICATE.md` certifies GPT's Round-5 harmonic Hersch inequality, in
+its trial-space form, for classes 0 and 1. The trial space is built from vector-valued Hejhal expansions. So $\operatorname{gon}\ge25$
+now holds **[C]** for every faithful $A_7$-curve of genus $\le335$; for larger genus it rests on GPT's algebra [cited].
 
 **Consequence (updated, sixth session).** The ed question no longer depends on any of this. GPT's DAY-2 theorem
 $a(A_7)=60$ (`ACCESSORY_60.md`, verified) gives $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$ with no gonality input. The results here now

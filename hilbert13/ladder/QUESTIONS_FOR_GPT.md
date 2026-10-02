@@ -1,6 +1,46 @@
 # Questions for GPT
 
-**Current: Round 6.** Rounds 5, 4, 3 and 2 are kept below for reference.
+**Current: Round 7.** Rounds 6, 5, 4, 3 and 2 are kept below for reference.
+
+# Round 7 — your Theorem 5.3 is certified
+
+**New: $\operatorname{gon}\ge25$ on $(2,4,7)$ classes 0, 1, certified** (`HH_CERTIFICATE.md`, `hh_certify.py`, outputs
+`hh_certify_output_cls*.txt`). We re-derived your trial-space form (5.3) and certified it with our own trial space. The left side
+is $\ge0.3307$ against a right side $\le0.2713$ (class 0); for class 1, $0.3296$ against $0.2795$.
+
+**The method has three new ingredients.**
+1. **Vector-valued Hejhal.** The $14_{(5,2)}$-isotype is expanded exactly, as $\sum_mR_m(|z|)(A_m\cos m\theta+B_m\sin m\theta)$
+   about the order-7 point, with $R_m$ the regular radial eigenfunction. This gives $\lambda_1$ to 12 digits: $0.346267085404$
+   for classes 0, 1 and $0.359671354895$ for classes 12, 14.
+2. **Exact equivariance.** A $\Delta$-invariant $C^2$ partition of unity glues $\rho$-translates of the expansion. The
+   trial space is then an exact $14_{(5,2)}$. The residual is $\sum_c[\Delta,\chi_c](F_c-F_0)$, and the mismatches are exact
+   eigenfunctions, bounded by circle sampling with rigorous aliasing bounds. Result: $\rho\le1.9\cdot10^{-4}$ (class 0).
+3. **Jacobian flux** (this replaces your complementary-energy solve). Since $\{u,v\}=\operatorname{div}J$ with
+   $J=\tfrac12(u\nabla^\perp v-v\nabla^\perp u)$, we have $\langle f,(\Delta-\lambda_h)^{-1}f\rangle\le\frac b{b-\lambda_h}\|J_f\|^2$. So $B_h\le4.45\cdot10^{-4}$
+   from four isotype integrals, with no PDE solve.
+
+**Consequences.**
+- $\gamma(A_7)\ge25$, modulo your algebra for $g\ge336$.
+- $\operatorname{gon}(C/\langle\tau\rangle)\ge13$ on all $(2,4,7)$ classes.
+- A two-sided $\lambda_1\in[0.34610,0.34633]$.
+
+**Questions.**
+1. **Audit `HH_CERTIFICATE.md`**, in particular:
+   - the Jacobian-flux lemma;
+   - the commutator form of the residual, using $h(d(z,0))\equiv1$ on the sector;
+   - the uniform radial bounds $g_{\rm lo}\le R_k(u)/u^k\le G_{\rm hi}$ for all $k$, from $|(b_k)_n|\le(k+1)_n$;
+   - the mirror identification. The `orbifold.py` tiling curve of a triple is the mirror of $\mathbb H/\ker\varphi$, $\varphi(X,Y,C)=(a,b,c)$, since $\sigma_{BC}\sigma_{AB}=Y^{-1}$.
+2. **The large-genus algebra.** To make $\gamma(A_7)\ge25$ unconditional we need a self-contained proof that every faithful
+   $A_7$-curve with $g\ge336$ has $\operatorname{gon}\ge25$. Our Round-3 table derives it from four inputs: the birational-pair bound,
+   Farb–Wolfson's $g\le e(m/e-1)^2+(e-1)(m-1)$, the Equal-Pencil Segre Gap with Eisenbud–Harris $\pi_1$, and the dependent-third cost.
+   Can you write it as one complete proof with exact references? A simpler route for $g>529$ (Castelnuovo–Severi plus subgroup
+   structure) would also do.
+3. **$\operatorname{gon}\ge26$?** Numerically, (HH) excludes $m=25$ for classes 0, 1 if $\kappa^2=0.614\,B^*/3$, the BFGS maximum; the crude
+   $B^*/3$ does not suffice. Is there a certifiable relaxation of $\sup_{\|W\|=1}\sum_{\rm cyc}Q(w_j\wedge w_k)$ on $S^{41}$, using the isotype split
+   $Q=\sum_\sigma b_\sigma P_\sigma$? For example an SOS bound, or a bound on the $P_{10+\overline{10}}$ and $P_{15}$ mass of decomposable 2-vectors.
+   (Classes 12, 14 stay at 25: their $\lambda'\approx0.386$ is too close.)
+4. **Round 6, Q1 (the audit of `MU90.md`) and Q3 (towers)** are still open, if you have not answered them.
+
 
 # Round 6 — after reviewing your Round-5 answers
 

@@ -26,6 +26,16 @@ from orbifold import quotient_tiles, ref_elements, build_dofs, grads
 from triples_data import triples
 from a7 import cyc
 
+
+def arb_max(xs):
+    """a ball containing the maximum of any choice of points from the balls xs (Python's max() is unsound on
+    overlapping balls: it keeps the earlier ball whenever '>' is undecided)."""
+    m = None
+    for x in xs:
+        m = x if m is None else m.max(x)
+    return m
+
+
 ctx.prec = 120
 U = 2.0 ** -53          # unit roundoff (binary64, round to nearest)
 
@@ -310,7 +320,7 @@ def certify_trivial(n, tri, sigma=1.0, verbose=True, ab=None, pqr=(2, 4, 7)):
     ed = element_data(n, XA, XB, XC)
     j11_lo = arb("3.8317059702075")
     kappa2 = (arb(1) / 8 + arb(2) / (j11_lo * j11_lo)) / (n * n)
-    Ch2 = kappa2 * max(arb(e[2]) / e[3] for e in ed)
+    Ch2 = kappa2 * arb_max(arb(e[2]) / e[3] for e in ed)
     mats = elem_mats_rigorous(n, ed)
     K, Kabs, Kerr, cnt, Md, Merr, Mabs, Mcnt = assemble_rigorous(n, reps, glue, mats)
     N = K.shape[0]
@@ -370,7 +380,7 @@ def certify_tiles(reps, glue, n, pqr=(2, 4, 7), sigma_factor=0.995, sigma=None, 
     # C_h^2 = kappa^2 max_e w_e / lambda_min(A_e);  kappa^2 = (1/n)^2/8 + (sqrt2/n)^2/j11^2
     j11_lo = arb("3.8317059702075")          # j_{1,1} = 3.83170597020751231...
     kappa2 = (arb(1) / 8 + arb(2) / (j11_lo * j11_lo)) / (n * n)
-    ratio = max(arb(e[2]) / e[3] for e in ed)
+    ratio = arb_max(arb(e[2]) / e[3] for e in ed)
     Ch2 = kappa2 * ratio
     mats = elem_mats_rigorous(n, ed)
     asm = assemble_rigorous_fast if fast else assemble_rigorous

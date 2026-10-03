@@ -27,6 +27,7 @@ This file holds the live status and the working rules. To learn the mathematics,
   - **Pencils by symmetry type (§7.10, 3 October).** A pencil below 42 must have class-stabiliser kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$, by quotient gonalities for all 33 classes with $|K|\le60$ (`quotient_gonality.py`, [P] given [N] inputs).
 
 **Open, in priority order.**
+0. **Exact $3.A_7$ check.** Verify the $\mathbf 6$ (and $2.A_7$'s $V_4$) exactly against the ATLAS matrices (`3A7G1-Ar6B0`, reachable by `curl`), and redo the twisted Lefschetz multiplicity $\langle\chi(L_{60}),\chi_6\rangle=1$ in exact cyclotomic arithmetic. GPT did this on 3 October, but the run ended before pushing.
 1. **Audit** of Ch. 3, 4, 7 and §§5.4–5.5 by GPT (`QUESTIONS_FOR_GPT.md` §1).
 2. **Paper.** Typeset the chapters into one PDF.
 3. **The exact gonality**, in $[25,42]$. Every symmetric mechanism stops at 42. Corollary 7.14 leaves kernels $1$, $C_2$ and five small groups. New inputs would be:

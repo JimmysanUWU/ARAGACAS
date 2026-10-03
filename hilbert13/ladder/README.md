@@ -10,7 +10,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 |---|---|---|
 | **$25\le\operatorname{gon}(C)\le42$ and $13\le\operatorname{gon}(D)\le21$** | | |
 | — lower: $\lambda_1\ge0.34089$ with Li–Yau; classes 12, 14 directly, classes 0, 1 by harmonic Hersch | [P][C][L] | Ch. 2–3 |
-| — upper: an exact base-point-free $g^1_{42}$ on a degree-60 model in $\mathbb P^5$ | [P][X][N] | Ch. 7 |
+| — upper: the sections of a degree-60 Schur-twisted class give a pencil of degree $\le42$; that it is base-point-free of degree exactly 42 is [N] at six points | [P][X] (exactness [N]) | Ch. 7 |
 | **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve ($\ge23$ without the window computation of §4.4) | [P][C] | Ch. 4, 7 |
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: compression with connected full monodromy needs exactly degree 90 | [P][X] | Ch. 5 |

@@ -151,6 +151,18 @@ def centres_within(geo, D):
             if not (Geometry.dist(c, acb(0)) > lim):           # keep unless certainly beyond the limit
                 found[key] = (c, h)
                 queue.append(h)
+    # Separation [P]: the star of 14 triangles around an order-7 point contains the open disk of radius d72 about it
+    # (the angle at the order-2 vertex is pi/2, so the foot of the perpendicular to each outer side is that vertex).
+    # So distinct points of the orbit of 0 are >= 2 d72 apart, and at Euclidean distance >= d72 (1 - rho^2) inside the
+    # disk |z| <= rho.  That exceeds the key resolution, so the rounded keys above neither merge distinct centres nor
+    # (see certify) let a centre be matched to the wrong orbit point.
+    rho = max(abs(v[0]).upper() for v in found.values())
+    sep = geo.d72 * (1 - arb(rho) ** 2)
+    assert sep > arb("1e-5"), "key resolution not certified"
+    pts = [v[0] for v in found.values()]
+    for i in range(len(pts)):
+        for j in range(i):
+            assert Geometry.dist(pts[i], pts[j]) > geo.d72, "two keys for one centre"
     out = [v[0] for k, v in found.items() if k != (0.0, 0.0) and not (Geometry.dist(v[0], acb(0)) > D)]
     return out
 
@@ -351,7 +363,7 @@ def certify(cls, coef_file, log, nu=48, nt=32, r1="1.37", w="0.25"):
     log(f"centres within r2 + circumradius = {float(D.mid()):.4f} of 0: {len(cents)} at distances "
         f"{sorted(set(round(x, 4) for x in dists))}")
     c1, cd = geo.X(acb(0)), geo.Y2(acb(0))
-    types = []
+    types = []                       # orbit points closer than 2 d72 coincide (separation in centres_within)
     for c in cents:
         t = None
         for k in range(7):
@@ -518,4 +530,5 @@ if __name__ == "__main__":
     coef = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, f"coef_cls{cls}_M90.npz")
     nu = int(sys.argv[3]) if len(sys.argv) > 3 else 48
     nt = int(sys.argv[4]) if len(sys.argv) > 4 else 32
-    certify(cls, coef, lambda s: print(s, flush=True), nu=nu, nt=nt)
+    ok = certify(cls, coef, lambda s: print(s, flush=True), nu=nu, nt=nt)
+    sys.exit(0 if ok else 1)

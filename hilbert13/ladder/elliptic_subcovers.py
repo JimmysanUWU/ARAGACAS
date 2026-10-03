@@ -86,17 +86,27 @@ def dual_rows(S):
 def kernel_dim_mod(M, p):
     Mp = flint.nmod_mat([[int(x) % p for x in r] for r in M], p); return Mp.ncols() - Mp.rank()
 def short_vectors_exist(Gram, bound):
-    """is there y != 0 in Z^d with y^T Gram y <= bound?  (Gram LLL-reduced, positive definite; Fincke-Pohst)"""
-    d = len(Gram); R = np.linalg.cholesky(np.array(Gram, float)).T; y = np.zeros(d, int)
-    def rec(i, part):
+    """is there y != 0 in Z^d with y^T Gram y <= bound?  Exact Fincke-Pohst: Gram = U^T D U with U unit upper
+    triangular over Q, so y^T Gram y = sum_i D_i (y_i + sum_{j>i} U_ij y_j)^2, and every branch is pruned by an exact test."""
+    d = len(Gram); D = [Fraction(0)] * d; Uu = [[Fraction(int(i == j)) for j in range(d)] for i in range(d)]
+    for i in range(d):
+        D[i] = Fraction(Gram[i][i]) - sum(D[k] * Uu[k][i] ** 2 for k in range(i))
+        assert D[i] > 0, "Gram not positive definite"
+        for j in range(i + 1, d):
+            Uu[i][j] = (Fraction(Gram[i][j]) - sum(D[k] * Uu[k][i] * Uu[k][j] for k in range(i))) / D[i]
+    y = [0] * d
+    def rec(i, rem):
         if i < 0:
-            return any(y) and int(y @ np.array(Gram, dtype=object) @ y) <= bound
-        c = -sum(R[i, j] * y[j] for j in range(i + 1, d)) / R[i, i]; r = math.sqrt(max(bound - part, 0)) / R[i, i]
-        for yi in range(math.ceil(c - r - 1e-9), math.floor(c + r + 1e-9) + 1):
-            y[i] = yi; t = R[i, i] * yi + sum(R[i, j] * y[j] for j in range(i + 1, d))
-            if part + t * t <= bound + 1e-6 and rec(i - 1, part + t * t): return True
+            return any(y)
+        c = -sum(Uu[i][j] * y[j] for j in range(i + 1, d))       # need D_i (y_i - c)^2 <= rem
+        s = math.isqrt(math.ceil(rem / D[i])) + 1                 # |y_i - c| <= s
+        for yi in range(math.floor(c) - s, math.ceil(c) + s + 1):
+            t = D[i] * (yi - c) ** 2
+            if t <= rem:
+                y[i] = yi
+                if rec(i - 1, rem - t): return True
         y[i] = 0; return False
-    return rec(d - 1, 0.0)
+    return rec(d - 1, Fraction(bound))
 
 for cls in (0, 1, 12, 14):
     a, b, c = triples[cls]

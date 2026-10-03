@@ -43,7 +43,7 @@ Four mechanisms do all the work. Each chapter opens with a paragraph headed **Id
 
 **Schur obstructions** (Ch. 5, 7).
 - An invariant line bundle need not carry a $G$-action. The obstruction lives in $H^2(A_7,\mathbb C^*)=\mathbb Z/6$. On a $(2,4,7)$ curve, invariant classes have degrees $15\mathbb Z$ and linearised classes $90\mathbb Z$.
-- **Upper bound 42.** The first twisted class with sections has degree 60. It embeds $C$ in $\mathbb P^5$, and an involution's $(-1)$-eigenspace gives a pencil of degree 42.
+- **Upper bound 42.** The first twisted class with sections has degree 60. Its six sections map $C$ birationally onto a degree-60 curve in $\mathbb P^5$ (an embedding, numerically). An involution's $(-1)$-eigenspace gives a pencil of degree $\le42$ [P][X], exactly 42 numerically.
 - **Pricing symmetry (§7.10).** A pencil's class stabiliser acts on the pencil through $PGL_2$, and the kernel $N$ of that action costs degree $|N|\operatorname{gon}(C/N)$. Gonalities of quotients come from differentials on $C/K$, syzygies, and Castelnuovo–Severi through the subgroup lattice. They put the cost at $\ge42$ unless $N$ is trivial or one of six small groups.
 - **Accessories.** Over a linear base, a compression is a single linearised moving series, so accessory degrees are degrees of linearised series induced from subgroups:
   - $a=15\cdot4=60$, through the Klein quartic of $L_2(7)$;
@@ -86,7 +86,7 @@ Chapter 5 can be read straight after Chapter 1. The Lean project in [`hilbert13/
 | $D_2,D_4,D_7$ | the reduced fibres over the branch points, of degrees $1260,630,360$ |
 | $B$, $T$ | $B=2D_7-D_4$ (degree 90); $T=D_2-2D_4$, a 2-torsion class. $B+T$ is the linearised degree-90 series with $h^0\ge10$ |
 | invariant vs linearised | a class fixed by $G$, versus one carrying a $G$-action. The obstruction (Mumford class) lies in $H^2(A_7,\mathbb C^*)=\mathbb Z/6$ |
-| $L_{60}$, $\varphi$, $X_3$ | the degree-60 invariant class, with Mumford class of order 3; its embedding $\varphi:C\hookrightarrow\mathbb P^5$; the Laza–Zheng cubic fourfold containing $\varphi(C)$ |
+| $L_{60}$, $\varphi$, $X_3$ | the degree-60 invariant class, with Mumford class of order 3; the map $\varphi:C\to\mathbb P^5$ of its sections (birational [P], an embedding [N]); the Laza–Zheng cubic fourfold containing $\varphi(C)$ |
 | $E_\pm(\tau)$ | the eigenspaces of a lift $\hat\tau$ on the $\mathbf 6$. $\lvert E_-\rvert$ is the $\tau$-pencil of degree 42 |
 | $\gamma(G)$, $\mu(G)$, $a(G)$, $\tilde\mu(C)$ | least gonality of a faithful $G$-curve; least degree of a linearised moving bundle; least accessory degree; least degree of an invariant class with $h^0\ge2$ |
 | $\mathrm{Am}_G(X)$, $\mu_A(C)$, $c^{\rm st}_X(C)$ | the Amitsur subgroup of a base; the least degree of a moving invariant class with obstruction in $A$; the least stable compression degree over $X$. They satisfy $c^{\rm st}_X=\mu_{\mathrm{Am}(X)}$ (§5.5) |
@@ -147,6 +147,15 @@ python3 cover.py                 # 1 s smoke test
 - the Lean project builds with no `sorry`.
 
 Since then only `twisted_rr.py` has changed (it adds the $\mathrm{Sym}^3\mathbf 6$ decomposition), and its output was regenerated.
+
+**Certificate repairs (3 October, from GPT's audit).** GPT's audit found three soundness gaps, all now repaired.
+- `certify.py`, `certify_th.py`: $C_h^2$ took Python's `max` over arb balls, which can return a ball that misses the maximum when balls overlap. It now uses `arb_max`. On all 24 meshes and signatures of the saved runs the bound is bit-for-bit unchanged.
+- `elliptic_subcovers.py`: Fincke–Pohst pruned on a floating-point Cholesky factor. It now uses an exact rational $LDL^\top$, and the output is identical.
+- `hh_certify.py`:
+  - identifying centres by rounding is now certified by a separation bound: distinct orbit points of an order-7 point are $\ge2d_{72}$ apart;
+  - the exit status now reports the verdict.
+
+Still open from the same audit: an exact check of the $\mathbf 6$ of $3.A_7$ against the ATLAS matrices. The character sums behind $H^0(L_{60})\supseteq\mathbf 6$ are floating point, checked for integrality.
 
 ## 7. Pitfalls
 

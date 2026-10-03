@@ -8,7 +8,7 @@ Status and open problems. The mathematics: [`GUIDE.md`](GUIDE.md).
 |---|---|
 | 1, §6.1 | $g(C)=136$, $g(D)=64$; $\operatorname{gon}(D)\ge9$, and $\ge10$ by algebra |
 | 2–4 | $\operatorname{gon}(C)\ge25$ on all four classes, so $\operatorname{gon}(C/\tau)\ge13$; $\gamma(A_7)\ge25$; algebraically, $g\ge266\Rightarrow\operatorname{gon}\ge25$ (the three-pencil theorem, §4.5) |
-| 5 | $a(A_7)=60$ (sharp), $\mu(A_7)=90$; over a general base the threshold is set by its Amitsur subgroup |
+| 5 | $a(A_7)=60$ (sharp), $\mu(A_7)=90$; for a fixed target, the stable threshold over a smooth projective generically free base with the global Albanese vanishing hypothesis is set by its Amitsur subgroup |
 | 7 | the twisted Picard group. The degree-60 six-section map is a closed embedding, and the displayed pencil has degree exactly 42 (quotient degree 21), all [P][X]. No quadrics and Klein contact divisors are exact. The quadratic systems are Jacobian/apolar ideals (§7.12). The proposed quartic ideal and Hessian identification remain [N]. Pure 15/21 elliptic subcovers $\ge60$. A pencil below 42 has kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$, conditional on the quotient rank inputs |
 
 ## Open, in priority order

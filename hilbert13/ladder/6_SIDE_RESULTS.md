@@ -48,11 +48,11 @@ Li–Yau holds for every conformal metric. So one can try to maximise $\lambda_1
 2. The Hopf differential is an invariant holomorphic quadratic differential, and a triangle orbifold has none. So $\Phi$ is a conformal minimal immersion, of curvature $-2/\lambda_1<0$.
 3. Bryant (1985) shows that no such immersion exists in $S^n$. $\square$
 
-**Proposition 6.3 (ceiling).** Let $\bar F$ be the $G$-average of $\sum\varphi_i^2$, normalised to mean 1. Then $\lambda_1\mathrm{Area}\le\lambda_1A/\min\bar F$ for every invariant conformal metric. (Each $\varphi\in E_1$ is orthogonal to the constants by Schur; take the mediant of Rayleigh quotients.)
+**Proposition 6.3 (ceiling).** Assume $E_1^G=0$. Let $\bar F$ be the $G$-average of $\sum\varphi_i^2$, normalised to mean 1. Then $\lambda_1\mathrm{Area}\le\lambda_1A/\min\bar F$ for every invariant conformal metric. (Each $\varphi\in E_1$ is orthogonal to the constants by Schur; take the mediant of Rayleigh quotients.)
 
 **Numerics** (`conformal.py`, in git history at b148338). $\bar F\in[0.998,1.001]$, so the gain is $\le0.2\%$ for classes 0, 1 and $\le0.6\%$ for 12, 14. Classes 0, 1 need $+2.7\%$.
 
-GPT adds that the gain is strict, and that an equivariant maximiser exists, possibly conical (Vinokurov; `gpt/README.md` §2.4). Neither changes the ceiling. So the route is closed numerically; the ceiling itself is not certified. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
+GPT adds that the gain is strict, and that an equivariant maximiser exists, possibly conical (Vinokurov; `gpt/README.md` §2.4). Neither changes the ceiling. So the route is closed numerically; the ceiling itself is not certified. Near constancy alone does not prove that $\sum\varphi_i^2$ has finite spectral support. The degree argument of Chapter 3 supplies the certified improvement.
 
 ## 6.4 Negative tests
 

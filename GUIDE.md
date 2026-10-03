@@ -12,7 +12,7 @@ Let $C$ be a $(2,4,7)$ $A_7$-curve (genus 136, the minimum) and $\tau$ an involu
 1. $25\le\operatorname{gon}(C)\le42$ and $13\le\operatorname{gon}(C/\tau)\le21$.
 2. $25\le\gamma(A_7)\le42$, where $\gamma$ is the least gonality of a faithful $A_7$-curve.
 3. $a(A_7)=60$, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (the published bound was 6).
-4. $\mu(A_7)=90$ when the full monodromy must stay connected. Over a general base the threshold is 60 or 90, by the base's Amitsur subgroup.
+4. $\mu(A_7)=90$ when the full monodromy must stay connected. For a fixed $(2,4,7)$ target and a smooth projective generically free base with $\mathrm{Hom}_{A_7}(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$, the stable threshold is 60 or 90 according to the base's Amitsur subgroup.
 
 ## 2. The mathematics in one page
 
@@ -98,7 +98,7 @@ Ch.3 harmonic Hersch → gon ≥ 25              │
 
 Every statement carries a tag:
 - **[P]** paper proof in the chapter;
-- **[X]** exact finite computation (or floating-point character sums checked for integrality, where the script says so);
+- **[X]** exact integer, rational, finite-field or algebraic-number computation; floating-point character sums rounded to integers retain [N] status unless independently replaced by an exact check;
 - **[C]** computer-assisted proof (ball arithmetic, or floating point with a-priori error bounds);
 - **[L]** checked in Lean;
 - **[N]** numerical only;

@@ -10,7 +10,7 @@
 Accessories over bases with a fixed point produce linearised bundles (Theorem 5.2). Over other bases, the twisted classes that can occur are exactly those allowed by the Amitsur subgroup of the base (Theorem 5.15); Example 5.12 realises $L_{60}$ over a rational base. The geometry of $C$ lives in the twisted classes.
 
 **Main results** ($C$ a $(2,4,7)$ curve, $\tau$ an involution).
-1. Invariant classes have degrees $15\mathbb Z$; linearised ones $90\mathbb Z$ (Cor. 7.2). None of degree $<60$ has sections (Thm 7.4).
+1. Invariant classes have degrees $15\mathbb Z$; linearised ones $90\mathbb Z$ (Cor. 7.2). Apart from the trivial bundle, none of degree $<60$ has sections (Thm 7.4; its Clifford step depends on the certified lower bound).
 2. A degree-60 class of order 3 gives a $3.A_7$-equivariant closed embedding $\varphi:C\to\mathbb P^5$ [P][X]:
    - its image lies on the Laza–Zheng $A_7$-cubic fourfold;
    - it lies on no quadric [P][X] (§7.12); being cut out by the cubic and 15 quartics remains [N] (Prop. 7.8).
@@ -19,7 +19,7 @@ Accessories over bases with a fixed point produce linearised bundles (Theorem 5.
 4. Each Klein subgroup $L_2(7)$ cuts $\varphi(C)$ by a quadric in exactly $5\times$ its 24 points of order 7 (Prop. 7.9).
    - That quadric is the Plücker quadric of the Weil representation of $SL_2(7)$.
    - The 24 points are the Veronese images of the flexes of Klein's quartic.
-   - $6L_{60}\sim D_7=\varphi(C)\cap\mathrm{Hess}(X_3)$.
+   - $6L_{60}\sim D_7$ exactly; identifying the cutting sextic with $\mathrm{Hess}(X_3)$ remains [N].
 5. Elliptic subcovers whose $H^1$ is a pure 15- or 21-isotypic Hodge plane have degree $\ge60$ (Prop. 7.10).
 6. **Pencils by symmetry type.** The kernel $N$ of a gonal pencil's class stabiliser on the pencil costs degree $|N|\operatorname{gon}(C/N)$. This cost is $\ge42$ unless $N$ is trivial or one of six small groups (Prop. 7.11, Thm 7.13, Cor. 7.14).
 
@@ -82,7 +82,7 @@ $$\mathrm{tr}(\hat g\mid H^0-H^1)=\sum_{p\in\mathrm{Fix}(g)}\frac{\lambda(\hat g
 
 **Lemma 7.3 (local-character base locus) [P].** Let $f$ be an invariant of degree $k$ for the group acting on $H^0(L)$. Then $f|_C\in H^0(L^k)^G$, and its order $o_i$ at a branch-$i$ point satisfies $\lambda_i^k=a_i^{o_i}$. If $\sum_io_i\cdot2520/e_i$ (with $0\le o_i<e_i$) exceeds $k\deg L$, then $f|_C\equiv0$. This sharpens Lemma 5.9.
 
-**Theorem 7.4 [P][X].** An invariant class of degree $<60$ other than $\mathcal O$ has $h^0=0$.
+**Theorem 7.4 [P][X][C].** An invariant class of degree $<60$ other than $\mathcal O$ has $h^0=0$.
 
 *Proof.* $\operatorname{gon}\ge25$ (Chapters 2–3) gives $\mathrm{Cliff}\ge22$, since $\operatorname{gon}\le\mathrm{Cliff}+3$ (Coppens–Martens). $H^0$ is a sum of faithful irreducibles of the twist.
 - **Degree 0 ($T$):** no sections.

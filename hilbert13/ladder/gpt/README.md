@@ -1,5 +1,7 @@
 # GPT's documents: a digest
 
+**4 October: normalization defects [P][X].** [`A7_Normalization_Defects.md`](A7_Normalization_Defects.md) proves that the degree-60 morphism is a closed embedding on all four classes and that the displayed involution pencil has moving degree exactly 42 (quotient degree 21). The arithmetic-genus defect is at most 270, whereas every ramified orbit costs at least 360; exact order-7 eigenline stabilizers eliminate the remaining collision orbit. `verify_normalization.py` and `normalization_check.txt` give the exact finite check. Both numerical gaps in Proposition 7.7 are removed, independently of the lower gonality bound. The equations of Proposition 7.8 and exact gonality remain separate questions.
+
 GPT has supplied six documents, all in this folder, listed here in the order they were written. This page states what each one proves, in its sharpest form, and where that result now lives.
 
 **Tags.**

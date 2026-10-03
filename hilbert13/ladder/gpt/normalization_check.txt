@@ -1,0 +1,9 @@
+Castelnuovo pi(60,5) = 406; normalization defect <= 270
+Orbit sizes (inertia 1,2,4,7): [2520, 1260, 630, 360]
+Any nonimmersed orbit costs >= 360; any collision orbit outside D7 costs >= 315
+Canonical order-7 lift: characteristic polynomial = Phi_7
+p=43, omega=36, dual=False: six eigenline stabilizers [7, 7, 7, 7, 7, 7], each exactly C7
+p=43, omega=36, dual=True: six eigenline stabilizers [7, 7, 7, 7, 7, 7], each exactly C7
+p=43, omega=6, dual=False: six eigenline stabilizers [7, 7, 7, 7, 7, 7], each exactly C7
+p=43, omega=6, dual=True: six eigenline stabilizers [7, 7, 7, 7, 7, 7], each exactly C7
+PASS: exact hypotheses for closed immersion and the degree-42 involution pencil

@@ -1,0 +1,22 @@
+Klein subgroup 0: genuine irreducible six; invariant quadrics = 1
+  branch-fibre orbit sizes: [[84, 84, 84, 168, 168, 168, 168, 168, 168], [42, 84, 168, 168, 168], [24, 168, 168]]; unique orbit of size 24
+Klein subgroup 1: genuine irreducible six; invariant quadrics = 1
+  branch-fibre orbit sizes: [[84, 84, 84, 168, 168, 168, 168, 168, 168], [42, 84, 168, 168, 168], [24, 168, 168]]; unique orbit of size 24
+Klein degree-120 divisor: unique orbit combination = five times the 24-orbit
+p=43, omega=6, dual=False: projector ranks 6 + 15
+  six quadratic ideal in degree 7: rank 792/792
+  fifteen quadratic ideal in degree 3: rank 55/56
+  fifteen quadratic ideal in degree 4: rank 126/126
+p=43, omega=6, dual=True: projector ranks 6 + 15
+  six quadratic ideal in degree 7: rank 792/792
+  fifteen quadratic ideal in degree 3: rank 55/56
+  fifteen quadratic ideal in degree 4: rank 126/126
+p=43, omega=36, dual=False: projector ranks 6 + 15
+  six quadratic ideal in degree 7: rank 792/792
+  fifteen quadratic ideal in degree 3: rank 55/56
+  fifteen quadratic ideal in degree 4: rank 126/126
+p=43, omega=36, dual=True: projector ranks 6 + 15
+  six quadratic ideal in degree 7: rank 792/792
+  fifteen quadratic ideal in degree 3: rank 55/56
+  fifteen quadratic ideal in degree 4: rank 126/126
+PASS: both quadratic systems have empty projective base locus; the fifteen ideal has Hilbert function (1,6,6,1)

@@ -1,0 +1,90 @@
+(1a) 2.A7 < SU(4): spin lifts of all 2520 elements, 2-cocycle built (4s)
+(1b) 3.A7: |<x,y>| = 7560, perfect; relator lift (x^3,(xyxy^-1)^2,(xy^-2xy^2)^2) = (1,z,1) (13s)
+(1c) 6.A7: 40 classes; irreducible degrees by central character eps = (2-part, 3-part):
+      eps (0, 0): [1, 6, 10, 10, 14, 14, 15, 21, 35]
+      eps (0, 1): [6, 15, 15, 21, 21, 24, 24]
+      eps (0, 2): [6, 15, 15, 21, 21, 24, 24]
+      eps (1, 0): [4, 4, 14, 14, 20, 20, 36]
+      eps (1, 1): [6, 6, 24, 24, 36]
+      eps (1, 2): [6, 6, 24, 24, 36]
+
+(4) validation with eps = 1 (equivariant_rr.py):
+    chi(B) = [(10, -1), (35, -1)]
+    chi(B+T) = [(6, -1), (10, 1), (14, -1), (14, -1), (21, -1)]
+    chi(K) = [(1, -1), (10, 1), (10, 2), (15, 1), (21, 1), (35, 2)]
+
+(2)-(3) invariant classes of degree <= 270 (one per local datum; 56 local data per twist):
+    triple  0 orient +1 eps (1, 1): degrees = [15] mod 90; D<=270 (H^0 forced): [(15, {}), (15, {}), (105, {}), (105, {}), (195, {24: 1, 36: 1}), (195, {24: 1, 36: 1})]
+    triple  0 orient +1 eps (0, 1): degrees = [60] mod 90; D<=270 (H^0 forced): [(60, {6: 1}), (60, {}), (150, {15: 1}), (150, {15: 1, 21: 1}), (240, {6: 1, 15: 2, 21: 1, 24: 1}), (240, {15: 1, 21: 1, 24: 1})]
+    triple  0 orient +1 eps (1, 0): degrees = [45] mod 90; D<=270 (H^0 forced): [(45, {}), (45, {}), (135, {}), (135, {}), (225, {14: 1, 20: 1, 36: 1}), (225, {14: 1, 20: 1, 36: 1})]
+    triple  0 orient +1 eps (0, 2): degrees = [30] mod 90; D<=270 (H^0 forced): [(30, {}), (30, {}), (120, {}), (120, {6: 1, 15: 1}), (210, {15: 1, 21: 2, 24: 1}), (210, {15: 1, 21: 1, 24: 1})]
+    triple  0 orient +1 eps (1, 2): degrees = [75] mod 90; D<=270 (H^0 forced): [(75, {}), (75, {}), (165, {6: 1, 24: 1}), (165, {6: 1, 24: 1}), (255, {24: 1, 36: 2}), (255, {24: 1, 36: 2})]
+    triple  0 orient -1 eps (1, 1): degrees = [75] mod 90; D<=270 (H^0 forced): [(75, {}), (75, {}), (165, {6: 1, 24: 1}), (165, {6: 1, 24: 1}), (255, {24: 1, 36: 2}), (255, {24: 1, 36: 2})]
+    triple  0 orient -1 eps (0, 1): degrees = [30] mod 90; D<=270 (H^0 forced): [(30, {}), (30, {}), (120, {6: 1, 15: 1}), (120, {}), (210, {15: 1, 21: 1, 24: 1}), (210, {15: 1, 21: 2, 24: 1})]
+    triple  0 orient -1 eps (1, 0): degrees = [45] mod 90; D<=270 (H^0 forced): [(45, {}), (45, {}), (135, {}), (135, {}), (225, {14: 1, 20: 1, 36: 1}), (225, {14: 1, 20: 1, 36: 1})]
+    triple  0 orient -1 eps (0, 2): degrees = [60] mod 90; D<=270 (H^0 forced): [(60, {}), (60, {6: 1}), (150, {15: 1, 21: 1}), (150, {15: 1}), (240, {15: 1, 21: 1, 24: 1}), (240, {6: 1, 15: 2, 21: 1, 24: 1})]
+    triple  0 orient -1 eps (1, 2): degrees = [15] mod 90; D<=270 (H^0 forced): [(15, {}), (15, {}), (105, {}), (105, {}), (195, {24: 1, 36: 1}), (195, {24: 1, 36: 1})]
+    triple 12 orient +1 eps (1, 1): degrees = [15] mod 90; D<=270 (H^0 forced): [(15, {}), (15, {}), (105, {}), (105, {}), (195, {24: 1, 36: 1}), (195, {24: 1, 36: 1})]
+    triple 12 orient +1 eps (0, 1): degrees = [60] mod 90; D<=270 (H^0 forced): [(60, {6: 1}), (60, {}), (150, {15: 1}), (150, {15: 1, 21: 1}), (240, {6: 1, 15: 2, 21: 1, 24: 1}), (240, {15: 1, 21: 1, 24: 1})]
+    triple 12 orient +1 eps (1, 0): degrees = [45] mod 90; D<=270 (H^0 forced): [(45, {}), (45, {}), (135, {}), (135, {}), (225, {14: 1, 20: 1, 36: 1}), (225, {14: 1, 20: 1, 36: 1})]
+    triple 12 orient +1 eps (0, 2): degrees = [30] mod 90; D<=270 (H^0 forced): [(30, {}), (30, {}), (120, {}), (120, {6: 1, 15: 1}), (210, {15: 1, 21: 2, 24: 1}), (210, {15: 1, 21: 1, 24: 1})]
+    triple 12 orient +1 eps (1, 2): degrees = [75] mod 90; D<=270 (H^0 forced): [(75, {}), (75, {}), (165, {6: 1, 24: 1}), (165, {6: 1, 24: 1}), (255, {24: 1, 36: 2}), (255, {24: 1, 36: 2})]
+    triple 12 orient -1 eps (1, 1): degrees = [75] mod 90; D<=270 (H^0 forced): [(75, {}), (75, {}), (165, {6: 1, 24: 1}), (165, {6: 1, 24: 1}), (255, {24: 1, 36: 2}), (255, {24: 1, 36: 2})]
+    triple 12 orient -1 eps (0, 1): degrees = [30] mod 90; D<=270 (H^0 forced): [(30, {}), (30, {}), (120, {6: 1, 15: 1}), (120, {}), (210, {15: 1, 21: 1, 24: 1}), (210, {15: 1, 21: 2, 24: 1})]
+    triple 12 orient -1 eps (1, 0): degrees = [45] mod 90; D<=270 (H^0 forced): [(45, {}), (45, {}), (135, {}), (135, {}), (225, {14: 1, 20: 1, 36: 1}), (225, {14: 1, 20: 1, 36: 1})]
+    triple 12 orient -1 eps (0, 2): degrees = [60] mod 90; D<=270 (H^0 forced): [(60, {}), (60, {6: 1}), (150, {15: 1, 21: 1}), (150, {15: 1}), (240, {15: 1, 21: 1, 24: 1}), (240, {6: 1, 15: 2, 21: 1, 24: 1})]
+    triple 12 orient -1 eps (1, 2): degrees = [15] mod 90; D<=270 (H^0 forced): [(15, {}), (15, {}), (105, {}), (105, {}), (195, {24: 1, 36: 1}), (195, {24: 1, 36: 1})]
+    (20s)
+
+(5) degree-45 spin classes: no 2.A7-map to P^3 (Theorem 7.4)
+    Molien series of 2.A7 on V4: {k: dim} = {0: 1, 8: 1, 12: 1, 14: 1, 16: 1, 18: 1, 20: 2, 22: 1, 24: 3, 26: 2, 28: 3, 30: 3, 32: 5, 34: 3, 36: 6, 38: 5, 40: 7}
+    on an involution eigenline |f14|/|f14(gen)| = 1.0e-20, |f18|/|f18(gen)| = 1.1e-20  (i^14 = i^18 = -1: forced zero)
+    f14, f18 restricted to a random line: min distance between their roots = 0.080  (no common factor)
+    orient +1 local datum (3, 3, 27): (k, orders mod e, min invariant divisor, 45k) = [(14, [1, 3, 0], 3150, 630), (18, [1, 1, 4], 3330, 810)] -> f14 = f18 = 0 on the image
+    orient +1 local datum (9, 15, 27): (k, orders mod e, min invariant divisor, 45k) = [(14, [1, 3, 0], 3150, 630), (18, [1, 1, 4], 3330, 810)] -> f14 = f18 = 0 on the image
+    orient -1 local datum (3, 9, 15): (k, orders mod e, min invariant divisor, 45k) = [(14, [1, 3, 0], 3150, 630), (18, [1, 1, 4], 3330, 810)] -> f14 = f18 = 0 on the image
+    orient -1 local datum (9, 21, 15): (k, orders mod e, min invariant divisor, 45k) = [(14, [1, 3, 0], 3150, 630), (18, [1, 1, 4], 3330, 810)] -> f14 = f18 = 0 on the image
+    => image in Z(f14) n Z(f18) of degree 252, which contains the 210 involution lines: 45 > 252 - 210 = 42.
+
+(6) the degree-60 class with 6 in H^0 (Theorem 7.5)
+    triple  0 orient +1 eps (0, 1): chi(L60) = [(6, 1), (15, -1), (21, -2), (24, -1)]; involution lift on the 6: +1 x4, -1 x2; its 18 fixed points by (branch e, eigenvalue): {(2, 1): 12, (4, 1): 6}; vanishing sequences [[0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 5]], Plucker 4410 - 1890 = 2520
+    triple  0 orient -1 eps (0, 2): chi(L60) = [(6, 1), (15, -1), (21, -2), (24, -1)]; involution lift on the 6: +1 x4, -1 x2; its 18 fixed points by (branch e, eigenvalue): {(2, 1): 12, (4, 1): 6}; vanishing sequences [[0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 5]], Plucker 4410 - 1890 = 2520
+    triple 12 orient +1 eps (0, 1): chi(L60) = [(6, 1), (15, -1), (21, -2), (24, -1)]; involution lift on the 6: +1 x4, -1 x2; its 18 fixed points by (branch e, eigenvalue): {(2, 1): 12, (4, 1): 6}; vanishing sequences [[0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 5]], Plucker 4410 - 1890 = 2520
+    triple 12 orient -1 eps (0, 2): chi(L60) = [(6, 1), (15, -1), (21, -2), (24, -1)]; involution lift on the 6: +1 x4, -1 x2; its 18 fixed points by (branch e, eigenvalue): {(2, 1): 12, (4, 1): 6}; vanishing sequences [[0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 6], [0, 1, 2, 3, 4, 5]], Plucker 4410 - 1890 = 2520
+    => all 18 fixed points of tau lie in P(E_+) = P^3; the pencil P(E_-) has them as base points:
+       gon(C) <= 60 - 18 = 42, and the pencil is tau-invariant, so gon(C/tau) <= 21.
+
+(7) Lemma 7.3 for the linearised degree-90 classes and the power sums p_k of the 6 (k = 2..7):
+    B: p2: min 2700 vs 180 -> 0; p3: min 2790 vs 270 -> 0; p4: min 360 vs 360 -> allowed; p5: min 2970 vs 450 -> 0; p6: min 3060 vs 540 -> 0; p7: min 630 vs 630 -> allowed
+    B+T: p2: min 2700 vs 180 -> 0; p3: min 5310 vs 270 -> 0; p4: min 360 vs 360 -> allowed; p5: min 2970 vs 450 -> 0; p6: min 3060 vs 540 -> 0; p7: min 3150 vs 630 -> 0
+
+(8) scan over all classes with forced sections, degree <= 270 (triple 0): best pencil bounds
+    pencil degree <=  42 from the degree-60 class, twist (0, 1), orientation +1: tau-eigenspace -1+0j: dim 2, base 18
+    pencil degree <=  42 from the degree-60 class, twist (0, 2), orientation -1: tau-eigenspace -1+0j: dim 2, base 18
+    pencil degree <=  70 from the degree-90 class, twist (0, 0), orientation +1: tau-eigenspace 1+0j: dim 4, base 18
+    pencil degree <=  70 from the degree-90 class, twist (0, 0), orientation -1: tau-eigenspace 1+0j: dim 4, base 18
+    pencil degree <=  96 from the degree-120 class, twist (0, 2), orientation +1: tau-eigenspace -1+0j: dim 8, base 18
+    pencil degree <=  96 from the degree-120 class, twist (0, 1), orientation -1: tau-eigenspace -1+0j: dim 8, base 18
+
+(9) invariants of 3.A7 on its 6 and their restrictions to the degree-60 model (Lemma 7.3)
+    Hilbert series of C[6]^(3.A7): {0: 1, 3: 1, 6: 3, 9: 5, 12: 11, 15: 18, 18: 33, 21: 53, 24: 86, 27: 130, 30: 197}
+    degree  3 (  1 invariants): least invariant divisor 2700 vs  180 -> all vanish on the model
+    degree  6 (  3 invariants): least invariant divisor  360 vs  360 -> restrictions span <= 1 dim
+    degree  9 (  5 invariants): least invariant divisor 3060 vs  540 -> all vanish on the model
+    degree 12 ( 11 invariants): least invariant divisor  720 vs  720 -> restrictions span <= 1 dim
+    degree 15 ( 18 invariants): least invariant divisor 3420 vs  900 -> all vanish on the model
+    degree 18 ( 33 invariants): least invariant divisor 1080 vs 1080 -> restrictions span <= 1 dim
+    degree 21 ( 53 invariants): least invariant divisor 1260 vs 1260 -> restrictions span <= 1 dim
+    degree 24 ( 86 invariants): least invariant divisor 1440 vs 1440 -> restrictions span <= 1 dim
+    degree 27 (130 invariants): least invariant divisor 1620 vs 1620 -> restrictions span <= 1 dim
+    degree 30 (197 invariants): least invariant divisor 1800 vs 1800 -> restrictions span <= 1 dim
+
+(10) explicit 6 of 3.A7 (induced from S5 x Z3) and its invariant cubic in 7-eigencoordinates
+    invariant cubics: null space of dimension 1
+    F = x1x2x4 + b x3x5x6 + g (x1^2x5 + x2^2x3 + x4^2x6) + d (x1x3^2 + x2x6^2 + x4x5^2)
+    scale-free data: g^3/b = -0.567376866543  [(23 - 7 sqrt21)/16 = -0.567376866543]
+                     d^3/b^2 = 3.442376866543  [(23 + 7 sqrt21)/16 = 3.442376866543]
+                     g d/b = 0.625000000000+1.082531754731j  [(5/4) exp(-i pi/3) = 0.625000000000-1.082531754731j]
+    Sym^3 6 = 1x1 + 1x6 + 1x14 + 1x14 + 1x21  (the 14s are 14a and 14b: multiplicity-free, so X3 is the only cubic iff 6, 14a, 14b, 21 restrict injectively)
+
+done (29s)

@@ -1,0 +1,57 @@
+{
+  "baseline": "5a4fd13622239afffc236ff923dcb48a25b8afda",
+  "embedding_checkpoint": "0bc0bfb8aeba39eca66e73a87cb9fccead96dc8b",
+  "date": "2026-10-04",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "sympy": "1.14.0"
+  },
+  "checks": [
+    {
+      "command": "python3 gpt/verify_normalization.py",
+      "exit_code": 0,
+      "scope": "24 exact order-7 eigenline stabilizers; normalization-defect arithmetic"
+    },
+    {
+      "command": "python3 audit_exact.py",
+      "exit_code": 0,
+      "scope": "exact ATLAS matrices, characters, Molien and Lefschetz inputs"
+    },
+    {
+      "command": "python3 gpt/verify_quadrics.py",
+      "exit_code": 0,
+      "scope": "four exact modular projector/multiplication checks; two exact Klein restrictions and branch orbit calculations"
+    },
+    {
+      "command": "python3 verify_accessory60.py",
+      "exit_code": 0,
+      "scope": "minimum faithful genus and existing accessory arithmetic; random subgroup sanity test is supplementary"
+    }
+  ],
+  "sha256": {
+    "hilbert13/ladder/a7.py": "61414b231cb3e944581f3e1be6631c100a58a504e00764ea0844e799c39ce473",
+    "hilbert13/ladder/triples_data.py": "1880f1a6ce9e7b119c3680ccbb6ae114f27e63036af5eb5b54d83ce7e26c0bf4",
+    "hilbert13/ladder/audit_exact.py": "905fc9f0f091b47cb076c16c7c35911d6643cb15ecaea5649d033b974277a69b",
+    "hilbert13/ladder/verify_accessory60.py": "0b4162ba0d0cdeb221c9ed3b862a210d8580ae69354e8ee76bada10f95f3b0ec",
+    "hilbert13/ladder/signatures_spectrum.py": "e0c5ec8ef45b9ac9b0ad9e30ea8ccab542b6c639aa0960583ad9b30ba9aec3e6",
+    "hilbert13/ladder/gpt/verify_normalization.py": "5e6a609bc4140546f5d0b69aca09ba0cd2f5be0b46d12b4cd460b4ad0462a5c0",
+    "hilbert13/ladder/gpt/verify_quadrics.py": "77aec61f4141ef054eec66cc6a518291ee390466b11bae76831e30773d0b8df3",
+    "hilbert13/ladder/gpt/A7_Normalization_Defects.md": "f165b9807b3393a00c24ff8034fdee951fb1cb1de061657246ccff3dbd758675",
+    "hilbert13/ladder/gpt/A7_Quadratic_Systems.md": "914c9eebc239ee82568c326ddb9572c8ad6bf469bed160fc45ce0270d3a1549b",
+    "hilbert13/ladder/gpt/normalization_check.txt": "74dc5343398b66812cb0d3dfadb608cbef4a02166103f5c00f3e962fdbb07c00",
+    "hilbert13/ladder/gpt/normalization_inputs_check.txt": "614b355d0cbdc1f65ebfd63dabd908f63fe03bd71d56122d97f51d16e94d3613",
+    "hilbert13/ladder/gpt/quadrics_check.txt": "555949ab63670fc131cae716b3d43895a723372ac415ee705044a6aac4314e75",
+    "hilbert13/ladder/gpt/faithful_genus_inputs_check.txt": "97a6655e3a41510e13810cf26010715c59105c3ba05d8999cf1434890a3cfa30"
+  },
+  "unresolved": [
+    "exact gonality",
+    "full branch vanishing sequences",
+    "cubic-and-quartic ideal and higher restriction ranks",
+    "projective normality",
+    "Hessian identification",
+    "quotient Koszul rank certification",
+    "remaining analytic and algebraic audit questions",
+    "resolvent degree and tower correspondences"
+  ]
+}

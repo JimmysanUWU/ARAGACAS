@@ -1,0 +1,10 @@
+1. G6 on the 4-point line: 2 double zeros; |grad G6| there (relative): ['7e-10', '8e-10']
+2. the system has a branch through p along its tangent: 87 points by continuation (residual <= 2e-13), Jacobian ranks {4} (4 = curve)
+3. degree 2: 21 forms, rank 21 on phi(C) [h^0(kL) = h0(2L) >= 21]; 0 vanish; gap 7.7e-01 -> 0.0e+00
+3. degree 3: 56 forms, rank 55 on phi(C) [h^0(kL) = 45 + h0(B+T)]; 1 vanish; gap 3.3e-01 -> 9.9e-16
+3. degree 4: 126 forms, rank 105 on phi(C) [h^0(kL) = 105]; 21 vanish; gap 3.8e-01 -> 1.6e-15
+3. degree 5: 252 forms, rank 165 on phi(C) [h^0(kL) = 165]; 87 vanish; gap 3.7e-01 -> 1.7e-15
+   the cubic and quartics on a random hyperplane: 60 common zeros (deg phi(C) = 60); on phi(C): 60
+   a hyperplane of the tau-pencil: 60 points = 18 in P(E_+) + 42 moving (Proposition 7.7)
+4. L2(7) containing <c>: 1 invariant quadric; |O_H| = 24, max |Q_H| there 5e-15; vanishing order at p 4.99; prod over the class / S6^5 on phi(C): spread 4e-09
+4. L2(7) containing <c>: 1 invariant quadric; |O_H| = 24, max |Q_H| there 5e-15; vanishing order at p 4.99; prod over the class / S6^5 on phi(C): spread 4e-09

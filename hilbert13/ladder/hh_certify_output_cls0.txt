@@ -1,0 +1,52 @@
+class 0: M = 90, lam* = [0.3462670854041305368298253597459 +/- 1.76e-32]  (exact binary float), cutoff r1 = 1.37, w = 0.25
+centres within r2 + circumradius = 2.9801 of 0: 14 at distances [2.1408, 2.7201]
+  mismatch X: 118 disks of radius 0.1732, N = 64
+    disk 0/118
+    disk 25/118
+    disk 50/118
+    disk 75/118
+    disk 100/118
+  mismatch X: sup|D| <= 8.674e-10,  sup|grad D|_hyp <= 3.259e-08
+  mismatch Y2: 44 disks of radius 0.1732, N = 64
+    disk 0/44
+    disk 25/44
+  mismatch Y2: sup|D| <= 8.720e-09,  sup|grad D|_hyp <= 3.028e-07
+  [261s]
+  wedge^2 isotype projectors built (exact idempotence checked)
+  strip 8/192 done [263s]
+  strip 16/192 done [264s]
+  strip 24/192 done [266s]
+  strip 32/192 done [268s]
+  strip 40/192 done [270s]
+  strip 48/192 done [272s]
+  strip 56/192 done [274s]
+  strip 64/192 done [276s]
+  strip 72/192 done [278s]
+  strip 80/192 done [280s]
+  strip 88/192 done [282s]
+  strip 96/192 done [284s]
+  strip 104/192 done [286s]
+  strip 112/192 done [288s]
+  strip 120/192 done [290s]
+  strip 128/192 done [292s]
+  strip 136/192 done [294s]
+  strip 144/192 done [296s]
+  strip 152/192 done [299s]
+  strip 160/192 done [301s]
+  strip 168/192 done [302s]
+  strip 176/192 done [303s]
+  strip 184/192 done [304s]
+  strip 192/192 done [305s]
+  boxes: 21778
+int_sector |Psi|^2 dA >= [0.003088028900437163826524945949256 +/- 9.28e-35],  int_sector |res|^2 dA <= [9.190901868063567409315262025054e-12 +/- 2.49e-43]
+eta_s <= 5.456e-05,  rho <= 1.869e-04,  delta <= 6.545e-04
+lambda_h in [0.3462125299, 0.3463216409],  lambda_1 >= a = 0.3461025536
+eps |Psi - Ft| <= 1.05e-08, |grad(Psi - Ft)| <= 5.05e-07
+Lambda_h <= 3.045103e-03,  Gamma_h <= 2.27286
+  isotype 10+10b (dim 20): ||J_omega||^2 / ||omega||^2 <= 1.6970e-04
+  isotype     15 (dim 15): ||J_omega||^2 / ||omega||^2 <= 1.6231e-04
+  isotype     21 (dim 21): ||J_omega||^2 / ||omega||^2 <= 1.0763e-04
+  isotype     35 (dim 35): ||J_omega||^2 / ||omega||^2 <= 9.1983e-05
+B_h = b/(b - lambda_h) * max_sigma phi_sigma <= 4.4477e-04
+R <= 0.157811;  left side >= 0.330681;  right side <= 0.271290
+==> class 0: degree <= 24 excluded: True   [387s]

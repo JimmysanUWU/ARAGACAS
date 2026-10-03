@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-03",
+  "runtime": "JavaScript orchestration, exact integers below 2^53",
+  "max": 265,
+  "at": [
+    [
+      24,
+      2
+    ],
+    [
+      24,
+      12
+    ]
+  ],
+  "stars": [
+    [
+      24,
+      23
+    ]
+  ],
+  "edgeChecks": [
+    {
+      "d": 18,
+      "twice_min": 144,
+      "defect": 23
+    },
+    {
+      "d": 19,
+      "twice_min": 162,
+      "defect": 58
+    },
+    {
+      "d": 20,
+      "twice_min": 180,
+      "defect": 95
+    },
+    {
+      "d": 21,
+      "twice_min": 200,
+      "defect": 134
+    },
+    {
+      "d": 22,
+      "twice_min": 220,
+      "defect": 175
+    },
+    {
+      "d": 23,
+      "twice_min": 242,
+      "defect": 218
+    },
+    {
+      "d": 24,
+      "twice_min": 264,
+      "defect": 263
+    }
+  ],
+  "pi2_sample_check": "m=8,...,999; infinite assertion follows from three explicit residue polynomials",
+  "hilbert_sample_check": "m=8,...,999; infinite identity follows from six explicit residue polynomials"
+}

@@ -4,8 +4,10 @@ This directory preserves the independent claim audit and literature/publication 
 
 - [Claim-by-claim audit](CLAIM_AUDIT.md)
 - [Publication assessment and primary literature](PUBLICATION_ASSESSMENT.md)
+- [General multiple-pencil framework, with proofs](MULTIPLE_PENCILS.md)
+- [Repeated finite geometry checks](FINITE_GEOMETRY_CHECKS.json)
 
-The full corrected textbook, extra exact programs, source-hash manifest and raw computational logs were prepared locally. A 61-page PDF compiled successfully, and its first 16 rendered pages were visually checked. The workspace then went offline during further checks. Its upload and the push of the full local source tree did not succeed. This checkpoint was saved directly through GitHub to preserve the principal findings; it is **not the complete repaired package**.
+The full corrected textbook, extra exact programs, source-hash manifest and raw computational logs were prepared locally. A 61-page PDF compiled successfully, and its first 16 rendered pages were visually checked. The workspace then went offline during further checks. Its upload and the push of the full local source tree did not succeed. This checkpoint and the general multiple-pencil proof record were saved directly through GitHub to preserve the principal findings; it is **not the complete repaired package**.
 
 The upstream mathematical notes retain formulations that this audit qualifies. Read the ledger's dependencies before treating those formulations as established. In particular: upper bound 42 is exact; equality for the constructed pencil and closed embedding remain conditional; lower bound 25 retains the sparse numerical trust base.
 

@@ -77,7 +77,7 @@ Computations: `verify_accessory60.py`, `verify_mu90_exact.py`, `equivariant_rr.p
 **Proposition 5.7 (GPT) [P][X].** $\mu(A_7)\ge72$.
 
 *Proof.*
-1. By Proposition 5.6 and the lattice, $n\in\{60,66\}$, with signatures $(2,6,7)$ and $(3,4,7)$.
+1. By Proposition 5.6 and the lattice, $n\in\{60,66\}$. Degree 66 has no compatible signature below $\pi(66,5)=496$. At degree 60 the remaining signatures are $(2,6,7)$ and $(3,4,7)$.
 2. $\pi(60,8)=220$ forces $W=H^0(L)$ to be the standard 6.
 3. The $A_6$-fixed vector of $W$ has a zero divisor of degree 60, while $A_6$-orbits have size $\ge120$ (resp. 90). $\square$
 
@@ -196,7 +196,7 @@ $$c^{\rm st}_X(C)=\mu_{\mathrm{Am}_G(X)}(C).$$
   3. By the no-name lemma, $X\times\mathbb P(V)=\mathbb P_X(M\otimes V)$ is equivariantly birational to $X\times\mathbb P^{n-1}$.
   4. Over it, $X\times I_L$ is an irreducible cover of degree $\deg L$ dominating $C$. Here $I_L$ is the incidence variety of $|L|$, a projective bundle over $C$. $\square$
 
-**Corollary 5.16 ($(2,4,7)$ targets).** Let $A=\mathrm{Am}_{A_7}(X)\subseteq\mathbb Z/6$. Corollary 7.2, Theorem 7.4, Theorem 7.5 and Proposition 5.8 give:
+**Corollary 5.16 ($(2,4,7)$ targets) [P][X][C].** Under Theorem 5.15's smooth-projective, generically free and global equivariant Albanese hypotheses, let $A=\mathrm{Am}_{A_7}(X)\subseteq\mathbb Z/6$. Corollary 7.2, Theorem 7.4, Theorem 7.5 and Proposition 5.8 give the table below. The numerical thresholds inherit Theorem 7.4's certified Clifford input; the abstract stable formula is [P].
 
 | $A$ | lattice of $e=\deg L$ | $c^{\rm st}_X(C)$ |
 |---|---|---|

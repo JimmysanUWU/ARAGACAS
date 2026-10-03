@@ -1,0 +1,10 @@
+PASS: Riemann--Hurwitz, Castelnuovo and strict spectral arithmetic
+PASS: every feasible chain, proper-compositum maximum 265, sole star (24,23)
+PASS: six Hilbert polynomials and three Petrakiev comparisons for every parameter
+PASS: exact H1 characters in all four classes and the involution permutation module
+PASS: Klein difference, exact 21-projector squared norm = 18
+PASS: Klein difference, exact 35-projector squared norm = 6
+PASS: lifted branch relation, exact 21-projector squared norm = 90
+PASS: lifted branch relation, exact 35-projector squared norm = 6
+The unique 21/35 copies imply common generated modules; no torsion conclusion follows.
+PASS: textbook finite inputs; geometric and analytical trust bases remain explicit

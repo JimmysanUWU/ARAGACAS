@@ -1,6 +1,6 @@
 # GUIDE
 
-How to read this repository, for a reader (human or AI) starting cold. Live status and open problems: [`HANDOFF.md`](HANDOFF.md).
+How to read this repository, for a reader (human or AI) starting cold. The [textbook edition](hilbert13/ladder/gpt/textbook/README.md) supplies the systematic treatment of all sources. Live status and open problems: [`HANDOFF.md`](HANDOFF.md).
 
 ## 1. The problem and the results
 
@@ -32,15 +32,15 @@ Each chapter opens with a paragraph headed **Idea**; read it first.
 
 **Schur obstructions** (Ch. 5, 7).
 - An invariant line bundle need not carry a $G$-action. The obstruction lies in $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$. Invariant classes have degrees $15\mathbb Z$, linearised ones $90\mathbb Z$.
-- **Upper bound 42.** The first twisted class with sections has degree 60. Its six sections map $C$ birationally into $\mathbb P^5$, and an involution's $(-1)$-eigenspace is a pencil of degree $\le42$.
+- **Upper bound 42.** The first invariant class with at least two sections has degree 60 (minimality uses the lower-bound certificate). Its six-dimensional subsystem maps $C$ birationally into $\mathbb P^5$, and an involution's $(-1)$-eigenspace is a pencil of degree $\le42$. Existence of the subsystem does not prove $h^0(L_{60})=6$.
 - **Embedding and exact pencil.** The arithmetic-genus defect is at most $\pi(60,5)-136=270$, too small for a nonimmersed orbit. Exact order-7 eigenline stabilizers exclude the remaining possible collisions. So the map is an embedding and the displayed pencil has degree exactly 42 (§7.12).
 - **The two quadratic systems.** They are the cubic's Jacobian system and its dual apolar system. Both have empty projective base locus, so the curve lies on no quadric; the Klein quadrics' fivefold contact divisors are exact (§7.12).
-- **Accessories.** Over a linear base a compression is one linearised moving series, so accessory degrees are degrees of linearised series induced from subgroups: $a=15\cdot4=60$ (via the Klein quartic of $L_2(7)$), and $\mu=90$ with full monodromy. A general base cancels exactly its Amitsur subgroup's worth of obstruction.
+- **Accessories.** Over a linear base a compression gives a linearised moving series, so accessory degrees are controlled by induction from subgroups: $a=15\cdot4=60$ (via the Klein quartic of $L_2(7)$), and $\mu=90$ with full monodromy. On a smooth projective generically free base with global equivariant Albanese vanishing, the stable formula cancels exactly its Amitsur subgroup's worth of obstruction.
 - *Limit:* in towers the Schur–Brauer obstruction is cheap to remove; what remains is the Albanese part.
 
 **Pencil orbits and symmetry** (Ch. 4, §7.10).
-- A pencil of degree $\le24$ has at least 15 conjugates. Pairs give $\mathbb P^1\times\mathbb P^1$ models and triples $\mathbb P^7$ models, which bounds the genus of an $A_7$-curve of gonality $\le24$ by 397.
-- A gonal pencil's class stabiliser acts on it through $PGL_2$. The kernel $N$ costs degree $|N|\operatorname{gon}(C/N)$, and quotient gonalities put this cost at $\ge42$ unless $N$ is trivial or one of six small groups.
+- A pencil of degree $\le24$ has at least 35 conjugates. Birational product models and simultaneous base clusters give a purely algebraic bound: an $A_7$-curve of genus at least 266 has gonality at least 25.
+- A gonal pencil's class stabiliser acts on it through $PGL_2$. The kernel $N$ costs degree $|N|\operatorname{gon}(C/N)$. Conditional on the numerical quotient rank and Koszul inputs, this cost is at least 42 unless $N$ is trivial or one of six small group types.
 
 ## 3. Reading order
 
@@ -76,7 +76,7 @@ Chapter 5 can be read straight after Chapter 1. The Lean project [`hilbert13/`](
 | $L_{60}$, $\varphi$, $X_3$ | the degree-60 class of Mumford order 3; $\varphi:C\to\mathbb P^5$ given by its $\mathbf 6$; the Laza–Zheng cubic fourfold containing $\varphi(C)$ |
 | $E_\pm(\tau)$ | the eigenspaces of the order-2 lift $\hat\tau$ on the $\mathbf 6$; $\lvert E_-\rvert$ is the $\tau$-pencil |
 | $\gamma$, $\mu$, $a$, $\tilde\mu(C)$ | least gonality of a faithful $G$-curve; least degree of a linearised moving bundle; least accessory degree; least degree of an invariant class with $h^0\ge2$ |
-| $\mathrm{Am}_G(X)$, $\mu_A(C)$, $c^{\rm st}_X(C)$ | the Amitsur subgroup of a base; least degree of a moving class with obstruction in $A$; least stable compression degree. $c^{\rm st}_X=\mu_{\mathrm{Am}(X)}$ (§5.5) |
+| $\mathrm{Am}_G(X)$, $\mu_A(C)$, $c^{\rm st}_X(C)$ | the Amitsur subgroup of a base; least degree of a moving class with obstruction in $A$; least stable compression degree. Under smooth projectivity, generic freeness and global equivariant Albanese vanishing, $c^{\rm st}_X=\mu_{\mathrm{Am}(X)}$ (§5.5) |
 | $E_{15}=C/A_5$, $E_{21}=C/L_2(5)$ | the elliptic quotients carrying 15 and 21 (GPT's "$E$" is $E_{21}$) |
 
 ## 5. Dependencies and tags
@@ -104,7 +104,7 @@ Every statement carries a tag:
 - **[N]** numerical only;
 - **[G]** GPT's proof, not re-derived here.
 
-The lower bound 25 is [P][C]. The upper bound, the displayed pencil's exact degree 42, the embedding, and the Klein contact divisors are [P][X]. Exact degree 42 does not assert gonality 42. $a=60$ and $\mu=90$ are [P][X].
+The lower bound 25 is [P][C]. The upper bound, the displayed pencil's exact degree 42, the embedding, and the Klein contact divisors are [P][X]. Exact degree 42 does not assert gonality 42. $a=60$ and $\mu=90$ are [P][X]. The minimum invariant moving degree 60 and the stable 60/90 classification additionally inherit [C] from Theorem 7.4.
 
 ## 6. Verification
 
@@ -113,7 +113,7 @@ pip install numpy scipy sympy python-flint cvxopt pypdf
 cd hilbert13/ladder && python3 cover.py        # 1 s smoke test
 ```
 
-[`hilbert13/ladder/README.md`](hilbert13/ladder/README.md) lists every script, its claim and its command. Every saved output reproduces. The finite-element jobs need about 7 GB each; run them one at a time. Lean: `HANDOFF.md` §Setup.
+[`hilbert13/ladder/README.md`](hilbert13/ladder/README.md) lists the scripts, their claims and commands. Saved outputs are retained evidence; the textbook verification record distinguishes fresh runs from retained logs. The finite-element jobs need about 7 GB each; run them one at a time. Lean: `HANDOFF.md` §Setup.
 
 ## 7. Pitfalls
 

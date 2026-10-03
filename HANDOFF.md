@@ -2,6 +2,8 @@
 
 Status and open problems. The mathematics: [`GUIDE.md`](GUIDE.md).
 
+The [textbook edition](hilbert13/ladder/gpt/textbook/README.md) is being pushed by mathematical sections. It supplies complete statements and proofs across the source collection and keeps exact, analytical, numerical and historical dependencies explicit. Its final source index and PDF assembly are in progress.
+
 ## Status
 
 | chapter | established |

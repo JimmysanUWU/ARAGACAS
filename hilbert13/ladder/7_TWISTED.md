@@ -7,7 +7,7 @@
 - **The pencil of degree 42.** An involution's $(-1)$-eigenspace in those six sections is two-dimensional, and its sections vanish at the 18 fixed points. What remains is a pencil of degree 42.
 - **Lower bounds feed back.** The lower bound 25 of Chapters 2–3 is what keeps the twisted classes below degree 60 empty (Clifford).
 
-Accessories over bases with a fixed point produce linearised bundles (Theorem 5.2). Over other bases, the twisted classes that can occur are exactly those allowed by the Amitsur subgroup of the base (Theorem 5.15); Example 5.12 realises $L_{60}$ over a rational base. The geometry of $C$ lives in the twisted classes.
+Accessories over a linear base produce linearised bundles (Theorem 5.2). For smooth projective generically free bases with global equivariant Albanese vanishing, the stable formula admits exactly the twisted classes allowed by the Amitsur subgroup (Theorem 5.15); Example 5.12 realises $L_{60}$ over a rational base. The geometry of $C$ lives in the twisted classes.
 
 **Main results** ($C$ a $(2,4,7)$ curve, $\tau$ an involution).
 1. Invariant classes have degrees $15\mathbb Z$; linearised ones $90\mathbb Z$ (Cor. 7.2). Apart from the trivial bundle, none of degree $<60$ has sections (Thm 7.4; its Clifford step depends on the certified lower bound).
@@ -107,7 +107,7 @@ The map $\varphi:C\to\mathbb P^5$ given by $\mathbf 6$ has these properties:
 4. **Involutions.** The lift $\hat\tau$ has eigenvalues $(+1)^4(-1)^2$, and all 18 fixed points of $\tau$ have eigenvalue $+1$, so they lie in $\mathbb P(E_+)\cong\mathbb P^3$.
 5. **Plücker [P][N].** Local characters force four even and two odd orders at the 2- and 4-points, with minimal sequence $(0,1,2,3,4,6)$ of weight 1, and six distinct orders mod 7 at the 7-points, with minimal sequence $(0,\dots,5)$. The minimal sequences carry weight 1890 out of the total $6(60+5\cdot135)=4410$. If they hold, as Proposition 7.8 indicates numerically, the remaining 2520 is one free orbit of simple flexes.
 
-So **60 is the least degree of an invariant class with $h^0\ge2$**, against $\mu=90$ for linearised classes.
+So **60 is the least degree of an invariant class with $h^0\ge2$** [P][X][C], against $\mu=90$ for linearised classes. The exact six-dimensional subsystem does not assert $h^0(L_{60})=6$.
 
 **Corollary 7.6 [P][X].** $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$.
 
@@ -149,7 +149,7 @@ The numerical plane-intersection check in `tau_pencil.py` is now supplementary. 
 3. **Hilbert function.** In degrees $2,3,4,5$ the image of $\mathrm{Sym}^k\mathbf 6$ has dimension $21,55,105,165$. So:
    - $\varphi(C)$ lies on no quadric [P][X] and on one cubic [N for uniqueness among all cubics];
    - it lies on 21 quartics, namely $F_3\cdot\mathbf 6$ and 15 more;
-   - it is 4- and 5-normal, since $h^0(4L_{60})=105$ and $h^0(5L_{60})=165$.
+   - the reported ranks imply 4- and 5-normality [N]. Riemann--Roch gives $h^0(4L_{60})=105$ using Theorem 7.4 to kill the invariant degree-30 residual, so this equality inherits [C]. The degree-300 bundle is nonspecial and $h^0(5L_{60})=165$ unconditionally.
 4. **Embedding [P][X].** Proposition 7.15 proves this independently of the numerical quintic restriction rank. The latter provides a supplementary check using very ampleness of $5L_{60}$.
 5. **Cut out.** $X_3$ and the 15 quartics meet a random hyperplane in exactly 60 points, so they cut out $\varphi(C)$. A hyperplane of the $\tau$-pencil meets them in $18+42$ points.
 
@@ -167,7 +167,7 @@ So $\varphi(C)$ is a smooth curve of degree 60 and genus 136 [P][X]; being cut o
 
 **Consequences.** The nonzero restriction is now exact (Prop. 7.16): both irreducible quadratic systems have empty projective base locus. The Hessian identification below remains [N].
 - **Linear equivalences.** $2L_{60}\sim5O_H$ for all 30 subgroups $H$. Each class partitions $D_7$ into 15 sets $O_H$, and $\prod_HQ_H\equiv c\,S_6^5$ on $C$. This is "$120=5\cdot24$" behind the degree 60.
-- **5-torsion.** $O_H-O_K$ is 5-torsion in $\mathrm{Jac}(C)$. It is nonzero for $O_H\ne O_K$: otherwise a degree-$\le24$ pencil would exist, against $\operatorname{gon}\ge25$.
+- **5-torsion.** $O_H-O_K$ is 5-torsion in $\mathrm{Jac}(C)$ [P][X]. Its nonvanishing for $O_H\ne O_K$ additionally uses [C]: otherwise a degree-$\le24$ pencil would exist, against $\operatorname{gon}\ge25$.
 - **A sixth root of the 7-points.** [P] for $6L_{60}\sim D_7$; the last equivalence uses Prop. 7.9. $K_C\sim D_2+3D_4-8D_7$ and $K_C-3L_{60}=B+T=D_2-3D_4+2D_7$ (§7.6, Prop. 5.8) give $3L_{60}\sim2D_4-3D_7$. With $4D_4\sim7D_7$:
   $$6L_{60}\sim D_7\sim15\,O_H .$$
   The invariant sextic that cuts $D_7$ may be taken to be the Hessian of $X_3$, which is nonzero on $\varphi(C)$ [N]. So $\varphi(C)\cap\mathrm{Hess}(X_3)=D_7$. This parallels Klein's quartic $X$, whose 24 flexes are $X\cap\mathrm{Hess}(X)\sim6K_X$.

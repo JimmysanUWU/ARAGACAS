@@ -2,6 +2,8 @@
 
 Curves with an $A_7$-action, their gonality, and the accessory-irrationality problem for the general septic.
 
+The [textbook edition](gpt/textbook/README.md) distills the complete source collection into a unified mathematical treatment. Its status labels distinguish exact inputs, analytical certificates, numerical proposals and historical reductions.
+
 ## Main results
 
 $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, and $D=C/\langle\tau\rangle$.
@@ -9,23 +11,23 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | statement | status | where |
 |---|---|---|
 | **$25\le\operatorname{gon}(C)\le42$ and $13\le\operatorname{gon}(D)\le21$** | | |
-| — lower: $\lambda_1\ge0.34089$ with Li–Yau; classes 12, 14 directly, classes 0, 1 by harmonic Hersch | [P][C][L] | Ch. 2–3 |
+| — lower: $\lambda_1\ge0.34089$ with Li–Yau; classes 12, 14 directly, classes 0, 1 by harmonic Hersch | [P][C]; specified logical cores [L] | Ch. 2–3 |
 | — upper: the sections of a degree-60 Schur-twisted class give a base-point-free pencil of degree exactly 42, by the embedding and exact normalization-defect argument | [P][X] | Ch. 7, §7.12 |
 | **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve. Genus $\le335$ is spectral; genus $\ge266$ is algebraic (the three-pencil theorem) | [P][C] | Ch. 4, 7 |
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: compression with connected full monodromy needs exactly degree 90 | [P][X] | Ch. 5 |
-| over any base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, the least stable compression degree is $\mu_{\mathrm{Am}(X)}(C)$: 90 or 60 for $(2,4,7)$ targets, by the Amitsur subgroup of the base (GPT; verified) | [P] | §5.5 |
-| invariant classes have degrees $15\mathbb Z$, with no sections below 60; Mumford class in $\mathbb Z/6$ | [P][X] | §§7.2–7.4 |
+| over a smooth projective generically free base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, the least stable compression degree is $\mu_{\mathrm{Am}(X)}(C)$: 90 or 60 for $(2,4,7)$ targets, by the Amitsur subgroup | formula [P]; numerical threshold [P][X][C] | §5.5 |
+| invariant degrees are $15\mathbb Z$; below 60 only $\mathcal O_C$ has a section; Mumford class in $\mathbb Z/6$ | lattice [P][X]; section exclusion [P][X][C] | §§7.2–7.4 |
 | $\varphi:C\hookrightarrow\mathbb P^5$ is a degree-60 closed embedding on the Laza–Zheng cubic, with no quadrics. Being cut out by the cubic and 15 quartics remains [N] | embedding/no quadrics [P][X]; ideal [N] | §§7.6, 7.12 |
 | Klein subgroup quadrics have exact divisor $5\times24$ seven-points; $2L_{60}\sim5O_H$, $6L_{60}\sim D_7$. Their Plücker/Veronese interpretation is in Prop. 7.9 | [P][X] | Prop. 7.9, §7.12 |
 | the two exceptional quadratic systems are the Jacobian complete intersection of the cubic and the dual cubic's apolar ideal, with quotient Hilbert series $(1+t)^6$ and function $(1,6,6,1)$ | [P][X] | §7.12 |
 | a gonal pencil's class stabiliser acts on it through $PGL_2$, with kernel $N$ costing $|N|\operatorname{gon}(C/N)$; all quotients $C/K$ with $|K|\le60$ are priced, so a pencil below 42 has $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$ | [P][N] | §7.10 |
-| elliptic subcovers of types 15, 21 have degree $\ge60$; $H^1(C,\mathbb Z)$ exactly from the dessin | [X] | §7.9 |
+| elliptic subcovers with pure rational tensor Hodge planes in types 15, 21 have degree $\ge60$; $H^1(C,\mathbb Z)$ exactly from the dessin. Mixed or extra CM planes are not covered | [P][X] | §7.9 |
 | $\operatorname{gon}(D)\ge9$ by Castelnuovo–Severi; $\ge10$ by ramification transport | [P][X] | §1.3, §6.1 |
 
 **Tags.**
 - **[P]** paper proof.
-- **[X]** finite computation: exact, or floating-point character sums checked for integrality.
+- **[X]** finite computation in integers, rationals, finite fields or specified algebraic number rings. Rounded floating-point character recognition retains [N] unless replaced by an independent exact calculation.
 - **[C]** computer-assisted proof: ball arithmetic, or floating point with a-priori error bounds.
 - **[L]** checked in Lean (`../Hilbert13/SpectralCertificate.lean`).
 - **[N]** numerical only.
@@ -99,7 +101,7 @@ python3 gpt/verify_normalization.py > gpt/normalization_check.txt
 python3 gpt/verify_quadrics.py > gpt/quadrics_check.txt
 ```
 
-Times are for an idle 4-core machine; run the FEM jobs one at a time (7 GB each). Every saved output reproduces.
+Times are historical estimates for an idle 4-core machine; run the FEM jobs one at a time (7 GB each). Saved outputs are retained source records. The textbook verification manifest records which computations were rerun for this edition.
 
 ## Trust base
 

@@ -1,5 +1,7 @@
 # GPT's documents: a digest
 
+**Textbook edition.** [`textbook/README.md`](textbook/README.md) reorganizes the whole repository by definitions, hypotheses, statements and proofs. The present checkpoint includes the foundations, curves, spectral and harmonic arguments, multiple pencils, accessory theory, twisted geometry, normalization and quadratic algebras, Jacobians and historical frameworks. `textbook/verify_textbook_inputs.py` replaces the old floating divisor-projection checks by exact character-projector numerators and certifies the parameterized finite arithmetic. Construction of the degree-60 subsystem does not assert completeness, pure rational elliptic planes do not exhaust all elliptic maps, and the stable compression formula requires global equivariant Albanese vanishing.
+
 **4 October: normalization defects [P][X].** [`A7_Normalization_Defects.md`](A7_Normalization_Defects.md) proves that the degree-60 morphism is a closed embedding on all four classes and that the displayed involution pencil has moving degree exactly 42 (quotient degree 21). The arithmetic-genus defect is at most 270, whereas every ramified orbit costs at least 360; exact order-7 eigenline stabilizers eliminate the remaining collision orbit. `verify_normalization.py` and `normalization_check.txt` give the exact finite check. Both numerical gaps in Proposition 7.7 are removed, independently of the lower gonality bound. The equations of Proposition 7.8 and exact gonality remain separate questions.
 
 **4 October: quadratic systems [P][X].** [`A7_Quadratic_Systems.md`](A7_Quadratic_Systems.md) identifies the two irreducible quadratic systems as Jacobian and dual apolar ideals, with quotient Hilbert series $(1+t)^6$ and function $(1,6,6,1)$. Exact multiplication ranks show both base loci are empty. Consequently every nonempty invariant subset of the exceptional $\mathbb P^5$ lies on no quadric, and the Klein divisors $\operatorname{div}(Q_H|_C)=5O_H$ are exact. `verify_quadrics.py` and `quadrics_check.txt` certify the finite inputs. Neither note certifies the full quartic ideal or projective normality.
@@ -45,7 +47,7 @@ Not adopted: `certify_memory.py`, a low-memory fallback that failed its inertia 
 | correspondence | an equivariant degree-$d$ cover $W\dashrightarrow V$ dominating a faithful curve gives $\mu(G)\le d$ | DAY 2 Thm 1.2 | Thm 5.2 [P] |
 | induction | $a(G)=\min_H[G:H]\,\mu(H)$, including disconnected base change | DAY 2 Thm 1.5; R5 Prop 1.1 | Thm 5.3 [P] |
 | degree lattice | linearised degrees lie in $N_G(C)\mathbb Z$, $N_G=\lvert G\rvert/\mathrm{lcm}(e_i)$; invariant classes satisfy $N_G\mid s\deg$, $s=\exp H^2(G,\mathbb C^*)$ | DAY 2 Thm 2.1 | Lemma 5.4; sharp form $15\mathbb Z$ in Cor. 7.2 |
-| linearised Castelnuovo | a minimal linearised series embeds in $\mathbb P^{\ge q(G)-1}$ with $g\le\pi(n,q-1)$ | DAY 2 Prop 2.2 | Lemma 5.5 [P] |
+| linearised Castelnuovo | a minimal linearised series gives a birational nondegenerate model in $\mathbb P^{\ge q(G)-1}$ with $g\le\pi(n,q-1)$ | DAY 2 Prop 2.2 | Lemma 5.5 [P] |
 | **$a(A_7)=60$** | $\mu(A_7)\ge60$, every subgroup wall below 60, and the Klein quartic of $L_2(7)$ at $15\cdot4$ | DAY 2 Thm 3.1–3.2 | Prop 5.6, Thm 5.1 [P][X] |
 | small groups | $a(A_5)=2$, $a(L_2(7))=4$, $a(A_6)=12$ | R5 Prop 3.1 | §5.2 [P] |
 | $\mu(A_7)\ge72$ | degree 60 forces $W=6$, and the $A_6$-fixed vector has too few zeros | R5 Thm 2.2 | Prop 5.7 [P][X] |
@@ -59,12 +61,14 @@ Not adopted: `certify_memory.py`, a low-memory fallback that failed its inertia 
 | **open-base gap** | our old Theorem 5.11(2) ("$\mathrm{Pic}(B)=0$ forces linearisation") is false; counterexamples on $\mathbb P^1$ with $C_2^2$, and $L_{60}$ over $\mathbb P^5$ minus hyperplanes | Amitsur §2 | Example 5.12 [P] |
 | correspondence over a projective base | $\mathcal O(Z)=M\boxtimes L$, $e\mid d$, $\lvert L\rvert$ base-point-free, $m_C(L)=-m_X(M)\in\mathrm{Am}_G(X)$ | Amitsur Thm 1, Cor 2 | Thm 5.11, Cor 5.13 [P] |
 | Amitsur kernel | $\mathrm{Am}_G(X)=\ker(H^2(G,\mathbb C^*)\to\mathrm{Br}(\mathbb C(X)^G))$ (Hassett–Tschinkel) | Amitsur Thm 3 | Thm 5.14 [P] |
-| stable compression formula | $c^{\rm st}_X(C)=\mu_{\mathrm{Am}_G(X)}(C)$; for $(2,4,7)$ targets 90 or 60 according to the 3-part of $\mathrm{Am}$ | Amitsur Thm 4, §5 | Thm 5.15, Cor 5.16 [P] |
+| stable compression formula | for a smooth projective generically free base with global equivariant Albanese vanishing, $c^{\rm st}_X(C)=\mu_{\mathrm{Am}_G(X)}(C)$; the $(2,4,7)$ thresholds are 90 or 60 according to the 3-part of $\mathrm{Am}$ | Amitsur Thm 4, §5 | formula [P]; Cor 5.16 [P][X][C] |
 | Amitsur growth | $\mathrm{Am}(X)\subseteq\mathrm{Am}(Y)$, $d\,\mathrm{Am}(Y)\subseteq\mathrm{Am}(X)$ under a degree-$d$ cover | Amitsur Thm 5, Cor 6 | Thm 5.17 [P] |
 | cheap Brauer splitting | generic indices 2, 3, 6; a quadratic then a cubic step kill $H^2(A_7,\mathbb C^*)$ with full monodromy | Amitsur Lemma 7, Cors 8–9 | Cor 5.18 [P] |
-| Chapter 7 repairs | the gcd of $f_{14},f_{18}$ and the 210 distinct lines; "centrally extended", not "universal central extension"; parity alone does not give simple zeros | Amitsur §9 | Thm 7.4, Prop 7.1, Prop 7.7 (now [P] at 12 of the 18 points by Plücker) |
+| Chapter 7 repairs | the gcd of $f_{14},f_{18}$ and the 210 distinct lines; "centrally extended", not "universal central extension"; parity alone does not give simple zeros | Amitsur §9 | Thm 7.4, Prop 7.1; Prop 7.7 is now exact at all 18 points by normalization defects |
 
-## 2. Results not used in the chapters [G]
+## 2. Historical frameworks and supplementary results
+
+Results adopted in the chapters are identified below. Other claims retain their historical status and are treated with their hypotheses in the textbook edition.
 
 ### 2.1 Multigraded Castelnuovo theory (DAY 1A pp. 2–3; DAY 2 §5)
 
@@ -173,6 +177,6 @@ The rungs **T1** ($\mathrm{RD}(A_7)\ge2$) and **T2** ($\mathrm{RD}(S_7)=3$, alge
 | 1. call $Q_2$ by its true name | done: $C_3\rtimes D_8$ (§2.3) |
 | 2. no unqualified sparse-Cholesky claim | done: Higham's backward error with stored row counts, and the criterion in Lean (§2.4). DAY 1B's exported-factor residual check is an alternative |
 | 3. a proved Bessel bound; rational $C_h^2$ | done: $C_h^2$ is enclosed in ball arithmetic, and the $j_{1,1}$ bound is proved exactly (`certify.py`) |
-| 4. genuine characters | the ATLAS table, recomputed by Burnside–Dixon (`chartab.py`), with the exact Frobenius count (`cover.py`) |
+| 4. genuine characters | the exact ATLAS table in `cover.py`, with orthogonality and the exact Frobenius count; `chartab.py` now reorders this table for its consumers |
 | 5. the mean-zero subspace for $Q_0$ | min–max over two-dimensional subspaces needs no mean-zero subspace |
 | 6. separate the main proof from superseded material | done (chapters, and git history) |

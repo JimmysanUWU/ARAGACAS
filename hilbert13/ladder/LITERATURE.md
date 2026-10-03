@@ -22,7 +22,7 @@ Tags:
 **Assessment.**
 - **Accessory Hilbert 13 for $A_7$.** It is settled sharply: 60, and 90 with full monodromy. The published bound was 6.
 - **Spectral methods.** Going past Li–Yau by representation theory appears new (Lemma 3.3: the degree is a cubic form killed by $(\wedge^3E_1)^G=0$). The certification follows Booker–Strömbergsson–Venkatesh; our additions are exact equivariance by a partition of unity and the Jacobian-flux bound.
-- **Schur-twisted models** (Ch. 7). We found no prior use of Schur-multiplier twists, with an exact degree formula from the centrally extended triangle group, to build low-degree models of symmetric curves. The resulting link is also new: the genus-136 curves are degree-60 curves cut out of the Laza–Zheng $A_7$-cubic fourfold by quartics.
+- **Schur-twisted models** (Ch. 7). The searches recorded here did not locate the specific degree-60 models. Their embedding on the known exceptional cubic is now proved exactly. The proposed generation of the curve ideal by the cubic and 15 quartics remains numerical. These limited searches do not establish exhaustive priority for either the construction or the general use of Schur-multiplier twists.
 - **Elliptic subcovers** (§7.9). Optimal maps $C\to E$ correspond to primitive rank-2 sub-Hodge lattices, with degree equal to the restricted cup product; this is classical (Kani; Birkenhake–Lange). New is only the exact $H^1(C,\mathbb Z)$ from the dessin and the lattice search.
 - **Caveats.** Nothing here is refereed. The value $a=60$ uses the convention in which the monodromy may drop after the accessory; the bound $\le59$ holds in either convention.
 

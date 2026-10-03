@@ -6,7 +6,7 @@ $\gamma(G)$ is the least gonality of a smooth projective curve with a faithful $
 - **Many conjugates.** A pencil of degree $d\le24$ on a faithful $A_7$-curve has at least 15 conjugate pencils, and together they generate the function field.
 - **Two pencils** give a model in $\mathbb P^1\times\mathbb P^1$.
 - **A third pencil** has two options:
-  - it is independent, which embeds the curve in $\mathbb P^7$ with degree $3d$ and bounds the genus by Castelnuovo;
+  - it is independent, which gives a birational model in $\mathbb P^7$ with degree $3d$ and bounds the genus by Castelnuovo;
   - it depends on the first two, which costs singularities on the $\mathbb P^1\times\mathbb P^1$ model.
 - **Conclusion.** Either way $g\le B^\*(d)\le397$. Every faithful $A_7$-curve of that genus is covered by the certificates of Chapters 2–3.
 
@@ -57,7 +57,7 @@ $$\delta(Y)\ge c(d):=\min_{m\ge m',\,m+m'\ge d}\Big[\tbinom m2+\tbinom{m'}2\Big]
    - By Noether's formula, a general member meets a branch $\gamma$ of $Y$ at $b$ with multiplicity $m_\gamma+m'_\gamma$. Here $m'_\gamma$ is the multiplicity at $b_1$ of the strict transform of $\gamma$, which is 0 if $\gamma$ is transverse to $T$.
    - Summing over branches, the fixed part is at most $m+m'$, where $m=\mathrm{mult}_bY\ge m'=\mathrm{mult}_{b_1}Y$. Moreover $\delta\ge\binom m2+\binom{m'}2$. $\square$
 
-**Corollary 4.6 [P].** $g\le B^*(d):=\max\big((d-1)^2-c(d),\ \pi(3d,7)\big)$. With a birational pair, Lemma 4.3 supplies a third pencil, which is either dependent or embeds the curve in $\mathbb P^7$; otherwise the chain bound applies.
+**Corollary 4.6 [P].** $g\le B^*(d):=\max\big((d-1)^2-c(d),\ \pi(3d,7)\big)$. With a birational pair, Lemma 4.3 supplies a third pencil, which is either dependent or gives a birational model in $\mathbb P^7$; otherwise the chain bound applies.
 
 | $d$ | 20 | 21 | 22 | 23 | 24 |
 |---|---|---|---|---|---|

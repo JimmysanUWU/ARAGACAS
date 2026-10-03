@@ -22,6 +22,9 @@ An assertion retains every status required by its dependencies. A formal theorem
 
 - [1. Function classes and curve invariants](01_FOUNDATIONS.md)
 - [2. The alternating curves and ramification transport](02_CURVES.md)
+- [3. Spectral lower bounds](03_SPECTRAL.md)
+- [4. The cubic degree form and harmonic Hersch](04_HARMONIC.md)
+- [5. Multiple pencils and multigraded genus](05_MULTIPLE_PENCILS.md)
 - [8. Normalization defects and quadratic algebras](08_NORMALIZATION_AND_QUADRICS.md)
 
 The general structures developed here are the orbit bounds for normalization defects and the Jacobian/apolar decomposition of the exceptional quadratic representation. Their classical ingredients and their specific finite certificates are stated separately.

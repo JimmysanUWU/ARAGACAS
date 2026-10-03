@@ -34,7 +34,7 @@ For $E\cong14_{(5,2)}$ the hypothesis holds exactly (`verify_exact.py`). Also, $
 - **gradient** $\Gamma_h=\sqrt{A\Lambda_h}$, with $\Lambda_h=\sup_p\lambda_{\max}\sum_i\nabla\psi_i\otimes\nabla\psi_i$ over an orthonormal basis $(\psi_i)$;
 - **bracket** $B_h=\sup_\omega\langle\beta(\omega),(\Delta-\lambda_h)^{-1}\beta(\omega)\rangle/\|\omega\|^2$, where $\beta(u\wedge v)=\{u,v\}$ is the Poisson bracket.
 
-**Theorem 3.4 (GPT Round 5; re-derived) [P].** Put $\delta=\rho\sqrt b/(b-\lambda_h)$, $\nu=b-(b-a)\delta^2$ and $d=\tau_0-a$. Let $R$ be the positive root of $(1-a/\nu)R^2-2\rho R=d$. If
+**Theorem 3.4 (GPT Round 5; re-derived) [P].** Assume $a\le\lambda_1,\lambda_h$, $b>\lambda_h$, $\delta<1$ and $\nu>\lambda_h$ for the constants below. Put $\delta=\rho\sqrt b/(b-\lambda_h)$, $\nu=b-(b-a)\delta^2$ and $d=\tau_0-a$. Let $R$ be the positive root of $(1-a/\nu)R^2-2\rho R=d$. If
 $$a\Big(1-\frac{R^2}\nu\Big)-\rho R\ >\ 4\sqrt{B_h/3}\,\sqrt A\,\sqrt{d+2\rho R}+\Gamma_h\frac{R^2}{\sqrt\nu},\tag{3.1}$$
 then no holomorphic map of degree $\le24$ exists.
 
@@ -95,7 +95,7 @@ $192\times128$ grid (21778 boxes), about 6.5 minutes per class (`hh_certify_outp
 | $a\le\lambda_1$ | $0.346102$ | $0.345770$ |
 | $\Gamma_h$; $B_h$ | $2.273$; $4.45\cdot10^{-4}$ | the same |
 | $\varphi_\sigma$ ($10{+}\overline{10},15,21,35$), $\times10^{-4}$ | $1.697,1.623,1.076,0.920$ | the same |
-| (3.1): left $\ge$ / right $\le$ | $0.33068$ / $0.27129$ | $0.32959$ / $0.27947$ |
+| (3.1): left $\ge$ / right $\le$ | $0.33068$ / $0.27130$ | $0.32959$ / $0.27947$ |
 
 **So (3.1) holds, proving Theorem 3.1.**
 - It survives inflating $B_h$ and $\Gamma_h$ by 1.36 (class 0) or 1.29 (class 1).

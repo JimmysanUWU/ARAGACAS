@@ -33,6 +33,8 @@ Each chapter opens with a paragraph headed **Idea**; read it first.
 **Schur obstructions** (Ch. 5, 7).
 - An invariant line bundle need not carry a $G$-action. The obstruction lies in $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$. Invariant classes have degrees $15\mathbb Z$, linearised ones $90\mathbb Z$.
 - **Upper bound 42.** The first twisted class with sections has degree 60. Its six sections map $C$ birationally into $\mathbb P^5$, and an involution's $(-1)$-eigenspace is a pencil of degree $\le42$.
+- **Embedding and exact pencil.** The arithmetic-genus defect is at most $\pi(60,5)-136=270$, too small for a nonimmersed orbit. Exact order-7 eigenline stabilizers exclude the remaining possible collisions. So the map is an embedding and the displayed pencil has degree exactly 42 (§7.12).
+- **The two quadratic systems.** They are the cubic's Jacobian system and its dual apolar system. Both have empty projective base locus, so the curve lies on no quadric; the Klein quadrics' fivefold contact divisors are exact (§7.12).
 - **Accessories.** Over a linear base a compression is one linearised moving series, so accessory degrees are degrees of linearised series induced from subgroups: $a=15\cdot4=60$ (via the Klein quartic of $L_2(7)$), and $\mu=90$ with full monodromy. A general base cancels exactly its Amitsur subgroup's worth of obstruction.
 - *Limit:* in towers the Schur–Brauer obstruction is cheap to remove; what remains is the Albanese part.
 
@@ -89,7 +91,8 @@ Ch.3 harmonic Hersch → gon ≥ 25              │
   ├──► Ch.4 γ(A7) ≥ 25 (+ Ch.2 for 10 other signatures, + the window §4.4)
   └──► Ch.7 Thm 7.4 (uses gon ≥ 25) ──► Cor 5.16 (60 or 90, by the Amitsur subgroup)
        Ch.7 Cor 7.6 gon ≤ 42 (exact; independent of every lower bound)
-       Ch.7 Prop 7.7 exactly 42 ([P] at 12 of 18 base points, [N] at 6)
+       Ch.7 §7.12 normalization defects + exact eigenlines → embedding → Prop 7.7 exactly 42 [P][X]
+       Ch.7 §7.12 quadratic systems → no quadrics → Prop 7.9 Klein divisors [P][X]
        Ch.7 Cor 7.14 a pencil below 42 has a small kernel ([P] given [N] quotient data)
 ```
 
@@ -101,7 +104,7 @@ Every statement carries a tag:
 - **[N]** numerical only;
 - **[G]** GPT's proof, not re-derived here.
 
-The lower bound 25 is [P][C]. The upper bound 42 is [P][X], and its key input (a $\mathbf 6$ in $H^0(L_{60})$) is certified exactly from the ATLAS matrices. Exactness of 42 is [N]. $a=60$ and $\mu=90$ are [P][X].
+The lower bound 25 is [P][C]. The upper bound, the displayed pencil's exact degree 42, the embedding, and the Klein contact divisors are [P][X]. Exact degree 42 does not assert gonality 42. $a=60$ and $\mu=90$ are [P][X].
 
 ## 6. Verification
 
@@ -116,9 +119,9 @@ cd hilbert13/ladder && python3 cover.py        # 1 s smoke test
 
 - **Invariant is not linearised.** Most of Chapter 7 lives in the gap between $15\mathbb Z$ and $90\mathbb Z$.
 - **Open bases.** On a non-projective base, invertible functions can cancel a Schur obstruction, so $\mathrm{Pic}(B)=0$ does not force linearisation (Example 5.12). Apply Theorem 5.11 on a projective model.
-- **Parity is not order.** A sign argument fixes vanishing orders mod 2, not their values (Prop. 7.7, step 1).
+- **Parity is not order.** A sign argument fixes vanishing orders mod 2, not their values. Proposition 7.7 uses immersion, proved by normalization defects, to obtain simple zeros.
 - **"Algebraic" bounds.** $\operatorname{gon}\ge25$ for $g\ge266$ (Theorem 4.9) and $\operatorname{gon}(D)\ge10$ (§6.1) are purely algebraic. Below genus 266 the spectral input is needed.
 - **Accessory conventions.** $a=60$ lets the monodromy drop after the accessory; with connected full monodromy the answer is $\mu=90$. The bound $\le59$ holds in both.
-- **[N] claims** (Props. 7.7–7.9, the inputs of Thm 7.13) are numerics, not proofs. $\operatorname{gon}\le42$ does not depend on them.
+- **[N] claims** (the proposed ideal and remaining restriction ranks in Prop. 7.8, the Hessian section, and the inputs of Thm 7.13) are numerics, not proofs. Embedding, the exact displayed pencil, and the Klein contact divisors now have independent exact proofs.
 - **GPT material** is input, not authority; `gpt/README.md` records what has been re-derived.
 - **Labels.** Letters are $0..6$ in code and $1..7$ in the text; class labels are list indices, not invariants.

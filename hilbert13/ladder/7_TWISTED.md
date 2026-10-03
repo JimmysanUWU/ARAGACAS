@@ -3,7 +3,7 @@
 **Idea.** An $A_7$-*invariant* line bundle need not be *linearised*.
 - **The obstruction.** It is the bundle's Mumford class, in $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$. The bundle is linearised for the Schur cover $6.A_7$, whose centre $Z$ acts on fibres by a character $\varepsilon$.
 - **Degrees and sections.** Twisted classes exist in every degree in $15\mathbb Z$, against $90\mathbb Z$ for linearised ones. Holomorphic Lefschetz, twisted by $\varepsilon$, computes their sections.
-- **The first twisted class with sections** has degree 60 and Mumford class of order 3. Its six sections map $C$ birationally onto a degree-60 curve in $\mathbb P^5$, on a cubic fourfold (an embedding, numerically).
+- **The first twisted class with sections** has degree 60 and Mumford class of order 3. Its six sections embed $C$ as a degree-60 curve in $\mathbb P^5$, on a cubic fourfold. The normalization-defect bound and exact eigenline stabilizers prove the embedding (§7.12).
 - **The pencil of degree 42.** An involution's $(-1)$-eigenspace in those six sections is two-dimensional, and its sections vanish at the 18 fixed points. What remains is a pencil of degree 42.
 - **Lower bounds feed back.** The lower bound 25 of Chapters 2–3 is what keeps the twisted classes below degree 60 empty (Clifford).
 
@@ -11,10 +11,10 @@ Accessories over bases with a fixed point produce linearised bundles (Theorem 5.
 
 **Main results** ($C$ a $(2,4,7)$ curve, $\tau$ an involution).
 1. Invariant classes have degrees $15\mathbb Z$; linearised ones $90\mathbb Z$ (Cor. 7.2). None of degree $<60$ has sections (Thm 7.4).
-2. A degree-60 class of order 3 gives a $3.A_7$-equivariant map $\varphi:C\to\mathbb P^5$, birational onto a curve of degree 60 [P] and an embedding [N]:
+2. A degree-60 class of order 3 gives a $3.A_7$-equivariant closed embedding $\varphi:C\to\mathbb P^5$ [P][X]:
    - its image lies on the Laza–Zheng $A_7$-cubic fourfold;
-   - it is cut out by that cubic and 15 quartics (Thm 7.5, Prop. 7.8).
-3. **$\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$**, (Cor. 7.6 [P][X]). The pencil is base-point-free of degree exactly 42 by Prop. 7.7 [P][N]. Hence
+   - it lies on no quadric [P][X] (§7.12); being cut out by the cubic and 15 quartics remains [N] (Prop. 7.8).
+3. **$\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$**, (Cor. 7.6 [P][X]). The pencil is base-point-free of degree exactly 42 by Prop. 7.7 [P][X]. Hence
    $$25\le\operatorname{gon}(C)\le42,\qquad13\le\operatorname{gon}(C/\tau)\le21,\qquad25\le\gamma(A_7)\le42 .$$
 4. Each Klein subgroup $L_2(7)$ cuts $\varphi(C)$ by a quadric in exactly $5\times$ its 24 points of order 7 (Prop. 7.9).
    - That quadric is the Plücker quadric of the Weil representation of $SL_2(7)$.
@@ -88,7 +88,7 @@ $$\mathrm{tr}(\hat g\mid H^0-H^1)=\sum_{p\in\mathrm{Fix}(g)}\frac{\lambda(\hat g
 - **Degree 0 ($T$):** no sections.
 - **Degree 15:** $h^0\le1<6$.
 - **Degree 30:** Clifford gives $h^0\le5<6$.
-- **Degree 45 (spin):** $h^0\le12$, so $H^0\supseteq V_4$ or $V_4^\*$. This gives $\psi:C\to\mathbb P^3$ of degree 45, birational since $\pi(15,3)=42<136$.
+- **Degree 45 (spin):** $h^0\le12$, so $H^0\supseteq V_4$ or $V_4^\*$. This gives $\psi:C\to\mathbb P^3$ of degree 45. Its normalized image has a faithful $A_7$-action; a nonbirational image would have degree $\le15$ and genus $\le\pi(15,3)=42<136$, so the map is birational.
   1. The invariants of $2.A_7$ on $V_4$ have Hilbert series $1+t^8+t^{12}+t^{14}+t^{16}+t^{18}+2t^{20}+\dots$
   2. Lemma 7.3 kills $f_{14}$ and $f_{18}$ on $C$: their least admissible divisors have degrees 3150 and 3330, against $14\cdot45=630$ and $18\cdot45=810$.
   3. Involutions lift with eigenvalues $(i,i,-i,-i)$, and $i^{14}=i^{18}=-1$, so $f_{14},f_{18}$ vanish on the 210 lines $\mathbb P(E_{\pm i}(\hat\tau))$. These are distinct: in a unitary model $E_{-i}=E_i^\perp$, so either line determines $\hat\tau$ up to sign.
@@ -102,7 +102,7 @@ So there is **no degree-45 spinor model** $C\to\mathbb P(V_4)$. The local data o
 $$\chi(L_{60})=\mathbf 6-15-2\cdot21-24,\qquad\text{so }H^0(L_{60})\supseteq\mathbf 6 .$$
 The map $\varphi:C\to\mathbb P^5$ given by $\mathbf 6$ has these properties:
 1. **Base-point-free.** An invariant base locus would have degree $\le60<360$.
-2. **Birational onto a curve of degree 60.** Otherwise the image would have degree $\le30$ and genus $\le\pi(30,5)=91<136$.
+2. **A closed embedding of degree 60.** First it is birational: a nonbirational image would have degree $\le30$ and normalized genus $\le\pi(30,5)=91$, whereas its $A_7$-action is faithful and requires genus $\ge136$. (A trivial image action would force the map degree to be at least 2520.) The normalization-defect argument of Proposition 7.15 then proves the embedding exactly.
 3. **Equivariant** for $3.A_7$ on its exceptional $\mathbf 6$.
 4. **Involutions.** The lift $\hat\tau$ has eigenvalues $(+1)^4(-1)^2$, and all 18 fixed points of $\tau$ have eigenvalue $+1$, so they lie in $\mathbb P(E_+)\cong\mathbb P^3$.
 5. **Plücker [P][N].** Local characters force four even and two odd orders at the 2- and 4-points, with minimal sequence $(0,1,2,3,4,6)$ of weight 1, and six distinct orders mod 7 at the 7-points, with minimal sequence $(0,\dots,5)$. The minimal sequences carry weight 1890 out of the total $6(60+5\cdot135)=4410$. If they hold, as Proposition 7.8 indicates numerically, the remaining 2520 is one free orbit of simple flexes.
@@ -118,25 +118,11 @@ The inputs are certified in exact arithmetic over $\mathbb Q(\zeta_{84})$, on al
 - $\operatorname{tr}\hat\tau=2$;
 - eigenvalue $+1$ at all 18 fixed points (since $\lambda_1=1$ and $\lambda_2^2=1$).
 
-**Proposition 7.7 (exactly 42) [P][N].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So the bound comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\tau$.
+**Proposition 7.7 (exactly 42) [P][X].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So the bound comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\tau$.
 
-*Proof.*
-1. **Simple: [P] at 12 points, [N] at 6.** $\hat\tau$ acts on the order-$k$ section at a fixed point by $(-1)^k$ times a constant, so $E_-$ has two odd orders there. Parity alone does not give a simple zero; Plücker (Theorem 7.5(5)) does at the 2-points.
-   - **The 12 two-points.** Without an order-1 section the sequence would be at least $(0,2,3,4,5,6)$, of weight 5. That costs $4\cdot1260>2520$.
-   - **The 6 four-points.** The same alternative costs exactly $4\cdot630=2520$, so Plücker allows it. The immersion of Proposition 7.8 [N] excludes it. If it held, $|E_-|$ would have multiplicity 3 there, and $\operatorname{gon}(C/\tau)\le15$.
-2. **Other base points are double points.** If $x\notin\mathrm{Fix}\,\tau$ and $\varphi(x)\in\mathbb P(E_+)$, then $\varphi(\tau x)=\varphi(x)$.
-3. **At most one orbit.** The extra base locus $B'$ is $C(\tau)$-invariant, with $60-18-\deg B'\ge2\operatorname{gon}(C/\tau)\ge26$.
-   - Elements of order 4 in $C(\tau)=(D_4\times S_3)\cap A_7$ square to $\tau$.
-   - So $C(\tau)$-orbits off $\mathrm{Fix}\,\tau$ have size 12 or 24.
-   - Hence $B'$ is empty or one orbit of 12 simple points, each fixed by an involution $\sigma\in C(\tau)\smallsetminus\{\tau\}$.
-4. **A plane.** The commuting order-2 lifts of $\sigma,\tau,\sigma\tau$ all have trace 2. So the joint eigenspaces have dimensions $(3,1,1,1)$, and $B'$ maps into the plane $Q_\sigma=\mathbb P(E_{++})$.
-5. **Computation** (`tau_pencil.py`, classes 0 and 12). On each of the 8 planes $Q_\sigma$:
-   - the cubic $F_3$ and the sextic $G_6$ (§7.6) meet in all 18 of their Bézout points;
-   - the other invariants vanishing on $\varphi(C)$ are nonzero at each of them.
+*Proof.* By Proposition 7.15, $\varphi$ is an embedding. A base point maps into $\mathbb P(E_+)$ and therefore satisfies $\varphi(\tau p)=\varphi(p)$, forcing $\tau p=p$. Conversely all 18 fixed points lie there by their fibre characters. At a fixed point, the tangent action is $-1$. In the ambient tangent space at $\mathbb P(E_+)$, the $-1$ directions are precisely those towards $E_-$. Immersion therefore gives an anti-invariant section with a nonzero first derivative, making the common zero simple. Removing the fixed divisor leaves degree $60-18=42$; ratios of the sections are $\tau$-invariant, giving quotient degree 21. $\square$
 
-   So $B'=\varnothing$. $\square$
-
-Proposition 7.8 confirms this twice: $\varphi$ is an embedding, and a hyperplane of the pencil meets $\varphi(C)$ in $18+42$ points.
+The numerical plane-intersection check in `tau_pencil.py` is now supplementary. Neither it nor the lower bound 25 is needed for this proposition.
 
 **Nothing better from these classes** (`twisted_rr.py` (8)). No class of degree $\le270$ with forced sections beats 42 against involution eigenspaces or Klein four-group isotypic components.
 
@@ -157,29 +143,29 @@ Proposition 7.8 confirms this twice: $\varphi$ is an embedding, and a hyperplane
   - the 105 lines $\mathbb P(E_-(\tau))$, the targets of the pencils of Proposition 7.7;
   - the 315 lines $\mathbb P(E_{-1}(\hat h))$, $h$ of order 4, which carry $\varphi(\mathrm{Fix}\,h)$.
 
-**Proposition 7.8 (equations) [N]** (`p5_curve.py`, class 0).
+**Proposition 7.8 (equations) [N], with no quadrics and embedding now [P][X]** (`p5_curve.py`, class 0; §7.12 for the exact statements).
 1. **The 4-points.** On each line $\mathbb P(E_{-1}(\hat h))$, $G_6$ has exactly two double zeros, which are singular points of $\{G_6=0\}$. They are $\varphi(\mathrm{Fix}\,h)$.
 2. **More equations.** The invariants of degrees 12, 18, 24 vanishing there, and those of degree 21 vanishing at a 7-point, vanish on $\varphi(C)$, by the exact orders above. With $F_3$, $G_6$ and the forced invariants, they cut out a smooth branch through each 7-point. Continuation and the group spread it over $\varphi(C)$.
 3. **Hilbert function.** In degrees $2,3,4,5$ the image of $\mathrm{Sym}^k\mathbf 6$ has dimension $21,55,105,165$. So:
-   - $\varphi(C)$ lies on no quadric and on one cubic;
+   - $\varphi(C)$ lies on no quadric [P][X] and on one cubic [N for uniqueness among all cubics];
    - it lies on 21 quartics, namely $F_3\cdot\mathbf 6$ and 15 more;
    - it is 4- and 5-normal, since $h^0(4L_{60})=105$ and $h^0(5L_{60})=165$.
-4. **Embedding.** $5L_{60}$ is very ample (degree $300\ge2g+1$), and all its sections are quintic forms. So $\varphi$ is an embedding.
+4. **Embedding [P][X].** Proposition 7.15 proves this independently of the numerical quintic restriction rank. The latter provides a supplementary check using very ampleness of $5L_{60}$.
 5. **Cut out.** $X_3$ and the 15 quartics meet a random hyperplane in exactly 60 points, so they cut out $\varphi(C)$. A hyperplane of the $\tau$-pencil meets them in $18+42$ points.
 
-So **$\varphi(C)$ is a smooth curve of degree 60 and genus 136 cut out by the Laza–Zheng cubic and 15 quartics.**
+So $\varphi(C)$ is a smooth curve of degree 60 and genus 136 [P][X]; being cut out by the Laza–Zheng cubic and 15 quartics remains [N].
 
-**Proposition 7.9 (Klein quadrics) [P][N].** Let $H\cong L_2(7)$ be one of the 30 Klein subgroups of $A_7$, in two classes of 15.
+**Proposition 7.9 (Klein quadrics) [P][X].** Let $H\cong L_2(7)$ be one of the 30 Klein subgroups of $A_7$, in two classes of 15.
 - $\mathbf 6|_H\cong\mathrm{Sym}^2(3)$, so the $H$-invariant quadrics form a line $\langle Q_H\rangle$: the lift of Klein's quartic through $\mathrm{Sym}^4\subset\mathrm{Sym}^2\mathrm{Sym}^2$.
 - Then $\operatorname{div}(Q_H|_C)=5\,O_H$, where $O_H$ is the set of 24 seven-points whose stabiliser lies in $H$.
 
-*Proof.* $Q_H|_C\ne0$, because $\varphi(C)$ lies on no quadric. Its divisor is $H$-invariant of degree 120. The $H$-orbits on $C$ have sizes 24 (only $O_H$), 42, 84 and 168, and $120=24a+42b+84c+168d$ forces $a=5$, $b=c=d=0$. $\square$
+*Proof.* Proposition 7.16 proves $Q_H|_C\ne0$ exactly, since $\varphi(C)$ lies on no quadric. Its divisor is $H$-invariant of degree 120. The $H$-orbits on $C$ have sizes 24 (only $O_H$), 42, 84 and 168, and $120=24a+42b+84c+168d$ forces $a=5$, $b=c=d=0$. $\square$
 
 *Checks [N]* (`p5_curve.py` (4)):
 - $Q_H$ vanishes on $O_H$, to order 5 at the base 7-point (log-log slope 4.99);
 - over a class, $\prod_HQ_H/S_6^5$ is constant on $\varphi(C)$ to $10^{-8}$.
 
-**Consequences** (given $Q_H|_C\ne0$, which rests on Prop. 7.8 [N]: $\mathrm{Sym}^2\mathbf 6=6+15$ is reducible, so representation theory alone does not exclude a quadric).
+**Consequences.** The nonzero restriction is now exact (Prop. 7.16): both irreducible quadratic systems have empty projective base locus. The Hessian identification below remains [N].
 - **Linear equivalences.** $2L_{60}\sim5O_H$ for all 30 subgroups $H$. Each class partitions $D_7$ into 15 sets $O_H$, and $\prod_HQ_H\equiv c\,S_6^5$ on $C$. This is "$120=5\cdot24$" behind the degree 60.
 - **5-torsion.** $O_H-O_K$ is 5-torsion in $\mathrm{Jac}(C)$. It is nonzero for $O_H\ne O_K$: otherwise a degree-$\le24$ pencil would exist, against $\operatorname{gon}\ge25$.
 - **A sixth root of the 7-points.** [P] for $6L_{60}\sim D_7$; the last equivalence uses Prop. 7.9. $K_C\sim D_2+3D_4-8D_7$ and $K_C-3L_{60}=B+T=D_2-3D_4+2D_7$ (§7.6, Prop. 5.8) give $3L_{60}\sim2D_4-3D_7$. With $4D_4\sim7D_7$:
@@ -301,9 +287,28 @@ So a pencil beating 42 either is pulled back from $C/N$ for one of the six nontr
 ## 7.11 Open
 
 - **The exact gonality** in $[25,42]$.
-  - The $\tau$-pencil has degree exactly 42 (Prop. 7.7, numerical at six points), pure 15/21 elliptic subcovers give $\ge60$, and symmetric projections of $\varphi(C)$ give nothing better.
+  - The $\tau$-pencil has degree exactly 42 [P][X] (Prop. 7.7), pure 15/21 elliptic subcovers give $\ge60$, and symmetric projections of $\varphi(C)$ give nothing better.
   - By Corollary 7.14, a smaller pencil has kernel $1$ or one of six small groups. Closing $C_7$ and $S_3$ needs $K_{3,2}=0$ resp. $K_{4,2}=0$ on genus-19 quotients. $C_2$ needs $\operatorname{gon}(C/\tau)=21$.
 - **Lower bounds by degeneration.** Baker's specialisation lemma gives $\operatorname{gon}(C)\ge\operatorname{dgon}(\Gamma)$ for the dual graph $\Gamma$ of a stable reduction. At $p=7\,\|\,|A_7|$, Raynaud–Wewers describe the stable reduction of three-point covers. Could $\Gamma$, which carries an $A_7$-action, have divisorial gonality $>25$?
 - **The ideal of $\varphi(C)$.** Is it generated by $X_3$ and the 15 quartics? Is $\varphi(C)$ projectively normal, i.e. $h^0(2L_{60})=21$ and $h^0(B+T)=10$? How does $\varphi(C)$ meet the 420 lines and sit in the hyperkähler Fano variety of $X_3$?
 - **The kernel map** of the $\mu=90$ series: is it a $\mathbb P^3$-model, a spin class of degree 135 with $M^2=3(B+T)$?
-- **Immersion at the 4-points.** Prove that $\varphi$ is an immersion at the points with stabiliser $C_4$, i.e. that the sequence there is $(0,1,2,3,4,6)$ rather than $(0,2,3,4,5,6)$. Together with an exact check of step 5 (no base points off the fixed points), this would make Proposition 7.7 a paper proof. If immersion failed, $\operatorname{gon}(C/\tau)\le15$.
+- **Full branch vanishing sequences.** Immersion at all 4-points and absence of extra pencil base points are proved in §7.12. This gives first orders $(0,1)$, not the entire minimal vanishing sequence; the remaining orders and free flex orbit of Theorem 7.5(5) still require proof.
+
+## 7.12 Normalization defects and the two quadratic systems [P][X]
+
+Proofs: `gpt/A7_Normalization_Defects.md`, `gpt/A7_Quadratic_Systems.md`. Exact checks: `gpt/verify_normalization.py`, `gpt/verify_quadrics.py`. These replace the embedding and no-quadric numerical inputs above.
+
+**Proposition 7.15 (embedding).** The morphism $\varphi$ of Theorem 7.5 is a closed embedding on all four classes.
+
+*Proof.* For $Y=\varphi(C)$, Castelnuovo bounds the arithmetic genus by $\pi(60,5)=406$. Hence the total normalization defect is $D=p_a(Y)-136\le270$. Locally, a fibre with $b$ branches, $k$ of them nonimmersed, contributes at least $b-1+k$ to the defect. Thus the nonimmersion locus has at most $D$ points, and the collision locus at most $2D$ points. They are $A_7$-invariant. Every point orbit has size at least 360, so nonimmersion is impossible; every orbit except $D_7$ has size at least 630, so collisions could occur only within $D_7$. Exact ATLAS specialization at $p=43$ proves that each order-7 eigenline has stabilizer exactly $C_7$. The map on the transitive orbit $D_7=A_7/C_7$ is therefore injective. All collisions are excluded. $\square$
+
+**Proposition 7.16 (quadrics and apolarity).** Write $\operatorname{Sym}^2\mathbf6=Q_6\oplus Q_{15}$, with $Q_6\cong\mathbf6^*$.
+1. Both quadratic systems have empty projective base locus. Thus every nonempty $A_7$-invariant closed subset of the exceptional $\mathbb P^5$, including $\varphi(C)$, lies on no quadric.
+2. $Q_6$ is the Jacobian system of the invariant cubic. Its quotient ring has Hilbert series $(1+t)^6$.
+3. $Q_{15}$ generates the apolar ideal of the dual invariant cubic, with quotient Hilbert function $(1,6,6,1)$.
+
+*Proof.* The exact character projector $P_6=\frac6{2520}\sum_g\operatorname{tr}(M_g)\operatorname{Sym}^2(M_g)$ and $1-P_6$ give the two systems. Modular integer rank checks at $p=43$, for both embeddings of $\mathbb Z[\omega]$ and both dual conventions, prove $Q_6S_5=S_7$ (rank 792) and $Q_{15}S_2=S_4$ (rank 126). Full rank after specialization proves full rank in characteristic zero. Each system therefore has empty base locus; any nonzero invariant quadratic ideal would contain one of them.
+
+Differentiating the invariant cubic identifies its six partials with $Q_6$, a regular sequence by the empty base locus. Differentiating the dual cubic twice identifies its apolar quadrics with $Q_{15}$. The degree-three multiplication rank is exactly 55: specialization bounds it below, and the invariant cubic constituent is absent from $Q_{15}\otimes\mathbf6$. Degree four vanishes in the quotient. Hence the apolar ideal is generated by these quadrics, with Hilbert function $(1,6,6,1)$. $\square$
+
+The same script checks that the six restricts irreducibly to each Klein subgroup and has exactly one invariant quadric. Proposition 7.9 is consequently exact. The identification of the Hessian section, the proposed quartic ideal, and projective normality remain separate.

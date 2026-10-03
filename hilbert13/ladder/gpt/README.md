@@ -2,6 +2,8 @@
 
 **4 October: normalization defects [P][X].** [`A7_Normalization_Defects.md`](A7_Normalization_Defects.md) proves that the degree-60 morphism is a closed embedding on all four classes and that the displayed involution pencil has moving degree exactly 42 (quotient degree 21). The arithmetic-genus defect is at most 270, whereas every ramified orbit costs at least 360; exact order-7 eigenline stabilizers eliminate the remaining collision orbit. `verify_normalization.py` and `normalization_check.txt` give the exact finite check. Both numerical gaps in Proposition 7.7 are removed, independently of the lower gonality bound. The equations of Proposition 7.8 and exact gonality remain separate questions.
 
+**4 October: quadratic systems [P][X].** [`A7_Quadratic_Systems.md`](A7_Quadratic_Systems.md) identifies the two irreducible quadratic systems as Jacobian and dual apolar ideals, with quotient Hilbert series $(1+t)^6$ and function $(1,6,6,1)$. Exact multiplication ranks show both base loci are empty. Consequently every nonempty invariant subset of the exceptional $\mathbb P^5$ lies on no quadric, and the Klein divisors $\operatorname{div}(Q_H|_C)=5O_H$ are exact. `verify_quadrics.py` and `quadrics_check.txt` certify the finite inputs. Neither note certifies the full quartic ideal or projective normality.
+
 GPT has supplied six documents, all in this folder, listed here in the order they were written. This page states what each one proves, in its sharpest form, and where that result now lives.
 
 **Tags.**

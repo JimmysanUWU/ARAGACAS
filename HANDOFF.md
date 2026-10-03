@@ -9,7 +9,7 @@ Status and open problems. The mathematics: [`GUIDE.md`](GUIDE.md).
 | 1, §6.1 | $g(C)=136$, $g(D)=64$; $\operatorname{gon}(D)\ge9$, and $\ge10$ by algebra |
 | 2–4 | $\operatorname{gon}(C)\ge25$ on all four classes, so $\operatorname{gon}(C/\tau)\ge13$; $\gamma(A_7)\ge25$; algebraically, $g\ge266\Rightarrow\operatorname{gon}\ge25$ (the three-pencil theorem, §4.5) |
 | 5 | $a(A_7)=60$ (sharp), $\mu(A_7)=90$; over a general base the threshold is set by its Amitsur subgroup |
-| 7 | the twisted Picard group. A degree-60 class with a $\mathbf 6$ in $H^0$ (exact), so $\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\tau)\le21$. $\varphi(C)\subset\mathbb P^5$ on the Laza–Zheng cubic; Klein–Plücker structure; pure 15/21 elliptic subcovers $\ge60$. A pencil below 42 has kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$ |
+| 7 | the twisted Picard group. The degree-60 six-section map is a closed embedding, and the displayed pencil has degree exactly 42 (quotient degree 21), all [P][X]. No quadrics and Klein contact divisors are exact. The quadratic systems are Jacobian/apolar ideals (§7.12). The proposed quartic ideal and Hessian identification remain [N]. Pure 15/21 elliptic subcovers $\ge60$. A pencil below 42 has kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$, conditional on the quotient rank inputs |
 
 ## Open, in priority order
 
@@ -19,10 +19,12 @@ Status and open problems. The mathematics: [`GUIDE.md`](GUIDE.md).
    - Remove $C_7$ and $S_3$ from Cor. 7.14: $K_{3,2}=0$ on $C/C_7$ and $K_{4,2}=0$ on $C/S_3$ (genus 19; artinian reduction, matrices of size $\sim10^4$).
    - The core cases: $\operatorname{gon}(C/\tau)=21$? Pencils with $N=1$?
    - Stable reduction at $p=7$ with graph gonality (§7.11).
-   - Immersion at the 630 four-points, plus an exact check of step 5 (§7.11), would make Prop. 7.7 [P]; a failure of immersion gives $\operatorname{gon}(C/\tau)\le15$.
+   - The entire branch vanishing sequences and free flex orbit; immersion itself and the exact base divisor are now proved (§7.12).
 4. $\operatorname{gon}\ge26$ on classes 0, 1 via a certified sharp $\kappa$ (Ch. 3).
 5. Towers and RD: correspondences with $u_Z\ne0$ (§5.5).
 6. Are $P_E$, $P_S$ torsion (§6.5)?
+
+**4 October checkpoint.** `gpt/A7_Normalization_Defects.md` and `gpt/A7_Quadratic_Systems.md` develop the normalization-defect and Jacobian/apolar structures. Their exact scripts and saved outputs remove the old embedding, no-quadric and Proposition 7.7/7.9 numerical dependencies. The remaining audits and open problems above are not claimed closed.
 
 ## Rules
 

@@ -130,3 +130,5 @@ Saved outputs: `normalization_check.txt`, `normalization_inputs_check.txt`. The 
 The normalization sequence and local jet estimates above are elementary. For the arithmetic-genus scope of Castelnuovo, see Buczynski–Ilten–Ventura, *Singular Curves of Low Degree and Multifiltrations from Osculating Spaces*, arXiv:1905.11860v3, Introduction, p. 2, and Harris, *A bound on the geometric genus of projective varieties*, Ann. Scuola Norm. Sup. Pisa (4) 8 (1981), 35–68. The former explicitly states that Castelnuovo also bounds the arithmetic genus of integral singular curves.
 
 **Remaining numerical claims.** This proof gives a closed embedding and an exact degree-42 pencil. It does not certify the cubic-and-quartic ideal, its Hilbert function, projective normality, the Hessian identification, quotient Koszul ranks, or exact gonality.
+
+The companion `A7_Quadratic_Systems.md` proves the absence of quadrics and the Klein contact divisors exactly, and identifies the Jacobian/apolar quadratic ideals. The remaining higher restriction ranks and ideal assertions above are separate.

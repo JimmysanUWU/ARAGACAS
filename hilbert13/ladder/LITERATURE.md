@@ -73,6 +73,9 @@ Tags:
 - **R. A. Wilson et al., *ATLAS of Group Representations* v3 [read: the matrices].** `3A7G1-Ar6B0` and `2A7G1-Ar4aB0`, the $\mathbf 6$ of $3.A_7$ over $\mathbb Z[\omega]$ and $V_4$ of $2.A_7$ over $\mathbb Z[b_7]$; checked in `audit_exact.py`.
 - **I. Petrakiev, arXiv:math/0604517, Theorem 2.16(a) [read by GPT's audit].** Curves of degree $\ge19$ in $\mathbb P^8$ with arithmetic genus above $\pi_2$ lie on surfaces of degree $\le8$ (Theorem 4.8).
 - **J. Harris, *Curves in projective space* (1982) [unverified].** Uniform position and the subadditivity $h_\Gamma(k+l)\ge\min(d,h_\Gamma(k)+h_\Gamma(l)-1)$ (Theorem 4.8).
+- **J. Buczynski, N. Ilten, E. Ventura, *Singular Curves of Low Degree and Multifiltrations from Osculating Spaces*, arXiv:1905.11860v3 [read: Introduction and local normalization setup, 4 October].** Introduction p. 2 explicitly states that Castelnuovo bounds the arithmetic genus of any integral nondegenerate singular curve. This is the classical input to the normalization-defect proof of Proposition 7.15; the orbit and first-jet estimates are proved in `gpt/A7_Normalization_Defects.md`.
+- **J. Harris, *A bound on the geometric genus of projective varieties*, Ann. Scuola Norm. Sup. Pisa (4) 8 (1981), 35–68 [cited through Buczynski–Ilten–Ventura].** Their reference for the arithmetic-genus form of Castelnuovo. The original text has not been independently read in this continuation.
+- **J. Jelisiejew, *VSPs of cubic fourfolds and the Gorenstein locus of the Hilbert scheme of 14 points on $\mathbb A^6$*, arXiv:1611.04345v2 [read: Introduction, 4 October].** Classical apolarity associates a finite Gorenstein algebra of Hilbert function $(1,6,6,1)$ to a non-conical cubic in six variables. Proposition 7.16 identifies the exceptional $A_7$ instance and certifies generation of its ideal by the 15-dimensional quadratic summand; the general apolar framework is not new.
 - **A. Strohmaier, V. Uski, CMP 317 (2013), arXiv:1110.2150; C. Carstensen, J. Gedicke, Math. Comp. 83 (2014) [abstract].** Prior rigorous eigenvalue methods (Ch. 2).
 - **M. Green, R. Lazarsfeld, Invent. Math. 83 (1986) [unverified wording].** Nonvanishing: $\operatorname{Cliff}\le p$ implies $K_{p,2}\ne0$. With Noether's and Petri's theorems (ACGH Ch. III), the tests of Theorem 7.13.
 - **D. Mumford, Invent. Math. 1 (1966).** Theta groups and Mumford classes.
@@ -112,6 +115,8 @@ Tags:
   - Monk–Naud, ICM 2026 survey, arXiv:2601.13988: no deterministic certified computations.
 
 ## 6. Novelty search
+
+**4 October structures.** The normalization sequence, arithmetic Castelnuovo bound, Jacobian ideals, and apolar algebras are classical. This continuation supplies the orbit-defect application to these degree-60 curves and exact finite certificates for their two exceptional quadratic systems; it makes no priority claim for the underlying frameworks. The embedding, exact displayed pencil and Klein contact divisors no longer rely on numerical equations. No exhaustive novelty search of the specific apolar $A_7$ example has been completed.
 
 - **These curves.** No prior work was found on their gonality or spectrum; only existence and census are known.
 - **Certified $\lambda_1$.** Error-controlled eigenvalue methods for hyperbolic surfaces predate this (Strohmaier–Uski 2013), and so do guaranteed finite-element lower bounds (Carstensen–Gedicke 2014). We claim no first or record. We found no prior combination with sign-twisted quotients covering all irreducibles.

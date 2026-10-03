@@ -1,0 +1,37 @@
+[
+  {
+    "job": "main_spectral",
+    "exit_code": 0,
+    "seconds": 103.44
+  },
+  {
+    "job": "count0",
+    "exit_code": 0,
+    "seconds": 47.25
+  },
+  {
+    "job": "count1",
+    "exit_code": 0,
+    "seconds": 47.59
+  },
+  {
+    "job": "upper0",
+    "exit_code": 0,
+    "seconds": 1.52
+  },
+  {
+    "job": "upper1",
+    "exit_code": 0,
+    "seconds": 1.5
+  },
+  {
+    "job": "a6_0",
+    "exit_code": 0,
+    "seconds": 65.79
+  },
+  {
+    "job": "a6_1",
+    "exit_code": 0,
+    "seconds": 11.77
+  }
+]

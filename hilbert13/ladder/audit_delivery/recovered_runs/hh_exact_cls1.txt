@@ -1,0 +1,34 @@
+class 1: M = 90, lam* = [0.3462670853994950781462591749005 +/- 2.14e-32]  (exact binary float), cutoff r1 = 1.37, w = 0.25
+centres within r2 + circumradius = 2.9801 of 0: 14 at distances [2.1408, 2.7201]
+  mismatch X: 118 disks of radius 0.1732, N = 64
+    disk 0/118
+    disk 25/118
+    disk 50/118
+    disk 75/118
+    disk 100/118
+  mismatch X: sup|D| <= 2.748e-09,  sup|grad D|_hyp <= 1.031e-07
+  mismatch Y2: 44 disks of radius 0.1732, N = 64
+    disk 0/44
+    disk 25/44
+  mismatch Y2: sup|D| <= 2.762e-08,  sup|grad D|_hyp <= 9.584e-07
+  [213s]
+  wedge^2 isotype projectors built (exact idempotence checked)
+  strip 8/48 done [214s]
+  strip 16/48 done [214s]
+  strip 24/48 done [215s]
+  strip 32/48 done [215s]
+  strip 40/48 done [216s]
+  strip 48/48 done [216s]
+  boxes: 1390
+int_sector |Psi|^2 dA >= [0.003096895583085591893604491855399 +/- 3.23e-34],  int_sector |res|^2 dA <= [2.742242970644894590006876245010e-10 +/- 3.50e-42]
+eta_s <= 2.976e-04,  rho <= 1.019e-03,  delta <= 3.574e-03
+lambda_h in [0.3459695150, 0.3465646558],  lambda_1 >= a = 0.3453694400
+eps |Psi - Ft| <= 3.31e-08, |grad(Psi - Ft)| <= 1.83e-06
+Lambda_h <= 3.769377e-03,  Gamma_h <= 2.52875
+  isotype 10+10b (dim 20): ||J_omega||^2 / ||omega||^2 <= 2.4924e-04
+  isotype     15 (dim 15): ||J_omega||^2 / ||omega||^2 <= 2.4473e-04
+  isotype     21 (dim 21): ||J_omega||^2 / ||omega||^2 <= 1.6307e-04
+  isotype     35 (dim 35): ||J_omega||^2 / ||omega||^2 <= 1.3562e-04
+B_h = b/(b - lambda_h) * max_sigma phi_sigma <= 6.5397e-04
+R <= 0.165711;  left side >= 0.328264;  right side <= 0.342335
+==> class 1: degree <= 24 excluded: False   [220s]

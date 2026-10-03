@@ -1,0 +1,23 @@
+class 0:
+F3^2 lies in the tangent kernel: residual 5.1e-16
+control at the 7-point p: |F3| 1.5e-15, |G6| 1.4e-16, others 7.4e-15
+sigma = (0, 1, 3, 2, 4, 6, 5): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 1.97
+sigma = (0, 1, 3, 2, 5, 4, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 1.97
+sigma = (0, 1, 3, 2, 6, 5, 4): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 1.97
+sigma = (1, 0, 2, 3, 4, 6, 5): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 1.97
+sigma = (1, 0, 2, 3, 5, 4, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 1.97
+sigma = (1, 0, 2, 3, 6, 5, 4): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 1.97
+sigma = (2, 3, 0, 1, 4, 5, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 2.49
+sigma = (3, 2, 1, 0, 4, 5, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 2.49
+class 12:
+F3^2 lies in the tangent kernel: residual 6.3e-16
+control at the 7-point p: |F3| 2.0e-15, |G6| 6.8e-16, others 2.3e-14
+sigma = (0, 1, 3, 2, 4, 6, 5): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 28.77
+sigma = (0, 1, 3, 2, 5, 4, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 28.77
+sigma = (0, 1, 3, 2, 6, 5, 4): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 28.77
+sigma = (1, 0, 2, 3, 4, 6, 5): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 28.77
+sigma = (1, 0, 2, 3, 5, 4, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 28.77
+sigma = (1, 0, 2, 3, 6, 5, 4): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 28.77
+sigma = (2, 3, 0, 1, 4, 5, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 21.53
+sigma = (3, 2, 1, 0, 4, 5, 6): F3 = G6 = 0 on Q_sigma has 18 points (Bezout: 18); min over them of the largest other invariant (relative): 21.53
+=> on both classes phi(C) misses every Q_sigma: the 18 fixed points are the whole base locus, and the moving part has degree exactly 42.

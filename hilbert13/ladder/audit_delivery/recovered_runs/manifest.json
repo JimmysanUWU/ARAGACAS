@@ -1,0 +1,74 @@
+[
+  {
+    "script": "cover.py",
+    "exit_code": 0,
+    "seconds": 0.44,
+    "log": "/workspace/scratch/731199114078/tmp/audit/cover.txt"
+  },
+  {
+    "script": "curve_checks.py",
+    "exit_code": 0,
+    "seconds": 10.51,
+    "log": "/workspace/scratch/731199114078/tmp/audit/curve_checks.txt"
+  },
+  {
+    "script": "verify_exact.py",
+    "exit_code": 0,
+    "seconds": 0.45,
+    "log": "/workspace/scratch/731199114078/tmp/audit/verify_exact.txt"
+  },
+  {
+    "script": "gonality_large_genus.py",
+    "exit_code": 0,
+    "seconds": 3.16,
+    "log": "/workspace/scratch/731199114078/tmp/audit/gonality_large_genus.txt"
+  },
+  {
+    "script": "verify_accessory60.py",
+    "exit_code": 0,
+    "seconds": 7.52,
+    "log": "/workspace/scratch/731199114078/tmp/audit/verify_accessory60.txt"
+  },
+  {
+    "script": "equivariant_rr.py",
+    "exit_code": 0,
+    "seconds": 0.58,
+    "log": "/workspace/scratch/731199114078/tmp/audit/equivariant_rr.txt"
+  },
+  {
+    "script": "model99.py",
+    "exit_code": 0,
+    "seconds": 1.13,
+    "log": "/workspace/scratch/731199114078/tmp/audit/model99.txt"
+  },
+  {
+    "script": "verify_mu90_exact.py",
+    "exit_code": 0,
+    "seconds": 4.11,
+    "log": "/workspace/scratch/731199114078/tmp/audit/verify_mu90_exact.txt"
+  },
+  {
+    "script": "side_checks.py",
+    "exit_code": 0,
+    "seconds": 24.75,
+    "log": "/workspace/scratch/731199114078/tmp/audit/side_checks.txt"
+  },
+  {
+    "script": "twisted_rr.py",
+    "exit_code": 0,
+    "seconds": 23.7,
+    "log": "/workspace/scratch/731199114078/tmp/audit/twisted_rr.txt"
+  },
+  {
+    "script": "twisted_survey.py",
+    "exit_code": 0,
+    "seconds": 84.09,
+    "log": "/workspace/scratch/731199114078/tmp/audit/twisted_survey.txt"
+  },
+  {
+    "script": "elliptic_subcovers.py",
+    "exit_code": 0,
+    "seconds": 63.46,
+    "log": "/workspace/scratch/731199114078/tmp/audit/elliptic_subcovers.txt"
+  }
+]

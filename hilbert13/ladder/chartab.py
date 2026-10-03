@@ -1,6 +1,13 @@
-"""Character table of A7 by the Burnside/Dixon class-algebra method (numerical, then rounded)."""
+"""A7 character table from the exact ATLAS table in cover.py.
+
+EXACT_TABLE contains exact values.  TABLE is its numerical evaluation for
+numerical consumers; no eigensolver or rounding is used to identify characters.
+The labels of the two conjugate 10s are interchangeable.
+"""
 import numpy as np
+import sympy as sp
 from a7 import *
+from cover import TABLE as ATLAS_TABLE, CLASSES as ATLAS_CLASSES, check_table
 
 def classes(G):
     left, cls = set(G), []
@@ -33,22 +40,18 @@ def class_matrix(j):
         M[:, l] /= sizes[l]
     return M
 
+check_table()
+columns = []
+seven_columns = iter((7,8))
+for conjugacy_class in CL:
+    ct = cycle_type(conjugacy_class[0])
+    columns.append(next(seven_columns) if ct == (7,) else ATLAS_CLASSES.index(ct))
+EXACT_TABLE = [[row[j] for j in columns] for row in ATLAS_TABLE.values()]
+
+
 def char_table():
-    rng = np.random.default_rng(0)
-    Ms = [class_matrix(j) for j in range(k)]
-    A = sum(rng.standard_normal() * M for M in Ms)
-    w, V = np.linalg.eig(A)
-    chars = []
-    for t in range(k):
-        v = V[:, t]
-        v = v / v[0]  # v_i = size_i chi(C_i)/chi(1)
-        # chi(1)^2 = |G| / sum_i v_i conj(v_i)/size_i
-        s = sum(v[i] * np.conj(v[i]) / sizes[i] for i in range(k)).real
-        d = np.sqrt(2520 / s)
-        chi = np.array([d * v[i] / sizes[i] for i in range(k)])
-        chars.append(chi)
-    chars.sort(key=lambda c: (round(c[0].real), round(c[1].real, 3), round(c[-1].imag, 3)))
-    return chars
+    return [np.array([complex(sp.N(value,17)) for value in row]) for row in EXACT_TABLE]
+
 
 TABLE = char_table()
 

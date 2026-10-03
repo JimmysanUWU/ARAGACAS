@@ -1,0 +1,8 @@
+{'class': 12, 'quotient': 'S5', 'subgroup_order': 120, 'ok': True, 'n': 128, 'dofs': 1032192, 'sigma': 0.3557, 'negative_pivots': 2, 'Ch2': 3.173861958515013e-05, 'eta': 9.54304635157452e-15, 'shift': 4.307950396151902e-08, 'need': 6.402880975027223e-09, 'L_rowmax': 3313, 'L1': 75.0046357966158, 'Linf': 19.156250925569942, 'Dmax': 12.104624308885864, 'min_abs_pivot': 0.045617315824229066, 'lambda2_bound': None, 'secs': 23}
+Traceback (most recent call last):
+  File "/workspace/scratch/731199114078/aragacas/hilbert13/ladder/certify_memory.py", line 55, in <module>
+    main(int(sys.argv[1]) if len(sys.argv)>1 else 12)
+  File "/workspace/scratch/731199114078/aragacas/hilbert13/ladder/certify_memory.py", line 47, in main
+    assert result['ok'] and result['negative_pivots'] == 1,result
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'ok': True, 'n': 128, 'dofs': 1032192, 'sigma': 0.3557, 'negative_pivots': 2, 'Ch2': 3.173861958515013e-05, 'eta': 9.54304635157452e-15, 'shift': 4.307950396151902e-08, 'need': 6.402880975027223e-09, 'L_rowmax': 3313, 'L1': 75.0046357966158, 'Linf': 19.156250925569942, 'Dmax': 12.104624308885864, 'min_abs_pivot': 0.045617315824229066, 'lambda2_bound': None, 'secs': 23}

@@ -1,0 +1,27 @@
+[
+  {
+    "job": "main_repaired",
+    "exit_code": 0,
+    "seconds": 130.82
+  },
+  {
+    "job": "signatures_repaired",
+    "exit_code": 0,
+    "seconds": 396.91
+  },
+  {
+    "job": "window_repaired",
+    "exit_code": 0,
+    "seconds": 226.88
+  },
+  {
+    "job": "lower_12_repaired",
+    "exit_code": -9,
+    "seconds": 20.27
+  },
+  {
+    "job": "lower_14_repaired",
+    "exit_code": -9,
+    "seconds": 17.51
+  }
+]

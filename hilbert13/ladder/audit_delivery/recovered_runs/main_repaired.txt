@@ -1,0 +1,27 @@
+Spectral certificate for the (2,4,7) A7-curves   (2_SPECTRAL.md)
+python 3.12.14, numpy 2.3.5, scipy 1.17.0, python-flint 0.9.0, cvxopt 1.3.3
+plan: Q0 n=16, Q1 n=96 sigma=0.3409, Q2 n=32   (each hyperbolic triangle cut into n^2 pieces)
+
+triple  0  Q0: n  16  dofs      768  lambda_h 9.704772  sigma 1.000000  C_h^2 2.172e-03  Cholesky shift 9.89e-12 (needed 4.95e-12)  ==> certified >= 0.997833   [7s]
+triple  0  Q1: n  96  dofs  1935360  lambda_h    (not computed)  sigma 0.340900  C_h^2 5.661e-05  Cholesky shift 1.96e-10 (needed 9.79e-11)  ==> certified >= 0.340893   [16s]
+triple  0  Q2: n  32  dofs   322560  lambda_h 0.689965  sigma 0.689275  C_h^2 5.223e-04  Cholesky shift 6.64e-11 (needed 3.32e-11)  ==> certified >= 0.689027   [9s]
+triple  0  lambda_1(C) >= 0.340893
+
+triple  1  Q0: n  16  dofs      768  lambda_h 9.704772  sigma 1.000000  C_h^2 2.172e-03  Cholesky shift 9.89e-12 (needed 4.95e-12)  ==> certified >= 0.997833   [7s]
+triple  1  Q1: n  96  dofs  1935360  lambda_h    (not computed)  sigma 0.340900  C_h^2 5.661e-05  Cholesky shift 2.06e-10 (needed 1.03e-10)  ==> certified >= 0.340893   [15s]
+triple  1  Q2: n  32  dofs   322560  lambda_h 0.689965  sigma 0.689275  C_h^2 5.223e-04  Cholesky shift 9.43e-11 (needed 4.71e-11)  ==> certified >= 0.689027   [9s]
+triple  1  lambda_1(C) >= 0.340893
+
+triple 12  Q0: n  16  dofs      768  lambda_h 9.704772  sigma 1.000000  C_h^2 2.172e-03  Cholesky shift 9.89e-12 (needed 4.95e-12)  ==> certified >= 0.997833   [8s]
+triple 12  Q1: n  96  dofs  1935360  lambda_h    (not computed)  sigma 0.340900  C_h^2 5.661e-05  Cholesky shift 2.12e-10 (needed 1.06e-10)  ==> certified >= 0.340893   [16s]
+triple 12  Q2: n  32  dofs   322560  lambda_h 0.764056  sigma 0.763292  C_h^2 5.223e-04  Cholesky shift 8.93e-11 (needed 4.47e-11)  ==> certified >= 0.762988   [10s]
+triple 12  lambda_1(C) >= 0.340893
+
+triple 14  Q0: n  16  dofs      768  lambda_h 9.704772  sigma 1.000000  C_h^2 2.172e-03  Cholesky shift 9.89e-12 (needed 4.95e-12)  ==> certified >= 0.997833   [4s]
+triple 14  Q1: n  96  dofs  1935360  lambda_h    (not computed)  sigma 0.340900  C_h^2 5.661e-05  Cholesky shift 2.37e-10 (needed 1.18e-10)  ==> certified >= 0.340893   [16s]
+triple 14  Q2: n  32  dofs   322560  lambda_h 0.764056  sigma 0.763292  C_h^2 5.223e-04  Cholesky shift 8.03e-11 (needed 4.02e-11)  ==> certified >= 0.762988   [13s]
+triple 14  lambda_1(C) >= 0.340893
+
+ALL TRIPLES: lambda_1(C) >= 0.340893
+  gon(C)         >= 67.5  * lambda_1 >= 23.0103  ==>  gon(C) >= 24
+  gon(C/<tau>)   >= 33.75 * lambda_1 >= 11.5052  ==>  gon(C/<tau>) >= 12

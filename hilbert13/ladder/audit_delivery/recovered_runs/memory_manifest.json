@@ -1,0 +1,12 @@
+[
+  {
+    "job": "memory12",
+    "exit_code": 1,
+    "seconds": 37.9
+  },
+  {
+    "job": "memory14",
+    "exit_code": 0,
+    "seconds": 55.41
+  }
+]

@@ -86,27 +86,40 @@ def dual_rows(S):
 def kernel_dim_mod(M, p):
     Mp = flint.nmod_mat([[int(x) % p for x in r] for r in M], p); return Mp.ncols() - Mp.rank()
 def short_vectors_exist(Gram, bound):
-    """is there y != 0 in Z^d with y^T Gram y <= bound?  Exact Fincke-Pohst: Gram = U^T D U with U unit upper
-    triangular over Q, so y^T Gram y = sum_i D_i (y_i + sum_{j>i} U_ij y_j)^2, and every branch is pruned by an exact test."""
-    d = len(Gram); D = [Fraction(0)] * d; Uu = [[Fraction(int(i == j)) for j in range(d)] for i in range(d)]
+    """Exact Fincke--Pohst enumeration; no floating-point branch pruning.
+
+    Write G = U^T D U, with rational unit-upper-triangular U and D > 0.
+    Every partial sum is then a rigorous lower bound for the whole norm.
+    Integer-square-root bounds deliberately include the boundary candidates.
+    """
+    d = len(Gram)
+    U = [[Fraction(int(i == j)) for j in range(d)] for i in range(d)]
+    D = []
     for i in range(d):
-        D[i] = Fraction(Gram[i][i]) - sum(D[k] * Uu[k][i] ** 2 for k in range(i))
-        assert D[i] > 0, "Gram not positive definite"
+        di = Fraction(Gram[i][i]) - sum(D[k] * U[k][i] ** 2 for k in range(i))
+        assert di > 0, "Gram matrix is not positive definite"
+        D.append(di)
         for j in range(i + 1, d):
-            Uu[i][j] = (Fraction(Gram[i][j]) - sum(D[k] * Uu[k][i] * Uu[k][j] for k in range(i))) / D[i]
+            U[i][j] = (Fraction(Gram[i][j]) - sum(D[k] * U[k][i] * U[k][j] for k in range(i))) / di
     y = [0] * d
-    def rec(i, rem):
+    def rec(i, part):
         if i < 0:
             return any(y)
-        c = -sum(Uu[i][j] * y[j] for j in range(i + 1, d))       # need D_i (y_i - c)^2 <= rem
-        s = math.isqrt(math.ceil(rem / D[i])) + 1                 # |y_i - c| <= s
-        for yi in range(math.floor(c) - s, math.ceil(c) + s + 1):
-            t = D[i] * (yi - c) ** 2
-            if t <= rem:
+        c = -sum(U[i][j] * y[j] for j in range(i + 1, d))
+        r2 = (bound - part) / D[i]
+        if r2 < 0:
+            return False
+        r_hi = math.isqrt(r2.numerator // r2.denominator) + 1
+        c_floor = math.floor(c)
+        for yi in range(c_floor - r_hi, c_floor + r_hi + 2):
+            term = D[i] * (yi - c) ** 2
+            if part + term <= bound:
                 y[i] = yi
-                if rec(i - 1, rem - t): return True
-        y[i] = 0; return False
-    return rec(d - 1, Fraction(bound))
+                if rec(i - 1, part + term):
+                    return True
+        y[i] = 0
+        return False
+    return rec(d - 1, Fraction(0))
 
 for cls in (0, 1, 12, 14):
     a, b, c = triples[cls]
@@ -117,7 +130,9 @@ for cls in (0, 1, 12, 14):
     sizes = {}
     for h in G: sizes[CIDX[h]] = sizes.get(CIDX[h], 0) + 1
     dec = {nm: round(sum(sizes[k] * chi[k] * np.conj(row[k]) for k in chi).real / n) for nm, row in zip(names, TABLE)}
-    print(f"class {cls}: cup product antisymmetric {np.array_equal(Om, -Om.T)}, |det| = {round(abs(np.linalg.det(Om.astype(float))))};"
+    det_om = abs(int(fz(Om).det()))
+    assert np.array_equal(Om, -Om.T) and det_om == 1
+    print(f"class {cls}: cup product antisymmetric True, |det| = {det_om};"
           f" H^1 = { {k: v for k, v in dec.items() if v} }")
     rng = np.random.default_rng(cls)
     for nm in ("15", "21"):
@@ -130,9 +145,9 @@ for cls in (0, 1, 12, 14):
         # the K-fixed plane: saturate span(x1, x2) and read its degree
         M2 = np.stack([x1, x2], 1); g2 = 0
         for i, j in itertools.combinations(range(272), 2):
-            m_ = int(M2[i, 0] * M2[j, 1] - M2[j, 0] * M2[i, 1])
+            m_ = int(M2[i, 0]) * int(M2[j, 1]) - int(M2[j, 0]) * int(M2[i, 1])
             if m_: g2 = math.gcd(g2, m_)
-        nK = abs(int(x1 @ Om @ x2)) // g2
+        nK = abs(int(x1.astype(object) @ Om.astype(object) @ x2.astype(object))) // g2
         hs, cols = [], []
         for h in [G[i] for i in rng.permutation(n)]:
             v = actc(h, x1)
@@ -147,6 +162,11 @@ for cls in (0, 1, 12, 14):
         WH = dual_rows(np.hstack([A, B]).tolist()); DH = 1                          # H, to bound the glue exponent
         for t in WH.flatten(): DH = DH * Fraction(t).denominator // math.gcd(DH, Fraction(t).denominator)
         assert all(DH % (q * q) for q in (2, 3, 5, 7)), "glue exponent not squarefree"
+        residue = DH
+        for q in (2, 3, 5, 7):
+            if residue % q == 0:
+                residue //= q
+        assert residue == 1, "unaccounted glue prime or prime power"
         conds = {p: [(0, None)] + [(1, a_ * A0 + b_ * B0) for a_, b_ in [(1, t) for t in range(p)] + [(0, 1)]] + [(2, np.vstack([A0, B0]))] for p in primes}
         below = []
         for combo in itertools.product(*[conds[p] for p in primes]):

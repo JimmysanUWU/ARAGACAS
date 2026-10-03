@@ -1,0 +1,12 @@
+[
+  {
+    "job": "hh_exact_cls0",
+    "exit_code": 0,
+    "seconds": 210.05
+  },
+  {
+    "job": "hh_exact_cls1",
+    "exit_code": 0,
+    "seconds": 225.4
+  }
+]

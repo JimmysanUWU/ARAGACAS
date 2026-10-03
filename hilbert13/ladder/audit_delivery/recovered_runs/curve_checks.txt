@@ -1,0 +1,45 @@
+1. Triples
+   involutions 105, order 4: 630; with a = (01)(23) fixed: 96 choices of b; 10080 triples = 4 A7-classes = 2 S7-classes
+   class representatives (indices into triples_data): [0, 1, 12, 14]
+2. Fixed points over the three branch points (Lemma 1.1); genus 136
+   (2, 2, 1, 1, 1): [12, 6, 0], total 18
+   (3, 1, 1, 1, 1): [0, 0, 0], total 0
+   (3, 3, 1): [0, 0, 0], total 0
+   (4, 2, 1): [0, 2, 0], total 2
+   (5, 1, 1): [0, 0, 0], total 0
+   (3, 2, 2): [0, 0, 0], total 0
+   (7,) class 1: [0, 0, 3], total 3
+   (7,) class 2: [0, 0, 3], total 3
+3. D = C/tau
+   |C(tau)| = 24, g(D) = 64
+   lift (3, 1, 1, 1, 1): order 3 on D, 0 fixed points
+   lift (3, 1, 1, 1, 1): order 3 on D, 0 fixed points
+   lift (2, 2, 1, 1, 1): order 2 on D, 18 fixed points
+   lift (2, 2, 1, 1, 1): order 2 on D, 18 fixed points
+   lift (2, 2, 1, 1, 1): order 2 on D, 18 fixed points
+   lift (2, 2, 1, 1, 1): order 2 on D, 18 fixed points
+   lift (3, 2, 2): order 6 on D, 0 fixed points
+   lift (3, 2, 2): order 6 on D, 0 fixed points
+   lift (4, 2, 1): order 2 on D, 2 fixed points
+   lift (4, 2, 1): order 2 on D, 2 fixed points
+   lift (4, 2, 1): order 2 on D, 2 fixed points
+   16 subgroups K with tau in K <= C(tau); genera g(C/K): [(1, 64), (2, 28), (2, 28), (2, 28), (2, 28), (2, 32), (2, 32), (2, 32), (3, 22), (4, 12), (4, 12), (4, 12), (6, 7), (6, 10), (6, 11), (12, 3)]
+4. Chevalley-Weil (multiplicity of rho in H^1(C) = dim rho - sum of fixed dims at the branches)
+     10: H^1 multiplicity 3, dim rho^tau 4
+    10b: H^1 multiplicity 3, dim rho^tau 4
+     15: H^1 multiplicity 2, dim rho^tau 7
+     21: H^1 multiplicity 2, dim rho^tau 11
+     35: H^1 multiplicity 4, dim rho^tau 17
+   g(C) = 136, g(D) = 64
+   H-isotypes of rho^tau (H = <e> x S3):
+      1: {'1,1': 1}
+      6: {'1,1': 1, '1,std': 1, 'e,1': 1}
+     10: {'1,sgn': 1, 'e,sgn': 1, 'e,std': 1}
+    10b: {'1,sgn': 1, 'e,sgn': 1, 'e,std': 1}
+    14a: {'1,1': 1, '1,std': 2, 'e,1': 1, 'e,std': 1}
+    14b: {'1,1': 2, '1,sgn': 1, '1,std': 1, 'e,1': 1, 'e,std': 1}
+     15: {'1,sgn': 1, '1,std': 1, 'e,1': 1, 'e,sgn': 1, 'e,std': 1}
+     21: {'1,1': 1, '1,sgn': 1, '1,std': 2, 'e,1': 1, 'e,std': 2}
+     35: {'1,1': 1, '1,sgn': 1, '1,std': 3, 'e,1': 1, 'e,sgn': 2, 'e,std': 3}
+5. The divisor behind (*)
+   isotypic norms of Phi_g - 3 Phi_c: {'6': 7.0993, '14a': 7.746, '14b': 15.02, '21': 9.4868, '35': 2.4495}

@@ -36,8 +36,8 @@ import scipy.sparse.linalg as sla
 from flint import arb
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import certify as cf
-from certify import (arb_max, U, gamma, fdown, fup, ref_triangle_arb, element_data, elem_mats_rigorous, assemble_rigorous,
-                     assemble_rigorous_fast, metric_box, QUOTIENTS)
+from certify import (U, gamma, fdown, fup, ref_triangle_arb, element_data, elem_mats_rigorous, assemble_rigorous,
+                     assemble_rigorous_fast, metric_box, QUOTIENTS, arb_max, j11_lower)
 from orbifold import quotient_tiles, build_dofs, ref_elements, grads, numeric_elem_mats, reference_triangle
 from triples_data import triples
 from a7 import cyc
@@ -47,7 +47,7 @@ A6_GENS = ([cyc((0, 1, 2)), cyc((1, 2, 3, 4, 5))], [1, 1])
 
 
 def ch2_bound(n, ed):
-    j11_lo = arb("3.8317059702075")
+    j11_lo = j11_lower()
     kappa2 = (arb(1) / 8 + arb(2) / (j11_lo * j11_lo)) / (n * n)
     return kappa2 * arb_max(arb(e[2]) / e[3] for e in ed)
 

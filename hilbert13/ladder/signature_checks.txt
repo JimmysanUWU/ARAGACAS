@@ -1,0 +1,14 @@
+(2, 4, 7) genus 136 inner classes 4 strict spectral threshold 16/45
+(3, 3, 5) genus 169 inner classes 2 strict spectral threshold 2/7
+(2, 5, 7) genus 199 inner classes 4 strict spectral threshold 8/33
+(3, 3, 6) genus 211 inner classes 2 strict spectral threshold 8/35
+(3, 4, 4) genus 211 inner classes 8 strict spectral threshold 8/35
+(2, 6, 7) genus 241 inner classes 4 strict spectral threshold 1/5
+(3, 3, 7) genus 241 inner classes 4 strict spectral threshold 1/5
+(2, 7, 7) genus 271 inner classes 6 strict spectral threshold 8/45
+(3, 4, 5) genus 274 inner classes 10 strict spectral threshold 16/91
+(3, 4, 6) genus 316 inner classes 6 strict spectral threshold 16/105
+(4, 4, 4) genus 316 inner classes 24 strict spectral threshold 16/105
+four-point candidates below 421 fail the degree-seven RH test: [(2, 2, 2, 3), (2, 2, 2, 4), (2, 2, 2, 5)]
+five-point genus >= 631
+positive quotient genus with branching has genus >= 631

@@ -35,7 +35,7 @@ The proof uses the full $A_7$-action, so it avoids the audit barrier (Theorem 1.
 
 The subgroups of order $>72$ ($A_7,A_6,L_2(7),S_5$) would force a simple $K_0$ of order $\ge60$. The one of order 72, $(A_4\times3){:}2$, needs $3\mid m$. $\square$
 
-Lemma 4.3 is the cruder version actually used.
+$(K,K_0)$ is the pair $(K,N)$ of Proposition 7.11. Lemma 4.3 is the cruder version used in Chapter 4.
 
 ## 6.3 The conformal route and its ceiling [P][N]
 
@@ -54,11 +54,8 @@ Li–Yau holds for every conformal metric. So one can try to maximise $\lambda_1
 
 GPT adds that the gain is strict, and that an equivariant maximiser exists, possibly conical (Vinokurov; `gpt/README.md` §2.4). Neither changes the ceiling. So the route is closed. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
 
-## 6.4 Superseded and negative tests
+## 6.4 Negative tests
 
-- **Topological Hersch [P][N]** (git history at b148338).
-  - It was the first inequality to use Lemma 3.3. It bounds the degree gain by $6\kappa\sqrt\varepsilon+E(z)/2$.
-  - Harmonic Hersch improves this to $4\kappa\sqrt\varepsilon$ with no $E(z)$ term, via $x\times dx={*dx}$, and supersedes it.
 - **Quadric gap [N].** $\min\frac1A\int(1-|y|)^2\approx0.016$ over $y\in E_1\otimes\mathbb R^3$ with $\|y\|^2=A$. This gives only $\operatorname{gon}\ge23.7$: the obstruction is the degree, not the shape.
 - **Equivariant Plücker [X]** (`equivariant_plucker.py`, in git history at b148338). Branch eigenvalues fix the vanishing orders mod $e$, and Plücker then requires
   $$(r+1)(d+r(g-1))-\sum_i\tfrac{2520}{e_i}w_{\min}(i)\in2520\,\mathbb Z_{\ge0}.$$

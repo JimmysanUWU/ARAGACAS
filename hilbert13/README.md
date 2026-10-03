@@ -30,8 +30,8 @@ continuous functions of two variables.
 - **Algebraic version: open.** Here the building blocks must be algebraic functions. It is
   measured by the *resolvent degree* $\mathrm{RD}(n)$ (Brauer; Farb–Wolfson). Classically
   $\mathrm{RD}(5) = 1$ (Bring radical) and $\mathrm{RD}(7) \le 3$, and Hilbert's question
-  is whether $\mathrm{RD}(7) = 3$. Remarkably, it is not known whether $\mathrm{RD}(n) > 1$
-  for *any* $n$.
+  is whether $\mathrm{RD}(7) = 3$. It is not known whether $\mathrm{RD}(n) > 1$
+  for any $n$.
 
 The results below explain one feature of the Kolmogorov–Arnold formula: why it needs
 several outer terms $\Phi_q$ and continuous inner functions, and why dropping regularity

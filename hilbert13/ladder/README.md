@@ -10,7 +10,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 |---|---|---|
 | **$25\le\operatorname{gon}(C)\le42$ and $13\le\operatorname{gon}(D)\le21$** | | |
 | — lower: $\lambda_1\ge0.34089$ with Li–Yau; classes 12, 14 directly, classes 0, 1 by harmonic Hersch | [P][C][L] | Ch. 2–3 |
-| — upper: the sections of a degree-60 Schur-twisted class give a pencil of degree $\le42$; that it is base-point-free of degree exactly 42 is [N] at six points | [P][X] (exactness [N]) | Ch. 7 |
+| — upper: the sections of a degree-60 Schur-twisted class give a pencil of degree $\le42$ (certified exactly from the ATLAS matrices); that it is base-point-free of degree exactly 42 is [N] at six points | [P][X] (exactness [N]) | Ch. 7 |
 | **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve ($\ge23$ without the window computation of §4.4) | [P][C] | Ch. 4, 7 |
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: compression with connected full monodromy needs exactly degree 90 | [P][X] | Ch. 5 |
@@ -65,6 +65,7 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 | `verify_accessory60.py`, `equivariant_rr.py`, `verify_mu90_exact.py` | $a=60$; $h^0(B+T)\ge10$; the exclusion of 72, 84 (Ch. 5) → `mu90_exact_output.txt` for the last |
 | `side_checks.py` | §6.1, §6.4, §6.5 (with GPT's Belyi map), Prop. 1.6 and the Ch. 4 table |
 | `twisted_rr.py`, `twisted_survey.py` | $2.A_7,3.A_7,6.A_7$, twisted Lefschetz, §§7.1–7.6; the 26 rigid curves (§7.8) |
+| `verify_schur_exact.py` | exact: the ATLAS $\mathbf 6$ of $3.A_7$, and a degree-60 class with $\mathbf 6\subseteq H^0$ and eigenvalue $+1$ at the 18 fixed points (Thm 7.5, Cor. 7.6) |
 | `tau_pencil.py` | no base points beyond the 18 (Prop. 7.7) |
 | `p5_curve.py` | equations of $\varphi(C)$, embedding, the fibre $18+42$, Klein quadrics (Props. 7.8–7.9) |
 | `elliptic_subcovers.py` | $H^1(C,\mathbb Z)$ with cup product; subcovers $\ge60$ (Prop. 7.10) |
@@ -86,13 +87,14 @@ for f in cover verify_exact gonality_large_genus verify_accessory60 equivariant_
 python3 verify_mu90_exact.py > mu90_exact_output.txt
 python3 twisted_rr.py > twisted_rr_output.txt               # 25 s
 python3 twisted_survey.py > twisted_survey_output.txt       # 90 s
+python3 verify_schur_exact.py > verify_schur_exact_output.txt   # 5 s
 python3 tau_pencil.py > tau_pencil_output.txt               # 1 min
 python3 p5_curve.py > p5_curve_output.txt                   # 7 min
 python3 elliptic_subcovers.py > elliptic_subcovers_output.txt   # 80 s
 python3 quotient_gonality.py 0 > quotient_gonality_output.txt  # 9 min; class 12 gives the same table
 ```
 
-Times are for an otherwise idle 4-core machine. Run the large FEM jobs one at a time, or they run out of memory. The last full re-run (2 October 2026) reproduced every saved output (`GUIDE.md` §5).
+Times are for an idle 4-core machine; run the FEM jobs one at a time (7 GB each). Every saved output reproduces.
 
 ## Trust base
 
@@ -103,4 +105,4 @@ Times are for an otherwise idle 4-core machine. Run the large FEM jobs one at a 
   - Bryant (§6.3 only).
 - **Finite-element bounds.** Crouzeix–Raviart (Liu; Carstensen–Gedicke) and Higham's Cholesky backward error, both checked in Lean in abstract form.
 - **Software.** python-flint ball arithmetic; CHOLMOD with a-priori error bounds.
-- **External inputs.** GPT's theorems, re-derived wherever used (`gpt/README.md` §1), and the ATLAS subgroup lists.
+- **External inputs.** GPT's theorems, re-derived wherever used (`gpt/README.md` §1); the ATLAS subgroup lists and the matrices `3A7G1-Ar6B0` (checked in `verify_schur_exact.py`).

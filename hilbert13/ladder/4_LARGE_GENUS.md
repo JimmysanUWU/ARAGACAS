@@ -85,6 +85,6 @@ The chain of §2.4 is used (`certify_signatures.py` → `certify_window_output.t
 
 Beyond the window, not needed: $(3,5,7)$, $(3,6,6)$, $(3,6,7)$, $(3,7,7)$, $(4,4,6)$ also certify (24 curves). The run stopped at $(4,4,7)$, where the dense $Q_0$ deflation failed numerically. That is not a certified negative.
 
-$c(d)$ agrees with GPT's Round-3 table. Lemma 4.5 adds the tangential case, which costs as much as the transversal one.
+In Lemma 4.5 the tangential case costs as much as the transversal one.
 
 **An algebraic alternative [G].** GPT's sharp independent-triple bound $g\le\lfloor m^2/2-m+1\rfloor$ (DAY 2 Thm 5.2) replaces $\pi(3d,7)$ and gives $\operatorname{gon}\ge25$ for all $g\ge266$ (Thm 5.3). That covers the window without §4.4. It is not re-derived here (`gpt/README.md` §2.1).

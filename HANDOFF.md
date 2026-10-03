@@ -1,69 +1,45 @@
-# HANDOFF: Hilbert 13 and the $A_7$ gonality ladder
+# HANDOFF
 
-This file holds the live status and the working rules. To learn the mathematics, read [`GUIDE.md`](GUIDE.md) first: reading order, notation, dependencies and verification.
-
-## Where things are
-
-| | |
-|---|---|
-| repository | `JimmysanUWU/ARAGACAS`, branch `claude/continue-previous-qfhm7j`, draft PR #1 |
-| GPT's branches | `codex/a7-weighted-budget-residuals` (PR #2) and `codex/a7-quadric-envelopes-and-residuals`: do not merge, push or comment without the user's go-ahead |
-| mathematics | `hilbert13/ladder/1_CURVE.md` … `7_TWISTED.md` (textbook order) |
-| Lean | `hilbert13/Hilbert13/Superposition.lean` (`hilbert13/README.md`) and `SpectralCertificate.lean` |
-| history | git only: superseded notes and scripts up to `b148338`, session logs up to `d5d99c4` |
-| web stub | the original 2022 ARAGACAS files (`index.html`, `src/`, `css/`, `dist/`, `tsconfig.json`), deleted on this branch at the user's request on 3 October; they remain on `master` until the PR merges, and in git history |
+Status and open problems. The mathematics: [`GUIDE.md`](GUIDE.md).
 
 ## Status
 
-**Done.**
-- **Ch. 1, §6.1.** $g(C)=136$, $g(D)=64$, $\operatorname{gon}(D)\ge9$ ($\ge10$ by algebra); degree 9 and the audit curve.
-- **Ch. 2–4.** $\operatorname{gon}(C)\ge25$ on all four $(2,4,7)$ classes, so $\operatorname{gon}(C/\tau)\ge13$; also $\gamma(A_7)\ge25$.
-- **Ch. 5.** $a(A_7)=60$ (sharp) and $\mu(A_7)=90$. Over other bases the threshold is governed by the Amitsur subgroup (§5.5, corrected 3 October after GPT found that $\mathrm{Pic}(B)=0$ does not suffice).
-- **Ch. 7.**
-  - Schur-twisted Picard group.
-  - $C\hookrightarrow\mathbb P^5$ of degree 60, cut out by the Laza–Zheng cubic and 15 quartics.
-  - An exact $g^1_{42}$, so $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$.
-  - Klein quadrics (Plücker quadrics of $SL_2(7)$; the 7-points are flexes of Klein quartics); elliptic subcovers have degree $\ge60$.
-  - **Pencils by symmetry type (§7.10, 3 October).** A pencil below 42 must have class-stabiliser kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$, by quotient gonalities for all 33 classes with $|K|\le60$ (`quotient_gonality.py`, [P] given [N] inputs).
+| chapter | established |
+|---|---|
+| 1, §6.1 | $g(C)=136$, $g(D)=64$; $\operatorname{gon}(D)\ge9$, and $\ge10$ by algebra |
+| 2–4 | $\operatorname{gon}(C)\ge25$ on all four classes, so $\operatorname{gon}(C/\tau)\ge13$; $\gamma(A_7)\ge25$ |
+| 5 | $a(A_7)=60$ (sharp), $\mu(A_7)=90$; over a general base the threshold is set by its Amitsur subgroup |
+| 7 | the twisted Picard group. A degree-60 class with a $\mathbf 6$ in $H^0$ (exact), so $\operatorname{gon}(C)\le42$, $\operatorname{gon}(C/\tau)\le21$. $\varphi(C)\subset\mathbb P^5$ on the Laza–Zheng cubic; Klein–Plücker structure; elliptic subcovers $\ge60$. A pencil below 42 has kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$ |
 
-**Open, in priority order.**
-0. **Exact $3.A_7$ check.** Verify the $\mathbf 6$ (and $2.A_7$'s $V_4$) exactly against the ATLAS matrices (`3A7G1-Ar6B0`, reachable by `curl`), and redo the twisted Lefschetz multiplicity $\langle\chi(L_{60}),\chi_6\rangle=1$ in exact cyclotomic arithmetic. GPT did this on 3 October, but the run ended before pushing.
-1. **Audit** of Ch. 3, 4, 7 and §§5.4–5.5 by GPT (`QUESTIONS_FOR_GPT.md` §1).
-2. **Paper.** Typeset the chapters into one PDF.
-3. **The exact gonality**, in $[25,42]$. Every symmetric mechanism stops at 42. Corollary 7.14 leaves kernels $1$, $C_2$ and five small groups. New inputs would be:
-   - $K_{3,2}=0$ on $C/C_7$ and $K_{4,2}=0$ on $C/S_3$ (genus 19; use the artinian reduction, matrices of size about $10^4$) to remove $C_7$ and $S_3$;
-   - stable reduction at $p=7$ with graph gonality (§7.11);
-   - a non-symmetric pencil on the explicit model.
-   - immersion of $\varphi$ at the 630 four-points (§7.11): a proof makes Prop. 7.7 [P], and a failure gives $\operatorname{gon}(C/\tau)\le15$.
-4. **(Optional)** $\operatorname{gon}\ge26$ on classes 0, 1, via a certified sharp $\kappa$ (Ch. 3).
-5. **(Long shot)** Towers and RD: correspondences with $u_Z\ne0$ (§5.5). The Amitsur obstruction alone is cheap to remove (Cor. 5.18).
-6. **(Low)** Are $P_E$, $P_S$ torsion (§6.5)?
+## Open, in priority order
 
-**Budget.** The user's usage is limited. Send item 1 to GPT and do item 2. Do items 3–6 only on a new idea, in small decisive steps.
+1. **Audit** of Ch. 3, 4, 7 and §§5.4–5.5 (`QUESTIONS_FOR_GPT.md` §1).
+2. **Paper:** typeset the chapters into one PDF.
+3. **The exact gonality** in $[25,42]$.
+   - Remove $C_7$ and $S_3$ from Cor. 7.14: $K_{3,2}=0$ on $C/C_7$ and $K_{4,2}=0$ on $C/S_3$ (genus 19; artinian reduction, matrices of size $\sim10^4$).
+   - The core cases: $\operatorname{gon}(C/\tau)=21$? Pencils with $N=1$?
+   - Stable reduction at $p=7$ with graph gonality (§7.11).
+   - Immersion at the 630 four-points (§7.11): makes Prop. 7.7 [P]; a failure gives $\operatorname{gon}(C/\tau)\le15$.
+4. $\operatorname{gon}\ge26$ on classes 0, 1 via a certified sharp $\kappa$ (Ch. 3).
+5. Towers and RD: correspondences with $u_Z\ne0$ (§5.5).
+6. Are $P_E$, $P_S$ torsion (§6.5)?
 
-## Workflow
+## Rules
 
-- **GPT** runs in parallel. Its PDFs go in `hilbert13/ladder/gpt/`, and each new one is digested into `gpt/README.md`. Every claim is re-derived [P] or recomputed [X] before use. Questions go in `QUESTIONS_FOR_GPT.md`, paste-ready.
-- **Commits.**
-  - Use the trailers from the session instructions.
-  - Put no model identifiers in commits, PRs or files.
-  - Push with `git push -u origin claude/continue-previous-qfhm7j`, retrying on network errors.
+- Work on `claude/continue-previous-qfhm7j` (draft PR #1). GPT's branches `codex/a7-weighted-budget-residuals` (PR #2) and `codex/a7-quadric-envelopes-and-residuals` are not to be merged, pushed to or commented on without the user's go-ahead.
+- GPT documents go in `hilbert13/ladder/gpt/`, digested in `gpt/README.md`; every claim is re-derived or recomputed before use.
+- No model identifiers in files or commits. Usage is limited: prefer small decisive steps.
+- Superseded notes and scripts are in git history only (up to `b148338`).
 
 ## Setup
 
 ```sh
 pip install numpy scipy sympy python-flint cvxopt pypdf
 cd hilbert13/ladder && python3 cover.py          # smoke test, 1 s
-# Lean 4 + Mathlib (needs release.lean-lang.org, github.com and the Mathlib cache)
+# Lean 4 + Mathlib
 curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh
 bash elan-init.sh -y --default-toolchain leanprover/lean4:stable && export PATH=$HOME/.elan/bin:$PATH
 cd hilbert13 && lake exe cache get && lake build   # Lean/Mathlib v4.34.1
 ```
 
-## Infrastructure notes
-
-- **Papers.** WebFetch is blocked for arxiv.org; `curl` works. Use `pypdf`, because `pdfminer` breaks on this image.
-- **Memory.** FEM jobs use up to 7 GB. Run one per shell call.
-- **cvxopt.** `cholmod.options['supernodal']=2` forces supernodal $LL^T$. `getfactor` returns the factor of a CHOLMOD-chosen permutation; the certificates use only its row counts and norms.
-- **python-flint.** `acb_hypgeom_2f1` can return a non-finite ball at large $m$; `hh_eval.f21` retries at doubled precision.
-- **Killing jobs.** `pkill -f pattern` also kills the calling shell if the pattern is in its own command line. Use `pgrep -f "[p]attern" | xargs -r kill` in a separate call.
+Notes: FEM jobs use up to 7 GB (one at a time). `curl` reaches arXiv and the ATLAS; use `pypdf` for PDFs. `hh_eval.f21` retries `acb_hypgeom_2f1` at doubled precision when a ball is non-finite.

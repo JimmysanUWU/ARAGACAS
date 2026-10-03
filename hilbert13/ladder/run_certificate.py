@@ -9,7 +9,7 @@ and by the Hersch / Yang-Yau / Li-Yau inequality lambda_1 * Area <= 8 pi deg, Ar
     gon(C) >= 67.5 lambda_1(C),     gon(C/<tau>) >= 33.75 lambda_1(C).
 
 Default: Q1 on the mesh n = 96 with sigma = 0.3409 fixed (about 1 min and 7 GB per triple class),
-certifying lambda_1 > 0.34074 and hence gon(C) >= 24.
+certifying lambda_1 >= 0.34089 and hence gon(C) >= 24.
 --quick: Q1 on n = 32 with sigma = 0.999 * (computed discrete eigenvalue): lambda_1 >= 0.33335,
 gon(C) >= 23 (about 3 minutes in total, 3 GB).
 """

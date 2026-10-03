@@ -1,0 +1,8 @@
+1. ATLAS 3A7G1-Ar6B0: |<A,B>| = 7560, kernel of the map to A7 = scalars {1,w,w^2}; homomorphism checked on all edges
+2-4. Lefschetz in Q(zeta_84):
+   class  0: O and K_C give <chi,chi> = 12; degree-60 classes: eps of 6bar, r = (0, 2, 6): <chi,chi> = 7, mult. of that 6 = 1; eps of 6bar, r = (1, 0, 6): <chi,chi> = 4, mult. of that 6 = 0  =>  a 6 in H^0 with lambda = +1 at the 18 fixed points of tau: True
+   class  1: O and K_C give <chi,chi> = 12; degree-60 classes: eps of 6, r = (0, 2, 6): <chi,chi> = 7, mult. of that 6 = 1; eps of 6, r = (1, 0, 6): <chi,chi> = 4, mult. of that 6 = 0  =>  a 6 in H^0 with lambda = +1 at the 18 fixed points of tau: True
+   class 12: O and K_C give <chi,chi> = 12; degree-60 classes: eps of 6bar, r = (0, 2, 6): <chi,chi> = 7, mult. of that 6 = 1; eps of 6bar, r = (1, 0, 6): <chi,chi> = 4, mult. of that 6 = 0  =>  a 6 in H^0 with lambda = +1 at the 18 fixed points of tau: True
+   class 14: O and K_C give <chi,chi> = 12; degree-60 classes: eps of 6, r = (0, 2, 6): <chi,chi> = 7, mult. of that 6 = 1; eps of 6, r = (1, 0, 6): <chi,chi> = 4, mult. of that 6 = 0  =>  a 6 in H^0 with lambda = +1 at the 18 fixed points of tau: True
+   the order-2 lift acts on the 6 with trace 2: eigenvalues (+1)^4 (-1)^2
+==> exact: every (2,4,7) curve has a degree-60 class with 6 in H^0, and gon(C) <= 42: True

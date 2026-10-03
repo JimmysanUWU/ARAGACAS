@@ -1,3 +1,4 @@
 __pycache__/
 *.pyc
 hilbert13/ladder/hh_mismatch_cls*.txt
+hilbert13/ladder/certificate_quick.txt

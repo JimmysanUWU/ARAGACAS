@@ -70,6 +70,7 @@ By Schur, each $\varphi_\sigma$ is one scalar per isotype, an integral over a fu
 ## 3.4 Certification [C] (`hh_certify.py`, 106-bit ball arithmetic)
 
 The Hejhal coefficients are treated as exact data.
+0. **Centres.** The orbit points of 0 within $r_2+R_{\rm circ}$ are found by a search over adjacent stars. Distinct orbit points are $\ge2d_{72}$ apart (each star contains the disk of radius $d_{72}$), which certifies the enumeration.
 1. **Mismatches.**
    - Cover the active region by disks of radius $0.1732$.
    - On each, the 64-point DFT of $D\circ T_w$ on $u=0.144$ gives Fourier–Legendre coefficients.

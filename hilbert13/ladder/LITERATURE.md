@@ -70,11 +70,13 @@ Tags:
 - **J. Milnor, *On the 3-dimensional Brieskorn manifolds* (1975) [unverified].** The centrally extended triangle groups $\langle c_i\mid c_1^p=c_2^q=c_3^r=c_1c_2c_3\rangle$ (Prop. 7.1).
 - **Stacks Project, §11.8 [unverified; cited by GPT].** Splitting fields of central simple algebras (Corollary 5.18).
 - **I. Schur (1911); ATLAS.** $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$ and $3.A_7\subset SL_6$.
+- **R. A. Wilson et al., *ATLAS of Group Representations* v3 [read: the matrices].** `3A7G1-Ar6B0`, the $\mathbf 6$ of $3.A_7$ over $\mathbb Z[\omega]$; checked in `verify_schur_exact.py`.
+- **M. Green, R. Lazarsfeld, Invent. Math. 83 (1986) [unverified wording].** Nonvanishing: $\operatorname{Cliff}\le p$ implies $K_{p,2}\ne0$. With Noether's and Petri's theorems (ACGH Ch. III), the tests of Theorem 7.13.
 - **D. Mumford, Invent. Math. 1 (1966).** Theta groups and Mumford classes.
 - **M. F. Atiyah, R. Bott, Ann. Math. 88 (1968).** Holomorphic Lefschetz (Ch. 5, 7).
 - **E. Kani, J. reine angew. Math. 485 (1997) [unverified]; Birkenhake–Lange, *Complex Abelian Varieties* [unverified section].** Elliptic subcovers via sublattices (§7.9).
 - **Cited only in GPT's documents** (`gpt/README.md` §2; not used here). Petrakiev, arXiv:math/0604517 (refined Castelnuovo bounds); Harui, arXiv:1306.5842 (automorphisms of plane curves); Vinokurov, arXiv:2502.03756 (equivariant eigenvalue optimisation); Karpenko–Merkurjev, Invent. Math. 172 (2008) (essential dimension at $p$); Niu–Ulrich, arXiv:1404.5092 (conductor and duality).
-- **For §7.10 (not used) [unverified].** M. Baker, specialisation of linear systems from curves to graphs (2008); M. Raynaud (1999) and S. Wewers (2003) on the stable reduction of three-point covers when $p\,\|\,|G|$.
+- **For §7.11 (not used) [unverified].** M. Baker, specialisation of linear systems from curves to graphs (2008); M. Raynaud (1999) and S. Wewers (2003) on the stable reduction of three-point covers when $p\,\|\,|G|$.
 
 ## 5. Spectral gonality and certified eigenvalues
 

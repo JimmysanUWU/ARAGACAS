@@ -23,7 +23,7 @@ Accessories over bases with a fixed point produce linearised bundles (Theorem 5.
 5. Elliptic subcovers have degree $\ge60$ (Prop. 7.10).
 6. **Pencils by symmetry type.** The kernel $N$ of a gonal pencil's class stabiliser on the pencil costs degree $|N|\operatorname{gon}(C/N)$. This cost is $\ge42$ unless $N$ is trivial or one of six small groups (Prop. 7.11, Thm 7.13, Cor. 7.14).
 
-Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s), `quotient_gonality.py` (9 min per class); outputs `*_output.txt`.
+Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s), `quotient_gonality.py` (9 min per class), `verify_schur_exact.py` (5 s); outputs `*_output.txt`.
 
 ## 7.1 The groups [X]
 
@@ -35,6 +35,8 @@ Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 
 
 $$3.A_7=\langle x,y,z\mid z^3,\ [x,z],\ [y,z],\ x^3,\ y^5,\ (xy)^7,\ (xyxy^{-1})^2=z,\ (xy^{-2}xy^2)^2\rangle\qquad(z=1\text{ gives }A_7).$$
 
+**Exact check [X]** (`verify_schur_exact.py`). The ATLAS matrices `3A7G1-Ar6B0` over $\mathbb Z[\omega]$ satisfy these relations up to scalars. They generate a group of order 7560 mapping onto $A_7$ with kernel the scalars, so they give the $\mathbf 6$ exactly.
+
 ## 7.2 The invariant Picard group [P][X]
 
 Let $x_1x_2x_3=1$ be the branch generators (orders $e_i=2,4,7$), and $\hat x_i\in6.A_7$ fixed lifts. The *local datum* of a twisted class is the eigenvalue $\lambda_i=e^{2\pi ir_i/e_i}$ of $\hat x_i$ on the fibre at its fixed point. Define $\rho_0$ by $\varepsilon(\hat x_1\hat x_2\hat x_3)=e^{2\pi i\rho_0}$.
@@ -43,7 +45,7 @@ Let $x_1x_2x_3=1$ be the branch generators (orders $e_i=2,4,7$), and $\hat x_i\i
 $$\deg L=2520\Big(n+\sum_i\frac{r_i}{e_i}-\rho_0\Big),\qquad n\in\mathbb Z .$$
 
 *Proof.*
-1. $\tilde\Delta=\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3=:h\rangle$ is the centrally extended triangle group (Milnor): the preimage of $\Delta(2,4,7)$ in the universal cover of $\mathrm{PSL}_2(\mathbb R)$, a central extension by $\langle h\rangle\cong\mathbb Z$. It is not a universal central extension in the group-theoretic sense, since $\Delta(2,4,7)$ has abelianisation $C_2$. It acts on $K^w$ over $\mathbb H$: $h$ acts by $e^{-2\pi iw}$, and $c_i$ acts at its fixed point by $e^{-2\pi iw/e_i}$.
+1. $\tilde\Delta=\langle c_i\mid c_1^2=c_2^4=c_3^7=c_1c_2c_3=:h\rangle$ is the centrally extended triangle group (Milnor): the preimage of $\Delta(2,4,7)$ in the universal cover of $\mathrm{PSL}_2(\mathbb R)$, a central extension by $\langle h\rangle\cong\mathbb Z$. It acts on $K^w$ over $\mathbb H$: $h$ acts by $e^{-2\pi iw}$, and $c_i$ acts at its fixed point by $e^{-2\pi iw/e_i}$.
 2. Every equivariant line bundle on $\mathbb H$ is $K^w\otimes F_\chi$, with $\chi$ a character of $\tilde\Delta\times_\Delta\hat\Delta$ satisfying $\chi(h)=e^{2\pi iw}$ and $\chi|_Z=\varepsilon$.
 3. **The local data.** At the fixed point of $c_i$ the generator must act by the local datum, so $\chi(c_i)=\lambda_ie^{2\pi iw/e_i}$.
    - The relation $c_i^{e_i}=h$ becomes $\lambda_i^{e_i}=\varepsilon(\hat x_i^{e_i})$, the stated condition.
@@ -90,13 +92,13 @@ $$\mathrm{tr}(\hat g\mid H^0-H^1)=\sum_{p\in\mathrm{Fix}(g)}\frac{\lambda(\hat g
   1. The invariants of $2.A_7$ on $V_4$ have Hilbert series $1+t^8+t^{12}+t^{14}+t^{16}+t^{18}+2t^{20}+\dots$
   2. Lemma 7.3 kills $f_{14}$ and $f_{18}$ on $C$: their least admissible divisors have degrees 3150 and 3330, against $14\cdot45=630$ and $18\cdot45=810$.
   3. Involutions lift with eigenvalues $(i,i,-i,-i)$, and $i^{14}=i^{18}=-1$, so $f_{14},f_{18}$ vanish on the 210 lines $\mathbb P(E_{\pm i}(\hat\tau))$. These are distinct: in a unitary model $E_{-i}=E_i^\perp$, so either line determines $\hat\tau$ up to sign.
-  4. $f_{14},f_{18}$ are coprime. Their gcd is invariant, because $2.A_7$ is perfect and so has no characters. A nonconstant gcd would have degree 8, 12 or 14, and dividing $f_{14}$ or $f_{18}$ by it would give an invariant of degree 6, 2 or 4; there are none. So $Z(f_{14},f_{18})$ is a curve of degree 252 containing 210 lines, leaving degree 42 for $\psi(C)$, which has degree 45. $\square$ (Steps 3–4 in this form are due to GPT, `gpt/A7_Amitsur_Correspondence.pdf` §9.)
+  4. $f_{14},f_{18}$ are coprime. Their gcd is invariant, because $2.A_7$ is perfect and so has no characters. A nonconstant gcd would have degree 8, 12 or 14, and dividing $f_{14}$ or $f_{18}$ by it would give an invariant of degree 6, 2 or 4; there are none. So $Z(f_{14},f_{18})$ is a curve of degree 252 containing 210 lines, leaving degree 42 for $\psi(C)$, which has degree 45. $\square$ (Steps 3–4: GPT, `gpt/A7_Amitsur_Correspondence.pdf` §9.)
 
 So there is **no spinor model** $C\to\mathbb P(V_4)$.
 
 ## 7.5 The degree-60 model and the $\tau$-pencil
 
-**Theorem 7.5 [P][X].** Every $(2,4,7)$ curve carries an invariant class $L_{60}$ of degree 60 and Mumford class of order 3 with
+**Theorem 7.5 [P][X]** (exact: `verify_schur_exact.py`). Every $(2,4,7)$ curve carries an invariant class $L_{60}$ of degree 60 and Mumford class of order 3 with
 $$\chi(L_{60})=\mathbf 6-15-2\cdot21-24,\qquad\text{so }H^0(L_{60})\supseteq\mathbf 6 .$$
 The map $\varphi:C\to\mathbb P^5$ given by $\mathbf 6$ has these properties:
 1. **Base-point-free.** An invariant base locus would have degree $\le60<360$.
@@ -110,6 +112,11 @@ So **60 is the least degree of an invariant class with $h^0\ge2$**, against $\mu
 **Corollary 7.6 [P][X].** $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$.
 
 *Proof.* Sections in the 2-dimensional $(-1)$-eigenspace $E_-$ satisfy $s(p)=-s(p)$ at the 18 fixed points. So $|E_-|$ has them as base points, and its moving part has degree $\le42$. Ratios of anti-invariant sections are $\tau$-invariant, so the pencil descends to $C/\tau$. $\square$
+
+The inputs are certified in exact arithmetic over $\mathbb Q(\zeta_{84})$ on all four classes (`verify_schur_exact.py`):
+- the multiplicity $\langle\chi(L_{60}),\chi_{\mathbf 6}\rangle=1$, with $\langle\chi(L_{60}),\chi(L_{60})\rangle=7$, at the local datum $r=(0,2,6)$;
+- $\operatorname{tr}\hat\tau=2$;
+- eigenvalue $+1$ at all 18 fixed points (since $\lambda_1=1$ and $\lambda_2^2=1$).
 
 **Proposition 7.7 (exactly 42) [P][N].** The base locus of $|E_-|$ is exactly the 18 fixed points, each simple. So the bound comes from a base-point-free $g^1_{42}$, pulled back from a $g^1_{21}$ on $C/\tau$.
 

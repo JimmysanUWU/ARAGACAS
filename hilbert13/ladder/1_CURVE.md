@@ -140,6 +140,4 @@ So the fixed points, the quotient genera and the $H$-character of $H^0(K)$ (whic
 | 2 | $\operatorname{gon}(D)\ge9$; structure at 9; reduction to $(\star)$ | §§1.3–1.4 |
 | 3 | $\operatorname{gon}(D)\ge10$ by algebra | §6.1 |
 | 4 | $\operatorname{gon}(C)\ge25$, $\operatorname{gon}(D)\ge13$ | Chapters 2–3 |
-| upper | $\operatorname{gon}(C)\le42$, $\operatorname{gon}(D)\le21$: an exact base-point-free pencil on a degree-60 model in $\mathbb P^5$ | Prop. 7.7 |
-
-Before Chapter 7 the best upper bound came from the quotient $C\to C/P\to\mathbb P^1$, with $P\ni\tau$ of order 8 and $g(C/P)=12$. It gives only $56$ for $C$ and $28$ for $D$.
+| upper | $\operatorname{gon}(C)\le42$, $\operatorname{gon}(D)\le21$, from a degree-60 twisted class | Cor. 7.6, Prop. 7.7 |

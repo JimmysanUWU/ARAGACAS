@@ -18,10 +18,7 @@
 1. $a(A_7)=60$; that is, $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1=\mathrm{ed}_{\mathbb C}(A_7;\le60)$.
 2. $\mu(A_7)=90$: compression with connected full $A_7$-monodromy needs exactly accessory degree 90.
 
-**Credits.**
-- GPT: part 1, Theorems 5.2–5.3 and Lemmas 5.4–5.5 (DAY 2, `gpt/DAY_2_A7_Mathematical_Reference.pdf`); $\mu\ge72$ (Round 5). All of these are re-derived here.
-- GPT (3 October): the open-base gap and the Amitsur theory of §5.5 (`gpt/A7_Amitsur_Correspondence.pdf`), re-derived.
-- Ours: $\mu\le90$, the exclusion of 72 and 84, and the first (flawed) version of §5.5.
+**Credits.** GPT: part 1, Theorems 5.2–5.3, Lemmas 5.4–5.5 (DAY 2), $\mu\ge72$ (Round 5), and the Amitsur theory of §5.5 (`gpt/A7_Amitsur_Correspondence.pdf`); all re-derived here. Ours: $\mu\le90$ and the exclusion of 72 and 84.
 
 Computations: `verify_accessory60.py`, `verify_mu90_exact.py`, `equivariant_rr.py`.
 
@@ -141,7 +138,7 @@ So $\mu\notin\{72,78,84\}$, and $\mu(A_7)=90$. $\square$
 
 ## 5.5 Beyond fixed points: Amitsur subgroups [P]
 
-Theorem 5.2 restricts $\mathcal O(Z)$ to a fixed point, and fixed points do not survive a quadratic accessory $t^2=q(v)$ (Round 5 Prop. 4.2). What replaces the fixed point is the *Amitsur subgroup* of the base. An earlier version of this section claimed that $\mathrm{Pic}(B)=0$ on an open base forces linearisation. That is false (Example 5.12); GPT found the gap and supplied the corrected theory (`gpt/A7_Amitsur_Correspondence.pdf`), which is re-derived here.
+Theorem 5.2 restricts $\mathcal O(Z)$ to a fixed point, and fixed points do not survive a quadratic accessory $t^2=q(v)$ (Round 5 Prop. 4.2). What replaces the fixed point is the *Amitsur subgroup* of the base. On an open base, $\mathrm{Pic}(B)=0$ does not force linearisation (Example 5.12).
 
 **Notation.** For a smooth projective $G$-variety $X$ and an invariant class $M\in\mathrm{Pic}(X)^G$, $m_X(M)\in H^2(G,\mathbb C^\*)$ is the obstruction to linearising $M$ (its Mumford class). It is well defined because $\mathcal O(X)^\*=\mathbb C^\*$. The **Amitsur subgroup** is
 $$\mathrm{Am}_G(X)=m_X\big(\mathrm{Pic}(X)^G\big)\subseteq H^2(G,\mathbb C^\*).$$
@@ -249,5 +246,5 @@ For a $(2,4,7)$ target, $H^1(C)$ contains none of $1,6,14_a,14_b$. So $u_Z=0$ wh
 
 **Open.**
 - **Towers with $u_Z\ne0$** (§5.5). This is the remaining obstacle to $\mathrm{RD}(A_7)>1$ along these lines. The Amitsur part alone is cheap to remove (Corollary 5.18).
-- Is $a(A_7)=60=\tilde\mu(C)$ a coincidence? The degree-60 class gives $2L_{60}\sim5\cdot24$ points through the Klein subgroups (Prop. 7.9), while $a$ uses $15\cdot4$ through the same subgroups.
+- Is $a(A_7)=60=\tilde\mu(C)$ a coincidence? Both equal $|A_7|/42$ and both run through the Klein subgroups: $a=15\cdot4$ via Klein's quartic, while $2L_{60}\sim5O_H$, $6L_{60}\sim D_7$, and $\varphi(O_H)$ is the set of flexes of Klein's quartic (§7.6).
 - The arithmetic questions of §6.5.

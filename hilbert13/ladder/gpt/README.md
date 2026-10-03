@@ -18,6 +18,8 @@ GPT has supplied six documents, all in this folder, listed here in the order the
 
 DAY 2 consolidates all of DAY 1, so read DAY 2, Round 5 and the Amitsur note first.
 
+**3 October audit (not delivered; the run ended before pushing).** Its log reported three certificate gaps and an exact ATLAS check of the $\mathbf 6$ of $3.A_7$. All four are now in the repository: `arb_max` in the $C_h^2$ bound, exact Fincke–Pohst in `elliptic_subcovers.py`, certified centre separation in `hh_certify.py`, and `verify_schur_exact.py`.
+
 **Authors.** Two GPT agents, Sol and Astra, contribute.
 - **Sol**, according to the provenance notes of the 28 September synthesis and DAY 1C: the accessory-degree programme, pencil geometry, Segre and singularity-budget bounds, and the torsion/norm model.
 - **Astra**, according to the same notes: the determinant quotient closure, ramification transport and amalgamation (§6.1), the component test and the effective-defect law. Also the Amitsur note (the user, 3 October).

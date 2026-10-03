@@ -17,7 +17,8 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | over any base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, the least stable compression degree is $\mu_{\mathrm{Am}(X)}(C)$: 90 or 60 for $(2,4,7)$ targets, by the Amitsur subgroup of the base (GPT; verified) | [P] | §5.5 |
 | invariant classes have degrees $15\mathbb Z$, with no sections below 60; Mumford class in $\mathbb Z/6$ | [P][X] | §§7.2–7.4 |
 | $\varphi:C\hookrightarrow\mathbb P^5$ (degree 60) is cut out by the Laza–Zheng $A_7$-cubic and 15 quartics; no quadrics | [P][N] | §7.6 |
-| Klein subgroups $L_2(7)$ give quadrics meeting $\varphi(C)$ in $5\times24$ seven-points | [P][N] | Prop. 7.9 |
+| Klein subgroups $L_2(7)$ give quadrics meeting $\varphi(C)$ in $5\times24$ seven-points; these are Plücker quadrics, the points are the Veronese images of the flexes of Klein's quartic, and $6L_{60}\sim D_7$ | [P][N] | Prop. 7.9 |
+| a gonal pencil's class stabiliser acts on it through $PGL_2$, with kernel $N$ costing $|N|\operatorname{gon}(C/N)$; all quotients $C/K$ with $|K|\le60$ are priced, so a pencil below 42 has $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$ | [P][N] | §7.10 |
 | elliptic subcovers of types 15, 21 have degree $\ge60$; $H^1(C,\mathbb Z)$ exactly from the dessin | [X] | §7.9 |
 | $\operatorname{gon}(D)\ge9$ by Castelnuovo–Severi; $\ge10$ by ramification transport | [P][X] | §1.3, §6.1 |
 
@@ -39,7 +40,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | [`4_LARGE_GENUS.md`](4_LARGE_GENUS.md) | conjugate pencils, Castelnuovo bounds, cost of a dependent third, the window |
 | [`5_ACCESSORY.md`](5_ACCESSORY.md) | correspondence, degree lattice, $a=60$, $\mu=90$, the twisted correspondence |
 | [`6_SIDE_RESULTS.md`](6_SIDE_RESULTS.md) | algebraic $\operatorname{gon}(D)\ge10$, pencil orbits, conformal ceiling, negative tests, open arithmetic |
-| [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted classes, the $\mathbb P^5$ model and its equations, $\operatorname{gon}\le42$, Klein quadrics, elliptic subcovers |
+| [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted classes, the $\mathbb P^5$ model and its equations, $\operatorname{gon}\le42$, Klein quadrics, elliptic subcovers, pencils by symmetry type |
 | [`LITERATURE.md`](LITERATURE.md) | the literature and references |
 | [`QUESTIONS_FOR_GPT.md`](QUESTIONS_FOR_GPT.md) | audit requests and open questions |
 | [`gpt/README.md`](gpt/README.md) | digest of GPT's five PDFs (DAY 1A–C, DAY 2, Round 5): what each proves, where it is used, what is superseded |
@@ -67,6 +68,7 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 | `tau_pencil.py` | no base points beyond the 18 (Prop. 7.7) |
 | `p5_curve.py` | equations of $\varphi(C)$, embedding, the fibre $18+42$, Klein quadrics (Props. 7.8–7.9) |
 | `elliptic_subcovers.py` | $H^1(C,\mathbb Z)$ with cup product; subcovers $\ge60$ (Prop. 7.10) |
+| `quotient_gonality.py` | differentials on $C/K$; Noether, Petri, $K_{p,2}$; Castelnuovo–Severi over the subgroup lattice (Thm 7.13) |
 
 ## Reproduction
 
@@ -87,6 +89,7 @@ python3 twisted_survey.py > twisted_survey_output.txt       # 90 s
 python3 tau_pencil.py > tau_pencil_output.txt               # 1 min
 python3 p5_curve.py > p5_curve_output.txt                   # 7 min
 python3 elliptic_subcovers.py > elliptic_subcovers_output.txt   # 80 s
+python3 quotient_gonality.py 0 > quotient_gonality_output.txt  # 9 min; class 12 gives the same table
 ```
 
 Times are for an otherwise idle 4-core machine. Run the large FEM jobs one at a time, or they run out of memory. The last full re-run (2 October 2026) reproduced every saved output (`GUIDE.md` §5).

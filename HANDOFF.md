@@ -23,15 +23,17 @@ This file holds the live status and the working rules. To learn the mathematics,
   - Schur-twisted Picard group.
   - $C\hookrightarrow\mathbb P^5$ of degree 60, cut out by the Laza–Zheng cubic and 15 quartics.
   - An exact $g^1_{42}$, so $\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$.
-  - Klein quadrics; elliptic subcovers have degree $\ge60$.
+  - Klein quadrics (Plücker quadrics of $SL_2(7)$; the 7-points are flexes of Klein quartics); elliptic subcovers have degree $\ge60$.
+  - **Pencils by symmetry type (§7.10, 3 October).** A pencil below 42 must have class-stabiliser kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$, by quotient gonalities for all 33 classes with $|K|\le60$ (`quotient_gonality.py`, [P] given [N] inputs).
 
 **Open, in priority order.**
 1. **Audit** of Ch. 3, 4, 7 and §§5.4–5.5 by GPT (`QUESTIONS_FOR_GPT.md` §1).
 2. **Paper.** Typeset the chapters into one PDF.
-3. **The exact gonality**, in $[25,42]$. Every symmetric mechanism stops at 42. New inputs would be:
-   - stable reduction at $p=7$ with graph gonality (§7.10);
+3. **The exact gonality**, in $[25,42]$. Every symmetric mechanism stops at 42. Corollary 7.14 leaves kernels $1$, $C_2$ and five small groups. New inputs would be:
+   - $K_{3,2}=0$ on $C/C_7$ and $K_{4,2}=0$ on $C/S_3$ (genus 19; use the artinian reduction, matrices of size about $10^4$) to remove $C_7$ and $S_3$;
+   - stable reduction at $p=7$ with graph gonality (§7.11);
    - a non-symmetric pencil on the explicit model.
-   - immersion of $\varphi$ at the 630 four-points (§7.10): a proof makes Prop. 7.7 [P], and a failure gives $\operatorname{gon}(C/\tau)\le15$.
+   - immersion of $\varphi$ at the 630 four-points (§7.11): a proof makes Prop. 7.7 [P], and a failure gives $\operatorname{gon}(C/\tau)\le15$.
 4. **(Optional)** $\operatorname{gon}\ge26$ on classes 0, 1, via a certified sharp $\kappa$ (Ch. 3).
 5. **(Long shot)** Towers and RD: correspondences with $u_Z\ne0$ (§5.5). The Amitsur obstruction alone is cheap to remove (Cor. 5.18).
 6. **(Low)** Are $P_E$, $P_S$ torsion (§6.5)?

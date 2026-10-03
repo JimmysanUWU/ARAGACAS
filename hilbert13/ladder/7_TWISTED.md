@@ -17,9 +17,13 @@ Accessories over bases with a fixed point produce linearised bundles (Theorem 5.
 3. **$\operatorname{gon}(C)\le42$ and $\operatorname{gon}(C/\tau)\le21$**, from an exact base-point-free pencil (Cor. 7.6, Prop. 7.7). Hence
    $$25\le\operatorname{gon}(C)\le42,\qquad13\le\operatorname{gon}(C/\tau)\le21,\qquad25\le\gamma(A_7)\le42 .$$
 4. Each Klein subgroup $L_2(7)$ cuts $\varphi(C)$ by a quadric in exactly $5\times$ its 24 points of order 7 (Prop. 7.9).
+   - That quadric is the Plücker quadric of the Weil representation of $SL_2(7)$.
+   - The 24 points are the Veronese images of the flexes of Klein's quartic.
+   - $6L_{60}\sim D_7=\varphi(C)\cap\mathrm{Hess}(X_3)$.
 5. Elliptic subcovers have degree $\ge60$ (Prop. 7.10).
+6. **Pencils by symmetry type.** The kernel $N$ of a gonal pencil's class stabiliser on the pencil costs degree $|N|\operatorname{gon}(C/N)$. This cost is $\ge42$ unless $N$ is trivial or one of six small groups (Prop. 7.11, Thm 7.13, Cor. 7.14).
 
-Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s); outputs `*_output.txt`.
+Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s), `quotient_gonality.py` (9 min per class); outputs `*_output.txt`.
 
 ## 7.1 The groups [X]
 
@@ -171,6 +175,18 @@ So **$\varphi(C)$ is a smooth curve of degree 60 and genus 136 cut out by the La
 **Consequences.**
 - **Linear equivalences.** $2L_{60}\sim5O_H$ for all 30 subgroups $H$. Each class partitions $D_7$ into 15 sets $O_H$, and $\prod_HQ_H\equiv c\,S_6^5$ on $C$. This is "$120=5\cdot24$" behind the degree 60.
 - **5-torsion.** $O_H-O_K$ is 5-torsion in $\mathrm{Jac}(C)$. It is nonzero for $O_H\ne O_K$: otherwise a degree-$\le24$ pencil would exist, against $\operatorname{gon}\ge25$.
+- **A sixth root of the 7-points [P].** $K_C\sim D_2+3D_4-8D_7$ and $K_C-3L_{60}=B+T=D_2-3D_4+2D_7$ (§7.6, Prop. 5.8) give $3L_{60}\sim2D_4-3D_7$. With $4D_4\sim7D_7$:
+  $$6L_{60}\sim D_7\sim15\,O_H .$$
+  The invariant sextic that cuts $D_7$ may be taken to be the Hessian of $X_3$, which is nonzero on $\varphi(C)$ [N]. So $\varphi(C)\cap\mathrm{Hess}(X_3)=D_7$. This parallels Klein's quartic $X$, whose 24 flexes are $X\cap\mathrm{Hess}(X)\sim6K_X$.
+- **Plücker and Klein's quartic [P].** Let $W_H$ be the 4-dimensional Weil representation of $SL_2(7)$. Then $\wedge^2W_H\cong\mathbf 6|_H\cong\mathrm{Sym}^2(3_H)$, since $L_2(7)$ has a single irreducible of degree 6. So $\mathbb P^5$ carries two $H$-structures at once.
+  - $Q_H$ is the Plücker quadric $G(2,W_H)$, since that quadric is $SL(W_H)$-invariant and the invariant quadric is unique. So $\varphi(C)$ meets the Grassmannian of lines of $\mathbb P(W_H)$ only in $O_H$, with contact 5 at each point.
+  - The Veronese surface $V_H=v_2\mathbb P(3_H)$ meets $Q_H$ in $v_2(X_H)$, where $X_H$ is Klein's quartic. This is the construction of $Q_H$.
+  - **$\varphi(O_H)=v_2(\mathrm{Flex}\,X_H)$** on one of the two Veronese surfaces of $H$ (those of $3_H$ and $\bar3_H$):
+    1. A Sylow 7-subgroup $\langle c\rangle\le H$ has six eigenlines on $\mathbf 6$, and the three on a given Veronese surface are $v_2$ of its fixed points on $\mathbb P(3_H)$, which are flexes of $X_H$.
+    2. The three points of $C$ fixed by $c$ are permuted by $N(\langle c\rangle)=7{:}3$, so the rotations of $c$ at them are $r,2r,4r$.
+    3. The local datum of Theorem 7.5(5) (orders $0,\dots,5$ mod 7) sends the point with rotation $r$ to the eigenline of $\zeta^{\pm r}$. So the three points land on the eigenlines with exponents $\pm r\{1,2,4\}$, i.e. on one Veronese triangle.
+
+    Numerically $\varphi(p)$ lies on $V_H$ to $7\cdot10^{-16}$, for both Klein subgroups containing $c$. So each 7-point of $C$ is a flex of two Klein quartics, one for each class.
 
 ## 7.7 The $\mu=90$ series revisited [P]
 
@@ -210,9 +226,76 @@ The family $Q_p\in\mathrm{Sym}^2V_4$ of §5.4, attached to $B+T$, has generic ra
 
 So elliptic subcovers give only $\operatorname{gon}\le120$. Conversely, $\operatorname{gon}\ge25$ forces degree $\ge13$ for *every* elliptic subcover. That includes any arising from complex multiplication, from $E_{15}\sim E_{21}$, or from the parts $10\oplus\overline{10}$ and $35$.
 
-## 7.10 Open
+## 7.10 Pencils by symmetry type [P][N]
 
-- **The exact gonality** in $[25,42]$. The $\tau$-pencil is exactly 42, elliptic subcovers give $\ge60$, and symmetric projections of $\varphi(C)$ give nothing better. A smaller pencil would have to be non-symmetric.
+**Idea.**
+- **The stabiliser and its kernel.** The class of a pencil has a stabiliser $K\le A_7$, and $K$ acts on the pencil $\mathbb P^1$ through a finite subgroup of $PGL_2$.
+- **Where symmetry costs degree.** The kernel $N$ of that action is the part that costs degree: the pencil descends to $C/N$.
+- **Pricing the quotients.** So the question becomes the gonality of the quotients $C/K$. It is computed from holomorphic differentials on $C/K$, syzygies, and Castelnuovo–Severi through the subgroup lattice.
+- **The answer.** Unless $N$ is trivial or one of six small groups, the cost is at least 42.
+
+**Proposition 7.11 (class stabiliser) [P].** Let $f:C\to\mathbb P^1$ have degree $d=\operatorname{gon}(C)$, and $M=f^\*\mathcal O(1)$. Let $K=\{g:g^\*M\cong M\}$, and let $N\trianglelefteq K$ be the kernel of the action of $K$ on $|M|\cong\mathbb P^1$.
+1. $K/N$ is a finite subgroup of $PGL_2(\mathbb C)$: cyclic, dihedral, $A_4$, $S_4$ or $A_5$.
+2. $f$ factors through $C/N$, so $d\ge|N|\operatorname{gon}(C/N)$.
+3. The orbit of $[M]$ consists of $[A_7:K]$ pencils of degree $d$.
+
+*Proof.* $h^0(M)=2$, since otherwise $M(-x)$ would be a pencil of degree $d-1$. For $k\in K$ an isomorphism $k^\*M\cong M$ is unique up to scalar, so $K$ acts on $\mathbb P(H^0(M))$. An element of $N$ acts on $H^0(M)$ by a scalar, so it fixes $f=s_1/s_2$. $\square$
+
+$K$ is the stabiliser of the pencil field $\mathbb C(f)$, the group $H$ of Lemma 4.3. That lemma uses parts 1–2 for $d\le24$; here they are applied for every $d<42$.
+
+**Example (the record pencil) [P][X].** For the $\tau$-pencil of Proposition 7.7, $K=C(\tau)$, $N=\langle\tau\rangle$ and $K/N\cong C_2\times S_3\cong D_6$ (the group $H$ of Chapter 1).
+- $g$ fixes the class $[L_{60}-\mathrm{Fix}\,\tau]$ iff $\mathrm{Fix}(g\tau g^{-1})\sim\mathrm{Fix}\,\tau$. For $g\tau g^{-1}\ne\tau$ the two sets are disjoint (stabilisers are cyclic), so their difference would be the divisor of a function of degree 18, against $\operatorname{gon}\ge25$. Hence $K=C(\tau)$.
+- On $E_-(\tau)$, only $1$ and $\tau$ act by scalars [X], so $N=\langle\tau\rangle$.
+- So $C_2\times S_3$ acts faithfully on the pencil, as a dihedral group of $\mathbb P^1$, as Proposition 7.11 requires.
+
+**Lemma 7.12 (Castelnuovo–Severi on the subgroup lattice) [P].** Let $S<T\le A_7$ with $m=[T:S]$, and let $f$ be a pencil of degree $d$ on $C/S$. Then either
+- $f$ factors through $C/\langle S,j\rangle$ for some $j\in T\smallsetminus S$, or
+- $g(C/S)\le m\,g(C/T)+(m-1)(d-1)$.
+
+*Proof.* If $(f,\pi):C/S\to\mathbb P^1\times C/T$ is birational onto its image, this is the Castelnuovo–Severi inequality. Otherwise it factors through a cover $C/S\to Z$ of degree $\ge2$ with $Z\to C/T$. By Galois theory for $C\to C/T$, $Z=C/K''$ with $S\subsetneq K''\le T$. Then $f$ factors through $C/\langle S,j\rangle$ for any $j\in K''\smallsetminus S$. $\square$
+
+**Theorem 7.13 (quotient pencils) [P][N]** (`quotient_gonality.py`, classes 0 and 12). For every $K\le A_7$ with $|K|\le60$, $\operatorname{gon}(C/K)$ is at least the value in the table below. In particular $|K|\operatorname{gon}(C/K)\ge42$ unless $K$ is conjugate to $1$, $C_2$, $C_3$, $C_4$, $V_4$, $S_3$ or $C_7$.
+
+**The inputs [N].**
+- **Differentials on $C/K$.** Holomorphic differentials on $C$ are vector-valued weight-2 forms for $\Delta(2,4,7)$, one solve per irreducible in $H^0(K_C)$, with gaps $>10^8$. Pairing them with $K$-fixed vectors gives the differentials on $C/K$, sampled over the whole curve.
+- **Noether.** $\mathrm{Sym}^2$ has rank $2g-1$ if $C/K$ is hyperelliptic and $3g-3$ otherwise.
+- **Petri.** The quadrics through the canonical curve have Jacobian rank $g-3$ if it is trigonal, and $g-2$ otherwise.
+- **Green–Lazarsfeld nonvanishing.** $\operatorname{Cliff}\le p$ forces $K_{p,2}\ne0$. So $K_{p,2}=0$ gives $\operatorname{gon}\ge p+3$.
+
+These give lower bounds for ten subgroups: $\operatorname{gon}\ge3$ for $3^2{:}2$; $\ge4$ for $5{:}4$, $D_{12}$, $3{:}4$, two $A_4$ and $C_6\times C_2$; $\ge5$ for $D_{10}$ and $C_3^2$ ($K_{2,2}=0$); and $\ge6$ for $D_8$ ($K_{3,2}=0$).
+
+**The propagation [P].** Start from $|K|\operatorname{gon}(C/K)\ge\operatorname{gon}(C)\ge25$ and propagate with Lemma 7.12 over the 36 classes of subgroups of order $\le120$ until nothing changes. The result:
+
+| $\lvert K\rvert$ | $K$ | $g(C/K)$ | $\operatorname{gon}\ge$ | $\lvert K\rvert\operatorname{gon}\ge$ |
+|---|---|---|---|---|
+| 2 | $C_2$ | 64 | 13 | 26 |
+| 3 | $C_3$ (two classes) | 46 | 9 | 27 |
+| 4 | $C_4$ | 32 | 9 | 36 |
+| 4 | $V_4$ (two classes) | 28 | 7 | 28 |
+| 5 | $C_5$ | 28 | 9 | 45 |
+| 6 | $C_6$ | 22 | 8 | 48 |
+| 6 | $S_3$, orbits $3+2$ / $3+3$ | 19 | 6 / 5 | 36 / 30 |
+| 7 | $C_7$ | 19 | 4 | 28 |
+| 8 | $D_8$ | 12 | 6 | 48 |
+| 9 | $C_3^2$ | 16 | 6 | 54 |
+| 10 | $D_{10}$ | 10 | 5 | 50 |
+| 12 | $A_4$ (four classes), $3{:}4$, $D_{12}$, $C_6\times C_2$ | 7–11 | 4–6 | $\ge48$ |
+| 18, 20, 21 | $3^2{:}2$, $5{:}4$, $7{:}3$ | 4, 5, 7 | 3, 4, 2 | 54, 80, 42 |
+| 24–60 | $S_4$ (four), $C_3\rtimes D_8$, $3^2{:}4$, $3\times A_4$, $A_5$ (two) | 1–4 | 2–3 | $\ge48$ |
+
+The script prints every row. Class 12 gives the same table.
+
+**Corollary 7.14 [P][N].** If $\operatorname{gon}(C)\le41$, every pencil computing it has kernel $N$ conjugate to one of
+$$1,\quad C_2,\quad C_3\ (\text{two classes}),\quad C_4,\quad V_4\ (\text{two classes}),\quad S_3\ (\text{two classes}),\quad C_7 .$$
+Moreover $K/N\subset PGL_2$. For $N=C_7$ this forces $K\le7{:}3$. For $N=1$, the stabiliser $K$ itself acts faithfully on the pencil, and the pencil descends to one of the same degree on $C/K$ whose fibres over the branch values of $\mathbb P^1\to\mathbb P^1/K$ are divisible by the branching orders, away from points with nontrivial stabiliser.
+
+So a pencil beating 42 either is pulled back from $C/N$ for one of the six nontrivial groups above, or every symmetry of its class acts faithfully on it. The record pencil lives in the stratum $N=C_2$, where 42 is optimal iff $\operatorname{gon}(C/\tau)=21$.
+
+## 7.11 Open
+
+- **The exact gonality** in $[25,42]$.
+  - The $\tau$-pencil is exactly 42, elliptic subcovers give $\ge60$, and symmetric projections of $\varphi(C)$ give nothing better.
+  - By Corollary 7.14, a smaller pencil has kernel $1$ or one of six small groups. Closing $C_7$ and $S_3$ needs $K_{3,2}=0$ resp. $K_{4,2}=0$ on genus-19 quotients. $C_2$ needs $\operatorname{gon}(C/\tau)=21$.
 - **Lower bounds by degeneration.** Baker's specialisation lemma gives $\operatorname{gon}(C)\ge\operatorname{dgon}(\Gamma)$ for the dual graph $\Gamma$ of a stable reduction. At $p=7\,\|\,|A_7|$, Raynaud–Wewers describe the stable reduction of three-point covers. Could $\Gamma$, which carries an $A_7$-action, have divisorial gonality $>25$?
 - **The ideal of $\varphi(C)$.** Is it generated by $X_3$ and the 15 quartics? Is $\varphi(C)$ projectively normal, i.e. $h^0(2L_{60})=21$ and $h^0(B+T)=10$? How does $\varphi(C)$ meet the 420 lines and sit in the hyperkähler Fano variety of $X_3$?
 - **The kernel map** of the $\mu=90$ series: is it a $\mathbb P^3$-model, a spin class of degree 135 with $M^2=3(B+T)$?

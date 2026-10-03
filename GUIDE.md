@@ -44,6 +44,7 @@ Four mechanisms do all the work. Each chapter opens with a paragraph headed **Id
 **Schur obstructions** (Ch. 5, 7).
 - An invariant line bundle need not carry a $G$-action. The obstruction lives in $H^2(A_7,\mathbb C^*)=\mathbb Z/6$. On a $(2,4,7)$ curve, invariant classes have degrees $15\mathbb Z$ and linearised classes $90\mathbb Z$.
 - **Upper bound 42.** The first twisted class with sections has degree 60. It embeds $C$ in $\mathbb P^5$, and an involution's $(-1)$-eigenspace gives a pencil of degree 42.
+- **Pricing symmetry (§7.10).** A pencil's class stabiliser acts on the pencil through $PGL_2$, and the kernel $N$ of that action costs degree $|N|\operatorname{gon}(C/N)$. Gonalities of quotients come from differentials on $C/K$, syzygies, and Castelnuovo–Severi through the subgroup lattice. They put the cost at $\ge42$ unless $N$ is trivial or one of six small groups.
 - **Accessories.** Over a linear base, a compression is a single linearised moving series, so accessory degrees are degrees of linearised series induced from subgroups:
   - $a=15\cdot4=60$, through the Klein quartic of $L_2(7)$;
   - $\mu=90$ with full monodromy.
@@ -62,7 +63,7 @@ Four mechanisms do all the work. Each chapter opens with a paragraph headed **Id
 | 2 | [`hilbert13/ladder/README.md`](hilbert13/ladder/README.md) | 5 min | every result with its status tag and chapter; script table |
 | 3 | [`1_CURVE.md`](hilbert13/ladder/1_CURVE.md) | 20 min | the group, the curves, fixed points, $D=C/\tau$; the first algebraic bounds; the degree-9 structure theorem |
 | 4 | [`2_SPECTRAL.md`](hilbert13/ladder/2_SPECTRAL.md) → [`3_HARMONIC_HERSCH.md`](hilbert13/ladder/3_HARMONIC_HERSCH.md) | 40 min | the lower bound 25: certified $\lambda_1$, then the cubic-form argument |
-| 5 | [`7_TWISTED.md`](hilbert13/ladder/7_TWISTED.md) | 40 min | the upper bound 42: Schur-twisted bundles, the curve in $\mathbb P^5$ |
+| 5 | [`7_TWISTED.md`](hilbert13/ladder/7_TWISTED.md) | 45 min | the upper bound 42: Schur-twisted bundles, the curve in $\mathbb P^5$; which pencils could beat 42 (§7.10) |
 | 6 | [`4_LARGE_GENUS.md`](hilbert13/ladder/4_LARGE_GENUS.md) | 15 min | from one curve to all faithful $A_7$-curves |
 | 7 | [`5_ACCESSORY.md`](hilbert13/ladder/5_ACCESSORY.md) | 40 min | $a=60$, $\mu=90$, Amitsur subgroups, and what survives in towers |
 | 8 | [`6_SIDE_RESULTS.md`](hilbert13/ladder/6_SIDE_RESULTS.md) | 15 min | independent proofs, dead ends, the arithmetic question |
@@ -154,16 +155,16 @@ Since then only `twisted_rr.py` has changed (it adds the $\mathrm{Sym}^3\mathbf 
 - **Parity is not order.** A sign argument fixes vanishing orders mod 2, not their values. Plücker weights decide more (Prop. 7.7, step 1).
 - **"Algebraic" bounds.** $\operatorname{gon}\ge23$ in Theorem 4.1 still uses the spectral input for genus $\le335$. Only $\operatorname{gon}(D)\ge10$ (§6.1) is purely algebraic.
 - **Accessory conventions.** $a(A_7)=60$ allows the monodromy to drop after the accessory. With connected full monodromy the answer is $\mu=90$. The bound $\le59$ holds in both conventions.
-- **[N] claims** (Props. 7.7–7.9) are high-precision numerics, not proofs. The bound $\operatorname{gon}\le42$ itself does not depend on them.
+- **[N] claims** (Props. 7.7–7.9, the inputs of Thm 7.13) are high-precision numerics, not proofs. The bound $\operatorname{gon}\le42$ itself does not depend on them.
 - **GPT material** is input, not authority. Use a GPT claim only after re-deriving it; `gpt/README.md` records which ones have been.
 - **Code labels.** Letters are $0..6$ in code and $1..7$ in the text. Class labels are list indices, not invariants.
 - **Killing jobs.** `pkill -f pattern` also kills the calling shell. Use `pgrep -f "[p]attern" | xargs -r kill`.
 
 ## 8. Where the frontier is
 
-- **The exact gonality**, somewhere in $[25,42]$, is open; every symmetric construction stops at 42. The most promising new inputs are:
-  - stable reduction at $p=7$ with graph gonality (§7.10);
-  - immersion at the 630 four-points (§7.10). It would make Prop. 7.7 a paper proof, and a failure would give $\operatorname{gon}(C/\tau)\le15$.
+- **The exact gonality**, somewhere in $[25,42]$, is open; every symmetric construction stops at 42. A pencil below 42 must have kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$ (Cor. 7.14). The most promising new inputs are:
+  - stable reduction at $p=7$ with graph gonality (§7.11);
+  - immersion at the 630 four-points (§7.11). It would make Prop. 7.7 a paper proof, and a failure would give $\operatorname{gon}(C/\tau)\le15$.
 - **The tower problem**, $\mathrm{RD}(A_7)>1$, is reduced in §5.5 to correspondences whose Albanese part $u_Z$ is nonzero. The Schur–Brauer part is cheap (Cor. 5.18).
 
 The prioritised list is in `HANDOFF.md`.

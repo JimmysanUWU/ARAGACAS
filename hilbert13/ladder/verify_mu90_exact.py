@@ -5,7 +5,8 @@ Setting.  2.A7 < Spin(6) = SU(4) acts on the half-spin V4 with wedge^2 V4 = 6 (s
 For g in A7 of order e and a lift s, let mu_a = zeta_{2e}^{k_a} (a = 1..4) be the eigenvalues of s.
 
  (E1) The exponents k_a are FORCED: {mu_a mu_b : a < b} is the spectrum of g on the 6 (permutation spectrum minus one 1)
-      and prod mu_a = 1 (SU(4)).  We solve this exactly; the solution is unique up to k -> k + e (s -> -s).
+      and prod mu_a = 1 (SU(4)).  We solve this exactly.  The solutions are unique up to the lift sign,
+      except for 7-cycles, where the two dual half-spin spectra must also be included.
  (E2) In an eigenbasis of s the action Q -> s Q s^T is diagonal, Q_ab -> mu_a mu_b Q_ab.  So the lam-eigenspace of
       Sym^2 V4 is EXACTLY the space of symmetric matrices supported on the pattern P = {(a,b) : mu_a mu_b = lam}, and
       ranks are preserved by the change of basis.  (Sym^2 V4^* is the case lam -> lam^-1; both orientation conventions
@@ -120,25 +121,23 @@ def eigen_exact(g, k):
 
 # ------------------------------------------------------------------ Sym^2 V4 is irreducible (exact character check)
 def sym2_check():
-    """<chi_Sym2, chi_Sym2> = 1 and Sym^2 has no trivial or 6 constituent, computed with exact cyclotomic sums
-    (sympy, roots of unity as exp(2 pi i k/L) simplified to radicals is slow; use the class sums of products instead:
-    <chi,chi> = (1/|G|) sum_g |chi(g)|^2 with chi(g) = sum_{a<=b} zeta^{k_a+k_b}; |chi|^2 = sum over pairs of
-    zeta^{difference}, and sum_g of a root of unity is exact via the identity sum_{j} zeta_L^{j t} over each class...)."""
-    # exact evaluation: |chi(g)|^2 = sum_{p,q} zeta_L^{s_p - s_q}; real part of a root of unity is cos(2 pi m / L),
-    # summed over all g. We evaluate with sympy's exact cos at rational multiples of pi and nsimplify the total.
+    """Exact character norm by reduction modulo cyclotomic polynomials.
+
+    The squared norm at each cycle type is a rational integer, including
+    both dual 7-cycle spectra.  No nsimplify or numerical root recognition.
+    """
     tot = 0
     from collections import Counter
+    z = sp.Symbol('z')
     cnt = Counter(tuple(cycle_type(g)) for g in G)
     for ct, c in cnt.items():
         ks, L = lift_exponents(ct)
         s = [(ks[a] + ks[b]) % L for a in range(4) for b in range(a, 4)]
-        val = 0
-        for p in s:
-            for q in s:
-                val += sp.cos(2 * sp.pi * sp.Rational((p - q) % L, L))
+        polynomial = sum(z**((p-q)%L) for p in s for q in s)
+        val = sp.rem(polynomial,sp.cyclotomic_poly(L,z),z)
+        assert val.is_Integer, (ct,val)
         tot += c * val
-    norm = sp.nsimplify(sp.simplify(tot / len(G)))
-    return norm
+    return sp.Rational(tot,len(G))
 
 
 if __name__ == "__main__":

@@ -113,7 +113,7 @@ Here:
 The irreducibles $1,6,14_a,14_b$ do not occur in $H^1(C)$.
 
 **Proposition 1.6 [P][X]** (`curve_checks.py` §5, `side_checks.py` D4).
-- The $\mathbb Q[G]$-span of the involution fixed divisors is a quotient of $\mathbb Q[G/C(\tau)]=1+6+14_a+2\cdot14_b+21+35$. Components in $1+6+14_a+14_b$ are torsion in $\mathrm{Jac}(C)$.
+- The $\mathbb Q[G]$-span of the involution fixed divisors is a quotient of $\mathbb Q[G/C(\tau)]=1+6+2\cdot14_a+14_b+21+35$. Components in $1+6+14_a+14_b$ are torsion in $\mathrm{Jac}(C)$.
 - The lift of $(\star)$ to $C$ has nonzero 21- and 35-components.
 - So $(\star)$ fails as soon as either of two explicit points has infinite order: $P_E\in E_{21}$ or $P_S\in\mathrm{Jac}(C/(3^2{:}4))$ (§6.5).
 

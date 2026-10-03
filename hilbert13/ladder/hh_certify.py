@@ -18,13 +18,14 @@ bounded by circle sampling (Fourier-Legendre coefficients with rigorous aliasing
 Everything below is ball arithmetic (python-flint, 106 bits); floats are used only to choose grids.
 Usage:  python3 hh_certify.py CLASS [coef_file]
 """
-import os, sys, time, itertools
+import os, sys, time, itertools, hashlib
 import numpy as np
+from sympy import simplify
 from flint import arb, acb, arb_mat, ctx
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from hh_eval import TrialFunction, perm21_index, apply_perm, PAIRS
 from a7 import A7, mul, inv, order
-from chartab import CL, TABLE
+from chartab import CL, TABLE, EXACT_TABLE
 
 ctx.prec = 106
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -138,32 +139,36 @@ def centres_within(geo, D):
         Ck = mm(Ck, Cm)
     lim = D + geo.d74
     I = [[acb(1), acb(0)], [acb(0), acb(1)]]
-    found = {(0.0, 0.0): (acb(0), I)}
+    # Distinct star centres are at hyperbolic distance >= 2*d72: the
+    # interiors of their inradius-d72 balls are disjoint.  Inside the
+    # radius-lim disk this gives the following Euclidean separation.
+    # Thus a certified smaller distance identifies the SAME orbit point;
+    # decimal rounding of coordinates is not used as an equality test.
+    padded_lim = lim + arb("1e-20")
+    disk_radius = (padded_lim/2).tanh()
+    separation = (1-disk_radius**2)*geo.d72.tanh()
+    assert separation > 0
+    found = [(acb(0), I)]
     queue = [I]
     while queue:
         g = queue.pop()
         for n in nbr:
             h = mm(g, n)
             c = h[0][1] / h[1][1]
-            key = (round(float(c.real.mid()), 6), round(float(c.imag.mid()), 6))
-            if key in found:
+            if Geometry.dist(c, acb(0)) > lim:
                 continue
-            if not (Geometry.dist(c, acb(0)) > lim):           # keep unless certainly beyond the limit
-                found[key] = (c, h)
+            assert Geometry.dist(c, acb(0)) < padded_lim
+            duplicate = False
+            for previous, _ in found:
+                distance = abs(c-previous)
+                if distance < separation/2:
+                    duplicate = True
+                    break
+                assert distance > separation/2, "increase precision to separate orbit centres"
+            if not duplicate:
+                found.append((c, h))
                 queue.append(h)
-    # Separation [P]: the star of 14 triangles around an order-7 point contains the open disk of radius d72 about it
-    # (the angle at the order-2 vertex is pi/2, so the foot of the perpendicular to each outer side is that vertex).
-    # So distinct points of the orbit of 0 are >= 2 d72 apart, and at Euclidean distance >= d72 (1 - rho^2) inside the
-    # disk |z| <= rho.  That exceeds the key resolution, so the rounded keys above neither merge distinct centres nor
-    # (see certify) let a centre be matched to the wrong orbit point.
-    rho = max(abs(v[0]).upper() for v in found.values())
-    sep = geo.d72 * (1 - arb(rho) ** 2)
-    assert sep > arb("1e-5"), "key resolution not certified"
-    pts = [v[0] for v in found.values()]
-    for i in range(len(pts)):
-        for j in range(i):
-            assert Geometry.dist(pts[i], pts[j]) > geo.d72, "two keys for one centre"
-    out = [v[0] for k, v in found.items() if k != (0.0, 0.0) and not (Geometry.dist(v[0], acb(0)) > D)]
+    out = [c for c, _ in found[1:] if not (Geometry.dist(c, acb(0)) > D)]
     return out
 
 
@@ -307,15 +312,16 @@ def wedge_projectors():
     for i, c in enumerate(CL):
         for x in c:
             cidx[x] = i
-    degs = [int(round(ch[0].real)) for ch in TABLE]
+    degs = [int(ch[0]) for ch in EXACT_TABLE]
     want = {"10+10b": [i for i, d in enumerate(degs) if d == 10], "15": [degs.index(15)], "21": [degs.index(21)],
             "35": [degs.index(35)]}
     chars = {}
     for key, ids in want.items():
-        vals = sum(TABLE[i] for i in ids)
-        iv = np.rint(vals.real).astype(int)
-        assert np.abs(vals - iv).max() < 1e-8
-        chars[key] = iv
+        vals = [sum(EXACT_TABLE[i][j] for i in ids) for j in range(len(CL))]
+        # Conjugate 10s are combined; all resulting values are integers.
+        vals = [simplify(value) for value in vals]
+        assert all(value == int(value) for value in vals)
+        chars[key] = np.array([int(value) for value in vals],dtype=np.int64)
     acc = {key: np.zeros((210, 210), dtype=np.int64) for key in want}
     for g in A7:
         sig = perm21_index(g)
@@ -363,7 +369,7 @@ def certify(cls, coef_file, log, nu=48, nt=32, r1="1.37", w="0.25"):
     log(f"centres within r2 + circumradius = {float(D.mid()):.4f} of 0: {len(cents)} at distances "
         f"{sorted(set(round(x, 4) for x in dists))}")
     c1, cd = geo.X(acb(0)), geo.Y2(acb(0))
-    types = []                       # orbit points closer than 2 d72 coincide (separation in centres_within)
+    types = []
     for c in cents:
         t = None
         for k in range(7):
@@ -376,13 +382,22 @@ def certify(cls, coef_file, log, nu=48, nt=32, r1="1.37", w="0.25"):
     # mismatch bounds
     SD = {}
     cache = os.path.join(HERE, f"hh_mismatch_cls{cls}.txt")
-    key = f"{os.path.basename(coef_file)} r1={r1} w={w}"
+    # Bind cached enclosures to the actual data, the evaluation code, and
+    # working precision.  A basename alone can reuse bounds for new data.
+    digest = hashlib.sha256()
+    for path in (coef_file, __file__, os.path.join(HERE, "hh_eval.py"),
+                 os.path.join(HERE, "triples_data.py"), os.path.join(HERE, "a7.py")):
+        with open(path, "rb") as source:
+            digest.update(source.read())
+    key = f"sha256={digest.hexdigest()} prec={ctx.prec} r1={r1} w={w}"
     if os.path.exists(cache) and open(cache).readline().strip() == key:
         lines = open(cache).read().split("\n")[1:]
         for ln in lines:
             if ln.strip():
                 kind, a1, a2 = ln.split("|")
                 SD[kind] = (arb(a1), arb(a2))
+        assert set(SD) == {"X", "Y2"}
+        assert all(value.is_finite() and value >= 0 for bounds in SD.values() for value in bounds)
         log(f"  mismatch bounds read from {os.path.basename(cache)} (computed by this script; delete to recompute)")
         for kind in SD:
             log(f"  mismatch {kind}: sup|D| <= {float(SD[kind][0].upper()):.3e},  sup|grad D|_hyp <= {float(SD[kind][1].upper()):.3e}")
@@ -530,5 +545,5 @@ if __name__ == "__main__":
     coef = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, f"coef_cls{cls}_M90.npz")
     nu = int(sys.argv[3]) if len(sys.argv) > 3 else 48
     nt = int(sys.argv[4]) if len(sys.argv) > 4 else 32
-    ok = certify(cls, coef, lambda s: print(s, flush=True), nu=nu, nt=nt)
-    sys.exit(0 if ok else 1)
+    if not certify(cls, coef, lambda s: print(s, flush=True), nu=nu, nt=nt):
+        raise SystemExit(1)

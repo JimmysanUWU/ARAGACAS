@@ -25,15 +25,8 @@ from flint import arb, arb_mat, ctx
 from orbifold import quotient_tiles, ref_elements, build_dofs, grads
 from triples_data import triples
 from a7 import cyc
-
-
-def arb_max(xs):
-    """a ball containing the maximum of any choice of points from the balls xs (Python's max() is unsound on
-    overlapping balls: it keeps the earlier ball whenever '>' is undecided)."""
-    m = None
-    for x in xs:
-        m = x if m is None else m.max(x)
-    return m
+from fractions import Fraction
+from math import comb, factorial
 
 
 ctx.prec = 120
@@ -42,12 +35,41 @@ U = 2.0 ** -53          # unit roundoff (binary64, round to nearest)
 QUOTIENTS = {
     # K = 3^2:4 < A6 (order 36, index 70), eps = its sign character:  irreps 6, 14a, 14b, 15, 21
     "Q1": ([cyc((0, 1, 2)), cyc((3, 4, 5)), cyc((0, 3, 1, 4), (2, 5))], [1, 1, -1]),
-    # K = S4 (order 24, index 105), eps = a sign character:  irreps 10, 10b, 15, 35 (twice)
+    # K = C_A7((16)(23)) = C3 semidirect D8 (order 24, index 105), with a sign character:
+    # irreps 10, 10b, 15, 35 (twice).  It is not S4; see verify_exact.py.
     "Q2": ([(4, 3, 1, 6, 0, 5, 2), (0, 6, 2, 3, 5, 4, 1)], [1, -1]),
 }
 
 
 # ------------------------------------------------------------------ rigorous helpers
+def arb_max(values):
+    """Enclose the maximum of balls, including overlapping balls (Python max does not)."""
+    values = iter(values)
+    out = next(values)
+    for value in values:
+        out = out.max(value)
+    return out
+
+
+def j11_lower():
+    """Exact proof that the first positive zero of J_1 exceeds 3.8317059702075.
+
+    Put t=x^2/4.  The odd Taylor sum through t^15 is a lower bound for
+    2 J_1(x)/x on the interval in question: its remaining alternating terms
+    decrease.  All Bernstein coefficients of that polynomial on this
+    interval are strictly positive.  No approximate Bessel zero is used.
+    """
+    radius = Fraction(38317059702075, 10**13)
+    endpoint = radius*radius/4
+    degree = 15
+    coefficients = [Fraction((-1)**k, factorial(k)*factorial(k+1)) for k in range(degree+1)]
+    bernstein = [sum(coefficients[k]*endpoint**k*Fraction(comb(i, k), comb(degree, k))
+                     for k in range(i+1)) for i in range(degree+1)]
+    assert all(value > 0 for value in bernstein)
+    assert endpoint < (degree+2)*(degree+3)  # decreasing alternating tail
+    return arb(radius.numerator)/radius.denominator
+
+
 def fdown(x):
     """largest double <= every point of the arb ball x"""
     lo = x.lower()
@@ -318,7 +340,7 @@ def certify_trivial(n, tri, sigma=1.0, verbose=True, ab=None, pqr=(2, 4, 7)):
     reps, glue, oK = quotient_tiles(a, b, [a, b], [1, 1])
     XA, XB, XC = ref_triangle_arb(pqr)
     ed = element_data(n, XA, XB, XC)
-    j11_lo = arb("3.8317059702075")
+    j11_lo = j11_lower()
     kappa2 = (arb(1) / 8 + arb(2) / (j11_lo * j11_lo)) / (n * n)
     Ch2 = kappa2 * arb_max(arb(e[2]) / e[3] for e in ed)
     mats = elem_mats_rigorous(n, ed)
@@ -378,7 +400,7 @@ def certify_tiles(reps, glue, n, pqr=(2, 4, 7), sigma_factor=0.995, sigma=None, 
     ed = element_data(n, XA, XB, XC)
     cmin = min(e[1] for e in ed)
     # C_h^2 = kappa^2 max_e w_e / lambda_min(A_e);  kappa^2 = (1/n)^2/8 + (sqrt2/n)^2/j11^2
-    j11_lo = arb("3.8317059702075")          # j_{1,1} = 3.83170597020751231...
+    j11_lo = j11_lower()
     kappa2 = (arb(1) / 8 + arb(2) / (j11_lo * j11_lo)) / (n * n)
     ratio = arb_max(arb(e[2]) / e[3] for e in ed)
     Ch2 = kappa2 * ratio

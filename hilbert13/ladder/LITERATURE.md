@@ -17,7 +17,7 @@ Tags:
 | $a(A_6)$, $a(L_2(7))$, $a(A_5)$ | $\ge5$, $\ge3$ (FW); $a(A_5)=2$ (Klein) | 12, 4, 2 (GPT Round 5; verified) |
 | gonality of the genus-136 $(2,4,7)$ curves | $[13,56]$ (FW Lemma 2.2 with Conder's genus; a quotient) | $[25,42]$ (Ch. 2–3, 7) |
 | $\gamma(A_7)$, the least gonality of a faithful $A_7$-curve | $\ge13$ | $[25,42]$ (Ch. 4, 7) |
-| certified $\lambda_1$ of a closed hyperbolic surface | genus $\le7$ | genus 136 and 24 further $A_7$-curves (Ch. 2) |
+| certified $\lambda_1$ of closed hyperbolic surfaces | error-controlled methods exist (Strohmaier–Uski; Carstensen–Gedicke) | certified at genus 136 and on 24 further $A_7$-curves (Ch. 2); no record claimed |
 
 **Assessment.**
 - **Accessory Hilbert 13 for $A_7$.** It is settled sharply: 60, and 90 with full monodromy. The published bound was 6.
@@ -50,7 +50,7 @@ Tags:
 
 ## 3. The curve and its group
 
-- **Conder: the strong symmetric genus of $A_7$ is 136 [abstract]** (arXiv:1310.3871). There are 4 regular maps, matching `curve_checks.py`; the genus is rechecked by `verify_accessory60.py`.
+- **M. D. E. Conder, *The symmetric genus of alternating and symmetric groups*, J. Combin. Theory B 39 (1985) [abstract].** The strong symmetric genus of $A_7$ is 136. There are 4 regular maps, matching `curve_checks.py`; the genus is rechecked by `verify_accessory60.py`.
 - **D. Singerman, *Finitely maximal Fuchsian groups*, J. London Math. Soc. 1972 [unverified].** $(2,4,7)$ is finitely maximal, so $\mathrm{Aut}(C)=A_7$.
 - **K. Takeuchi (1977), via Nugent–Voight, arXiv:1510.04637, §6.1.1.**
   - $\Delta(2,4,7)$ is arithmetic, with trace field $\mathbb Q(\cos\frac{2\pi}7)$.
@@ -70,12 +70,15 @@ Tags:
 - **J. Milnor, *On the 3-dimensional Brieskorn manifolds* (1975) [unverified].** The centrally extended triangle groups $\langle c_i\mid c_1^p=c_2^q=c_3^r=c_1c_2c_3\rangle$ (Prop. 7.1).
 - **Stacks Project, §11.8 [unverified; cited by GPT].** Splitting fields of central simple algebras (Corollary 5.18).
 - **I. Schur (1911); ATLAS.** $H^2(A_7,\mathbb C^\*)=\mathbb Z/6$ and $3.A_7\subset SL_6$.
-- **R. A. Wilson et al., *ATLAS of Group Representations* v3 [read: the matrices].** `3A7G1-Ar6B0`, the $\mathbf 6$ of $3.A_7$ over $\mathbb Z[\omega]$; checked in `verify_schur_exact.py`.
+- **R. A. Wilson et al., *ATLAS of Group Representations* v3 [read: the matrices].** `3A7G1-Ar6B0` and `2A7G1-Ar4aB0`, the $\mathbf 6$ of $3.A_7$ over $\mathbb Z[\omega]$ and $V_4$ of $2.A_7$ over $\mathbb Z[b_7]$; checked in `audit_exact.py`.
+- **I. Petrakiev, arXiv:math/0604517, Theorem 2.16(a) [read by GPT's audit].** Curves of degree $\ge19$ in $\mathbb P^8$ with arithmetic genus above $\pi_2$ lie on surfaces of degree $\le8$ (Theorem 4.8).
+- **J. Harris, *Curves in projective space* (1982) [unverified].** Uniform position and the subadditivity $h_\Gamma(k+l)\ge\min(d,h_\Gamma(k)+h_\Gamma(l)-1)$ (Theorem 4.8).
+- **A. Strohmaier, V. Uski, CMP 317 (2013), arXiv:1110.2150; C. Carstensen, J. Gedicke, Math. Comp. 83 (2014) [abstract].** Prior rigorous eigenvalue methods (Ch. 2).
 - **M. Green, R. Lazarsfeld, Invent. Math. 83 (1986) [unverified wording].** Nonvanishing: $\operatorname{Cliff}\le p$ implies $K_{p,2}\ne0$. With Noether's and Petri's theorems (ACGH Ch. III), the tests of Theorem 7.13.
 - **D. Mumford, Invent. Math. 1 (1966).** Theta groups and Mumford classes.
 - **M. F. Atiyah, R. Bott, Ann. Math. 88 (1968).** Holomorphic Lefschetz (Ch. 5, 7).
 - **E. Kani, J. reine angew. Math. 485 (1997) [unverified]; Birkenhake–Lange, *Complex Abelian Varieties* [unverified section].** Elliptic subcovers via sublattices (§7.9).
-- **Cited only in GPT's documents** (`gpt/README.md` §2; not used here). Petrakiev, arXiv:math/0604517 (refined Castelnuovo bounds); Harui, arXiv:1306.5842 (automorphisms of plane curves); Vinokurov, arXiv:2502.03756 (equivariant eigenvalue optimisation); Karpenko–Merkurjev, Invent. Math. 172 (2008) (essential dimension at $p$); Niu–Ulrich, arXiv:1404.5092 (conductor and duality).
+- **Cited only in GPT's documents** (`gpt/README.md` §2; not used here). Harui, arXiv:1306.5842 (automorphisms of plane curves); Vinokurov, arXiv:2502.03756 (equivariant eigenvalue optimisation); Karpenko–Merkurjev, Invent. Math. 172 (2008) (essential dimension at $p$); Niu–Ulrich, arXiv:1404.5092 (conductor and duality).
 - **For §7.11 (not used) [unverified].** M. Baker, specialisation of linear systems from curves to graphs (2008); M. Raynaud (1999) and S. Wewers (2003) on the stable reduction of three-point covers when $p\,\|\,|G|$.
 
 ## 5. Spectral gonality and certified eigenvalues
@@ -111,7 +114,7 @@ Tags:
 ## 6. Novelty search
 
 - **These curves.** No prior work was found on their gonality or spectrum; only existence and census are known.
-- **Certified $\lambda_1$.** Prior results exist only in genus $\le7$. None uses guaranteed-lower-bound finite elements on a closed hyperbolic surface, or sign-twisted quotients covering all irreducibles.
+- **Certified $\lambda_1$.** Error-controlled eigenvalue methods for hyperbolic surfaces predate this (Strohmaier–Uski 2013), and so do guaranteed finite-element lower bounds (Carstensen–Gedicke 2014). We claim no first or record. We found no prior combination with sign-twisted quotients covering all irreducibles.
 - **Follow-ups.** None to Farb–Wolfson 2025 was found.
 - **Not relevant.**
   - OpenAI, *Ten advances…* (Aug 2026).

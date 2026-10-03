@@ -10,7 +10,7 @@
 
 **Results.**
 - Every $(2,4,7)$ curve has $\lambda_1\ge0.34089$, so $\operatorname{gon}(C)\ge24$ and $\operatorname{gon}(D)\ge12$.
-- Classes 12, 14 have $\lambda_1\ge0.355696$, so $\operatorname{gon}\ge25$.
+- Classes 12, 14 have $\lambda_1\ge0.355695$, so $\operatorname{gon}\ge25$.
 - The ten other rigid signatures of genus $\le335$ all have $\operatorname{gon}\ge25$.
 - For classes 0, 1 the first eigenspace is located exactly; this is the input of Chapter 3.
 
@@ -52,6 +52,7 @@ They see every irreducible (`cover.py`, exact). Hence $\lambda_1(C)\ge\min(\mu_2
 1. **Comparison.** On each cell, ball arithmetic gives $A_e=c_eP_e\preceq A_R$ and $w_e\ge w_R$. By min–max, the true eigenvalues dominate the piecewise-constant ones.
 2. **Crouzeix–Raviart [P][L]** (Liu; Carstensen–Gedicke). With $C_h^2=\max_e\kappa_e^2w_e/\lambda_{\min}(A_e)$ and $\kappa_e^2=\frac{(1/n)^2}8+\frac{(\sqrt2/n)^2}{j_{1,1}^2}$,
    $$\lambda_k\ge\frac{\lambda_{k,h}}{1+C_h^2\lambda_{k,h}} .$$
+   Here $j_{1,1}>3.8317059702075$ is proved exactly: a Taylor partial sum of $2J_1(x)/x$ is a lower bound, and its Bernstein coefficients are positive (`certify.py`).
    The CR interpolation is consistent across tiles, because the gluings are the identity.
 3. **Positive definiteness [L].** Since $M_h\succ0$ (it is diagonal for CR elements), $\lambda_{1,h}>\sigma$ iff $B=K_h-\sigma M_h\succ0$.
    - A floating Cholesky of $\hat B-cI$ completes.
@@ -72,7 +73,7 @@ They see every irreducible (`cover.py`, exact). Hence $\lambda_1(C)\ge\min(\mu_2
 
 Lean (`Hilbert13/SpectralCertificate.lean`) checks three pieces: the abstract CR bound, the Cholesky criterion with permutation, and the final arithmetic.
 
-**Classes 12, 14.** $Q_1$ at $n=128$ gives $\lambda_1\ge0.355696>48/135$ (`certify_th_output.txt`).
+**Classes 12, 14.** $Q_1$ at $n=128$ gives $\lambda_1\ge0.355695>48/135$ (`certify_th_output.txt`).
 
 **Classes 0, 1: the first eigenspace** (`certify_th.py`).
 - The count on $Q_1$ ($n=96$, $\sigma=0.56$) finds one negative pivot, so $\mu_2(Q_1)\ge0.55998$.

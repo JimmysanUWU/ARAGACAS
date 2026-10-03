@@ -52,7 +52,7 @@ Li–Yau holds for every conformal metric. So one can try to maximise $\lambda_1
 
 **Numerics** (`conformal.py`, in git history at b148338). $\bar F\in[0.998,1.001]$, so the gain is $\le0.2\%$ for classes 0, 1 and $\le0.6\%$ for 12, 14. Classes 0, 1 need $+2.7\%$.
 
-GPT adds that the gain is strict, and that an equivariant maximiser exists, possibly conical (Vinokurov; `gpt/README.md` §2.4). Neither changes the ceiling. So the route is closed. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
+GPT adds that the gain is strict, and that an equivariant maximiser exists, possibly conical (Vinokurov; `gpt/README.md` §2.4). Neither changes the ceiling. So the route is closed numerically; the ceiling itself is not certified. The reason is that $\sum\varphi_i^2$ is band-limited near $2\lambda_1$, while the first invariant eigenvalue is about 10.6. The degree replaces it (Chapter 3).
 
 ## 6.4 Negative tests
 

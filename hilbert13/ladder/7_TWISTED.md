@@ -20,10 +20,10 @@ Accessories over bases with a fixed point produce linearised bundles (Theorem 5.
    - That quadric is the Plücker quadric of the Weil representation of $SL_2(7)$.
    - The 24 points are the Veronese images of the flexes of Klein's quartic.
    - $6L_{60}\sim D_7=\varphi(C)\cap\mathrm{Hess}(X_3)$.
-5. Elliptic subcovers have degree $\ge60$ (Prop. 7.10).
+5. Elliptic subcovers whose $H^1$ is a pure 15- or 21-isotypic Hodge plane have degree $\ge60$ (Prop. 7.10).
 6. **Pencils by symmetry type.** The kernel $N$ of a gonal pencil's class stabiliser on the pencil costs degree $|N|\operatorname{gon}(C/N)$. This cost is $\ge42$ unless $N$ is trivial or one of six small groups (Prop. 7.11, Thm 7.13, Cor. 7.14).
 
-Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s), `quotient_gonality.py` (9 min per class), `verify_schur_exact.py` (5 s); outputs `*_output.txt`.
+Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s), `quotient_gonality.py` (9 min per class), `audit_exact.py` (8 s); outputs `*_output.txt`.
 
 ## 7.1 The groups [X]
 
@@ -35,7 +35,7 @@ Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 
 
 $$3.A_7=\langle x,y,z\mid z^3,\ [x,z],\ [y,z],\ x^3,\ y^5,\ (xy)^7,\ (xyxy^{-1})^2=z,\ (xy^{-2}xy^2)^2\rangle\qquad(z=1\text{ gives }A_7).$$
 
-**Exact check [X]** (`verify_schur_exact.py`). The ATLAS matrices `3A7G1-Ar6B0` over $\mathbb Z[\omega]$ satisfy these relations up to scalars. They generate a group of order 7560 mapping onto $A_7$ with kernel the scalars, so they give the $\mathbf 6$ exactly.
+**Exact check [X]** (`audit_exact.py`). The ATLAS matrices `3A7G1-Ar6B0` (over $\mathbb Z[\omega]$) and `2A7G1-Ar4aB0` (over $\mathbb Z[b_7]$) satisfy the relations up to scalars, and every Cayley-graph edge is central. So they give the $\mathbf 6$ and $V_4$ exactly. The same script computes the Molien series of §§7.4 and 7.6 exactly, and the complete central-3 character sector $6,15,15,21,21,24,24$.
 
 ## 7.2 The invariant Picard group [P][X]
 
@@ -94,11 +94,11 @@ $$\mathrm{tr}(\hat g\mid H^0-H^1)=\sum_{p\in\mathrm{Fix}(g)}\frac{\lambda(\hat g
   3. Involutions lift with eigenvalues $(i,i,-i,-i)$, and $i^{14}=i^{18}=-1$, so $f_{14},f_{18}$ vanish on the 210 lines $\mathbb P(E_{\pm i}(\hat\tau))$. These are distinct: in a unitary model $E_{-i}=E_i^\perp$, so either line determines $\hat\tau$ up to sign.
   4. $f_{14},f_{18}$ are coprime. Their gcd is invariant, because $2.A_7$ is perfect and so has no characters. A nonconstant gcd would have degree 8, 12 or 14, and dividing $f_{14}$ or $f_{18}$ by it would give an invariant of degree 6, 2 or 4; there are none. So $Z(f_{14},f_{18})$ is a curve of degree 252 containing 210 lines, leaving degree 42 for $\psi(C)$, which has degree 45. $\square$ (Steps 3–4: GPT, `gpt/A7_Amitsur_Correspondence.pdf` §9.)
 
-So there is **no spinor model** $C\to\mathbb P(V_4)$.
+So there is **no degree-45 spinor model** $C\to\mathbb P(V_4)$. The local data of step 2 are checked exactly in `audit_exact.py`.
 
 ## 7.5 The degree-60 model and the $\tau$-pencil
 
-**Theorem 7.5 [P][X]** (exact: `verify_schur_exact.py`). Every $(2,4,7)$ curve carries an invariant class $L_{60}$ of degree 60 and Mumford class of order 3 with
+**Theorem 7.5 [P][X]** (exact: `audit_exact.py`). Every $(2,4,7)$ curve carries an invariant class $L_{60}$ of degree 60 and Mumford class of order 3 with
 $$\chi(L_{60})=\mathbf 6-15-2\cdot21-24,\qquad\text{so }H^0(L_{60})\supseteq\mathbf 6 .$$
 The map $\varphi:C\to\mathbb P^5$ given by $\mathbf 6$ has these properties:
 1. **Base-point-free.** An invariant base locus would have degree $\le60<360$.
@@ -113,7 +113,7 @@ So **60 is the least degree of an invariant class with $h^0\ge2$**, against $\mu
 
 *Proof.* Sections in the 2-dimensional $(-1)$-eigenspace $E_-$ satisfy $s(p)=-s(p)$ at the 18 fixed points. So $|E_-|$ has them as base points, and its moving part has degree $\le42$. Ratios of anti-invariant sections are $\tau$-invariant, so the pencil descends to $C/\tau$. $\square$
 
-The inputs are certified in exact arithmetic over $\mathbb Q(\zeta_{84})$ on all four classes (`verify_schur_exact.py`):
+The inputs are certified in exact arithmetic over $\mathbb Q(\zeta_{84})$, on all four classes and both orientations (`audit_exact.py`):
 - the multiplicity $\langle\chi(L_{60}),\chi_{\mathbf 6}\rangle=1$, with $\langle\chi(L_{60}),\chi(L_{60})\rangle=7$, at the local datum $r=(0,2,6)$;
 - $\operatorname{tr}\hat\tau=2$;
 - eigenvalue $+1$ at all 18 fixed points (since $\lambda_1=1$ and $\lambda_2^2=1$).
@@ -179,10 +179,10 @@ So **$\varphi(C)$ is a smooth curve of degree 60 and genus 136 cut out by the La
 - $Q_H$ vanishes on $O_H$, to order 5 at the base 7-point (log-log slope 4.99);
 - over a class, $\prod_HQ_H/S_6^5$ is constant on $\varphi(C)$ to $10^{-8}$.
 
-**Consequences.**
+**Consequences** (given $Q_H|_C\ne0$, which rests on Prop. 7.8 [N]: $\mathrm{Sym}^2\mathbf 6=6+15$ is reducible, so representation theory alone does not exclude a quadric).
 - **Linear equivalences.** $2L_{60}\sim5O_H$ for all 30 subgroups $H$. Each class partitions $D_7$ into 15 sets $O_H$, and $\prod_HQ_H\equiv c\,S_6^5$ on $C$. This is "$120=5\cdot24$" behind the degree 60.
 - **5-torsion.** $O_H-O_K$ is 5-torsion in $\mathrm{Jac}(C)$. It is nonzero for $O_H\ne O_K$: otherwise a degree-$\le24$ pencil would exist, against $\operatorname{gon}\ge25$.
-- **A sixth root of the 7-points [P].** $K_C\sim D_2+3D_4-8D_7$ and $K_C-3L_{60}=B+T=D_2-3D_4+2D_7$ (§7.6, Prop. 5.8) give $3L_{60}\sim2D_4-3D_7$. With $4D_4\sim7D_7$:
+- **A sixth root of the 7-points.** [P] for $6L_{60}\sim D_7$; the last equivalence uses Prop. 7.9. $K_C\sim D_2+3D_4-8D_7$ and $K_C-3L_{60}=B+T=D_2-3D_4+2D_7$ (§7.6, Prop. 5.8) give $3L_{60}\sim2D_4-3D_7$. With $4D_4\sim7D_7$:
   $$6L_{60}\sim D_7\sim15\,O_H .$$
   The invariant sextic that cuts $D_7$ may be taken to be the Hessian of $X_3$, which is nonzero on $\varphi(C)$ [N]. So $\varphi(C)\cap\mathrm{Hess}(X_3)=D_7$. This parallels Klein's quartic $X$, whose 24 flexes are $X\cap\mathrm{Hess}(X)\sim6K_X$.
 - **Plücker and Klein's quartic [P].** Let $W_H$ be the 4-dimensional Weil representation of $SL_2(7)$. Then $\wedge^2W_H\cong\mathbf 6|_H\cong\mathrm{Sym}^2(3_H)$, since $L_2(7)$ has a single irreducible of degree 6. So $\mathbb P^5$ carries two $H$-structures at once.
@@ -266,7 +266,7 @@ $K$ is the stabiliser of the pencil field $\mathbb C(f)$, the group $H$ of Lemma
 **The inputs [N].**
 - **Differentials on $C/K$.** Holomorphic differentials on $C$ are vector-valued weight-2 forms for $\Delta(2,4,7)$, one solve per irreducible in $H^0(K_C)$, with gaps $>10^8$. Pairing them with $K$-fixed vectors gives the differentials on $C/K$, sampled over the whole curve.
 - **Noether.** $\mathrm{Sym}^2$ has rank $2g-1$ if $C/K$ is hyperelliptic and $3g-3$ otherwise.
-- **Petri.** The quadrics through the canonical curve have Jacobian rank $g-3$ if it is trigonal, and $g-2$ otherwise.
+- **Petri.** The quadrics through the canonical curve have Jacobian rank $g-3$ if it is trigonal or a plane quintic ($g=6$, which does not occur here), and $g-2$ otherwise.
 - **Green–Lazarsfeld nonvanishing.** $\operatorname{Cliff}\le p$ forces $K_{p,2}\ne0$. So $K_{p,2}=0$ gives $\operatorname{gon}\ge p+3$.
 
 These give lower bounds for ten subgroups: $\operatorname{gon}\ge3$ for $3^2{:}2$; $\ge4$ for $5{:}4$, $D_{12}$, $3{:}4$, two $A_4$ and $C_6\times C_2$; $\ge5$ for $D_{10}$ and $C_3^2$ ($K_{2,2}=0$); and $\ge6$ for $D_8$ ($K_{3,2}=0$).
@@ -301,9 +301,9 @@ So a pencil beating 42 either is pulled back from $C/N$ for one of the six nontr
 ## 7.11 Open
 
 - **The exact gonality** in $[25,42]$.
-  - The $\tau$-pencil has degree exactly 42 (Prop. 7.7, numerical at six points), elliptic subcovers give $\ge60$, and symmetric projections of $\varphi(C)$ give nothing better.
+  - The $\tau$-pencil has degree exactly 42 (Prop. 7.7, numerical at six points), pure 15/21 elliptic subcovers give $\ge60$, and symmetric projections of $\varphi(C)$ give nothing better.
   - By Corollary 7.14, a smaller pencil has kernel $1$ or one of six small groups. Closing $C_7$ and $S_3$ needs $K_{3,2}=0$ resp. $K_{4,2}=0$ on genus-19 quotients. $C_2$ needs $\operatorname{gon}(C/\tau)=21$.
 - **Lower bounds by degeneration.** Baker's specialisation lemma gives $\operatorname{gon}(C)\ge\operatorname{dgon}(\Gamma)$ for the dual graph $\Gamma$ of a stable reduction. At $p=7\,\|\,|A_7|$, Raynaud–Wewers describe the stable reduction of three-point covers. Could $\Gamma$, which carries an $A_7$-action, have divisorial gonality $>25$?
 - **The ideal of $\varphi(C)$.** Is it generated by $X_3$ and the 15 quartics? Is $\varphi(C)$ projectively normal, i.e. $h^0(2L_{60})=21$ and $h^0(B+T)=10$? How does $\varphi(C)$ meet the 420 lines and sit in the hyperkähler Fano variety of $X_3$?
 - **The kernel map** of the $\mu=90$ series: is it a $\mathbb P^3$-model, a spin class of degree 135 with $M^2=3(B+T)$?
-- **Immersion at the 4-points.** Prove that $\varphi$ is an immersion at the points with stabiliser $C_4$, i.e. that the sequence there is $(0,1,2,3,4,6)$ rather than $(0,2,3,4,5,6)$. This would make Proposition 7.7 a paper proof. If it failed, $\operatorname{gon}(C/\tau)\le15$.
+- **Immersion at the 4-points.** Prove that $\varphi$ is an immersion at the points with stabiliser $C_4$, i.e. that the sequence there is $(0,1,2,3,4,6)$ rather than $(0,2,3,4,5,6)$. Together with an exact check of step 5 (no base points off the fixed points), this would make Proposition 7.7 a paper proof. If immersion failed, $\operatorname{gon}(C/\tau)\le15$.

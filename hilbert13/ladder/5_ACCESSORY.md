@@ -229,7 +229,7 @@ So a quadratic and then a cubic extension kill all of $H^2(A_7,\mathbb C^\*)$ wh
 
 **Towers: what remains.**
 - For a correspondence $Z$ over $X$, the map $x\mapsto[Z_x]$ is an affine map $X\to\mathrm{Pic}^e(C)$. Its linear part $u_Z:\mathrm{Alb}\,X\to\mathrm{Jac}\,C$ is equivariant.
-- If $u_Z=0$, Theorem 5.15 applies.
+- If $u_Z=0$, the proof of Theorem 5.11 applies to $Z$ itself and gives $d\ge\mu_{\mathrm{Am}_G(X)}(C)$ for that correspondence. The formula of Theorem 5.15, a minimum over all correspondences, needs $\mathrm{Hom}_G(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$.
 - If not, no bound in terms of gonality or Amitsur subgroups can hold: $X=C$ with $Z=\Delta$ has $e=1$.
 - The open problem is which affine maps into $W_e(C)$, lifting to $\mathrm{Sym}^eC$, arise from the actual intermediate bases of a tower.
 

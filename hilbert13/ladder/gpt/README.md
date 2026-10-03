@@ -18,7 +18,14 @@ GPT has supplied six documents, all in this folder, listed here in the order the
 
 DAY 2 consolidates all of DAY 1, so read DAY 2, Round 5 and the Amitsur note first.
 
-**3 October audit (not delivered; the run ended before pushing).** Its log reported three certificate gaps and an exact ATLAS check of the $\mathbf 6$ of $3.A_7$. All four are now in the repository: `arb_max` in the $C_h^2$ bound, exact Fincke–Pohst in `elliptic_subcovers.py`, certified centre separation in `hh_certify.py`, and `verify_schur_exact.py`.
+**3 October audit** (branch `codex/rigorous-audit-textbook`; its 61-page manuscript was lost when its workspace went offline). The claim audit, publication assessment and three-pencil proof are in [`audit_3oct/`](audit_3oct/); its raw run logs stay on that branch. Adopted after review:
+- `audit_exact.py` (exact ATLAS, Molien, Lefschetz, Prop. 5.8);
+- the exact character table, which corrected a 14a/14b label swap in Prop. 1.6;
+- the proved $j_{1,1}$ bound, the hash-keyed Hersch cache, and the glue-prime check in `elliptic_subcovers.py`;
+- the claim-audit text fixes;
+- Theorems 4.8–4.9 [P].
+
+Not adopted: `certify_memory.py`, a low-memory fallback that failed its inertia check on class 12.
 
 **Authors.** Two GPT agents, Sol and Astra, contribute.
 - **Sol**, according to the provenance notes of the 28 September synthesis and DAY 1C: the accessory-degree programme, pencil geometry, Segre and singularity-budget bounds, and the torsion/norm model.
@@ -69,6 +76,7 @@ DAY 2 consolidates all of DAY 1, so read DAY 2, Round 5 and the Amitsur note fir
   1. linear normality, via Petrakiev's $\pi_2$ applied in $\mathbb P^8$;
   2. $h_\Gamma(2)\ge19$;
   3. uniform position.
+- **Now proved here:** DAY 2 Thm 5.1–5.3 are Lemma 4.7 and Theorems 4.8–4.9 [P] (§4.5), reviewed from `audit_3oct/MULTIPLE_PENCILS.md`.
 - **Thm 5.3: $g\ge266\Rightarrow\operatorname{gon}\ge25$** for faithful $A_7$-curves.
   - Every third pencil is dependent.
   - At least 33 thirds form a star of base clusters, and only $(m,r)=(24,23)$ survives.
@@ -103,7 +111,7 @@ This was the pre-transport reduction of $\operatorname{gon}(D)=9$ to a finite co
   - The gain is strict: separate the cone of invariant PSD frames. Its size is unmeasured; the ceiling in §6.3 is 0.2%.
   - An equivariant maximiser exists, possibly conical (Vinokurov, Cor. 1.4; all orbits have size $\ge360$).
 - **A diagnostic.** If a degree-$d$ map exists and $\zeta_d=(8\pi d/A-\lambda_1)/(\lambda_{\rm next}-\lambda_1)$, then $\frac1A\int\lvert F-1\rvert\le2\zeta_d+2\sqrt{\zeta_d}$.
-- **A Bessel bound.** $j_{1,1}>19/5$, proved from the alternating series. The certificate uses a cited decimal; with $19/5$ instead it still gives $\lambda_1\ge0.340893$ (Ch. 2).
+- **A Bessel bound.** $j_{1,1}>19/5$, proved from the alternating series. The certificate now proves $j_{1,1}>3.8317059702075$ exactly (`certify.py`).
 - **A sufficient box.** R5 Thm 5.3 asks for $\lambda_h\le0.351$, $\rho\le0.005$, $B_h\le2\cdot10^{-4}$ and $\Gamma_h\le1.9$.
   - Our certified values (§3.5) miss the box in $B_h$ ($4.45\cdot10^{-4}$) and $\Gamma_h$ (2.27).
   - But $\rho\le6\cdot10^{-4}$ is far smaller than 0.005, and (3.1) holds directly.
@@ -160,7 +168,7 @@ The rungs **T1** ($\mathrm{RD}(A_7)\ge2$) and **T2** ($\mathrm{RD}(S_7)=3$, alge
 |---|---|
 | 1. call $Q_2$ by its true name | done: $C_3\rtimes D_8$ (§2.3) |
 | 2. no unqualified sparse-Cholesky claim | done: Higham's backward error with stored row counts, and the criterion in Lean (§2.4). DAY 1B's exported-factor residual check is an alternative |
-| 3. a proved Bessel bound; rational $C_h^2$ | $C_h^2$ is enclosed in ball arithmetic. $j_{1,1}$ is a cited decimal, but $19/5$ would still give 0.340893 (§2.4 above) |
+| 3. a proved Bessel bound; rational $C_h^2$ | done: $C_h^2$ is enclosed in ball arithmetic, and the $j_{1,1}$ bound is proved exactly (`certify.py`) |
 | 4. genuine characters | the ATLAS table, recomputed by Burnside–Dixon (`chartab.py`), with the exact Frobenius count (`cover.py`) |
 | 5. the mean-zero subspace for $Q_0$ | min–max over two-dimensional subspaces needs no mean-zero subspace |
 | 6. separate the main proof from superseded material | done (chapters, and git history) |

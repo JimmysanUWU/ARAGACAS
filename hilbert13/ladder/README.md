@@ -11,7 +11,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | **$25\le\operatorname{gon}(C)\le42$ and $13\le\operatorname{gon}(D)\le21$** | | |
 | — lower: $\lambda_1\ge0.34089$ with Li–Yau; classes 12, 14 directly, classes 0, 1 by harmonic Hersch | [P][C][L] | Ch. 2–3 |
 | — upper: the sections of a degree-60 Schur-twisted class give a pencil of degree $\le42$ (certified exactly from the ATLAS matrices); that it is base-point-free of degree exactly 42 is [N] at six points | [P][X] (exactness [N]) | Ch. 7 |
-| **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve ($\ge23$ without the window computation of §4.4) | [P][C] | Ch. 4, 7 |
+| **$25\le\gamma(A_7)\le42$**: the least gonality of a faithful $A_7$-curve. Genus $\le335$ is spectral; genus $\ge266$ is algebraic (the three-pencil theorem) | [P][C] | Ch. 4, 7 |
 | **$a(A_7)=60$**: $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (GPT; verified) | [P][X] | Ch. 5 |
 | **$\mu(A_7)=90$**: compression with connected full monodromy needs exactly degree 90 | [P][X] | Ch. 5 |
 | over any base with $\mathrm{Hom}_G(\mathrm{Alb},\mathrm{Jac}\,C)=0$, the least stable compression degree is $\mu_{\mathrm{Am}(X)}(C)$: 90 or 60 for $(2,4,7)$ targets, by the Amitsur subgroup of the base (GPT; verified) | [P] | §5.5 |
@@ -51,12 +51,12 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 
 | script | claim |
 |---|---|
-| `a7.py`, `chartab.py`, `triples_data.py` | $A_7$ toolkit: permutations, character table, the four classes of triples |
+| `a7.py`, `chartab.py`, `triples_data.py` | $A_7$ toolkit: permutations, the exact ATLAS character table, the four classes of triples |
 | `curve_checks.py` | Ch. 1: triples, fixed points, quotients of $D$, Jacobian, $(\star)$ isotypes |
 | `model99.py` | the audit curve (Thm 1.7) |
 | `orbifold.py`, `cover.py` | exact Klein-chart model; $Q_0,Q_1,Q_2$ see every irreducible (§§2.2–2.3) |
 | `certify.py`, `run_certificate.py` | $\lambda_1\ge0.34089$ (§2.5) → `certificate.txt` |
-| `certify_th.py` | $E_1=14_a$, $\lambda'\ge0.55998$; classes 12, 14: $\lambda_1\ge0.355696$ |
+| `certify_th.py` | $E_1=14_a$, $\lambda'\ge0.55998$; classes 12, 14: $\lambda_1\ge0.355695$ |
 | `signatures_spectrum.py`, `certify_signatures.py` | other signatures (§2.5) and the window (§4.4) → `certify_{signatures,window}_output.txt` |
 | `validate_bolza.py` | the Bolza surface (§2.6) → `validation_bolza.txt` |
 | `verify_exact.py` | $(\wedge^314_a)^{A_7}=0$ (Lemma 3.3) |
@@ -65,7 +65,7 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 | `verify_accessory60.py`, `equivariant_rr.py`, `verify_mu90_exact.py` | $a=60$; $h^0(B+T)\ge10$; the exclusion of 72, 84 (Ch. 5) → `mu90_exact_output.txt` for the last |
 | `side_checks.py` | §6.1, §6.4, §6.5 (with GPT's Belyi map), Prop. 1.6 and the Ch. 4 table |
 | `twisted_rr.py`, `twisted_survey.py` | $2.A_7,3.A_7,6.A_7$, twisted Lefschetz, §§7.1–7.6; the 26 rigid curves (§7.8) |
-| `verify_schur_exact.py` | exact: the ATLAS $\mathbf 6$ of $3.A_7$, and a degree-60 class with $\mathbf 6\subseteq H^0$ and eigenvalue $+1$ at the 18 fixed points (Thm 7.5, Cor. 7.6) |
+| `audit_exact.py` | exact (GPT's audit): the ATLAS $\mathbf 6$ of $3.A_7$ and $V_4$ of $2.A_7$; Molien series; the central-3 character sector; $\chi(L_{60})$ with $\mathbf 6\subseteq H^0$ and eigenvalue $+1$ at the 18 fixed points (Thm 7.5, Cor. 7.6); degree-45 data (Thm 7.4); Prop. 5.8 |
 | `tau_pencil.py` | no base points beyond the 18 (Prop. 7.7) |
 | `p5_curve.py` | equations of $\varphi(C)$, embedding, the fibre $18+42$, Klein quadrics (Props. 7.8–7.9) |
 | `elliptic_subcovers.py` | $H^1(C,\mathbb Z)$ with cup product; subcovers $\ge60$ (Prop. 7.10) |
@@ -87,7 +87,7 @@ for f in cover verify_exact gonality_large_genus verify_accessory60 equivariant_
 python3 verify_mu90_exact.py > mu90_exact_output.txt
 python3 twisted_rr.py > twisted_rr_output.txt               # 25 s
 python3 twisted_survey.py > twisted_survey_output.txt       # 90 s
-python3 verify_schur_exact.py > verify_schur_exact_output.txt   # 5 s
+python3 audit_exact.py > audit_exact_output.txt             # 8 s
 python3 tau_pencil.py > tau_pencil_output.txt               # 1 min
 python3 p5_curve.py > p5_curve_output.txt                   # 7 min
 python3 elliptic_subcovers.py > elliptic_subcovers_output.txt   # 80 s
@@ -105,4 +105,4 @@ Times are for an idle 4-core machine; run the FEM jobs one at a time (7 GB each)
   - Bryant (§6.3 only).
 - **Finite-element bounds.** Crouzeix–Raviart (Liu; Carstensen–Gedicke) and Higham's Cholesky backward error, both checked in Lean in abstract form.
 - **Software.** python-flint ball arithmetic; CHOLMOD with a-priori error bounds.
-- **External inputs.** GPT's theorems, re-derived wherever used (`gpt/README.md` §1); the ATLAS subgroup lists and the matrices `3A7G1-Ar6B0` (checked in `verify_schur_exact.py`).
+- **External inputs.** GPT's theorems, re-derived wherever used (`gpt/README.md` §1); the ATLAS character table, subgroup lists and matrices `3A7G1-Ar6B0`, `2A7G1-Ar4aB0` (checked in `cover.py`, `audit_exact.py`).

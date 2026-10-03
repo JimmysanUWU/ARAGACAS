@@ -15,11 +15,11 @@ signature (3, 4, 5): genus 274, generating pairs with x a fixed class rep: 90
 D1  |Q2| = 24  equals C(16)(23): True  element orders {1: 1, 2: 9, 3: 2, 4: 6, 6: 6}  |centre| = 2
     two elements of order 3 -> normal C3; 9 involutions + 6 of order 4 with a D8 Sylow -> C3 : D8
 
-D4  |D_delta|^2 by isotype: {'6': 7.2, '14a': 12.0, '14b': 28.8, '21': 18.0, '35': 6.0}
-    C(tau)-fixed dims = multiplicities in Z[A7/C(tau)]: {'1': 1, '6': 1, '10': 0, '10b': 0, '14a': 1, '14b': 2, '15': 0, '21': 1, '35': 1}
+D4  |D_delta|^2 by isotype: {'6': 7.2, '14a': 28.8, '14b': 12.0, '21': 18.0, '35': 6.0}
+    C(tau)-fixed dims = multiplicities in Z[A7/C(tau)]: {'1': 1, '6': 1, '10': 0, '10b': 0, '14a': 2, '14b': 1, '15': 0, '21': 1, '35': 1}
     21: rank Q[G]e(D) = 21, rank Q[G]e(v) = 21, joint 21  (one copy each, the same copy)
     35: rank Q[G]e(D) = 35, rank Q[G]e(v) = 35, joint 35  (one copy each, the same copy)
-    C/L2(5): |K| = 60, fixed irreducibles ['1', '6', '14a', '21'], genus 1; 42 of 42 conjugates see the 21-part of D_delta
+    C/L2(5): |K| = 60, fixed irreducibles ['1', '6', '14b', '21'], genus 1; 42 of 42 conjugates see the 21-part of D_delta
     C/3^2:4 (Q1 group): |K| = 36, fixed irreducibles ['1', '6', '14a', '14b', '35'], genus 2; 58 of 70 conjugates see the 35-part of D_delta
 
 D5  A7-realisable triangle signatures with genus <= 529 (ordered generating triples / |A7|)

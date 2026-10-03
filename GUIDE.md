@@ -82,7 +82,7 @@ Chapter 5 can be read straight after Chapter 1. The Lean project [`hilbert13/`](
 ```
 Ch.1 group data, fixed points ───────────────┬──────────────────────────┐
   │                                          │                          │
-Ch.2 certified λ1 ≥ 0.34089 → gon ≥ 24       Ch.5 a(A7)=60, μ ≤ 90      §6.1 gon(D) ≥ 10 (algebra only)
+Ch.2 certified λ1 ≥ 0.34089 → gon ≥ 24       Ch.5 a(A7)=60, μ ≤ 90      §6.1 gon(D) ≥ 10; §4.5 g ≥ 266 ⇒ gon ≥ 25 (algebra only)
   │   (E1 = 14a, λ' ≥ 0.55998)               │
   ▼                                          Ch.5 μ ≠ 72, 84 (exact) → μ = 90
 Ch.3 harmonic Hersch → gon ≥ 25              │
@@ -117,7 +117,7 @@ cd hilbert13/ladder && python3 cover.py        # 1 s smoke test
 - **Invariant is not linearised.** Most of Chapter 7 lives in the gap between $15\mathbb Z$ and $90\mathbb Z$.
 - **Open bases.** On a non-projective base, invertible functions can cancel a Schur obstruction, so $\mathrm{Pic}(B)=0$ does not force linearisation (Example 5.12). Apply Theorem 5.11 on a projective model.
 - **Parity is not order.** A sign argument fixes vanishing orders mod 2, not their values (Prop. 7.7, step 1).
-- **"Algebraic" bounds.** $\operatorname{gon}\ge23$ in Theorem 4.1 uses the spectral input for genus $\le335$. Only $\operatorname{gon}(D)\ge10$ (§6.1) is purely algebraic.
+- **"Algebraic" bounds.** $\operatorname{gon}\ge25$ for $g\ge266$ (Theorem 4.9) and $\operatorname{gon}(D)\ge10$ (§6.1) are purely algebraic. Below genus 266 the spectral input is needed.
 - **Accessory conventions.** $a=60$ lets the monodromy drop after the accessory; with connected full monodromy the answer is $\mu=90$. The bound $\le59$ holds in both.
 - **[N] claims** (Props. 7.7–7.9, the inputs of Thm 7.13) are numerics, not proofs. $\operatorname{gon}\le42$ does not depend on them.
 - **GPT material** is input, not authority; `gpt/README.md` records what has been re-derived.

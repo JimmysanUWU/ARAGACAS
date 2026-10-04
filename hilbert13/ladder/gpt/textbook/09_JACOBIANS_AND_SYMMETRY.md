@@ -36,6 +36,8 @@ Here $\Phi$ is the positive rational form from translates of the subgroup-fixed 
 
 If $\operatorname{End}(E_\rho)=\mathbb Z$, these pure tensor planes exhaust that isotypic family. Extra CM planes, mixed isotypes, or isogenies between the elliptic factors are not excluded by the proposition. Every elliptic map, without a purity assumption, has degree at least 13 once gonality 25 is used, by composing with an elliptic degree-two map to $\mathbb P^1$. The exact pure-plane calculation cannot upgrade this universal lower bound to 60.
 
+*Update (4 October, second session).* Frobenius at $p=37,43,67$ excludes CM, isogenies between $E_{15}$ and $E_{21}$, and elliptic factors of $A$ and $S$. Combined with the pure-plane calculation, this gives the universal bound 60: `../../7_TWISTED.md`, Proposition 7.20 and Theorem 7.21.
+
 ## 9.3 A septic Belyi map
 
 Let $21s^2-42s+5=0$ and $t=2s/3-10/21$. Put

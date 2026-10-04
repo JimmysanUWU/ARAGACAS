@@ -18,6 +18,8 @@ This is Astra's *ramification transport* (GPT; `gpt/README.md`), re-derived; the
    - It is not identically zero, since $4\nmid18$.
    - So $[L]+[\mu^*L]=[R_\mu+R_{\tau\mu}]$.
 2. **Average.** With $M=\sum_{h\in C_G(\tau)}h^*L$, we get $T:=24[R_\tau]+2M=24[R_V]$ for every Klein four-group $V\ni\tau$. Nothing is divided, so torsion is harmless.
+   - Step 1 applies to every $f\circ h$, $h\in C_G(\tau)$, since these are also $\tau$-invariant of degree 18. So $h^*L+(h\mu)^*L\sim R_\mu+R_{\tau\mu}$ for each $h$, and summing over $h$ gives $2M\sim24(R_\mu+R_{\tau\mu})$.
+   - Applying step 1 to $f$ alone and averaging the resulting relation would not do. For $V_1=\{1,\tau,(12)(56),(34)(56)\}$ the $C_G(\tau)$-conjugates of $\mu$ form an orbit of six, and the average is $8\sum_jR_{V_1^{(j)}}$ over the three Klein groups of that type.
 3. **Amalgamation.** $N_G(V)$ preserves $R_V$, and $\langle N(V_0),N(V_1)\rangle=A_7$ (orders 72 and 24). So $T$ is invariant, of degree $24\cdot54=1296$.
 4. **Contradiction.** $1296\notin15\mathbb Z$, the degree lattice of invariant classes (Corollary 7.2). The original argument says the same through a free $C_5$: $5\nmid1296$.
 

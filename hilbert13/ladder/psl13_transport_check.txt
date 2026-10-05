@@ -1,0 +1,9 @@
+group order 1092 centralizer 12 Klein subgroups 3
+normalizer 0 order 12 element orders {1: 1, 2: 3, 3: 8}
+normalizer 1 order 12 element orders {1: 1, 2: 3, 3: 8}
+normalizer 2 order 12 element orders {1: 1, 2: 3, 3: 8}
+normalizers 0 1 generate 1092
+normalizers 0 2 generate 1092
+normalizers 1 2 generate 1092
+fixed points 6 quotient genus 6 transport degree 216
+three good-reflection quotients have genus 2 and give three distinct degree-four pencils

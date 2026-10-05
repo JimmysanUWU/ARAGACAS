@@ -1,0 +1,5 @@
+character table: exact orthonormality and class sizes verified
+Q0: K = A7, eps = 1 -> {1}
+Q1: |K| = 36, index 70, eps nontrivial: True, multiplicities {'6': 1, '14a': 1, '14b': 1, '15': 1, '21': 1}  (Frobenius: sum m dim = 70)
+Q2: |K| = 24, index 105, eps nontrivial: True, multiplicities {'10': 1, '10b': 1, '15': 1, '35': 2}  (Frobenius: sum m dim = 105)
+every irreducible representation of A7 is seen by Q0, Q1 or Q2

@@ -1,0 +1,8 @@
+critical-value parameter: -(7*s**2 - 7*s + 4)*(21*s**2 - 56*s + 40)*(21*s**2 - 42*s + 5)/129654
+critical values: q(0)=q(1)=0; quadratic critical points have q=r
+discriminant: -7(-1/r)^6 T^2(T-1)^4
+integral polynomial scaling and lambda relation passed
+unramified mod-17 specialization factor degrees: [2, 5]
+elliptic pentad values: [128, 123, 375, 88, 438, 302]
+genus-two partition values: [130, 40, 334, 449, 301, 390, 185, 428, 395, 391]
+separation witnesses passed; torsion remains open

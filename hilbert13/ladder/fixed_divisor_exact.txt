@@ -1,0 +1,6 @@
+source multiplicities: {'1': 1, '6': 1, '14(5,2)': 2, '14(4,3)': 1, '15': 0, '21': 1, '35': 1, '20': 0}
+Klein squared norms: {'6': '36/5', '14(5,2)': '144/5', '14(4,3)': '12', '21': '18', '35': '6'}
+old (*) lift has nonzero 21 component
+old (*) lift has nonzero 35 component
+A5 order 60 genus 1 detecting conjugates 42 of 42
+3^2:4 order 36 genus 2 detecting conjugates 58 of 70

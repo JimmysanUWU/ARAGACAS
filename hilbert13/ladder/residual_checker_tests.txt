@@ -1,0 +1,5 @@
+Bessel Bernstein minimum: 5335536865199/864000000000000
+permutation: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+exact residual / enclosure: 4.285941965032969e-16 1.182172005926158e-14
+corrupted factor rejected: 2.281250000000023
+dense deflation fixture passed

@@ -11,7 +11,7 @@ The [textbook edition](hilbert13/ladder/gpt/textbook/README.md) is being pushed 
 | 1, §6.1 | $g(C)=136$, $g(D)=64$; $\operatorname{gon}(D)\ge9$, and $\ge10$ by algebra |
 | 2–4 | $\operatorname{gon}(C)\ge25$ on all four classes, so $\operatorname{gon}(C/\tau)\ge13$; $\gamma(A_7)\ge25$; algebraically, $g\ge266\Rightarrow\operatorname{gon}\ge25$ (the three-pencil theorem, §4.5) |
 | 5 | $a(A_7)=60$ (sharp), $\mu(A_7)=90$; for a fixed target, the stable threshold over a smooth projective generically free base with the global Albanese vanishing hypothesis is set by its Amitsur subgroup |
-| 7 | the twisted Picard group. The degree-60 six-section map is a closed embedding, and the displayed pencil has degree exactly 42 (quotient degree 21), all [P][X]. No quadrics and Klein contact divisors are exact. The quadratic systems are Jacobian/apolar ideals (§7.12). The proposed quartic ideal and Hessian identification remain [N]. **Every** elliptic subcover has degree $\ge60$ [P][X] (§7.13, Frobenius on $A,S,E_{15},E_{21}$). The kernel $C_7$ is impossible [P][X][C], so a pencil below 42 has kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3\}$, conditional on the quotient rank inputs; the unconditional list is in Cor. 7.23(2) |
+| 7 | the twisted Picard group. The degree-60 six-section map is a closed embedding, and the displayed pencil has degree exactly 42 (quotient degree 21), all [P][X]. No quadrics and Klein contact divisors are exact. The quadratic systems are Jacobian/apolar ideals (§7.12). The proposed quartic ideal and Hessian identification remain [N]. **Every** elliptic subcover has degree $\ge60$ [P][X] (§7.13, Frobenius on $A,S,E_{15},E_{21}$). The kernel $C_7$ is impossible [P][X][C], so a pencil below 42 has kernel $N\in\{1,C_2,C_3,C_4,V_4,S_3\}$, conditional on the quotient rank inputs; the unconditional list is in Cor. 7.23(2). **Orbifold descent (§7.14):** inertia forces local degrees of symmetric pencils (Lemma 7.24), and **no pencil below 42 has the symmetry $(C(\tau),\langle\tau\rangle)$ of the record pencil** [P][X] (Thm 7.27; pending: the free-type search has excluded 7 of 53 points so far). The two curves are Galois conjugate, so algebraic results hold on all four classes |
 
 ## Open, in priority order
 
@@ -23,11 +23,19 @@ The [textbook edition](hilbert13/ladder/gpt/textbook/README.md) is being pushed 
    - $C_7$ is removed (Thm 7.22). Remove $S_3$: only $d=30,36$ remain (Cor. 7.23). This needs $\operatorname{gon}(C/S_3)\ge7$, e.g. $K_{4,2}=0$ on the genus-19 quotients, or a Frobenius argument as for $C_7$.
    - Make Theorem 7.13 exact where it matters: Cor. 7.23(2) shows which quotient bounds ($C_5$, $C_6$, $D_8$, $D_{10}$, $D_{12}$, $5{:}4$) the [N] list relies on.
    - The core cases: $\operatorname{gon}(C/\tau)=21$? Pencils with $N=1$?
+   - In the $C_2$ stratum the top symmetry $K=C(\tau)$ is nearly closed. **First finish the free-type search of Thm 7.27:** 46 of the 53 rational points remain (`python3 tau_stratum.py 43 1`, about 90 s per point). The method of §7.14 should settle the genus-3 strata ($K\cong S_4$ in $(S_4\times S_3)^+$), whose quotients are trigonal over $W$, and then the genus-4 to genus-7 ones. `tau_stratum.py` builds $W$ and $T$ from the septic.
    - Stable reduction at $p=7$ with graph gonality (§7.11).
    - The entire branch vanishing sequences and free flex orbit; immersion itself and the exact base divisor are now proved (§7.12).
-4. $\operatorname{gon}\ge26$ on classes 0, 1 via a certified sharp $\kappa$ (Ch. 3). On classes 12, 14 the harmonic Hersch route is closed: a $21$-eigenvalue near $0.38$ sits just above $\lambda_1$ (§2.5).
+4. $\operatorname{gon}\ge26$ on classes 0, 1 via a certified sharp $\kappa$ (Ch. 3). That suffices for all four classes, since the curves are Galois conjugate (§7.14). The harmonic Hersch route itself is closed on classes 12, 14 (§2.5).
 5. Towers and RD: correspondences with $u_Z\ne0$ (§5.5).
 6. Are $P_E$, $P_S$ torsion (§6.5)?
+
+**5 October.** New mathematics (§7.14, §2.5):
+- orbifold congruences for symmetric pencils (Lemma 7.24, `orbifold_congruence.py`);
+- the record stratum as 3-torsion relations on $C/U$ (Prop. 7.25);
+- Frobenius rigidity of a free point (Lemma 7.26);
+- **the $\tau$-pencil is optimal among pencils with its symmetry** (Thm 7.27; the fixed and degenerate types are excluded, the free type is 7/53 done; explicit models of $W$, $T$, $C/U$ over $\mathbb F_{43}$ and Gröbner bases, `tau_stratum.py`);
+- the two curves are Galois conjugate, so their gonalities agree.
 
 **4 October, second session.** This session ran an independent audit and the following new mathematics (`hilbert13/ladder/AUDIT_4OCT.md`; §2.5, §7.13):
 - free-symmetry divisibility (Lemma 7.17);
@@ -49,6 +57,7 @@ The [textbook edition](hilbert13/ladder/gpt/textbook/README.md) is being pushed 
 
 ```sh
 pip install numpy scipy sympy python-flint cvxopt pypdf
+pip install passagemath-singular passagemath-schemes passagemath-pari passagemath-flint   # Sage, for tau_stratum.py
 cd hilbert13/ladder && python3 cover.py          # smoke test, 1 s
 # Lean 4 + Mathlib
 curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o elan-init.sh

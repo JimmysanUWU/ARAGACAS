@@ -14,6 +14,7 @@ Let $C$ be a $(2,4,7)$ $A_7$-curve (genus 136, the minimum) and $\tau$ an involu
 3. $a(A_7)=60$, i.e. $\mathrm{ed}_{\mathbb C}(A_7;\le59)>1$, sharp (the published bound was 6).
 4. $\mu(A_7)=90$ when the full monodromy must stay connected. For a fixed $(2,4,7)$ target and a smooth projective generically free base with $\mathrm{Hom}_{A_7}(\mathrm{Alb}\,X,\mathrm{Jac}\,C)=0$, the stable threshold is 60 or 90 according to the base's Amitsur subgroup.
 5. Every elliptic subcover of $C$ has degree $\ge60$, and no gonal pencil of degree $\le41$ factors through $C/C_7$ (§7.13).
+6. No pencil of degree $<42$ has the symmetry of the record pencil: class stabiliser $C(\tau)$, kernel $\langle\tau\rangle$ (§7.14). The two curves are Galois conjugate, so all algebraic statements hold on all four classes.
 
 ## 2. The mathematics in one page
 
@@ -48,6 +49,11 @@ Each chapter opens with a paragraph headed **Idea**; read it first.
 - Symmetries acting on the pencil can be built into Hersch's balancing (Douady–Earle), which confines the energy to allowed isotypes.
 - Frobenius at three primes shows that $A$ and $S$ have no elliptic factors and that $E_{15}$, $E_{21}$ have no CM and are not isogenous. So every elliptic subcover is a pure plane and costs at least 60.
 - A pencil with kernel $C_7$ would need one of degree 14, so the kernel $C_7$ is impossible.
+
+**Orbifold descent** (§7.14).
+- A symmetric pencil descends to $C/K\to\mathbb P^1/(K/N)$, and $C/N\to C/K$ is a pull-back. Each inertia point forces its local degree modulo a rotation order; faithful Klein symmetry, for example, forces odd degree.
+- In the record stratum, $f^6$ lives on the genus-10 curve $C/U$ with divisor $3(\Delta-\iota\Delta)$, and $(1-\iota)\Delta$ is a fixed 3-torsion class: $42=6\cdot7$.
+- Modulo 43, Frobenius fixes that class and Castelnuovo–Severi forbids small functions, so the free point of a degree-30 candidate is rational. Finitely many Gröbner checks on explicit models of $C/(S_4\times S_3)^+$ and $C/C(\tau)$ exclude it.
 
 ## 3. Reading order
 
@@ -103,6 +109,7 @@ Ch.3 harmonic Hersch → gon ≥ 25              │
        Ch.7 §7.12 quadratic systems → no quadrics → Prop 7.9 Klein divisors [P][X]
        Ch.7 Cor 7.14 a pencil below 42 has a small kernel ([P] given [N] quotient data)
        Ch.7 §7.13 Frobenius (Prop 7.20 [X]) → all elliptic subcovers ≥ 60 (Thm 7.21) → no kernel C7 (Thm 7.22, uses gon ≥ 25)
+       Ch.7 §7.14 orbifold congruences (Lemma 7.24) + dihedral norms + Frobenius rigidity → τ-pencil optimal in its stratum (Thm 7.27 [P][X], uses gon ≥ 25; free-type search 7/53 done, in progress)
 ```
 
 Every statement carries a tag:

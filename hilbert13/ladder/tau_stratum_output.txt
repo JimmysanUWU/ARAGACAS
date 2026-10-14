@@ -1,0 +1,12 @@
+
+=== p = 43, sign = +1 ===
+  genus W = 0, deg t(w) = 35, genus T = 3; 58 rational places on T; A = places of degrees [3, 3, 1, 2]
+  odd part of div(disc A) == A + B: True  (X_rot -> T branched at these 10 points, g(X_rot) = 2*3 - 1 + 5 = 10)
+  P1: ord disc A = 0, leading coefficient a square: True (preimages in X_rot rational)
+  P2: ord disc A = 0, leading coefficient a square: True (preimages in X_rot rational)
+  P3: ord disc A = 2, leading coefficient a square: True (preimages in X_rot rational)
+  control: planted y of degree 9 (3, 3 odd points): found [x0:(a)dim0,(a+b)dim0]
+  control: same F with a wrong B': excluded [x0:(a)empty; x1:(a)empty]
+  fixed type (3, 3, 9): excluded [x0:(a)dim0,(a+b)dim-1; x1:(a)empty; x2:(a)empty; x3:(a)empty]  (158s)
+  fixed type (3, 9, 3): excluded [x0:(a)dim0,(a+b)dim-1; x1:(a)empty; x2:(a)empty; x3:(a)empty]  (258s)
+  fixed type (9, 3, 3): excluded [x0:(a)dim0,(a+b)dim-1; x1:(a)dim0,(a+b)dim-1; x2:(a)empty; x3:(a)empty]  (343s)

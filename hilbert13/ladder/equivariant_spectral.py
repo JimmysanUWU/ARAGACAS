@@ -305,7 +305,7 @@ def propagate(base=25, maxS=60, maxT=120):
     return lb
 
 
-def strata(dmax=41, dmin=25):
+def strata(dmax=41, dmin=25, with_groups=False):
     """surviving (N, K, d) for a gonal pencil of degree dmin <= d <= dmax, classes 0 and 1."""
     LB = propagate()
     allowed = {ckey(S) for S in REPS
@@ -357,7 +357,8 @@ def strata(dmax=41, dmin=25):
                     if not ok:
                         why.append(f"CS on C/N (g={gY})" + (" + Thm 7.21" if dropped else ""))
                     note = "; ".join(ok)
-                out.append((len(Nn), describe(Nn)[0], gY, LB[ckey(Nn)], len(K), t, d, why, note))
+                row = (len(Nn), describe(Nn)[0], gY, LB[ckey(Nn)], len(K), t, d, why, note)
+                out.append(row + (K, Nn) if with_groups else row)
     return out
 
 

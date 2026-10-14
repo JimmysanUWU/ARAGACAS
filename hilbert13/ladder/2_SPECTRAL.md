@@ -89,6 +89,7 @@ So **$E_1\cong14_a=14_{(5,2)}$ exactly**, $\lambda_1\in[0.34089,0.36318]$, and a
   - $C/L_2(7)$, whose functions see only $1+14_b$, starts at $1.2$.
   - $C/S_5$, which sees $14_a$ once, has nothing else below $1.0$.
 - **[P]** Harmonic Hersch (Chapter 3) needs a gap above $E_1$. The trial space $14_a\oplus21$ does not help either, because $\langle21,\wedge^214_a\rangle=1$, so the cubic form does not vanish on it. The route to $\operatorname{gon}\ge26$ is therefore closed on the class-12/14 curve. (On $14_a\oplus14_b$ it would vanish: $(\wedge^3(14_a\oplus14_b))^{A_7}=0$.)
+- **[P] It is not needed there.** The two curves are Galois conjugate, being the Galois closures of the two septics conjugate under $\sqrt{21}\mapsto-\sqrt{21}$ (§7.14, Remark). So any gonality bound proved on classes 0, 1 holds on classes 12, 14. The spectra differ; the gonality does not.
 
 **The ten other rigid signatures** (`certify_signatures.py` → `certify_signatures_output.txt`; 24 curves, 70 classes):
 

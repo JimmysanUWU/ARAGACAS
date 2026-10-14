@@ -24,6 +24,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | a gonal pencil's class stabiliser acts on it through $PGL_2$, with kernel $N$ costing $|N|\operatorname{gon}(C/N)$; all quotients $C/K$ with $|K|\le60$ are priced, so a pencil below 42 has $N\in\{1,C_2,C_3,C_4,V_4,S_3\}$ ($C_7$ by Thm 7.22) | [P][N] | §7.10, §7.13 |
 | **every** elliptic subcover has degree $\ge60$. Pure 15/21 planes are priced exactly from $H^1(C,\mathbb Z)$ (§7.9). Frobenius at $p=37,43,67$ shows that $A$ and $S$ have no elliptic factors and that $E_{15}$, $E_{21}$ have no CM and are not isogenous | [P][X] | §7.9, Thm 7.21 |
 | no gonal pencil of degree $\le41$ has kernel $C_7$. Free symmetries divide the degree, and an equivariant Li–Yau bound prices symmetric strata ($A_5$: $d\ge45$) | [P][X][C] | §7.13 |
+| orbifold congruences: inertia of $C/N\to C/K$ forces the local degrees of a symmetric pencil (faithful Klein symmetry forces odd degree). **No pencil of degree $<42$ has the symmetry of the $\tau$-pencil**: dihedral norms on $C/U$, Frobenius rigidity of the free point, explicit $W$, $T$ over $\mathbb F_{43}$. The two curves are Galois conjugate | [P][X] | §7.14 |
 | $\operatorname{gon}(D)\ge9$ by Castelnuovo–Severi; $\ge10$ by ramification transport | [P][X] | §1.3, §6.1 |
 
 **Tags.**
@@ -79,6 +80,8 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 | `gpt/verify_quadrics.py` | exact quadratic-system multiplication ranks and Klein restriction characters: no quadrics, Jacobian/apolar ideals, Klein divisors (Props. 7.16, 7.9) |
 | `equivariant_spectral.py` | the 40 subgroup classes; $m_\sigma(K,N)$ for equivariant Li–Yau (Thm 7.18); with `--strata`, the kernel strata of Cor. 7.23 |
 | `frobenius_lpolys.py` | point counts of $C/H$ over $\mathbb F_{p^k}$ from the septic Belyi model; L-polynomials of $E_{15}$, $E_{21}$, $S$, $A$; no CM, no isogeny, no elliptic factors (Prop. 7.20) |
+| `orbifold_congruence.py` | inertia classes of $C/N\to C/K$ for every stratum; the degrees allowed by Lemma 7.24 |
+| `tau_stratum.py` | (Sage) explicit $W=C/(S_4\times S_3)^+$, $T=C/C(\tau)$ and $C/U$ over $\mathbb F_p$; Gröbner tests of the record stratum at $d=30$ (Thm 7.27) |
 
 ## Reproduction
 
@@ -105,6 +108,8 @@ python3 gpt/verify_normalization.py > gpt/normalization_check.txt
 python3 gpt/verify_quadrics.py > gpt/quadrics_check.txt
 python3 equivariant_spectral.py --strata > equivariant_spectral_output.txt   # 10 min
 python3 frobenius_lpolys.py 37 43 67 > frobenius_lpolys_output.txt          # 7 min
+python3 orbifold_congruence.py > orbifold_congruence_output.txt              # 3 min
+python3 tau_stratum.py 43 1 > tau_stratum_output.txt                         # 90 min, needs passagemath
 ```
 
 Times are historical estimates for an idle 4-core machine; run the FEM jobs one at a time (7 GB each). Saved outputs are retained source records. The textbook verification manifest records which computations were rerun for this edition.

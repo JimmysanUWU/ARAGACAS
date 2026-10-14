@@ -27,7 +27,7 @@ Accessories over a linear base produce linearised bundles (Theorem 5.2). For smo
 7. **Orbifold descent** (§7.14 [P][X]).
    - A symmetric pencil descends to $C/K\to\mathbb P^1/(K/N)$, and inertia forces local degrees modulo rotation orders (Lemma 7.24). For example, faithful Klein symmetry forces odd degree.
    - In the record stratum, pencils are 3-torsion relations $(1-\iota)\Delta\sim\pm\theta$ on the genus-10 curve $C/U$ (Prop. 7.25).
-   - Frobenius freezes the free point (Lemma 7.26). **No pencil of degree $<42$ has the symmetry of the $\tau$-pencil** (Thm 7.27; pending: the free-type search has excluded 7 of 53 points so far).
+   - Frobenius freezes the free point (Lemma 7.26). **No pencil of degree $<42$ has the symmetry of the $\tau$-pencil** (Thm 7.27).
    - The two curves are Galois conjugate, so every algebraic statement holds on all four classes.
 
 Scripts: `twisted_rr.py` (25 s), `twisted_survey.py` (90 s), `tau_pencil.py` (1 min), `p5_curve.py` (7 min), `elliptic_subcovers.py` (80 s), `quotient_gonality.py` (9 min per class), `audit_exact.py` (8 s), `equivariant_spectral.py` (3 min; `--strata` 10 min), `frobenius_lpolys.py` (about 40 min for $p=37,43,67$), `orbifold_congruence.py` (3 min), `tau_stratum.py` (Sage; about 90 min at $p=43$); outputs `*_output.txt`.
@@ -297,7 +297,7 @@ Theorem 7.22 removes $C_7$ from this list (§7.13). So a pencil beating 42 eithe
   - The $\tau$-pencil has degree exactly 42 [P][X] (Prop. 7.7). Every elliptic subcover gives $\ge60$ (Thm 7.21), and symmetric projections of $\varphi(C)$ give nothing better.
   - By Corollary 7.14 and Theorem 7.22, a smaller pencil has kernel $1$ or one of five small groups. $C_7$ is closed (Thm 7.22).
   - Closing $S_3$ needs $\operatorname{gon}(C/S_3)\ge7$, e.g. $K_{4,2}=0$ on the genus-19 quotients; only $d=30,36$ remain (Cor. 7.23).
-  - $C_2$ needs $\operatorname{gon}(C/\tau)=21$. Its top stratum $K=C(\tau)$ is nearly closed: the $\tau$-pencil is optimal there once the free-type search of Thm 7.27 finishes (7 of 53 points done). What remains is $K\subsetneq C(\tau)$, with the degrees of Lemma 7.24.
+  - $C_2$ needs $\operatorname{gon}(C/\tau)=21$. Its top stratum $K=C(\tau)$ is closed: the $\tau$-pencil is optimal there (Thm 7.27). What remains is $K\subsetneq C(\tau)$, with the degrees of Lemma 7.24.
   - The orbifold descent of §7.14 makes every stratum with small $g(C/K)$ a finite computation on an explicit curve. The three $S_4$-strata of genus 3 ($N=1$, $d\in\{27,33,39\}$; $N=C_3$, $K/N\cong D_8$; $N=V_4$, $K/N\cong S_3$) are next.
   - The $[P][C]$ list of Corollary 7.23(2) shows which numerical quotient bounds of Theorem 7.13 matter: those for $C_5$, $C_6$, $D_8$, $D_{10}$, $D_{12}$ and $5{:}4$.
 - **Lower bounds by degeneration.** Baker's specialisation lemma gives $\operatorname{gon}(C)\ge\operatorname{dgon}(\Gamma)$ for the dual graph $\Gamma$ of a stable reduction. At $p=7\,\|\,|A_7|$, Raynaud–Wewers describe the stable reduction of three-point covers. Could $\Gamma$, which carries an $A_7$-action, have divisorial gonality $>25$?
@@ -440,7 +440,7 @@ This replaces the earlier "$\ge13$ for every elliptic subcover", which came from
 
 *Classes 12, 14.* There the spectrum is less favourable. $\lambda_1$ (on $14_a$) is followed by an eigenvalue near $0.38$ on the $21$-isotype [N] (§2.5), so Corollary 7.19 cannot be proved there directly. But the two curves are Galois conjugate (§7.14, Remark), so its algebraic conclusions ($d\ge45$ for faithful $A_5$, $d\ge54$ for $(A_4\times3){:}2$ with $N=C_3$) hold on all four classes, as do Lemma 7.17, Theorems 7.21–7.22 and Corollary 7.23.
 
-## 7.14 Orbifold descent of symmetric pencils; the $\tau$-pencil is optimal in its stratum [P][X, Step 6 of Thm 7.27 in progress]
+## 7.14 Orbifold descent of symmetric pencils; the $\tau$-pencil is optimal in its stratum [P][X]
 
 **Idea.**
 - **Descend to $C/K$.** A pencil with class stabiliser $K$ and kernel $N$ becomes a map $h:C/K\to\mathbb P^1/(K/N)$, and $C/N\to C/K$ is the pull-back of the Galois cover $\mathbb P^1\to\mathbb P^1/(K/N)$. Every inertia point therefore forces its local degree modulo the order of a rotation. Lemma 7.17 is the case without inertia.
@@ -504,7 +504,7 @@ So $42=6\cdot7$: **the $\tau$-pencil is an effective $\Delta$ of degree 7 with $
 
 For $X_{\rm rot}\to T$ and $m=2$ the hypothesis is Castelnuovo–Severi: a function of degree $n\le4$ not from $T$ would give $10\le2\cdot3+(n-1)\le9$. It holds in every characteristic.
 
-**Theorem 7.27 (the $\tau$-pencil is optimal in its stratum) [P][X], conditional on finishing Step 6.** *Status:* Steps 1–5 and the ramified case of Step 6 are done. In the rational case of Step 6, 7 of the 53 points are excluded so far (Q0–Q6); a container restart interrupted the run, and the remaining 46 are being rerun with `python3 tau_stratum.py 43 1`. Until that run finishes, read the statement as a claim. On all four classes, every pencil with class stabiliser $C(\tau)$ and kernel $\langle\tau\rangle$ has degree $\ge42$. The $\tau$-pencil attains 42.
+**Theorem 7.27 (the $\tau$-pencil is optimal in its stratum) [P][X].** On all four classes, every pencil with class stabiliser $C(\tau)$ and kernel $\langle\tau\rangle$ has degree $\ge42$. The $\tau$-pencil attains 42.
 
 *Proof.*
 1. **Reduction to $d=30$.** By Lemma 7.24, $d=30$, $k=15$, and $y^*(\infty)$ is either $3P_1+3P_2+3P_3+6Q$ (free type) or $3P_i+3P_j+9P_l$ (fixed type).
@@ -523,8 +523,8 @@ For $X_{\rm rot}\to T$ and $m=2$ the hypothesis is Castelnuovo–Severi: a funct
    Positive control: a planted dihedral norm $y=a^2/(a^2-b^2(w-c))$ is found, and the same $F$ with a wrong $B'$ is excluded.
 5. **Fixed types.** All three are excluded.
 6. **Free type.** By Lemma 7.26, the reduction of the point of $\Delta$ above $Q$ is $\mathbb F_{43}$-rational or a ramification point.
-   - **Rational:** the 53 rational points of $T$ outside $P\cup A\cup B$ are tested one by one. Those inside $P$ are the fixed types. *So far 7 are excluded (Q0–Q6) and none survives; the rest are running.*
-   - **Ramified:** then $(1-\iota)P^0\sim\pm\theta$. This gives a function $\tfrac14(w_0+2+w_0^{-1})$ on $T$ with poles $3(P_1+P_2+P_3)$, sending the ten ramification points to $0$ and $1$ in a split $A'\sqcup B'$ of odd sizes. A Frobenius-swapped split is impossible, because $A\cup B$ has rational points. All 16 Galois-stable splits are excluded. This was done in an earlier run of the same test (`taurun.py degenerate`); `tau_stratum_output.txt` will reproduce it.
+   - **Rational:** the 53 rational points of $T$ outside $P\cup A\cup B$ are tested one by one. Those inside $P$ are the fixed types. All 53 are excluded (`tau_stratum_output.txt`, 87 min).
+   - **Ramified:** then $(1-\iota)P^0\sim\pm\theta$. This gives a function $\tfrac14(w_0+2+w_0^{-1})$ on $T$ with poles $3(P_1+P_2+P_3)$, sending the ten ramification points to $0$ and $1$ in a split $A'\sqcup B'$ of odd sizes. A Frobenius-swapped split is impossible, because $A\cup B$ has rational points. All 16 Galois-stable splits are excluded.
 7. **The other curve.** The curves of classes $\{0,1\}$ and $\{12,14\}$ are the Galois closures of the two septics, which are conjugate under $\sqrt{21}\mapsto-\sqrt{21}$. So the curves are $\mathrm{Aut}(\mathbb C)$-conjugate, and existence of a pencil of given degree and symmetry type is invariant. $\square$
 
 **Remark (Galois conjugacy).** Step 7 applies to every algebraic statement. Gonality, the strata of Corollary 7.23 and the elliptic subcovers are the same on both curves; only spectral data differ (§2.5). In particular, a proof of $\operatorname{gon}\ge26$ on classes 0, 1 would give it on classes 12, 14, where the harmonic Hersch route is closed.

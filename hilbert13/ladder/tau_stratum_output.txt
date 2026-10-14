@@ -10,3 +10,5 @@
   fixed type (3, 3, 9): excluded [x0:(a)dim0,(a+b)dim-1; x1:(a)empty; x2:(a)empty; x3:(a)empty]  (158s)
   fixed type (3, 9, 3): excluded [x0:(a)dim0,(a+b)dim-1; x1:(a)empty; x2:(a)empty; x3:(a)empty]  (258s)
   fixed type (9, 3, 3): excluded [x0:(a)dim0,(a+b)dim-1; x1:(a)dim0,(a+b)dim-1; x2:(a)empty; x3:(a)empty]  (343s)
+  free type: 53 rational points Q, all excluded  (5190s)
+  degenerate k = 9: 16 splits of A + B, all excluded  (5191s)

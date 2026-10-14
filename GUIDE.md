@@ -109,7 +109,7 @@ Ch.3 harmonic Hersch → gon ≥ 25              │
        Ch.7 §7.12 quadratic systems → no quadrics → Prop 7.9 Klein divisors [P][X]
        Ch.7 Cor 7.14 a pencil below 42 has a small kernel ([P] given [N] quotient data)
        Ch.7 §7.13 Frobenius (Prop 7.20 [X]) → all elliptic subcovers ≥ 60 (Thm 7.21) → no kernel C7 (Thm 7.22, uses gon ≥ 25)
-       Ch.7 §7.14 orbifold congruences (Lemma 7.24) + dihedral norms + Frobenius rigidity → τ-pencil optimal in its stratum (Thm 7.27 [P][X], uses gon ≥ 25; free-type search 7/53 done, in progress)
+       Ch.7 §7.14 orbifold congruences (Lemma 7.24) + dihedral norms + Frobenius rigidity → τ-pencil optimal in its stratum (Thm 7.27 [P][X], uses gon ≥ 25)
 ```
 
 Every statement carries a tag:

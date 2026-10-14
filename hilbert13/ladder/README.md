@@ -21,8 +21,10 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | $\varphi:C\hookrightarrow\mathbb P^5$ is a degree-60 closed embedding on the Laza–Zheng cubic, with no quadrics. Being cut out by the cubic and 15 quartics remains [N] | embedding/no quadrics [P][X]; ideal [N] | §§7.6, 7.12 |
 | Klein subgroup quadrics have exact divisor $5\times24$ seven-points; $2L_{60}\sim5O_H$, $6L_{60}\sim D_7$. Their Plücker/Veronese interpretation is in Prop. 7.9 | [P][X] | Prop. 7.9, §7.12 |
 | the two exceptional quadratic systems are the Jacobian complete intersection of the cubic and the dual cubic's apolar ideal, with quotient Hilbert series $(1+t)^6$ and function $(1,6,6,1)$ | [P][X] | §7.12 |
-| a gonal pencil's class stabiliser acts on it through $PGL_2$, with kernel $N$ costing $|N|\operatorname{gon}(C/N)$; all quotients $C/K$ with $|K|\le60$ are priced, so a pencil below 42 has $N\in\{1,C_2,C_3,C_4,V_4,S_3,C_7\}$ | [P][N] | §7.10 |
-| elliptic subcovers with pure rational tensor Hodge planes in types 15, 21 have degree $\ge60$; $H^1(C,\mathbb Z)$ exactly from the dessin. Mixed or extra CM planes are not covered | [P][X] | §7.9 |
+| a gonal pencil's class stabiliser acts on it through $PGL_2$, with kernel $N$ costing $|N|\operatorname{gon}(C/N)$; all quotients $C/K$ with $|K|\le60$ are priced, so a pencil below 42 has $N\in\{1,C_2,C_3,C_4,V_4,S_3\}$ ($C_7$ by Thm 7.22) | [P][N] | §7.10, §7.13 |
+| **every** elliptic subcover has degree $\ge60$. Pure 15/21 planes are priced exactly from $H^1(C,\mathbb Z)$ (§7.9). Frobenius at $p=37,43,67$ shows that $A$ and $S$ have no elliptic factors and that $E_{15}$, $E_{21}$ have no CM and are not isogenous | [P][X] | §7.9, Thm 7.21 |
+| no gonal pencil of degree $\le41$ has kernel $C_7$. Free symmetries divide the degree, and an equivariant Li–Yau bound prices symmetric strata ($A_5$: $d\ge45$) | [P][X][C] | §7.13 |
+| orbifold congruences: inertia of $C/N\to C/K$ forces the local degrees of a symmetric pencil (faithful Klein symmetry forces odd degree). **No pencil of degree $<42$ has the symmetry of the $\tau$-pencil**: dihedral norms on $C/U$, Frobenius rigidity of the free point, explicit $W$, $T$ over $\mathbb F_{43}$. The two curves are Galois conjugate | [P][X] | §7.14 |
 | $\operatorname{gon}(D)\ge9$ by Castelnuovo–Severi; $\ge10$ by ramification transport | [P][X] | §1.3, §6.1 |
 
 **Tags.**
@@ -42,6 +44,7 @@ $C$ is a $(2,4,7)$ $A_7$-curve (genus 136, the minimum), $\tau$ an involution, a
 | [`3_HARMONIC_HERSCH.md`](3_HARMONIC_HERSCH.md) | the cubic-form lemma, harmonic Hersch, vector-valued Hejhal, certificate for classes 0, 1 |
 | [`4_LARGE_GENUS.md`](4_LARGE_GENUS.md) | conjugate pencils, Castelnuovo bounds, cost of a dependent third, the window |
 | [`5_ACCESSORY.md`](5_ACCESSORY.md) | correspondence, degree lattice, $a=60$, $\mu=90$, the twisted correspondence |
+| [`AUDIT_4OCT.md`](AUDIT_4OCT.md) | the 4 October independent audit: reproduction record, gaps closed, new results |
 | [`6_SIDE_RESULTS.md`](6_SIDE_RESULTS.md) | algebraic $\operatorname{gon}(D)\ge10$, pencil orbits, conformal ceiling, negative tests, open arithmetic |
 | [`7_TWISTED.md`](7_TWISTED.md) | Schur-twisted classes, the $\mathbb P^5$ model and its equations, $\operatorname{gon}\le42$, Klein quadrics, elliptic subcovers, pencils by symmetry type |
 | [`LITERATURE.md`](LITERATURE.md) | the literature and references |
@@ -75,6 +78,10 @@ Every claim has a script and a saved output, `NAME_output.txt` unless noted.
 | `quotient_gonality.py` | differentials on $C/K$; Noether, Petri, $K_{p,2}$; Castelnuovo–Severi over the subgroup lattice (Thm 7.13) |
 | `gpt/verify_normalization.py` | exact order-7 eigenline stabilizers and normalization-defect arithmetic: embedding and exact degree-42 pencil (Prop. 7.15, 7.7) |
 | `gpt/verify_quadrics.py` | exact quadratic-system multiplication ranks and Klein restriction characters: no quadrics, Jacobian/apolar ideals, Klein divisors (Props. 7.16, 7.9) |
+| `equivariant_spectral.py` | the 40 subgroup classes; $m_\sigma(K,N)$ for equivariant Li–Yau (Thm 7.18); with `--strata`, the kernel strata of Cor. 7.23 |
+| `frobenius_lpolys.py` | point counts of $C/H$ over $\mathbb F_{p^k}$ from the septic Belyi model; L-polynomials of $E_{15}$, $E_{21}$, $S$, $A$; no CM, no isogeny, no elliptic factors (Prop. 7.20) |
+| `orbifold_congruence.py` | inertia classes of $C/N\to C/K$ for every stratum; the degrees allowed by Lemma 7.24 |
+| `tau_stratum.py` | (Sage) explicit $W=C/(S_4\times S_3)^+$, $T=C/C(\tau)$ and $C/U$ over $\mathbb F_p$; Gröbner tests of the record stratum at $d=30$ (Thm 7.27) |
 
 ## Reproduction
 
@@ -99,6 +106,10 @@ python3 elliptic_subcovers.py > elliptic_subcovers_output.txt   # 80 s
 python3 quotient_gonality.py 0 > quotient_gonality_output.txt  # 9 min; class 12 gives the same table
 python3 gpt/verify_normalization.py > gpt/normalization_check.txt
 python3 gpt/verify_quadrics.py > gpt/quadrics_check.txt
+python3 equivariant_spectral.py --strata > equivariant_spectral_output.txt   # 10 min
+python3 frobenius_lpolys.py 37 43 67 > frobenius_lpolys_output.txt          # 7 min
+python3 orbifold_congruence.py > orbifold_congruence_output.txt              # 3 min
+python3 tau_stratum.py 43 1 > tau_stratum_output.txt                         # 90 min, needs passagemath
 ```
 
 Times are historical estimates for an idle 4-core machine; run the FEM jobs one at a time (7 GB each). Saved outputs are retained source records. The textbook verification manifest records which computations were rerun for this edition.

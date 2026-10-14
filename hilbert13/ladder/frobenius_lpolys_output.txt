@@ -1,0 +1,57 @@
+primes with (21/p) = (-7/p) = 1: [37, 43, 67]
+
+s = 1 + 4 sqrt(21)/21
+ p = 37:
+  a_p(E_15) =  -10  Q(sqrt(-3));   a_p(E_21) =   -7  Q(sqrt(-11))
+  L_S(T) = [1, 9, 48, 333, 1369]   roots on |x|=sqrt p: True;  irreducible over Q: True
+  L_A(T) = [1, -2, -5, 228, -185, -2738, 50653]   roots on |x|=sqrt p: True;  factors over Q(sqrt-7): [3, 3]
+  S: (y-1)^4 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+  A: (y-1)^6 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+ p = 43:
+  a_p(E_15) =   -8  Q(sqrt(-3));   a_p(E_21) =  -11  Q(sqrt(-51))
+  L_S(T) = [1, 3, 78, 129, 1849]   roots on |x|=sqrt p: True;  irreducible over Q: True
+  L_A(T) = [1, -14, 70, -240, 3010, -25886, 79507]   roots on |x|=sqrt p: True;  factors over Q(sqrt-7): [3, 3]
+  S: (y-1)^4 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+  A: (y-1)^6 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+ p = 67:
+  a_p(E_15) =    0  Q(sqrt(-67));   a_p(E_21) =  -12  Q(sqrt(-31))   [supersingular]
+  L_S(T) = [1, -12, 158, -804, 4489]   roots on |x|=sqrt p: True;  irreducible over Q: True
+  L_A(T) = [1, 10, -30, -760, -2010, 44890, 300763]   roots on |x|=sqrt p: True;  factors over Q(sqrt-7): [3, 3]
+  S: (y-1)^4 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+  A: (y-1)^6 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+ verdicts:
+  E_15: ordinary fields [(37, -3), (43, -3)], supersingular at [67]  ->  no CM: True
+  E_21: ordinary fields [(37, -11), (43, -51), (67, -31)], supersingular at []  ->  no CM: True
+  E_15, E_21 not isogenous over C (different Frobenius type or field) at p in [37, 43, 67]: True
+  S: Q-irreducible factors of degree >= 3 and no root ratio a root of unity at p in [37, 43, 67]  ->  no elliptic isogeny factor over C: True
+  A: Q-irreducible factors of degree >= 3 and no root ratio a root of unity at p in [37, 43, 67]  ->  no elliptic isogeny factor over C: True
+
+s = 1 - 4 sqrt(21)/21
+ p = 37:
+  a_p(E_15) =    0  Q(sqrt(-37));   a_p(E_21) =  -12  Q(sqrt(-1))   [supersingular]
+  L_S(T) = [1, 8, 50, 296, 1369]   roots on |x|=sqrt p: True;  irreducible over Q: True
+  L_A(T) = [1, 6, 62, 402, 2294, 8214, 50653]   roots on |x|=sqrt p: True;  factors over Q(sqrt-7): [3, 3]
+  S: (y-1)^4 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+  A: (y-1)^6 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+ p = 43:
+  a_p(E_15) =    6  Q(sqrt(-34));   a_p(E_21) =   -6  Q(sqrt(-34))
+  L_S(T) = [1, 8, 50, 344, 1849]   roots on |x|=sqrt p: True;  irreducible over Q: True
+  L_A(T) = [1, 0, -7, 432, -301, 0, 79507]   roots on |x|=sqrt p: True;  factors over Q(sqrt-7): [3, 3]
+  S: (y-1)^4 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+  A: (y-1)^6 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+ p = 67:
+  a_p(E_15) =    2  Q(sqrt(-66));   a_p(E_21) =   -7  Q(sqrt(-219))
+  L_S(T) = [1, -3, 80, -201, 4489]   roots on |x|=sqrt p: True;  irreducible over Q: False
+  L_A(T) = [1, -8, 81, -640, 5427, -35912, 300763]   roots on |x|=sqrt p: True;  factors over Q(sqrt-7): [3, 3]
+  S: (y-1)^4 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+  A: (y-1)^6 divides Res: True;  cyclotomic factors of Res/(y-1)^n: none
+ verdicts:
+  E_15: ordinary fields [(43, -34), (67, -66)], supersingular at [37]  ->  no CM: True
+  E_21: ordinary fields [(37, -1), (43, -34), (67, -219)], supersingular at []  ->  no CM: True
+  E_15, E_21 not isogenous over C (different Frobenius type or field) at p in [37, 67]: True
+  S: Q-irreducible factors of degree >= 3 and no root ratio a root of unity at p in [37, 43]  ->  no elliptic isogeny factor over C: True
+  A: Q-irreducible factors of degree >= 3 and no root ratio a root of unity at p in [37, 43, 67]  ->  no elliptic isogeny factor over C: True
+
+real	6m3.982s
+user	6m3.269s
+sys	0m0.672s

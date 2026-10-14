@@ -6,6 +6,15 @@
 
 **4 October: quadratic systems [P][X].** [`A7_Quadratic_Systems.md`](A7_Quadratic_Systems.md) identifies the two irreducible quadratic systems as Jacobian and dual apolar ideals, with quotient Hilbert series $(1+t)^6$ and function $(1,6,6,1)$. Exact multiplication ranks show both base loci are empty. Consequently every nonempty invariant subset of the exceptional $\mathbb P^5$ lies on no quadric, and the Klein divisors $\operatorname{div}(Q_H|_C)=5O_H$ are exact. `verify_quadrics.py` and `quadrics_check.txt` certify the finite inputs. Neither note certifies the full quartic ideal or projective normality.
 
+**4 October, second session (not GPT).** An independent audit, together with new results:
+- free-symmetry divisibility;
+- equivariant Li–Yau;
+- Frobenius on the Jacobian factors;
+- every elliptic subcover has degree $\ge60$;
+- no kernel $C_7$.
+
+See `../AUDIT_4OCT.md` and Chapter 7 §7.13. These supersede the caveats on mixed and CM elliptic planes in `audit_3oct/` and the textbook.
+
 GPT has supplied six documents, all in this folder, listed here in the order they were written. This page states what each one proves, in its sharpest form, and where that result now lives.
 
 **Tags.**

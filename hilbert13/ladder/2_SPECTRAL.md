@@ -82,6 +82,15 @@ Lean (`Hilbert13/SpectralCertificate.lean`) checks three pieces: the abstract CR
 
 So **$E_1\cong14_a=14_{(5,2)}$ exactly**, $\lambda_1\in[0.34089,0.36318]$, and all other eigenvalues are $\ge0.55998$.
 
+**Classes 12, 14: a near-double bottom** (`certify_th.py`, 4 October runs in `certify_th_output.txt`).
+- **[C]** On $C/S_5$, Rayleigh–Ritz gives $\lambda_2\le0.37722$. On $C/A_6$, $\lambda\ge0.99783$, which excludes the 6. So $14_a$ has an eigenvalue in $[0.355695,0.37722]$.
+- **[C]** The count on $Q_1$ ($n=96$, $\sigma=0.56$) finds two negative pivots. So at most two eigenvalues of $Q_1$ lie below $0.55998$, against one for classes 0, 1.
+- **[N]** The second one lies on the $21$-isotype, near $0.38$ (CR comparison values $0.3724$, $0.3794$ at $n=32,64$).
+  - $C/L_2(7)$, whose functions see only $1+14_b$, starts at $1.2$.
+  - $C/S_5$, which sees $14_a$ once, has nothing else below $1.0$.
+- **[P]** Harmonic Hersch (Chapter 3) needs a gap above $E_1$. The trial space $14_a\oplus21$ does not help either, because $\langle21,\wedge^214_a\rangle=1$, so the cubic form does not vanish on it. The route to $\operatorname{gon}\ge26$ is therefore closed on the class-12/14 curve. (On $14_a\oplus14_b$ it would vanish: $(\wedge^3(14_a\oplus14_b))^{A_7}=0$.)
+- **[P] It is not needed there.** The two curves are Galois conjugate, being the Galois closures of the two septics conjugate under $\sqrt{21}\mapsto-\sqrt{21}$ (§7.14, Remark). So any gonality bound proved on classes 0, 1 holds on classes 12, 14. The spectra differ; the gonality does not.
+
 **The ten other rigid signatures** (`certify_signatures.py` → `certify_signatures_output.txt`; 24 curves, 70 classes):
 
 | signature | $g$ | $48/(g-1)$ | $\lambda_1\ge$ (worst) | Li–Yau $\operatorname{gon}\ge$ |
